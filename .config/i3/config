@@ -1,25 +1,68 @@
 ###################
 ### Basic setup ###
 ###################
-# Mod-key = cmd/windows key
+# Note: when in this config you see notiation
+# such as (å -> q) it means that å is written
+# using the q-key on a qwerty keyboard.
+
+# Setting $mod to the cmd/windows key
 set $mod Mod4
-# Basic terminal
-bindsym $mod+Return exec i3-sensible-terminal
-font pango:emoji 10
-font pango:sans-serif 9
+
+# Fonts
+font pango:Bitstream Vera Sans 9,Font Awesome 9
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
 # Don't let focus follow the mouse
 focus_follows_mouse no
+
+#######################
+### VARIOUS HOTKEYS ###
+#######################
+# RELOAD/RESTART/KILL i3wm (jpy -> cre)
+bindsym $mod+Shift+j reload
+bindsym $mod+Shift+p restart
+bindsym $mod+Shift+odiaeresis exec "i3-nagbar -t warning -m 'Do you really want to kill your X session?' -B 'Yes, murder it' 'i3-msg exit'"
+
+# QUICK TERMINAL
+bindsym $mod+Return exec i3-sensible-terminal
+
+# KILL FOCUSED WINDOW (å -> q)
+bindsym $mod+aring kill
+
+# DMENU (e -> d)
+bindsym $mod+e exec dmenu_run	
+bindsym $mod+space exec dmenu_run
+
+# FULLSCREEN (u -> f)
+bindsym $mod+u fullscreen toggle
+
+# SWITCH FOCUS BETWEEN TILING/FLOATING
+# bindsym $mod+space focus mode_toggle
+
+# FOCUS PARENT / FOCUS CHILD (ae -> ad)
+bindsym $mod+a focus parent
+#bindsym $mod+e focus child
 
 ###############################
 ### GAPS / AESTHETIC CONFIG ###
 ###############################
+# Removal of window borders
 for_window [class="^.*"] border pixel 0
+
+# Setting gaps
 gaps inner 5
 gaps outer 5
+
+# Setting wallpaper
 exec --no-startup-id nitrogen --restore
+
+# Adding transparency
 exec --no-startup-id xcompmgr -cfn
+
+# Workspace name daemon (https://github.com/cboddy/i3-workspace-names-daemon)
+exec_always --no-startup-id exec i3-workspace-names-daemon
 
 ######################
 ### MEDIA KEYS ETC ###
@@ -29,100 +72,63 @@ exec --no-startup-id xcompmgr -cfn
 # Sound levels                  pamixer (with pulse audio)
 # Screenshots                   scrot
 
+# For most all media keys there is an option for
+# slowly incrementing/decrementing with shift/$mod
+
 # SCREEN BRIGHTNESS KEYS
-# Fast increment/decrement (default)
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5, exec pkill -RTMIN+8 i3blocks
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5, exec pkill -RTMIN+8 i3blocks
-# Slow increment/decrement (holding shift/$mod)
-bindsym shift+XF86MonBrightnessUp exec xbacklight -inc 1, exec pkill -RTMIN+8 i3blocks
+bindsym XF86MonBrightnessUp         exec xbacklight -inc 5, exec pkill -RTMIN+8 i3blocks
+bindsym XF86MonBrightnessDown       exec xbacklight -dec 5, exec pkill -RTMIN+8 i3blocks
+bindsym shift+XF86MonBrightnessUp   exec xbacklight -inc 1, exec pkill -RTMIN+8 i3blocks
 bindsym shift+XF86MonBrightnessDown exec xbacklight -dec 1, exec pkill -RTMIN+8 i3blocks
-bindsym $mod+XF86MonBrightnessUp exec xbacklight -inc 1, exec pkill -RTMIN+8 i3blocks
-bindsym $mod+XF86MonBrightnessDown exec xbacklight -dec 1, exec pkill -RTMIN+8 i3blocks
+bindsym $mod+XF86MonBrightnessUp    exec xbacklight -inc 1, exec pkill -RTMIN+8 i3blocks
+bindsym $mod+XF86MonBrightnessDown  exec xbacklight -dec 1, exec pkill -RTMIN+8 i3blocks
 
 # KEYBOARD BACKLIGHT KEYS
-# Fast increment/decrement (default)
-bindsym XF86KbdBrightnessUp exec xbacklight -ctrl smc::kbd_backlight -inc 5
-bindsym XF86KbdBrightnessDown exec xbacklight -ctrl smc::kbd_backlight -dec 5
-# Slow increment/decrement (holding shift/$mod)
-bindsym shift+XF86KbdBrightnessUp exec xbacklight -ctrl smc::kbd_backlight -inc 1
+bindsym XF86KbdBrightnessUp         exec xbacklight -ctrl smc::kbd_backlight -inc 5
+bindsym XF86KbdBrightnessDown       exec xbacklight -ctrl smc::kbd_backlight -dec 5
+bindsym shift+XF86KbdBrightnessUp   exec xbacklight -ctrl smc::kbd_backlight -inc 1
 bindsym shift+XF86KbdBrightnessDown exec xbacklight -ctrl smc::kbd_backlight -dec 1
-bindsym $mod+XF86KbdBrightnessUp exec xbacklight -ctrl smc::kbd_backlight -inc 1
-bindsym $mod+XF86KbdBrightnessDown exec xbacklight -ctrl smc::kbd_backlight -dec 1
-
-# SCREENSHOTS
-# Screenshots are saved in ~/pics/scrots
-# svorak wv -> qwerty .
-bindsym Print exec scrot -z -e 'mv $f ~/pics/scrots'-
-bindsym $mod+v exec scrot -z -e 'mv $f ~/pics/scrots/'
-bindsym $mod+z exec scrot -z --focused -e 'mv $f ~/pics/scrots/'
+bindsym $mod+XF86KbdBrightnessUp    exec xbacklight -ctrl smc::kbd_backlight -inc 1
+bindsym $mod+XF86KbdBrightnessDown  exec xbacklight -ctrl smc::kbd_backlight -dec 1
 
 # VOLUME KEYS
-# Mute... not yet confirmed working.
-bindsym XF86AudioMute exec pamixer -t, exec pkill -RTMIN+10 i3blocks
-# Fast increment/decrement (default)
-bindsym XF86AudioRaiseVolume exec pamixer -i 5, exec pkill -RTMIN+10 i3blocks
-bindsym XF86AudioLowerVolume exec pamixer -d 5, exec pkill -RTMIN+10 i3blocks
-# Slow increment/decrement (holding shift/$mod)
-bindsym shift+XF86AudioRaiseVolume exec pamixer -i 1, exec pkill -RTMIN+10 i3blocks
-bindsym shift+XF86AudioLowerVolume exec pamixer -d 1, exec pkill -RTMIN+10 i3blocks
-bindsym $mod+XF86AudioRaiseVolume exec pamixer -i 1, exec pkill -RTMIN+10 i3blocks
-bindsym $mod+XF86AudioLowerVolume exec pamixer -d 1, exec pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute               exec pamixer -t, exec pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume        exec pamixer -i 5, exec pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume        exec pamixer -d 5, exec pkill -RTMIN+10 i3blocks
+bindsym shift+XF86AudioRaiseVolume  exec pamixer -i 1, exec pkill -RTMIN+10 i3blocks
+bindsym shift+XF86AudioLowerVolume  exec pamixer -d 1, exec pkill -RTMIN+10 i3blocks
+bindsym $mod+XF86AudioRaiseVolume   exec pamixer -i 1, exec pkill -RTMIN+10 i3blocks
+bindsym $mod+XF86AudioLowerVolume   exec pamixer -d 1, exec pkill -RTMIN+10 i3blocks
+
+# SCREENSHOTS (vz -> .-)
+bindsym Print           exec scrot -z -e 'mv $f ~/pics/scrots'-
+bindsym $mod+v          exec scrot -z -e 'mv $f ~/pics/scrots/'
+bindsym shift+Print     exec scrot -zu -e 'mv $f ~/pics/scrots'-
+bindsym $mod+Print      exec scrot -zu -e 'mv $f ~/pics/scrots'-
+bindsym shift+$mod+v    exec scrot -zu -e 'mv $f ~/pics/scrots/'
 
 ###############################################
 ### Interesting part of the config. Hotkeys ###
 ###############################################
-
-# kill focused window
-# svorak å -> qwerty q
-bindsym $mod+aring kill
-
-# start dmenu (a program launcher
-# svorak e -> qwerty d
-bindsym $mod+e exec dmenu_run	
-bindsym $mod+space exec dmenu_run
-
-# CHANGE FOCUS
-# (Vim style)
-# svorak htns -> qwerty jkl(ö/semicolon)
+# CHANGE FOCUS (htns -> jklp)
 bindsym $mod+h focus left
 bindsym $mod+t focus down
 bindsym $mod+n focus up
 bindsym $mod+s focus right
-# (Arrow keys)
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-# SWITCH FOCUS BETWEEN TILING/FLOATING
-# bindsym $mod+space focus mode_toggle
-# FOCUS PARENT / FOCUS CHILD
-# svorak ae -> qwerty ad
-bindsym $mod+a focus parent
-#bindsym $mod+e focus child
 
-# MOVE FOCUSED WINDOW WITHIN WORKSPACE
-# (Vim style)
-# svorak htns -> qwerty jkl(ö/semicolon)
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+t move down
-bindsym $mod+Shift+n move up
-bindsym $mod+Shift+s move right
-# (Arrow keys)
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-# MOVE FOCUSED WINDOW TO DIFFERENT WORKSPACE
-bindsym $mod+Shift+1 move container to workspace $ws1, workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2, workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3, workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4, workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5, workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6, workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7, workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8, workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9, workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10, workspace $ws10
+# MOVE FOCUSED WINDOW WITHIN WORKSPACE (htns -> jklö)
+bindsym $mod+Shift+h        move left
+bindsym $mod+Shift+t        move down
+bindsym $mod+Shift+n        move up
+bindsym $mod+Shift+s        move right
+bindsym $mod+Shift+Left     move left
+bindsym $mod+Shift+Down     move down
+bindsym $mod+Shift+Up       move up
+bindsym $mod+Shift+Right    move right
 
 # HORISONTAL(h) AND VERTICAL SPLIT + TOGGLE SPLIT
 # svorak dky -> qwerty hvt
@@ -130,9 +136,6 @@ bindsym $mod+d split h
 bindsym $mod+k split v
 bindsym $mod+y layout toggle split
 
-# FULLSCREEN
-# svorak u -> qwerty f
-bindsym $mod+u fullscreen toggle
 
 # CONTAINER LAYOUT (stacked, tabbed tiling, floating)
 # svorak oä -> qwerty sw
@@ -140,71 +143,69 @@ bindsym $mod+o layout stacking
 bindsym $mod+adiaeresis layout tabbed
 bindsym $mod+Shift+space floating toggle
 
-
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1" 
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+# MOVE FOCUSED WINDOW TO DIFFERENT WORKSPACE
+bindsym $mod+Shift+1 move container to workspace number 1, workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2, workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3, workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4, workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5, workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6, workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7, workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8, workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9, workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10, workspace number 10
 
 # WS[:5] is on the main display.
 # WS[5:] are put on external display if possible.
-workspace $ws1 output eDP1
-workspace $ws2 output eDP1
-workspace $ws3 output eDP1
-workspace $ws4 output eDP1
-workspace $ws5 output eDP1
-workspace $ws6 output DP1 DP2 HDMI1 HDMI2
-workspace $ws7 output DP1 DP2 HDMI1 HDMI2
-workspace $ws8 output DP1 DP2 HDMI1 HDMI2
-workspace $ws9 output DP1 DP2 HDMI1 HDMI2
-workspace $ws10 output DP1 DP2 HDMI1 HDMI2
+workspace 1 output eDP1
+workspace 2 output eDP1
+workspace 3 output eDP1
+workspace 4 output eDP1
+workspace 5 output eDP1
+workspace 6 output DP1 DP2 HDMI1 HDMI2
+workspace 7 output DP1 DP2 HDMI1 HDMI2
+workspace 8 output DP1 DP2 HDMI1 HDMI2
+workspace 9 output DP1 DP2 HDMI1 HDMI2
+workspace 10 output DP1 DP2 HDMI1 HDMI2
 
 # SWITCH FOCUS TO WORKSPACE
 # Number row
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
 
 # numpad
-bindsym Mod2+$mod+KP_1 workspace $ws1
-bindsym Mod2+$mod+KP_2 workspace $ws2
-bindsym Mod2+$mod+KP_3 workspace $ws3
-bindsym Mod2+$mod+KP_4 workspace $ws4
-bindsym Mod2+$mod+KP_5 workspace $ws5
-bindsym Mod2+$mod+KP_6 workspace $ws6
-bindsym Mod2+$mod+KP_7 workspace $ws7
-bindsym Mod2+$mod+KP_8 workspace $ws8
-bindsym Mod2+$mod+KP_9 workspace $ws9
-bindsym Mod2+$mod+KP_0 workspace $ws10
+bindsym Mod2+$mod+KP_1 workspace number 1
+bindsym Mod2+$mod+KP_2 workspace number 2
+bindsym Mod2+$mod+KP_3 workspace number 3
+bindsym Mod2+$mod+KP_4 workspace number 4
+bindsym Mod2+$mod+KP_5 workspace number 5
+bindsym Mod2+$mod+KP_6 workspace number 6
+bindsym Mod2+$mod+KP_7 workspace number 7
+bindsym Mod2+$mod+KP_8 workspace number 8
+bindsym Mod2+$mod+KP_9 workspace number 9
+bindsym Mod2+$mod+KP_0 workspace number 10
 
 # qwe/asd/zxcv
 bindsym section mode "workspace"
 mode "workspace"{
-    bindsym aring workspace $ws1, mode "default"
-    bindsym adiaeresis workspace $ws2, mode "default"
-    bindsym odiaeresis workspace $ws3, mode "default"
-    bindsym a workspace $ws4, mode "default"
-    bindsym o workspace $ws5, mode "default"
-    bindsym e workspace $ws6, mode "default"
-    bindsym period workspace $ws7, mode "default"
-    bindsym q workspace $ws8, mode "defalt"
-    bindsym j workspace $ws9, mode "default"
-    bindsym k workspace $ws10, mode "default"
+    bindsym aring workspace number 1, mode "default"
+    bindsym adiaeresis workspace number 2, mode "default"
+    bindsym odiaeresis workspace number 3, mode "default"
+    bindsym a workspace number 4, mode "default"
+    bindsym o workspace number 5, mode "default"
+    bindsym e workspace number 6, mode "default"
+    bindsym period workspace number 7, mode "default"
+    bindsym q workspace number 8, mode "defalt"
+    bindsym j workspace number 9, mode "default"
+    bindsym k workspace number 10, mode "default"
 
     # If we change our minds, we do this.
     bindsym Return mode "default"
@@ -212,13 +213,6 @@ mode "workspace"{
     bindsym $mod+section mode "default"
     bindsym section mode "default"
 }
-
-# RELOAD CONFIG FILE / RESTART i3
-# svorak jpö -> qwerty cre
-bindsym $mod+Shift+j reload
-bindsym $mod+Shift+p restart
-# EXIT i3 (logs you out of your X session)
-bindsym $mod+Shift+odiaeresis exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 ##########################
 ### RESIZE WINDOW MODE ###
@@ -280,5 +274,21 @@ mode "language"{
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3blocks
+
+    colors {
+        background #000000
+        statusline #ffffff
+        separator #666666
+
+        # focused and active workspace are the same
+        # unless one is using multiple screens 
+        # colorclass        border  background  text
+        focused_workspace   #4c7899 #285577     #ffffff
+        active_workspace    #333333 #5f676a     #ffffff
+        inactive_workspace  #333333 #222222     #888888
+        urgent_workspace    #2f343a #900000     #ffffff
+        binding_mode        #2f343a #900000     #ffffff
+    }
+
+    status_command i3blocks
 }
