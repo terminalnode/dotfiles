@@ -1,0 +1,10 @@
+# Ignore everything
+*
+
+# Except these files...
+.gitignore
+
+# .config/...
+.config/termite
+.config/i3
+.config/weston.ini
