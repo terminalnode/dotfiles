@@ -5,6 +5,6 @@
 # .config/...
 !.config
 .config/*
-!.config/termite
-!.config/i3
+!.config/termite/*
+!.config/i3/*
 !.config/weston.ini
