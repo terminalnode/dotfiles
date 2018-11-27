@@ -62,7 +62,7 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id xcompmgr -cfn
 
 # Workspace name daemon (https://github.com/cboddy/i3-workspace-names-daemon)
-exec_always --no-startup-id exec i3-workspace-names-daemon
+exec_always --no-startup-id exec i3-workspace-names-daemon -d ' · '
 
 ######################
 ### MEDIA KEYS ETC ###
