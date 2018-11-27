@@ -52,8 +52,8 @@ bindsym $mod+a focus parent
 for_window [class="^.*"] border pixel 0
 
 # Setting gaps
-gaps inner 5
-gaps outer 5
+gaps inner 7
+gaps outer 3
 
 # Setting wallpaper
 exec --no-startup-id nitrogen --restore

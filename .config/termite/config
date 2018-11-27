@@ -36,7 +36,7 @@ cursor_foreground = #dcdccc
 foreground = #a270e4
 foreground_bold = #a299f4
 #highlight = #5588aa
-background = rgba(35, 35, 35, 0.75)
+background = rgba(35, 35, 35, 0.9)
 
 # Black, Gray, Silver, White
 color0  = #1e1e1e
