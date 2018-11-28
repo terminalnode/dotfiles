@@ -1,70 +1,49 @@
-[options]
-# DEFAULTS
-#allow_bold = true
-#audible_bell = false
-#bold_is_bright = true
-#clickable_url = true
-#dynamic_title = true
-#fullscreen = true
-#icon_name = terminal
-#scroll_on_output = false
-#scroll_on_keystroke = true
-#mouse_autohide = false
-#search_wrap = true
-#urgent_on_bell = true
-
-
-font = DejaVu Sans Mono 10
-scrollback_lines = 50000
-hyperlinks = true
-
-# "block", "underline" or "ibeam"
-cursor_shape = block
-# "system", "on" or "off"
-#cursor_blink = system
-
-# set size hints for the window
-size_hints = true
-
-
 [colors]
-# If unset these will invert regular fg/bg
-cursor = #dcdccc
-cursor_foreground = #dcdccc
+# Base16 OneDark
+# Author: Lalit Magant (http://github.com/tilal6991)
 
-# Disabled highlight inverts fg/bg
-foreground = #a270e4
-foreground_bold = #a299f4
-#highlight = #5588aa
-background = rgba(35, 35, 35, 0.9)
+foreground          = #abb2bf
+foreground_bold     = #b6bdca
+cursor              = #b6bdca
+cursor_foreground   = #282c34
+background          = rgba(20, 24, 32, 0.90)
+
+# 16 color space
 
 # Black, Gray, Silver, White
-color0  = #1e1e1e
-color8  = #5f5a60
-color7  = #a7a7a7
-color15 = #ffffff
+color0  = #282c34
+color8  = #545862
+color7  = #abb2bf
+color15 = #c8ccd4
+
 # Red
-color1  = #cf6a4c
-color9  = #cf6a4c
+color1  = #e06c75
+color9  = #e06c75
+
 # Green
-color2  = #8f9d6a
-color10 = #8f9d6a
+color2  = #98c379
+color10 = #98c379
+
 # Yellow
-color3  = #f9ee98
-color11 = #f9ee98
+color3  = #e5c07b
+color11 = #e5c07b
+
 # Blue
-color4  = #7587a6
-color12 = #7587a6
+color4  = #61afef
+color12 = #61afef
+
 # Purple
-color5  = #9b859d
-color13 = #9b859d
+color5  = #c678dd
+color13 = #c678dd
+
 # Teal
-color6  = #afc4db
-color14 = #afc4db
+color6  = #56b6c2
+color14 = #56b6c2
+
 # Extra colors
-color16 = #cda869
-color17 = #9b703f
-color18 = #323537
-color19 = #464b50
-color20 = #838184
-color21 = #c3c3c3
+color16 = #d19a66
+color17 = #be5046
+color18 = #353b45
+color19 = #3e4451
+color20 = #565c64
+color21 = #b6bdca
