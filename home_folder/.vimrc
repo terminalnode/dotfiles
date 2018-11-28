@@ -15,12 +15,11 @@ Plugin 'VundleVim/Vundle.vim'
 " Vim airline + themes
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-
-" Other themes
 Plugin 'ashfinal/vim-colors-violet'
 
-" Code auto completion engine
+" Other stuff
 Plugin 'valloric/youcompleteme'
+Plugin 'tpope/vim-sensible'
 
 call vundle#end()
 filetype plugin indent on
@@ -36,25 +35,4 @@ set background=dark
 let g:airline_theme='violet'
 
 " Feel
-set number
-set linebreak
-set showbreak=+++
-set textwidth=100
-set showmatch
-syntax on 
-set hlsearch
-set smartcase
-set ignorecase
-set incsearch
- 
-set autoindent
-set expandtab
-set shiftwidth=4
-set smartindent
-set smarttab
-set softtabstop=4
- 
-set ruler
-set undolevels=1000
-
-set backspace=indent,eol,start
+runtime! plugin/sensible.vim
