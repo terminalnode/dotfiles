@@ -11,6 +11,10 @@ compinit
 # files in .zsh_settings. This grants easy
 # access to any other apps that might want
 # to use them. ¯\_(ツ)_/¯
+
+# These files include:
+# exports
+# aliases_[console/gui]
 for file in ~/.zsh_settings/*
 do
     . ${file}
