@@ -1,49 +1,49 @@
 [colors]
-# Base16 OneDark
-# Author: Lalit Magant (http://github.com/tilal6991)
+# Base16 Atelier Savanna
+# Author: Bram de Haan (http://atelierbramdehaan.nl)
 
-foreground          = #abb2bf
-foreground_bold     = #b6bdca
-cursor              = #b6bdca
-cursor_foreground   = #282c34
-background          = rgba(20, 24, 32, 0.90)
+foreground          = #87928a
+foreground_bold     = #dfe7e2
+cursor              = #dfe7e2
+cursor_foreground   = #171c19
+background          = rgba(22, 19, 15, 0.9)
 
 # 16 color space
 
 # Black, Gray, Silver, White
-color0  = #282c34
-color8  = #545862
-color7  = #abb2bf
-color15 = #c8ccd4
+color0  = #171c19
+color8  = #5f6d64
+color7  = #87928a
+color15 = #ecf4ee
 
 # Red
-color1  = #e06c75
-color9  = #e06c75
+color1  = #b16139
+color9  = #b16139
 
 # Green
-color2  = #98c379
-color10 = #98c379
+color2  = #489963
+color10 = #489963
 
 # Yellow
-color3  = #e5c07b
-color11 = #e5c07b
+color3  = #a07e3b
+color11 = #a07e3b
 
 # Blue
-color4  = #61afef
-color12 = #61afef
+color4  = #478c90
+color12 = #478c90
 
 # Purple
-color5  = #c678dd
-color13 = #c678dd
+color5  = #55859b
+color13 = #55859b
 
 # Teal
-color6  = #56b6c2
-color14 = #56b6c2
+color6  = #1c9aa0
+color14 = #1c9aa0
 
 # Extra colors
-color16 = #d19a66
-color17 = #be5046
-color18 = #353b45
-color19 = #3e4451
-color20 = #565c64
-color21 = #b6bdca
+color16 = #9f713c
+color17 = #867469
+color18 = #232a25
+color19 = #526057
+color20 = #78877d
+color21 = #dfe7e2

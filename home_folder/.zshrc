@@ -27,6 +27,11 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+# This supposedly makes the delete key
+# work as expected, i.e. forward delete
+bindkey    "^[[3~"          delete-char
+bindkey    "^[3;5~"         delete-char
+
 # Let's make a pretty prompt.
 # Custom characters in man zshmisc
 if [ $(id -u) -eq 0 ];

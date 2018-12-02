@@ -32,6 +32,9 @@ filetype plugin indent on
 colorscheme violet
 set background=dark
 let g:airline_theme='violet'
+let g:airline_powerline_fonts=1
+let g:airline#extensions#hunks#non_zero_only = 1
+let g:airline#extensions#tabline#enabled = 1
 
 """ FEEL
 syntax on						" enables syntax highlighning
@@ -52,6 +55,11 @@ set laststatus=2				" always show status line
 set confirm						" ask to save instead of failing cmd due to unsaved changes
 set visualbell					" turn off beeping bell
 set t_vb=						" turn off visual bell
+
+" TODO
+" set ttimeout
+" set ttimeoutlen=100
+" set updatetime=500
 
 " :w!! will write to file using sudo
 cmap w!! w !sudo tee > /dev/null %

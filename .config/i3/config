@@ -8,22 +8,18 @@
 # Setting $mod to the cmd/windows key
 set $mod Mod4
 
-# Fonts
-font pango:Bitstream Vera Sans 9,Font Awesome 9
-
-# Use Mouse+$mod to drag floating windows to their wanted position
+# Buncha other stuff
 floating_modifier $mod
-
-# Don't let focus follow the mouse
 focus_follows_mouse no
+font pango:Bitstream Vera Sans 9,Font Awesome 9
 
 #######################
 ### VARIOUS HOTKEYS ###
 #######################
 # RELOAD/RESTART/KILL i3wm (jpy -> cre)
-bindsym $mod+Shift+j reload
-bindsym $mod+Shift+p restart
-bindsym $mod+Shift+odiaeresis exec "i3-nagbar -t warning -m 'Do you really want to kill your X session?' -B 'Yes, murder it' 'i3-msg exit'"
+bindsym $mod+Shift+j			reload
+bindsym $mod+Shift+p			restart
+bindsym $mod+Shift+odiaeresis	exec "i3-nagbar -t warning -m 'Do you really want to kill your X session?' -B 'Yes, murder it' 'i3-msg exit'"
 
 # QUICK TERMINAL
 bindsym $mod+Return exec i3-sensible-terminal
@@ -59,10 +55,10 @@ gaps outer 3
 exec --no-startup-id nitrogen --restore
 
 # Adding transparency
-exec --no-startup-id xcompmgr -cfn
+# exec --no-startup-id xcompmgr -cfn
 
 # Workspace name daemon (https://github.com/cboddy/i3-workspace-names-daemon)
-exec_always --no-startup-id exec i3-workspace-names-daemon -d ' · '
+exec_always --no-startup-id exec i3-workspace-names-daemon -d '_'
 
 ######################
 ### MEDIA KEYS ETC ###
@@ -71,7 +67,7 @@ exec_always --no-startup-id exec i3-workspace-names-daemon -d ' · '
 # Screen/keyboard brightness    acpilight
 # Sound levels                  pamixer (with pulse audio)
 # Screenshots                   scrot
-
+#
 # For most all media keys there is an option for
 # slowly incrementing/decrementing with shift/$mod
 
@@ -92,7 +88,7 @@ bindsym $mod+XF86KbdBrightnessUp    exec xbacklight -ctrl smc::kbd_backlight -in
 bindsym $mod+XF86KbdBrightnessDown  exec xbacklight -ctrl smc::kbd_backlight -dec 1
 
 # VOLUME KEYS
-bindsym XF86AudioMute               exec pamixer -t, exec pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute               exec pamixer -t,   exec pkill -RTMIN+10 i3blocks
 bindsym XF86AudioRaiseVolume        exec pamixer -i 5, exec pkill -RTMIN+10 i3blocks
 bindsym XF86AudioLowerVolume        exec pamixer -d 5, exec pkill -RTMIN+10 i3blocks
 bindsym shift+XF86AudioRaiseVolume  exec pamixer -i 1, exec pkill -RTMIN+10 i3blocks
@@ -101,24 +97,24 @@ bindsym $mod+XF86AudioRaiseVolume   exec pamixer -i 1, exec pkill -RTMIN+10 i3bl
 bindsym $mod+XF86AudioLowerVolume   exec pamixer -d 1, exec pkill -RTMIN+10 i3blocks
 
 # SCREENSHOTS (vz -> .-)
-bindsym Print           exec scrot -z -e 'mv $f ~/pics/scrots'-
-bindsym $mod+v          exec scrot -z -e 'mv $f ~/pics/scrots/'
-bindsym shift+Print     exec scrot -zu -e 'mv $f ~/pics/scrots'-
-bindsym $mod+Print      exec scrot -zu -e 'mv $f ~/pics/scrots'-
+bindsym Print           exec scrot -z -e  'mv $f ~/pics/scrots'
+bindsym $mod+v          exec scrot -z -e  'mv $f ~/pics/scrots/'
+bindsym shift+Print     exec scrot -zu -e 'mv $f ~/pics/scrots'
+bindsym $mod+Print      exec scrot -zu -e 'mv $f ~/pics/scrots'
 bindsym shift+$mod+v    exec scrot -zu -e 'mv $f ~/pics/scrots/'
 
-###############################################
-### Interesting part of the config. Hotkeys ###
-###############################################
+#########################
+### WINDOW NAVIGATION ###
+#########################
 # CHANGE FOCUS (htns -> jklp)
-bindsym $mod+h focus left
-bindsym $mod+t focus down
-bindsym $mod+n focus up
-bindsym $mod+s focus right
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+h		focus left
+bindsym $mod+t 		focus down
+bindsym $mod+n 		focus up
+bindsym $mod+s 		focus right
+bindsym $mod+Left	focus left
+bindsym $mod+Down	focus down
+bindsym $mod+Up		focus up
+bindsym $mod+Right	focus right
 
 # MOVE FOCUSED WINDOW WITHIN WORKSPACE (htns -> jklö)
 bindsym $mod+Shift+h        move left
@@ -130,42 +126,44 @@ bindsym $mod+Shift+Down     move down
 bindsym $mod+Shift+Up       move up
 bindsym $mod+Shift+Right    move right
 
-# HORISONTAL(h) AND VERTICAL SPLIT + TOGGLE SPLIT
-# svorak dky -> qwerty hvt
+# HORISONTAL(h) AND VERTICAL SPLIT + TOGGLE SPLIT (dky -> hvt)
 bindsym $mod+d split h
 bindsym $mod+k split v
 bindsym $mod+y layout toggle split
 
 
-# CONTAINER LAYOUT (stacked, tabbed tiling, floating)
-# svorak oä -> qwerty sw
+# CONTAINER LAYOUT (stacked, tabbed tiling, floating) (oä -> sw)
 bindsym $mod+o layout stacking
 bindsym $mod+adiaeresis layout tabbed
 bindsym $mod+Shift+space floating toggle
 
+############################
+### WORKSPACE NAVIGATION ###
+############################
 # MOVE FOCUSED WINDOW TO DIFFERENT WORKSPACE
-bindsym $mod+Shift+1 move container to workspace number 1, workspace number 1
-bindsym $mod+Shift+2 move container to workspace number 2, workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3, workspace number 3
-bindsym $mod+Shift+4 move container to workspace number 4, workspace number 4
-bindsym $mod+Shift+5 move container to workspace number 5, workspace number 5
-bindsym $mod+Shift+6 move container to workspace number 6, workspace number 6
-bindsym $mod+Shift+7 move container to workspace number 7, workspace number 7
-bindsym $mod+Shift+8 move container to workspace number 8, workspace number 8
-bindsym $mod+Shift+9 move container to workspace number 9, workspace number 9
+# (then move focus to that workspace)
+bindsym $mod+Shift+1 move container to workspace number 1,  workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2,  workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3,  workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4,  workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5,  workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6,  workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7,  workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8,  workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9,  workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10, workspace number 10
 
 # WS[:5] is on the main display.
 # WS[5:] are put on external display if possible.
-workspace 1 output eDP1
-workspace 2 output eDP1
-workspace 3 output eDP1
-workspace 4 output eDP1
-workspace 5 output eDP1
-workspace 6 output DP1 DP2 HDMI1 HDMI2
-workspace 7 output DP1 DP2 HDMI1 HDMI2
-workspace 8 output DP1 DP2 HDMI1 HDMI2
-workspace 9 output DP1 DP2 HDMI1 HDMI2
+workspace 1 output  eDP1
+workspace 2 output  eDP1
+workspace 3 output  eDP1
+workspace 4 output  eDP1
+workspace 5 output  eDP1
+workspace 6 output  DP1 DP2 HDMI1 HDMI2
+workspace 7 output  DP1 DP2 HDMI1 HDMI2
+workspace 8 output  DP1 DP2 HDMI1 HDMI2
+workspace 9 output  DP1 DP2 HDMI1 HDMI2
 workspace 10 output DP1 DP2 HDMI1 HDMI2
 
 # SWITCH FOCUS TO WORKSPACE
@@ -193,25 +191,50 @@ bindsym Mod2+$mod+KP_8 workspace number 8
 bindsym Mod2+$mod+KP_9 workspace number 9
 bindsym Mod2+$mod+KP_0 workspace number 10
 
-# qwe/asd/zxcv
+# qwert/asdfg
 bindsym section mode "workspace"
 mode "workspace"{
-    bindsym aring workspace number 1, mode "default"
-    bindsym adiaeresis workspace number 2, mode "default"
-    bindsym odiaeresis workspace number 3, mode "default"
-    bindsym a workspace number 4, mode "default"
-    bindsym o workspace number 5, mode "default"
-    bindsym e workspace number 6, mode "default"
-    bindsym period workspace number 7, mode "default"
-    bindsym q workspace number 8, mode "defalt"
-    bindsym j workspace number 9, mode "default"
-    bindsym k workspace number 10, mode "default"
+	# Easy switching with minimal hand movement
+	# QWERT		WS 6-10
+	# ASDFG		WS 1-5
+	bindsym aring		 workspace number 6,  mode "default"
+	bindsym adiaeresis	 workspace number 7,  mode "default"
+	bindsym odiaeresis	 workspace number 8,  mode "default"
+	bindsym p			 workspace number 9,  mode "default"
+	bindsym y			 workspace number 10, mode "default"
+	bindsym a			 workspace number 1,  mode "default"
+	bindsym o			 workspace number 2,  mode "default"
+	bindsym e			 workspace number 3,  mode "default"
+	bindsym u			 workspace number 4,  mode "defalut"
+	bindsym i			 workspace number 5,  mode "default"
 
-    # If we change our minds, we do this.
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym $mod+section mode "default"
-    bindsym section mode "default"
+	# Numbers isn'n really the purpose of this mode, but we'll offer the option anyway.
+	bindsym 1			workspace number 1,	 mode "default"
+	bindsym 2			workspace number 2,  mode "default"
+	bindsym 3			workspace number 3,  mode "default"
+	bindsym 4			workspace number 4,  mode "default"
+	bindsym 5			workspace number 5,  mode "default"
+	bindsym 6			workspace number 6,  mode "default"
+	bindsym 7			workspace number 7,  mode "default"
+	bindsym 8			workspace number 8,  mode "default"
+	bindsym 9			workspace number 9,  mode "default"
+	bindsym 10			workspace number 10, mode "default"
+	bindsym Mod2+KP_1	workspace number 1,  mode "default"
+	bindsym Mod2+KP_2	workspace number 2,  mode "default"
+	bindsym Mod2+KP_3	workspace number 3,  mode "default"
+	bindsym Mod2+KP_4	workspace number 4,  mode "default"
+	bindsym Mod2+KP_5	workspace number 5,  mode "default"
+	bindsym Mod2+KP_6	workspace number 6,  mode "default"
+	bindsym Mod2+KP_7	workspace number 7,  mode "default"
+	bindsym Mod2+KP_8	workspace number 8,  mode "default"
+	bindsym Mod2+KP_9	workspace number 9,  mode "default"
+	bindsym Mod2+KP_10	workspace number 10, mode "default"
+
+	# If we change our minds, we do this.
+	bindsym Return			mode "default"
+	bindsym Escape 			mode "default"
+	bindsym $mod+section	mode "default"
+	bindsym section			mode "default"
 }
 
 ##########################
@@ -224,24 +247,24 @@ mode "resize" {
 
     # (Vim style)
     # svorak htns -> qwerty jkl(ö/semicolon)
-    bindsym $mod+h resize shrink width $px px or $px ppt
-    bindsym $mod+t resize grow height $px px or $px ppt
-    bindsym $mod+n resize shrink height $px px or $px ppt
-    bindsym $mod+s resize grow width $px px or $px ppt
-    bindsym h resize shrink width $px px or $px ppt
-    bindsym t resize grow height $px px or $px ppt
-    bindsym n resize shrink height $px px or $px ppt
-    bindsym s resize grow width $px px or $px ppt
+    bindsym $mod+h  resize shrink	width  $px px or $px ppt
+    bindsym $mod+t  resize grow		height $px px or $px ppt
+    bindsym $mod+n  resize shrink	height $px px or $px ppt
+    bindsym $mod+s  resize grow		width  $px px or $px ppt
+    bindsym h		resize shrink	width  $px px or $px ppt
+    bindsym t 		resize grow		height $px px or $px ppt
+    bindsym n 		resize shrink	height $px px or $px ppt
+    bindsym s 		resize grow		width  $px px or $px ppt
 
     # (Arrow keys)
-    bindsym $mod+Left resize shrink width $px px or $px ppt
-    bindsym $mod+Down resize grow height $px px or $px ppt
-    bindsym $mod+Up resize shrink height $px px or $px ppt
-    bindsym $mod+Right resize grow width $px px or $px ppt
-    bindsym Left resize shrink width $px px or $px ppt
-    bindsym Down resize grow height $px px or $px ppt
-    bindsym Up resize shrink height $px px or $px ppt
-    bindsym Right resize grow width $px px or $px ppt
+    bindsym $mod+Left	resize shrink	width  $px px or $px ppt
+    bindsym $mod+Down	resize grow		height $px px or $px ppt
+    bindsym $mod+Up		resize shrink	height $px px or $px ppt
+    bindsym $mod+Right	resize grow		width  $px px or $px ppt
+    bindsym Left		resize shrink	width  $px px or $px ppt
+    bindsym Down		resize grow		height $px px or $px ppt
+    bindsym Up			resize shrink	height $px px or $px ppt
+    bindsym Right		resize grow		width  $px px or $px ppt
 
     # QUIT RESIZE MODE: Enter or Escape or $mod+r
     # svorak p -> qwerty r
@@ -271,23 +294,33 @@ mode "language"{
 	bindsym section mode "default"
 }	
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+###########################
+### i3bar CONFIGURATION ###
+###########################
 bar {
 
     colors {
-        background #000000
-        statusline #ffffff
-        separator #666666
+        background		#000000
+        statusline		#ffffff
+        separator		#666666
+    	# Defaults
+        # background	#000000
+        # statusline	#ffffff
+        # separator		#666666
 
-        # focused and active workspace are the same
-        # unless one is using multiple screens 
-        # colorclass        border  background  text
-        focused_workspace   #4c7899 #285577     #ffffff
-        active_workspace    #333333 #5f676a     #ffffff
-        inactive_workspace  #333333 #222222     #888888
-        urgent_workspace    #2f343a #900000     #ffffff
-        binding_mode        #2f343a #900000     #ffffff
+		# Focused and active workspace are the same, unless one is using multiple screens 
+        focused_workspace   	#4c7899		#285577     #ffffff
+        active_workspace    	#333333		#5f676a     #ffffff
+        inactive_workspace  	#333333		#222222     #888888
+        urgent_workspace    	#2f343a		#900000     #ffffff
+        binding_mode        	#2f343a		#900000     #ffffff
+		# Defaults
+        # colorclass			border		background  text
+        # focused_workspace		#4c7899		#285577     #ffffff
+        # active_workspace		#333333		#5f676a     #ffffff
+        # inactive_workspace	#333333		#222222     #888888
+        # urgent_workspace		#2f343a		#900000     #ffffff
+        # binding_mode			#2f343a		#900000     #ffffff
     }
 
     status_command i3blocks
