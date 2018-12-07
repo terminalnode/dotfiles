@@ -1,3 +1,6 @@
+[options]
+font = Monospace 9
+
 [colors]
 # Base16 Atelier Savanna
 # Author: Bram de Haan (http://atelierbramdehaan.nl)
@@ -9,7 +12,6 @@ cursor_foreground   = #171c19
 background          = rgba(22, 19, 15, 0.9)
 
 # 16 color space
-
 # Black, Gray, Silver, White
 color0  = #171c19
 color8  = #5f6d64

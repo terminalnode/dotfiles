@@ -21,7 +21,7 @@ Plugin	'chriskempson/base16-vim'
 " Other stuff
 Plugin	'valloric/youcompleteme'
 Plugin	'godlygeek/tabular'
-
+Plugin  'PotatoesMaster/i3-vim-syntax'
 call vundle#end()
 filetype plugin indent on
 
@@ -38,8 +38,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 """ FEEL
 syntax on						" enables syntax highlighning
-set relativenumber				" numbering lines relative to current pos
-set number						" also show current line number
+set number relativenumber		" neat line numbering
 set encoding=utf-8				" sensible encoding
 set scrolloff=10				" number of lines to show after end of document
 set sidescrolloff=3
@@ -55,6 +54,7 @@ set laststatus=2				" always show status line
 set confirm						" ask to save instead of failing cmd due to unsaved changes
 set visualbell					" turn off beeping bell
 set t_vb=						" turn off visual bell
+set splitbelow splitright		" Better splittingbetaviour
 
 " TODO
 " set ttimeout
