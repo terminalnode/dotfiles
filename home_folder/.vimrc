@@ -54,7 +54,8 @@ set laststatus=2				" always show status line
 set confirm						" ask to save instead of failing cmd due to unsaved changes
 set visualbell					" turn off beeping bell
 set t_vb=						" turn off visual bell
-set splitbelow splitright		" Better splittingbetaviour
+set splitbelow splitright		" better splittingbetaviour
+set clipboard=unnamedplus		" sync clipboard with ^C ^V
 
 " TODO
 " set ttimeout
