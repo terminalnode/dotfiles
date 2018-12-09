@@ -1,0 +1,184 @@
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+
+##################################
+### Workspace output placement ###
+##################################
+workspace 1						output eDP-1
+workspace 2						output eDP-1
+workspace 3						output eDP-1
+workspace 4						output eDP-1
+workspace 5						output eDP-1
+workspace 6						output DP-1, DP-2, HDMI-1, eDP-1
+workspace 7						output DP-1, DP-2, HDMI-1, eDP-1
+workspace 8						output DP-1, DP-2, HDMI-1, eDP-1
+workspace 9						output DP-1, DP-2, HDMI-1, eDP-1
+workspace 10					output DP-1, DP-2, HDMI-1, eDP-1
+
+####################################
+### Navigation within workspaces ###
+####################################
+bindsym $mod+$left				focus left
+bindsym $mod+$down  			focus down
+bindsym $mod+$up    			focus up
+bindsym $mod+$right 			focus right
+
+bindsym $mod+Left   			focus left
+bindsym $mod+Down   			focus down
+bindsym $mod+Up     			focus up
+bindsym $mod+Right  			focus right
+
+######################################
+### Move windows within workspaces ###
+######################################
+bindsym $mod+Shift+$left		move left
+bindsym $mod+Shift+$down 		move down
+bindsym $mod+Shift+$up   		move up
+bindsym $mod+Shift+$right		move right
+
+bindsym $mod+Shift+Left  		move left
+bindsym $mod+Shift+Down  		move down
+bindsym $mod+Shift+Up    		move up
+bindsym $mod+Shift+Right 		move right
+
+###################################
+### Navigate between workspaces ###
+###################################
+# Number keys
+bindsym $mod+1					workspace 1
+bindsym $mod+2 					workspace 2
+bindsym $mod+3 					workspace 3
+bindsym $mod+4 					workspace 4
+bindsym $mod+5 					workspace 5
+bindsym $mod+6 					workspace 6
+bindsym $mod+7 					workspace 7
+bindsym $mod+8 					workspace 8
+bindsym $mod+9					workspace 9
+bindsym $mod+0					workspace 10
+
+# qwert / asdfg (åäöpy / aoeui in svorak)
+bindsym $mod+a					workspace 1
+bindsym $mod+o 					workspace 2
+bindsym $mod+e 					workspace 3
+bindsym $mod+u					workspace 4
+bindsym $mod+i					workspace 5
+bindsym $mod+aring				workspace 6
+bindsym $mod+adiaeresis			workspace 7
+bindsym $mod+odiaeresis			workspace 8
+bindsym $mod+p					workspace 9
+bindsym $mod+y					workspace 10
+
+##############################
+### Move containers around ###
+##############################
+# Number keys
+bindsym $mod+Shift+1			move container to workspace 1,  workspace 1
+bindsym $mod+Shift+2 			move container to workspace 2,  workspace 2
+bindsym $mod+Shift+3 			move container to workspace 3,  workspace 3
+bindsym $mod+Shift+4 			move container to workspace 4,  workspace 4
+bindsym $mod+Shift+5 			move container to workspace 5,  workspace 5
+bindsym $mod+Shift+6 			move container to workspace 6,  workspace 6
+bindsym $mod+Shift+7 			move container to workspace 7,  workspace 7
+bindsym $mod+Shift+8 			move container to workspace 8,  workspace 8
+bindsym $mod+Shift+9			move container to workspace 9,  workspace 9
+bindsym $mod+Shift+0			move container to workspace 10, workspace 10
+
+# qwert / asdfg (åäöpy / aoeui in svorak)
+bindsym $mod+Shift+a			move container to workspace 1,  workspace 1
+bindsym $mod+Shift+o 			move container to workspace 2,  workspace 2
+bindsym $mod+Shift+e 			move container to workspace 3,  workspace 3
+bindsym $mod+Shift+u			move container to workspace 4,  workspace 4
+bindsym $mod+Shift+i			move container to workspace 5,  workspace 5
+bindsym $mod+Shift+aring		move container to workspace 6,  workspace 6
+bindsym $mod+Shift+adiaeresis	move container to workspace 7,  workspace 7
+bindsym $mod+Shift+odiaeresis	move container to workspace 8,  workspace 8
+bindsym $mod+Shift+p			move container to workspace 9,  workspace 9
+bindsym $mod+Shift+y			move container to workspace 10, workspace 10
+
+#######################
+### Navigation mode ###
+#######################
+mode "navigation" {
+	# Move focus
+	# qwert/asdfg
+	bindsym a					workspace 1,  mode "default"
+	bindsym o 					workspace 2,  mode "default"
+	bindsym e 					workspace 3,  mode "default"
+	bindsym u					workspace 4,  mode "default"
+	bindsym i					workspace 5,  mode "default"
+	bindsym aring				workspace 6,  mode "default"
+	bindsym adiaeresis			workspace 7,  mode "default"
+	bindsym odiaeresis			workspace 8,  mode "default"
+	bindsym p					workspace 9,  mode "default"
+	bindsym y					workspace 10, mode "default"
+
+	# Number keys
+	bindsym 1					workspace 1,  mode "default"
+	bindsym 2 					workspace 2,  mode "default"
+	bindsym 3 					workspace 3,  mode "default"
+	bindsym 4					workspace 4,  mode "default"
+	bindsym 5					workspace 5,  mode "default"
+	bindsym 6					workspace 6,  mode "default"
+	bindsym 7					workspace 7,  mode "default"
+	bindsym 8					workspace 8,  mode "default"
+	bindsym 9					workspace 9,  mode "default"
+	bindsym 0					workspace 10, mode "default"
+
+	# Keypad
+	#bindsym KP1				workspace 1,  mode "default"
+	#bindsym KP2				workspace 2,  mode "default"
+	#bindsym KP3				workspace 3,  mode "default"
+	#bindsym KP4				workspace 4,  mode "default"
+	#bindsym KP5				workspace 5,  mode "default"
+	#bindsym KP6				workspace 6,  mode "default"
+	#bindsym KP7				workspace 7,  mode "default"
+	#bindsym KP8				workspace 8,  mode "default"
+	#bindsym KP9				workspace 9,  mode "default"
+	#bindsym KP0				workspace 10, mode "default"
+
+	# Move container
+	# qwert/asdfg
+	bindsym Shift+a				move container to workspace 1,  workspace 1,  mode "default"
+	bindsym Shift+o 			move container to workspace 2,  workspace 2,  mode "default"
+	bindsym Shift+e 			move container to workspace 3,  workspace 3,  mode "default"
+	bindsym Shift+u				move container to workspace 4,  workspace 4,  mode "default"
+	bindsym Shift+i				move container to workspace 5,  workspace 5,  mode "default"
+	bindsym Shift+aring			move container to workspace 6,  workspace 6,  mode "default"
+	bindsym Shift+adiaeresis	move container to workspace 7,  workspace 7,  mode "default"
+	bindsym Shift+odiaeresis	move container to workspace 8,  workspace 8,  mode "default"
+	bindsym Shift+p				move container to workspace 9,  workspace 9,  mode "default"
+	bindsym Shift+y				move container to workspace 10, workspace 10, mode "default"
+
+	# Number keys
+	bindsym Shift+1				move container to workspace 1,  workspace 1,  mode "default"
+	bindsym Shift+2 			move container to workspace 2,  workspace 2,  mode "default"
+	bindsym Shift+3 			move container to workspace 3,  workspace 3,  mode "default"
+	bindsym Shift+4				move container to workspace 4,  workspace 4,  mode "default"
+	bindsym Shift+5				move container to workspace 5,  workspace 5,  mode "default"
+	bindsym Shift+6				move container to workspace 6,  workspace 6,  mode "default"
+	bindsym Shift+7				move container to workspace 7,  workspace 7,  mode "default"
+	bindsym Shift+8				move container to workspace 8,  workspace 8,  mode "default"
+	bindsym Shift+9				move container to workspace 9,  workspace 9,  mode "default"
+	bindsym Shift+0				move container to workspace 10, workspace 10, mode "default"
+	
+	# Keypad
+	#bindsym Shift+KP1			move container to workspace 1,  workspace 1,  mode "default"
+	#bindsym Shift+KP2 			move container to workspace 2,  workspace 2,  mode "default"
+	#bindsym Shift+KP3 			move container to workspace 3,  workspace 3,  mode "default"
+	#bindsym Shift+KP4			move container to workspace 4,  workspace 4,  mode "default"
+	#bindsym Shift+KP5			move container to workspace 5,  workspace 5,  mode "default"
+	#bindsym Shift+KP6			move container to workspace 6,  workspace 6,  mode "default"
+	#bindsym Shift+KP7			move container to workspace 7,  workspace 7,  mode "default"
+	#bindsym Shift+KP8			move container to workspace 8,  workspace 8,  mode "default"
+	#bindsym Shift+KP9			move container to workspace 9,  workspace 9,  mode "default"
+	#bindsym Shift+KP0			move container to workspace 10, workspace 10, mode "default"
+
+	# Leave navigation mode
+	bindsym Return				mode "default"
+	bindsym Escape				mode "default"
+	bindsym section				mode "default"
+}
+bindsym section mode "navigation"

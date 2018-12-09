@@ -1,0 +1,165 @@
+########################### SWAY CONFIG ###########################
+############ Top of the config is various hotkeys and #############
+### variables used throughout the script. They don't really fit ###
+############ anywhere else and are thus placed here... ############
+###################################################################
+# Defaults
+include /etc/sway/config.d/*
+
+# Navigate/move within and between workspaces
+include ~/.config/sway/workspaces
+
+# Resize windows
+include ~/.config/sway/resize_mode
+
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+focus_follows_mouse no
+
+# Terminal
+set $term termite
+bindsym $mod+Return exec $term
+
+# Launcher
+set $menu dmenu_run
+bindsym $mod+Space exec $menu
+
+# Useful hotkeys
+bindsym $mod+q				kill
+bindsym $mod+f				fullscreen
+bindsym $mod+Shift+c		reload
+bindsym $mod+Shift+space	floating toggle
+bindsym $mod+v				layout split toggle
+bindsym $mod+t				layout toggle tabbed
+
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Change normal to inverse to use left mouse button for resizing and right mouse button for dragging.
+# Despite the name, also works for non-floating windows.
+floating_modifier $mod normal
+
+# Scratchpad:
+# Sway has a "scratchpad", which is a bag of holding for windows.
+# You can send windows there and get them back later.
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+################################
+### AESTHETICS/OUTPUT CONFIG ###
+################################
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+# output eDP-1 pos 0 0 res 2560x1600 scale 2
+output eDP-1 pos 0 0 res 2560x1600
+# Temporary fix see issue #3277
+output 'Apple Computer Inc Color LCD 0x00000000' scale 1.9
+# output eDP-1 scale 1.9
+output * bg ~/pics/wallpapers/space-nebula.jpg fill
+
+# Set a couple of HiDIP settings
+exec export OPENRA_DISPLAY_SCALE=2
+exec export QT_AUTO_SCREEN_SCALE_FACTOR=1
+#exec export QT_DEVICE_PIXEL_RATIO=4
+exec export GDK_SCALE=2
+exec export GDK_DPI_SCALE=0.5
+exec export ELM_SCALE=1.5
+exec export SWAY_CURSOR_SIZE=4
+
+font pango:Bitstream Vera Sans 9,Font Awesome 9
+gaps inner 7
+gaps outer 3
+default_border pixel
+
+# Syntax:
+# client.<class> border background text indicator child_border
+# border	the border around the title bar
+# background	the background of the title bar
+# text			the text of the title bar
+# indicator		side of the border where the window will split
+# child_border	the border around the view itself
+# Defaults:
+#							border		background	text		indicator	child_border
+# client.background			N/A			#ffffff		N/A			N/A			N/A
+# client.focused			#4c7899		#285577		#ffffff		#2e9ef4		#285577
+# client.focused_inactive	#333333		#5f676a		#ffffff		#484e50		#5f676a
+# client.placeholder		#000000		#0c0c0c		#ffffff		#000000		#0c0c0c
+# client.unfocused			#333333		#222222		#888888		#292d2e		#222222
+# client.urgent				#2f343a		#900000		#ffffff		#900000		#900000
+client.focused				#21616a		#285577		#ffffff		#37a1b0		#21616a
+
+####################
+### INPUT CONFIG ###
+####################
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Trackpad
+input "1452:602:bcm5974" {
+	dwt					disabled
+    tap					enabled
+    natural_scroll		enabled
+    middle_emulation	enabled
+	tap_button_map		lrm
+	scroll_method		two_finger
+	scroll_factor		0.7
+}
+
+######################
+### MEDIA KEYS ETC ###
+######################
+# Dependencies:
+# Screen/keyboard brightness	acpilight
+# Sound levels					pamixer
+# Screenshots					grim
+#
+# For almost all media keys these is an option for
+# slowly incrementing/decrementing with [shift/$mod]+mediakey
+
+# SCREEN BRIGHTNESS
+bindsym XF86MonBrightnessUp			exec xbacklight -inc 5, exec pkill -RTMIN+8 i3blocks
+bindsym XF86MonBrightnessDown		exec xbacklight -dec 5, exec pkill -RTMIN+8 i3blocks
+bindsym shift+XF86MonBrightnessUp	exec xbacklight -inc 1, exec pkill -RTMIN+8 i3blocks
+bindsym shift+XF86MonBrightnessDown exec xbacklight -dec 1, exec pkill -RTMIN+8 i3blocks
+bindsym $mod+XF86MonBrightnessUp	exec xbacklight -inc 1, exec pkill -RTMIN+8 i3blocks
+bindsym $mod+XF86MonBrightnessDown	exec xbacklight -dec 1, exec pkill -RTMIN+8 i3blocks
+
+# KEYBOARD BACKLIGHT
+bindsym XF86KbdBrightnessUp			exec xbacklight -ctrl smc::kbd_backlight -inc 5
+bindsym XF86KbdBrightnessDown		exec xbacklight -ctrl smc::kbd_backlight -dec 5
+bindsym shift+XF86KbdBrightnessUp	exec xbacklight -ctrl smc::kbd_backlight -inc 1
+bindsym shift+XF86KbdBrightnessDown exec xbacklight -ctrl smc::kbd_backlight -dec 1
+bindsym $mod+XF86KbdBrightnessUp	exec xbacklight -ctrl smc::kbd_backlight -inc 1
+bindsym $mod+XF86KbdBrightnessDown	exec xbacklight -ctrl smc::kbd_backlight -dec 1
+
+# VOLUME KEYS
+bindsym XF86AudioMute               exec pamixer -t, exec pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume        exec pamixer -i 5, exec pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume        exec pamixer -d 5, exec pkill -RTMIN+10 i3blocks
+bindsym shift+XF86AudioRaiseVolume  exec pamixer -i 1, exec pkill -RTMIN+10 i3blocks
+bindsym shift+XF86AudioLowerVolume  exec pamixer -d 1, exec pkill -RTMIN+10 i3blocks
+bindsym $mod+XF86AudioRaiseVolume   exec pamixer -i 1, exec pkill -RTMIN+10 i3blocks
+bindsym $mod+XF86AudioLowerVolume   exec pamixer -d 1, exec pkill -RTMIN+10 i3blocks
+
+# SCREENSHOTS
+# TODO uses grim TODO
+# TODO TODO TODO TODO
+
+##################
+### STATUS BAR ###
+##################
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+	status_command i3blocks
+	position top
+    colors {
+        statusline #ffffff
+        background #122224cc
+        inactive_workspace	#234145cc #234145cc #212121
+		active_workspace	#77dae8cc #21616a #212121
+		focused_workspace	#77dae8cc #21616a #212121
+		# urgent workspace
+		# binding mode
+
+    }
+}
+
