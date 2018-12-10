@@ -1,8 +1,15 @@
-########################### SWAY CONFIG ###########################
-############ Top of the config is various hotkeys and #############
-### variables used throughout the script. They don't really fit ###
-############ anywhere else and are thus placed here... ############
-###################################################################
+##########################
+### SWAY CONFIGURATION ###
+##########################
+## Structure:
+## This configuration file is split into multiple files, imported at the top of the file.
+## Sections
+## - Various (mod key definitions, default terminal, hot keys [...])
+## - Input/output configuration
+## - Media keys + printscreen
+## - Aesthetics + status bar configuration
+
+# Imports
 # Defaults
 include /etc/sway/config.d/*
 
@@ -32,8 +39,8 @@ bindsym $mod+q				kill
 bindsym $mod+f				fullscreen
 bindsym $mod+Shift+c		reload
 bindsym $mod+Shift+space	floating toggle
-bindsym $mod+v				layout split toggle
-bindsym $mod+t				layout toggle tabbed
+bindsym $mod+v				layout toggle splitv splith
+bindsym $mod+t				layout toggle tabbed split
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -47,52 +54,12 @@ floating_modifier $mod normal
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
-################################
-### AESTHETICS/OUTPUT CONFIG ###
-################################
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-# output eDP-1 pos 0 0 res 2560x1600 scale 2
-output eDP-1 pos 0 0 res 2560x1600
-# Temporary fix see issue #3277
-output 'Apple Computer Inc Color LCD 0x00000000' scale 1.9
-# output eDP-1 scale 1.9
-output * bg ~/pics/wallpapers/space-nebula.jpg fill
+###########################
+### INPUT/OUTPUT CONFIG ###
+###########################
+## swaymsg -t get_outputs
+## swaymsg -t get_inputs
 
-# Set a couple of HiDIP settings
-exec export OPENRA_DISPLAY_SCALE=2
-exec export QT_AUTO_SCREEN_SCALE_FACTOR=1
-#exec export QT_DEVICE_PIXEL_RATIO=4
-exec export GDK_SCALE=2
-exec export GDK_DPI_SCALE=0.5
-exec export ELM_SCALE=1.5
-exec export SWAY_CURSOR_SIZE=4
-
-font pango:Bitstream Vera Sans 9,Font Awesome 9
-gaps inner 7
-gaps outer 3
-default_border pixel
-
-# Syntax:
-# client.<class> border background text indicator child_border
-# border	the border around the title bar
-# background	the background of the title bar
-# text			the text of the title bar
-# indicator		side of the border where the window will split
-# child_border	the border around the view itself
-# Defaults:
-#							border		background	text		indicator	child_border
-# client.background			N/A			#ffffff		N/A			N/A			N/A
-# client.focused			#4c7899		#285577		#ffffff		#2e9ef4		#285577
-# client.focused_inactive	#333333		#5f676a		#ffffff		#484e50		#5f676a
-# client.placeholder		#000000		#0c0c0c		#ffffff		#000000		#0c0c0c
-# client.unfocused			#333333		#222222		#888888		#292d2e		#222222
-# client.urgent				#2f343a		#900000		#ffffff		#900000		#900000
-client.focused				#21616a		#285577		#ffffff		#37a1b0		#21616a
-
-####################
-### INPUT CONFIG ###
-####################
-# You can get the names of your inputs by running: swaymsg -t get_inputs
 # Trackpad
 input "1452:602:bcm5974" {
 	dwt					disabled
@@ -104,13 +71,25 @@ input "1452:602:bcm5974" {
 	scroll_factor		0.7
 }
 
+# Monitors
+# Correct way of doing it:
+# output eDP-1 pos 0 0 res 2560x1600 scale 2.0
+
+# Temporary fix see issue #3277
+output 'Apple Computer Inc Color LCD 0x00000000' pos 0 0 res 2560x1600 scale 2.0
+
+# Place all extra outputs right of main screen.
+output DP-1 pos 1280 0
+output DP-2 pos 1280 0
+output HDMI-1 pos 1280 0
+
 ######################
 ### MEDIA KEYS ETC ###
 ######################
 # Dependencies:
 # Screen/keyboard brightness	acpilight
 # Sound levels					pamixer
-# Screenshots					grim
+# Screenshots					grim, slurp
 #
 # For almost all media keys these is an option for
 # slowly incrementing/decrementing with [shift/$mod]+mediakey
@@ -141,22 +120,50 @@ bindsym $mod+XF86AudioRaiseVolume   exec pamixer -i 1, exec pkill -RTMIN+10 i3bl
 bindsym $mod+XF86AudioLowerVolume   exec pamixer -d 1, exec pkill -RTMIN+10 i3blocks
 
 # SCREENSHOTS
-# TODO uses grim TODO
-# TODO TODO TODO TODO
+# macOS-style bindings
+bindsym $mod+shift+3				exec grim -t png -c ~/screenshot.png
+bindsym $mod+shift+4				exec slurp | grim -t png -c -g - ~/screenshot.png 
+# Every other OS known to man-style bindings
+bindsym Print						exec grim -t png -c ~/screenshot.png
+bindsym $mod+Print					exec slurp | grim -t png -c -g - ~/screenshot.png 
 
-##################
-### STATUS BAR ###
-##################
-# Read `man 5 sway-bar` for more information about this section.
+###############################
+### AESTHETICS + STATUS BAR ###
+###############################
+## man 5 sway-bar
+##
+## Syntax:
+## client.<class> border background text indicator child_border
+## border	the border around the title bar
+## background	the background of the title bar
+## text			the text of the title bar
+## indicator		side of the border where the window will split
+## child_border	the border around the view itself
+## Defaults:
+##							border		background	text		indicator	child_border
+## client.background			N/A			#ffffff		N/A			N/A			N/A
+## client.focused			#4c7899		#285577		#ffffff		#2e9ef4		#285577
+## client.focused_inactive	#333333		#5f676a		#ffffff		#484e50		#5f676a
+## client.placeholder		#000000		#0c0c0c		#ffffff		#000000		#0c0c0c
+## client.unfocused			#333333		#222222		#888888		#292d2e		#222222
+## client.urgent				#2f343a		#900000		#ffffff		#900000		#900000
+client.focused				#21616a		#285577		#ffffff		#37a1b0		#21616a
+
+output * bg ~/pics/wallpapers/space-nebula.jpg fill
+font pango:Bitstream Vera Sans 9,Font Awesome 9
+gaps inner 7
+gaps outer 3
+default_border pixel
+
 bar {
 	status_command i3blocks
 	position top
     colors {
         statusline #ffffff
         background #122224cc
-        inactive_workspace	#234145cc #234145cc #212121
-		active_workspace	#77dae8cc #21616a #212121
-		focused_workspace	#77dae8cc #21616a #212121
+        inactive_workspace	#234145cc #234145cc #c1c1c1
+		active_workspace	#77dae8cc #21616a #c1c1c1
+		focused_workspace	#77dae8cc #21616a #c1c1c1
 		# urgent workspace
 		# binding mode
 
