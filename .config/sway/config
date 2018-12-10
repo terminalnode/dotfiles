@@ -8,7 +8,7 @@
 ## - Input/output configuration
 ## - Media keys + printscreen
 ## - Aesthetics + status bar configuration
-
+ 
 # Imports
 # Defaults
 include /etc/sway/config.d/*
