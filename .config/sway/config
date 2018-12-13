@@ -8,7 +8,9 @@
 ## - Input/output configuration
 ## - Media keys + printscreen
 ## - Aesthetics + status bar configuration
- 
+
+exec --no-startup-id fcitx -d
+
 # Imports
 # Defaults
 include /etc/sway/config.d/*
@@ -39,7 +41,7 @@ bindsym $mod+q				kill
 bindsym $mod+f				fullscreen
 bindsym $mod+Shift+c		reload
 bindsym $mod+Shift+space	floating toggle
-bindsym $mod+v				layout toggle splitv splith
+bindsym $mod+v				split toggle
 bindsym $mod+t				layout toggle tabbed split
 
 # Drag floating windows by holding down $mod and left mouse button.
@@ -77,6 +79,7 @@ input "1452:602:bcm5974" {
 
 # Temporary fix see issue #3277
 output 'Apple Computer Inc Color LCD 0x00000000' pos 0 0 res 2560x1600 scale 2.0
+#output 'Apple Computer Inc Color LCD 0x00000000' pos 0 0 res 2560x1600
 
 # Place all extra outputs right of main screen.
 output DP-1 pos 1280 0

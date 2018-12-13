@@ -17,11 +17,14 @@ Plugin	'vim-airline/vim-airline'
 Plugin	'vim-airline/vim-airline-themes'
 Plugin	'ashfinal/vim-colors-violet'
 Plugin	'chriskempson/base16-vim'
+Plugin  'toupeira/vim-desertink'
 
 " Other stuff
 Plugin	'valloric/youcompleteme'
 Plugin	'godlygeek/tabular'
 Plugin  'PotatoesMaster/i3-vim-syntax'
+Plugin	'vim-python/python-syntax'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -29,12 +32,20 @@ filetype plugin indent on
 """ Regular config starts here """
 """"""""""""""""""""""""""""""""""
 """ LOOK
-colorscheme violet
+colorscheme desertink
+" These autocmds override theme to turn off bg colour.
+" Just the second is good for making non-text and
+" text bgs the same (i.e. lines in and after document)
+autocmd ColorScheme * highlight Normal ctermbg=None
+autocmd ColorScheme * highlight NonText ctermbg=None
 set background=dark
-let g:airline_theme='violet'
+let g:airline_theme='desertink'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#hunks#non_zero_only = 1
 let g:airline#extensions#tabline#enabled = 1
+
+" Enable vim-python/python-syntax
+let g:python_highlight_all = 1
 
 """ FEEL
 syntax on						" enables syntax highlighning

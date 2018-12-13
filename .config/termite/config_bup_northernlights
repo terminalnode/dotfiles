@@ -21,8 +21,7 @@ highlight			= #4c566a
 # Bright version: xx -> ff
 
 # Black		(00-00-00 / 80-80-80)
-# Desertink SignColumn
-color0  = #2a2a2a
+color0  = #3b4252
 color8  = #4c566a
 
 # White		(xx-xx-xx)
@@ -30,28 +29,20 @@ color7  = #e5e9f0
 color15 = #eceff4
 
 # Red		(xx-00-00)
-# Desertink "SpellBad"
-# Desertink "SpellBad", more red
-color1  = #913d3b
-color9  = #cc3d3b
+color1  = #bf616a
+color9  = #bf616a
 
 # Green		(00-xx-00)
-# Desertink "Question"
-# Desertink "SpecialKey"
-color2  = #00ff7f
-color10 = #9acd32
+color2  = #a3be8c
+color10 = #a3be8c
 
 # Yellow	(xx-xx-00)
-# Desertink "Statement" - darkened
-# Desertink "Folded"
-color3  = #eedd44
-color11 = #ffa500
+color3  = #ebcb8b
+color11 = #ebcb8b
 
 # Blue		(00-00-xx)
-# Desertink "Comment", but darkened
-# Desertink "Comment"
-color4  = #3bb0de
-color12 = #87ceeb
+color4  = #81a1c1
+color12 = #81a1c1
 
 # Magenta	(xx-00-xx)
 color5  = #b48ead

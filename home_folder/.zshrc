@@ -4,8 +4,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 zstyle :compinstall filename '~/.zshrc'
 
-autoload -Uz compinit
-compinit
+autoload -Uz compinit; compinit
 
 # Most settings are stored in their own
 # files in .zsh_settings. This grants easy
@@ -36,7 +35,11 @@ bindkey    "^[3;5~"         delete-char
 # Custom characters in man zshmisc
 if [ $(id -u) -eq 0 ];
 then # root has a special prompt
-	PS1="%B%F{red}[%n@%M]%f %3/ #%b "
+	PS1="
+%B%F{green}[%f%b%F{cyan}%n%f%B%F{magenta}@%f%b%F{cyan}%M%f%B%F{green}]%f%b %F{yellow}%~%f
+%B%F{red} ROOT > %f%b"
 else # normal users also have a special prompt
-	PS1="%B%F{red}[%n@%M]%f %3~ $%b "
+	PS1="
+%B%F{green}[%f%b%F{cyan}%n%f%B%F{red}@%f%b%F{cyan}%M%f%B%F{green}]%f%b %F{yellow}%~%f
+%B%F{blue} > %f%b"
 fi
