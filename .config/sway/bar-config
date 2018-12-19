@@ -1,0 +1,15 @@
+## man 5 sway-bar
+bar {
+	status_command i3blocks
+	position top
+    colors {
+        statusline			#ffffff
+        background			#122224bb
+        inactive_workspace	#234145cc #234145cc #c1c1c1
+		focused_workspace	#dddae8cc #21616a	#c1c1c1
+		active_workspace	#117777cc #21616a	#c1c1c1
+		# urgent workspace
+		# binding mode
+
+    }
+}

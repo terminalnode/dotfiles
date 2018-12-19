@@ -33,14 +33,14 @@ set $term termite
 bindsym $mod+Return exec $term
 
 # Launcher
-set $menu dmenu_run
-bindsym $mod+Space exec $menu
+set $menu rofi
+bindsym $mod+Space exec $menu -show drun
+bindsym $mod+Shift+Space exec $menu -show run
 
 # Useful hotkeys
 bindsym $mod+q				kill
 bindsym $mod+f				fullscreen
 bindsym $mod+Shift+c		reload
-bindsym $mod+Shift+space	floating toggle
 bindsym $mod+v				split toggle
 bindsym $mod+t				layout toggle tabbed split
 
@@ -78,13 +78,21 @@ input "1452:602:bcm5974" {
 # output eDP-1 pos 0 0 res 2560x1600 scale 2.0
 
 # Temporary fix see issue #3277
-output 'Apple Computer Inc Color LCD 0x00000000' pos 0 0 res 2560x1600 scale 2.0
+# Apple Computer bla bla will later change to eDP-1
+output 'Apple Computer Inc Color LCD 0x00000000' {
+	pos 0 0
+	res 2560x1600
+	scale 2.0
+}
 #output 'Apple Computer Inc Color LCD 0x00000000' pos 0 0 res 2560x1600
 
 # Place all extra outputs right of main screen.
 output DP-1 pos 1280 0
 output DP-2 pos 1280 0
 output HDMI-1 pos 1280 0
+
+# Same background for all screens.
+output * bg ~/pics/wallpapers/space-nebula.jpg fill
 
 ######################
 ### MEDIA KEYS ETC ###
@@ -134,42 +142,10 @@ bindsym $mod+Print					exec slurp | grim -t png -c -g - ~/screenshot.png
 ### AESTHETICS + STATUS BAR ###
 ###############################
 ## man 5 sway-bar
-##
-## Syntax:
-## client.<class> border background text indicator child_border
-## border	the border around the title bar
-## background	the background of the title bar
-## text			the text of the title bar
-## indicator		side of the border where the window will split
-## child_border	the border around the view itself
-## Defaults:
-##							border		background	text		indicator	child_border
-## client.background			N/A			#ffffff		N/A			N/A			N/A
-## client.focused			#4c7899		#285577		#ffffff		#2e9ef4		#285577
-## client.focused_inactive	#333333		#5f676a		#ffffff		#484e50		#5f676a
-## client.placeholder		#000000		#0c0c0c		#ffffff		#000000		#0c0c0c
-## client.unfocused			#333333		#222222		#888888		#292d2e		#222222
-## client.urgent				#2f343a		#900000		#ffffff		#900000		#900000
-client.focused				#21616a		#285577		#ffffff		#37a1b0		#21616a
+include ~/.config/sway/client-config
+include ~/.config/sway/bar-config
 
-output * bg ~/pics/wallpapers/space-nebula.jpg fill
 font pango:Bitstream Vera Sans 9,Font Awesome 9
 gaps inner 7
 gaps outer 3
-default_border pixel
-
-bar {
-	status_command i3blocks
-	position top
-    colors {
-        statusline #ffffff
-        background #122224cc
-        inactive_workspace	#234145cc #234145cc #c1c1c1
-		active_workspace	#77dae8cc #21616a #c1c1c1
-		focused_workspace	#77dae8cc #21616a #c1c1c1
-		# urgent workspace
-		# binding mode
-
-    }
-}
-
+default_border pixel 3

@@ -13,7 +13,7 @@ cursor				= #d8dee9
 cursor_foreground	= #2e3440
 foreground			= #d8dee9
 foreground_bold 	= #d8dee9
-background			= rgba(10, 10, 10, 0.95)
+background			= rgba(10, 10, 10, 0.90)
 highlight			= #4c566a
 
 # Colour pairs
