@@ -1,5 +1,4 @@
-""""""""""""""""""""
-""" Vundle setup """
+"""""""""""""""""""" """ Vundle setup """
 """"""""""""""""""""
 " This part is required for vundle to work.
 set nocompatible
@@ -100,3 +99,6 @@ set ignorecase				" ignore case when searching
 set smartcase				" unless there are upper case letters in searchstr
 set incsearch				" match while searching
 set hlsearch				" highlight search matches
+
+""" OTHER
+nnoremap Q <Nop>
