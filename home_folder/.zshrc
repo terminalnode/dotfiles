@@ -36,10 +36,10 @@ bindkey    "^[3;5~"         delete-char
 if [ $(id -u) -eq 0 ];
 then # root has a special prompt
 	PS1="
-%B%F{green}[%f%b%F{cyan}%n%f%B%F{magenta}@%f%b%F{cyan}%M%f%B%F{green}]%f%b %F{yellow}%~%f
-%B%F{red} ROOT > %f%b"
+%B%F{blue}[%f%b%F{cyan}%n%f%B%F{yellow}@%f%b%F{blue}%M%f %F{yellow}%~%f%B%F{blue}]%f%b
+%B%F{white} > %f%b"
 else # normal users also have a special prompt
 	PS1="
-%B%F{green}[%f%b%F{cyan}%n%f%B%F{red}@%f%b%F{cyan}%M%f%B%F{green}]%f%b %F{yellow}%~%f
-%B%F{blue} > %f%b"
+%B%F{blue}[%f%b%F{cyan}%n%f%B%F{yellow}@%f%b%F{blue}%M%f %F{yellow}%~%f%B%F{blue}]%f%b
+%B%F{white} > %f%b"
 fi

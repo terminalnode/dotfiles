@@ -15,7 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin	'vim-airline/vim-airline'
 Plugin	'vim-airline/vim-airline-themes'
 Plugin	'ashfinal/vim-colors-violet'
-Plugin	'chriskempson/base16-vim'
+Plugin	'altercation/vim-colors-solarized'
 Plugin  'toupeira/vim-desertink'
 
 " Other stuff
@@ -31,14 +31,14 @@ filetype plugin indent on
 """ Regular config starts here """
 """"""""""""""""""""""""""""""""""
 """ LOOK
-colorscheme desertink
 " These autocmds override theme to turn off bg colour.
 " Just the second is good for making non-text and
 " text bgs the same (i.e. lines in and after document)
 autocmd ColorScheme * highlight Normal ctermbg=None
 autocmd ColorScheme * highlight NonText ctermbg=None
+colorscheme solarized
 set background=dark
-let g:airline_theme='desertink'
+let g:airline_theme='deus'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#hunks#non_zero_only = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -101,4 +101,26 @@ set incsearch				" match while searching
 set hlsearch				" highlight search matches
 
 """ OTHER
+" No more ex-mode
 nnoremap Q <Nop>
+" Double space in insert mode will find next <++>, jump to it and delete it.
+inoremap <C-Space> <Esc>/<++><Enter>"_c4l
+
+""" MACROS
+" [;p] print
+" (python, rust)
+autocmd FileType python inoremap ;p print("<++>")<Esc>0/<++><Enter>"_c4l
+autocmd FileType rust	inoremap ;p println!("<++>"<++>);<Esc>0/<++><Enter>"_c4l
+" [;a] array/list
+" (python, rust)
+" Python version is kinda iffy, but also only included for completeness.
+autocmd FileType python inoremap ;a <++> = [<++>]<++><Esc>k$/<++><Enter>"_c4l
+autocmd FileType rust	inoremap ;a let <++>: [<++>; <++>] = [<++>];<++><Esc>0/<++><Enter>"_c4l
+" [;f] create function
+" (python, rust)
+autocmd FileType python inoremap ;f def <++>(<++>):<Enter><++><Esc>k0/<++><Enter>"_c4l
+autocmd FileType rust	inoremap ;f fn <++>() {<Enter><++><Enter>}<Esc>kk0/<++><Enter>"_c4l
+" [;c] create class 
+" (python, rust TBA)
+autocmd FileType python inoremap ;c class <++>():<Enter>def __init__(self<++>):<Enter><++><Esc>kk0/<++><Enter>"_c4l
+autocmd FileType rust	inoremap ;c <Nop>

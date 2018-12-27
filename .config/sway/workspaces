@@ -133,6 +133,10 @@ bindsym $mod+Shift+KP_Insert	move container to workspace 10, workspace 10
 #######################
 ### Navigation mode ###
 #######################
+# Turns out this actually isn't all that rad,
+# leaving it in but not using it.
+# bindsym section mode "navigation"
+
 mode "navigation" {
 	# Move focus
 	# qwert/asdfg
@@ -238,4 +242,3 @@ mode "navigation" {
 	bindsym Escape				mode "default"
 	bindsym section				mode "default"
 }
-bindsym section mode "navigation"

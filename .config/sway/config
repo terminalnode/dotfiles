@@ -9,7 +9,7 @@
 ## - Media keys + printscreen
 ## - Aesthetics + status bar configuration
 
-exec --no-startup-id fcitx -d
+#exec --no-startup-id fcitx -d
 
 # Imports
 # Defaults
@@ -27,6 +27,7 @@ set $down j
 set $up k
 set $right l
 focus_follows_mouse no
+tiling_drag disable
 
 # Terminal
 set $term termite
@@ -89,12 +90,7 @@ input "2652:34050:Bluetooth_keyboard_Keyboard" {
 }
 
 # Monitors
-# Correct way of doing it:
-# output eDP-1 pos 0 0 res 2560x1600 scale 2.0
-
-# Temporary fix see issue #3277
-# Apple Computer bla bla will later change to eDP-1
-output 'Apple Computer Inc Color LCD 0x00000000' {
+output eDP-1 {
 	pos 0 0
 	res 2560x1600
 	scale 2.0
@@ -160,6 +156,6 @@ include ~/.config/sway/client-config
 include ~/.config/sway/bar-config
 
 font pango:Bitstream Vera Sans 9,Font Awesome 9
-gaps inner 7
-gaps outer 3
+gaps inner 3
+gaps outer 2 
 default_border pixel 3
