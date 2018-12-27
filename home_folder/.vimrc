@@ -109,7 +109,7 @@ inoremap <C-Space> <Esc>/<++><Enter>"_c4l
 """ MACROS
 " [;p] print
 " (python, rust)
-autocmd FileType python inoremap ;p print("<++>")<Esc>0/<++><Enter>"_c4l
+autocmd FileType python inoremap ;p print(<++>)<Esc>0/<++><Enter>"_c4l
 autocmd FileType rust	inoremap ;p println!("<++>"<++>);<Esc>0/<++><Enter>"_c4l
 " [;a] array/list
 " (python, rust)
