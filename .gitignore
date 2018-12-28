@@ -16,3 +16,4 @@
 # home folder
 !home_folder
 !home_folder/*
+!home_folder/.zsh_settings/*

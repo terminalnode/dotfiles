@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# I get confused sometimes....
+# and I enjoy adding support for dumb stuff.
+alias quit='exit'
+alias q='exit'
+alias :q='exit'
+alias :q!='exit'
+alias wq='exit'
+alias :wq='exit'
+alias :wq!='exit'
+
+
+alias pacman='sudo pacman'
+
