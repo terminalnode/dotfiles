@@ -1,53 +1,53 @@
 [options]
-font				= Inconsolata 11
+font					= Inconsolata 11
 
 [colors]
-foreground = #839496
-foreground_bold = #eee8d5
-foreground_dim = #888888
-cursor = #93a1a1
-background = rgba(0, 43, 54, 0.90)
+foreground				= #839496
+foreground_bold			= #eee8d5
+foreground_dim			= #888888
+cursor					= #93a1a1
+background				= rgba(0, 43, 54, 0.90)
+cursor					= #eee8d5
+cursor_foreground		= #002b36
 
-# cursor				= #d8dee9
-# cursor_foreground		= #2e3440
-# foreground			= #d8dee9
-# foreground_bold		= #d8dee9
-# background			= rgba(10, 10, 10, 0.90)
-# highlight				= #4c566a
+#####
+## khamer/base-16-termite/themes/base-16-solarized-dark.config
+#####
 
-# Colour pairs
-# Dark version:	  xx -> 80
-# Bright version: xx -> ff
-# Soralized dark color scheme by alpha-omega/termite-colors-solarized
-
-# Black		(00-00-00 / 80-80-80)
-color0  = #073642 
-color8  = #002b36
-
-# White		(xx-xx-xx)
-color7  = #eee8d5
+# Black, Gray, Silver, White
+color0  = #002b36
+color8  = #657b83
+color7  = #93a1a1
 color15 = #fdf6e3
 
-# Red		(xx-00-00)
+# Red
 color1  = #dc322f
-color9  = #cb4b16
+color9  = #dc322f
 
-# Green		(00-xx-00)
+# Green
 color2  = #859900
-color10 = #586e75
+color10 = #859900
 
-# Yellow	(xx-xx-00)
+# Yellow
 color3  = #b58900
-color11 = #657b83
+color11 = #b58900
 
-# Blue		(00-00-xx)
+# Blue
 color4  = #268bd2
-color12 = #839496
+color12 = #268bd2
 
-# Magenta	(xx-00-xx)
-color5  = #d33682
+# Purple
+color5  = #6c71c4
 color13 = #6c71c4
 
-# Cyan		(00-xx-xx)
+# Teal
 color6  = #2aa198
-color14 = #93a1a1
+color14 = #2aa198
+
+# Extra colors
+color16 = #cb4b16
+color17 = #d33682
+color18 = #073642
+color19 = #586e75
+color20 = #839496
+color21 = #eee8d5
