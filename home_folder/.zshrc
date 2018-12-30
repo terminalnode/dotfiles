@@ -4,8 +4,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 zstyle :compinstall filename '~/.zshrc'
 autoload -Uz compinit; compinit
-
-
+eval $(dircolors ~/.dircolors)
 
 # Most settings are stored in their own
 # files in .zsh_settings. This grants easy
@@ -37,16 +36,9 @@ bindkey    "^[[3~"          delete-char
 bindkey    "^[3;5~"         delete-char
 
 
-
 # Let's make a pretty prompt.
-# Custom characters in man zshmisc
-if [ $(id -u) -eq 0 ];
-then # root has a special prompt
-	PS1="
-%B%F{blue}[%f%b%F{cyan}%n%f%B%F{yellow}@%f%b%F{blue}%M%f %F{yellow}%~%f%B%F{blue}]%f%b
-%B%F{white} > %f%b"
-else # normal users also have a special prompt
-	PS1="
+# Custom characters are listed in man zshmisc
+PS1="
 %B%F{silver}[%f%b%F{cyan}%n%f%B%F{yellow}@%f%b%F{blue}%M%f %F{yellow}%~%f%B%F{silver}]%f%b
-%B%F{white} > %f%b"
-fi
+%B%F{white}> %f%b"
+

@@ -14,13 +14,13 @@ Plugin 'VundleVim/Vundle.vim'
 " Vim airline + themes
 Plugin	'vim-airline/vim-airline'
 Plugin	'vim-airline/vim-airline-themes'
-Plugin	'ashfinal/vim-colors-violet'
 Plugin	'altercation/vim-colors-solarized'
-Plugin  'toupeira/vim-desertink'
 
 " Other stuff
 Plugin	'valloric/youcompleteme'
 Plugin	'godlygeek/tabular'
+
+" Syntax highlighting
 Plugin  'PotatoesMaster/i3-vim-syntax'
 Plugin	'vim-python/python-syntax'
 

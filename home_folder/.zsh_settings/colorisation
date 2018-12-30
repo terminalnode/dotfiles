@@ -1,9 +1,4 @@
 #!/bin/sh
-# This adds color to a few basic commands
-alias grep='grep --color=auto'
-alias ls="ls --color=auto"
-alias diff='diff --color=auto'
-
 # This is adds colos to 'man' by hacking less.
 man() {
     LESS_TERMCAP_md=$'\e[01;31m' \

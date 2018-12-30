@@ -10,6 +10,11 @@ alias wq='exit'
 alias :wq='exit'
 alias :wq!='exit'
 
+# Colorisation
+alias ls='ls -F --group-directories-first --color'
+alias grep='grep --color=auto'
+alias diff='diff --color=auto'
 
 alias pacman='sudo pacman'
 alias syupdate='sudo pacman -Syu && yay -Syu'
+
