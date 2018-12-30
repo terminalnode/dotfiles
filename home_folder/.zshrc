@@ -39,6 +39,6 @@ bindkey    "^[3;5~"         delete-char
 # Let's make a pretty prompt.
 # Custom characters are listed in man zshmisc
 PS1="
-%B%F{silver}[%f%b%F{cyan}%n%f%B%F{yellow}@%f%b%F{blue}%M%f %F{yellow}%~%f%B%F{silver}]%f%b
+%B%F{11}[%f%b%F{cyan}%n%f%B%F{11}@%f%b%F{blue}%M%f %F{yellow}%~%f%B%F{11}]%f%b
 %B%F{white}> %f%b"
 
