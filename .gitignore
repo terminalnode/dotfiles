@@ -1,19 +1,18 @@
-# Ignore everything
-*
-!.gitignore
+# Ignore
+vim/bundle
+config/*
 
-# .config/...
-!.config
-!.config/termite
-!.config/termite/*
-!.config/i3
-!.config/i3/*
-!.config/i3blocks
-!.config/i3blocks/config
-!.config/sway
-!.config/sway/*
+# Unignore
+!config/termite
+!config/termite/*
 
-# home folder
-!home_folder
-!home_folder/*
-!home_folder/.zsh_settings/*
+!config/i3
+!config/i3/*
+!config/i3blocks
+!config/i3blocks/config
+
+!config/sway
+!config/sway/*
+
+!config/rofi
+!config/rofi/*
