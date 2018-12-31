@@ -14,7 +14,7 @@ eval $(dircolors ~/.dircolors)
 # These files include:
 # exports
 # aliases_[console/gui]
-for file in ~/.zsh_imports/*
+for file in ~/.zshstuff/*
 do
     . ${file}
 done
