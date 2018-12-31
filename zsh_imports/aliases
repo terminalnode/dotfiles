@@ -1,0 +1,25 @@
+#!/bin/sh
+# GUI applications
+alias spotify="spotify --force-device-scale-factor=2"
+
+# Keeping it just in case, but shouldn't be needed anymore
+# alias sway="export XKB_DEFAULT_LAYOUT=se; export XKB_DEFAULT_VARIANT=dvorak_a5; export XKB_DEFAULT_MODEL=pc105; sway"
+
+# I get confused sometimes....
+# and I enjoy adding support for dumb stuff.
+alias quit='exit'
+alias q='exit'
+alias :q='exit'
+alias :q!='exit'
+alias wq='exit'
+alias :wq='exit'
+alias :wq!='exit'
+
+# Colorisation
+alias ls='ls -F --group-directories-first --color'
+alias grep='grep --color=auto'
+alias diff='diff --color=auto'
+
+alias pacman='sudo pacman'
+alias syu='sudo pacman -Syu && yay -Syu'
+
