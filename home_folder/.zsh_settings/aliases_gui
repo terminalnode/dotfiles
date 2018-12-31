@@ -1,3 +1,0 @@
-#!/bin/sh
-alias spotify="spotify --force-device-scale-factor=2"
-alias sway="export XKB_DEFAULT_LAYOUT=se; export XKB_DEFAULT_VARIANT=dvorak_a5; export XKB_DEFAULT_MODEL=pc105; sway"
