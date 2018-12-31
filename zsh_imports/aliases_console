@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# I get confused sometimes....
+# and I enjoy adding support for dumb stuff.
+alias quit='exit'
+alias q='exit'
+alias :q='exit'
+alias :q!='exit'
+alias wq='exit'
+alias :wq='exit'
+alias :wq!='exit'
+
+# Colorisation
+alias ls='ls -F --group-directories-first --color'
+alias grep='grep --color=auto'
+alias diff='diff --color=auto'
+
+alias pacman='sudo pacman'
+alias syu='sudo pacman -Syu && yay -Syu'
+
