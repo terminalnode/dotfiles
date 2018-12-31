@@ -16,5 +16,5 @@ alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 
 alias pacman='sudo pacman'
-alias syupdate='sudo pacman -Syu && yay -Syu'
+alias syu='sudo pacman -Syu && yay -Syu'
 
