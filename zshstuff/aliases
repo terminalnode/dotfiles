@@ -20,6 +20,9 @@ alias ls='ls -F --group-directories-first --color'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 
+# Auto sudo
+alias ip='sudo ip'
 alias pacman='sudo pacman'
-alias syu='sudo pacman -Syu && yay -Syu'
 
+# System maintenance
+alias syu='sudo pacman -Syu && yay -Syu'
