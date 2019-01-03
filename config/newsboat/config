@@ -1,0 +1,22 @@
+# Example config 1:
+# https://gist.github.com/anonymous/42d2f5956e7bc8ee1ebc
+#
+# Example config 2:
+# http://moparx.com/configs/newsbeuter/
+
+auto-reload	yes
+player mplayer
+
+# TODO
+# show-keymap-hint false 
+# download-path "INSERT PATH"
+
+# Solarized colour scheme
+color listfocus_unread  black	yellow
+color background         default   default
+color listnormal         default   default
+color listnormal_unread  default   default
+color listfocus          black     yellow
+color listfocus_unread   black     yellow
+color info               default   black
+color article			 default default

@@ -5,15 +5,12 @@ config/*
 
 # Unignore
 !config/termite
-!config/termite/*
+!config/sway
+!config/rofi
 
 !config/i3
-!config/i3/*
 !config/i3blocks
 !config/i3blocks/config
 
-!config/sway
-!config/sway/*
-
-!config/rofi
-!config/rofi/*
+!config/newsboat
+config/newsboat/urls
