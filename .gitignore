@@ -7,10 +7,7 @@ config/*
 !config/termite
 !config/sway
 !config/rofi
-
 !config/i3
-!config/i3blocks
-!config/i3blocks/config
 
 !config/newsboat
 config/newsboat/urls
