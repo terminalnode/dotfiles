@@ -26,4 +26,15 @@ alias ip='sudo ip'
 alias pacman='sudo pacman'
 
 # System maintenance
+# (pm)syu	Update all packages.
+# (pm)aur	List all installed AUR packages.
+# pmall		List all installed packages.
+# pmgit		List all packages installed from hg/git.
+# pmnot		List all unneeded dependencies
 alias syu='sudo pacman -Syu && yay -Syu'
+alias pmsyu='sudo pacman -Syu && yay -Syu'
+alias aur='sudo pacman -Qm'
+alias pmaur='sudo pacman -Qm'
+alias pmall='sudo pacman -Qe'
+alias pmgit='sudo pacman -Qm | grep "git\|hg"'
+alias pmnot='sudo pacman -Qdtq'
