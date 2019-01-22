@@ -8,6 +8,7 @@ config/*
 !config/sway
 !config/rofi
 !config/i3
+!config/zathura
 
 !config/newsboat
 config/newsboat/urls
