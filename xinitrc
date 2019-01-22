@@ -1,4 +1,8 @@
 #!/bin/sh
+# NOT ACTIVELY MAINTAINED
+# Since I use sway as my daily driver this file
+# is not being actively maintained. It's kept here
+# as a base in case I need it again.
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
