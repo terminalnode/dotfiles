@@ -13,18 +13,18 @@ Plugin 'VundleVim/Vundle.vim'
 " https://github.com/VundleVim/Vundle.vim
 
 " Vim airline + themes
-Plugin	'vim-airline/vim-airline'
-Plugin	'vim-airline/vim-airline-themes'
-Plugin	'altercation/vim-colors-solarized'
-Plugin  'arcticicestudio/nord-vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'arcticicestudio/nord-vim'
 
 " Other stuff
-Plugin	'valloric/youcompleteme'
-Plugin	'godlygeek/tabular'
+Plugin 'valloric/youcompleteme'
+Plugin 'godlygeek/tabular'
 
 " Syntax highlighting
-Plugin  'PotatoesMaster/i3-vim-syntax'
-Plugin	'vim-python/python-syntax'
+Plugin 'PotatoesMaster/i3-vim-syntax'
+Plugin 'vim-python/python-syntax'
 
 call vundle#end()
 filetype plugin indent on
@@ -94,11 +94,13 @@ cmap w!! w !sudo tee > /dev/null %
 " j		when sense it does make, comment leader go away, in joining of lines
 set formatoptions=rqn1Mj
 
-""" TABS
-set autoindent
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4			" defaults to tabstop
+""" TAB SETTINGS
+set shiftwidth=4			" size of an indentation 
+set tabstop=4				" length of a tab character in spaces
+set softtabstop=0			" idk felt cute might delete later
+set autoindent				" copy indentation of previous line on new line
+set expandtab				" Make the tabkey insert spaces instead of tabs
+set smarttab				" tab to suitable level instead of one tab at a time
 filetype plugin indent on	" will use scripts in indent folder
 
 """ SEARCH
@@ -114,6 +116,9 @@ nnoremap Q <Nop>
 inoremap <C-Space> <Esc>/<++><Enter>"_c4l
 
 """ MACROS
+" TODO	These mappings are kinda shitty, specifically the
+"		leader key being ; and used in insert mode.
+"		Needs to be remapped to something non-ridiculous.
 let mapleader = ";"
 " [;p] print
 " (python, rust)

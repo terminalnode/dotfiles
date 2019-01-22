@@ -4,12 +4,13 @@ bar {
 	position top
     colors {
         statusline			#ffffff
-        background			#122224bb
-        inactive_workspace	#234145cc #234145cc #c1c1c1
-		focused_workspace	#dddae8cc #21616a	#c1c1c1
-		active_workspace	#117777cc #21616a	#c1c1c1
-		# urgent workspace
-		# binding mode
+        background			#2e344088
 
+		##############      Border    Filling   Text
+		inactive_workspace	#81a1c1   #4c566a   #eceff4
+		focused_workspace	#eceff4   #5e81ac   #eceff4
+		active_workspace	#eceff4   #5e81ac   #eceff4
+		urgent_workspace	#eceff4   #bf616a   #eceff4
+		binding_mode    	#3b4252   #a3be8c   #3b4252
     }
 }

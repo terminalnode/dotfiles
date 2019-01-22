@@ -29,8 +29,8 @@ alias pacman='sudo pacman'
 alias parch='ping archlinux.org'
 
 # Pacman commands
-alias syu='sudo pacman -Syu && yay -Syu'
-alias pmsyu='sudo pacman -Syu && yay -Syu'
+alias syu='yay -Syu'
+alias pmsyu='yay -Syu'
 alias aur='sudo pacman -Qm'
 alias pmaur='sudo pacman -Qm'
 alias pmall='sudo pacman -Qe'
