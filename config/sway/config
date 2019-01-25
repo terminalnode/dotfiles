@@ -27,6 +27,7 @@ set $down j
 set $up k
 set $right l
 focus_follows_mouse no
+mouse_warping none
 tiling_drag disable
 
 # Terminal
