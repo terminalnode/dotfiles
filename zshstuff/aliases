@@ -28,9 +28,12 @@ alias pacman='sudo pacman'
 # System maintenance
 alias parch='ping archlinux.org'
 
-# Pacman commands
+# YAY-stuff
 alias syu='yay -Syu'
 alias pmsyu='yay -Syu'
+alias upsway="yay -S wlroots-git sway-git swayidle-git slurp-git grim-git"
+
+# PACMAN-stuff
 alias aur='sudo pacman -Qm'
 alias pmaur='sudo pacman -Qm'
 alias pmall='sudo pacman -Qe'
