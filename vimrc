@@ -15,7 +15,6 @@ Plugin 'VundleVim/Vundle.vim'
 " Vim airline + themes
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'arcticicestudio/nord-vim'
 
 " Other stuff
@@ -25,6 +24,7 @@ Plugin 'godlygeek/tabular'
 " Syntax highlighting
 Plugin 'PotatoesMaster/i3-vim-syntax'
 Plugin 'vim-python/python-syntax'
+Plugin 'neovimhaskell/haskell-vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -40,7 +40,7 @@ autocmd ColorScheme * highlight Normal ctermbg=None
 autocmd ColorScheme * highlight NonText ctermbg=None
 
 set background=dark
-colorscheme nord
+" colorscheme nord " nord colorscheme can't do haskell so fuck it
 let g:nord_italic = 1
 let g:nord_underline = 1
 let g:nord_italic_comments = 1
@@ -52,6 +52,13 @@ let g:python_highlight_all = 1
 
 "let g:airline#extensions#hunks#non_zero_only = 1
 "let g:airline#extensions#tabline#enabled = 1
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keyword
 
 """ FEEL
 syntax on						" enables syntax highlighning
