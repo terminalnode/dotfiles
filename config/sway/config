@@ -1,5 +1,4 @@
-##########################
-### SWAY CONFIGURATION ###
+
 ##########################
 ## Structure:
 ## This configuration file is split into multiple files, imported at the top of the file.
@@ -9,42 +8,24 @@
 ## - Media keys + printscreen
 ## - Aesthetics + status bar configuration
 
-#exec --no-startup-id fcitx -d
-
-# Imports
-# Defaults
-include /etc/sway/config.d/*
-
 # Navigate/move within and between workspaces
 include ~/.config/sway/workspaces
 
-# Resize windows
-include ~/.config/sway/resize_mode
+# Most keybindings are kbd layout dependent.
+# The defaults for these are in ./svorak
+include ~/.config/sway/svorak
 
-set $mod Mod4
-set $left h
-set $down j
-set $up k
-set $right l
 focus_follows_mouse no
 mouse_warping none
 tiling_drag disable
-
-# Terminal
 set $term termite
 bindsym $mod+Return exec $term
+set $mod Mod4
 
 # Launcher
 set $menu rofi
 bindsym $mod+Space exec $menu -show drun
 bindsym $mod+Shift+Space exec $menu -show run
-
-# Useful hotkeys
-bindsym $mod+q				kill
-bindsym $mod+f				fullscreen
-bindsym $mod+Shift+c		reload
-bindsym $mod+v				split toggle
-bindsym $mod+t				layout toggle tabbed split
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -57,38 +38,6 @@ floating_modifier $mod normal
 # You can send windows there and get them back later.
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
-
-###########################
-### INPUT/OUTPUT CONFIG ###
-###########################
-## swaymsg -t get_outputs
-## swaymsg -t get_inputs
-
-# General input settings go under the "*" identifier.
-# Exceptions are specified below.
-input "*" {
-	# Keyboards
-	xkb_layout se
-	xkb_variant dvorak_a5
-	xkb_options caps:swapescape
-
-	# Pointers
-	dwt					disabled
-	tap					enabled
-	natural_scroll		enabled
-	middle_emulation	enabled
-	tap_button_map		lrm
-	scroll_method		two_finger
-	scroll_factor		0.7
-}
-
-# Exception: Bluetooth keyboard is too small to touch type on.
-# Will therefor be using the layout printed onto the keys.
-input "2652:34050:Bluetooth_keyboard_Keyboard" {
-	xkb_layout se
-	xkb_variant ,nodeadkeys
-	xkb_options caps:swapescape
-}
 
 # Monitors
 output eDP-1 {
@@ -104,7 +53,64 @@ output HDMI-1 pos 1280 0
 
 # Same background for all screens.
 output * bg ~/pics/wallpapers/space-nebula.jpg fill
-# output * bg ~/pics/wallpapers//painting-sundown.png fill
+
+##################################
+### Workspace output placement ###
+##################################
+# workspace 1						output eDP-1
+# workspace 2						output eDP-1
+# workspace 3						output eDP-1
+# workspace 4						output eDP-1
+# workspace 5						output eDP-1
+# workspace 6						output DP-1, DP-2, HDMI-1, eDP-1
+# workspace 7						output DP-1, DP-2, HDMI-1, eDP-1
+# workspace 8						output DP-1, DP-2, HDMI-1, eDP-1
+# workspace 9						output DP-1, DP-2, HDMI-1, eDP-1
+# workspace 10						output DP-1, DP-2, HDMI-1, eDP-1
+
+workspace 1 						output  'Apple Computer Inc Color LCD 0x00000000' 
+workspace 2							output  'Apple Computer Inc Color LCD 0x00000000' 
+workspace 3							output  'Apple Computer Inc Color LCD 0x00000000' 
+workspace 4							output  'Apple Computer Inc Color LCD 0x00000000' 
+workspace 5							output  'Apple Computer Inc Color LCD 0x00000000' 
+workspace 6							output  'Unknown Viseo 200Ws D140C0194003' 
+workspace 7							output  'Unknown Viseo 200Ws D140C0194003' 
+workspace 8							output  'Unknown Viseo 200Ws D140C0194003' 
+workspace 9							output  'Unknown Viseo 200Ws D140C0194003' 
+workspace 10						output  'Unknown Viseo 200Ws D140C0194003' 
+
+###########################
+### INPUT/OUTPUT CONFIG ###
+###########################
+## swaymsg -t get_outputs
+## swaymsg -t get_inputs
+
+# General input settings go under the "*" identifier.
+# Exceptions are specified below.
+#input "*" {
+#	# Keyboards
+#	xkb_layout se
+#    xkb_variant dvorak_a5
+#	xkb_options caps:swapescape
+#
+#	# Pointers
+#	dwt                 disabled
+#	tap                 enabled
+#	natural_scroll      enabled
+#	middle_emulation    enabled
+#	tap_button_map      lrm
+#	scroll_method       two_finger
+#	scroll_factor       0.5
+#}
+
+# Exception: Bluetooth keyboard is too small to touch type on.
+# Will therefor be using the layout printed onto the keys.
+#input "2652:34050:Bluetooth_keyboard_Keyboard" {
+#	xkb_layout se
+#	xkb_variant ,nodeadkeys
+#	xkb_options caps:swapescape
+#}
+
 
 ######################
 ### MEDIA KEYS ETC ###
@@ -154,10 +160,40 @@ bindsym Print						exec slurp | grim -t png -c -g - ~/screenshot.png
 ### AESTHETICS + STATUS BAR ###
 ###############################
 ## man 5 sway-bar
-include ~/.config/sway/client-config
-include ~/.config/sway/bar-config
-
 font pango:Bitstream Vera Sans 9,Font Awesome 9
 gaps inner 3
 gaps outer 2 
 default_border pixel 3
+
+## Syntax:
+## client.<class> border background text indicator child_border
+## border	the border around the title bar
+## background	the background of the title bar
+## text			the text of the title bar
+## indicator		side of the border where the window will split
+## child_border	the border around the view itself
+## Defaults:
+##							border		background	text		indicator	child_border
+## client.background			N/A			#ffffff		N/A			N/A			N/A
+## client.focused			#4c7899		#285577		#ffffff		#2e9ef4		#285577
+## client.focused_inactive	#333333		#5f676a		#ffffff		#484e50		#5f676a
+## client.placeholder		#000000		#0c0c0c		#ffffff		#000000		#0c0c0c
+## client.unfocused			#333333		#222222		#888888		#292d2e		#222222
+## client.urgent			#2f343a		#900000		#ffffff		#900000		#900000
+client.focused				#5e81ac		#5e81ac		#eceff4		#88c0d0		#5e81ac
+
+bar {
+	status_command i3blocks
+	position top
+    colors {
+        statusline			#ffffff
+        background			#2e344088
+
+		##############      Border    Filling   Text
+		inactive_workspace	#81a1c1   #4c566a   #eceff4
+		focused_workspace	#eceff4   #5e81ac   #eceff4
+		active_workspace	#eceff4   #5e81ac   #eceff4
+		urgent_workspace	#eceff4   #bf616a   #eceff4
+		binding_mode    	#3b4252   #a3be8c   #3b4252
+    }
+}
