@@ -22,7 +22,7 @@ Plugin 'valloric/youcompleteme'
 Plugin 'godlygeek/tabular'
 
 " Syntax highlighting
-Plugin 'PotatoesMaster/i3-vim-syntax'
+Plugin 'terminalnode/sway-vim-syntax'
 Plugin 'vim-python/python-syntax'
 Plugin 'neovimhaskell/haskell-vim'
 
