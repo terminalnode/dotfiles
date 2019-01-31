@@ -57,60 +57,27 @@ output * bg ~/pics/wallpapers/space-nebula.jpg fill
 ##################################
 ### Workspace output placement ###
 ##################################
-# workspace 1						output eDP-1
-# workspace 2						output eDP-1
-# workspace 3						output eDP-1
-# workspace 4						output eDP-1
-# workspace 5						output eDP-1
-# workspace 6						output DP-1, DP-2, HDMI-1, eDP-1
-# workspace 7						output DP-1, DP-2, HDMI-1, eDP-1
-# workspace 8						output DP-1, DP-2, HDMI-1, eDP-1
-# workspace 9						output DP-1, DP-2, HDMI-1, eDP-1
-# workspace 10						output DP-1, DP-2, HDMI-1, eDP-1
+# workspace 1   output eDP-1
+# workspace 2   output eDP-1
+# workspace 3   output eDP-1
+# workspace 4   output eDP-1
+# workspace 5   output eDP-1
+# workspace 6   output DP-1, DP-2, HDMI-1, eDP-1
+# workspace 7   output DP-1, DP-2, HDMI-1, eDP-1
+# workspace 8   output DP-1, DP-2, HDMI-1, eDP-1
+# workspace 9   output DP-1, DP-2, HDMI-1, eDP-1
+# workspace 10  output DP-1, DP-2, HDMI-1, eDP-1
 
-workspace 1 						output  'Apple Computer Inc Color LCD 0x00000000' 
-workspace 2							output  'Apple Computer Inc Color LCD 0x00000000' 
-workspace 3							output  'Apple Computer Inc Color LCD 0x00000000' 
-workspace 4							output  'Apple Computer Inc Color LCD 0x00000000' 
-workspace 5							output  'Apple Computer Inc Color LCD 0x00000000' 
-workspace 6							output  'Unknown Viseo 200Ws D140C0194003' 
-workspace 7							output  'Unknown Viseo 200Ws D140C0194003' 
-workspace 8							output  'Unknown Viseo 200Ws D140C0194003' 
-workspace 9							output  'Unknown Viseo 200Ws D140C0194003' 
-workspace 10						output  'Unknown Viseo 200Ws D140C0194003' 
-
-###########################
-### INPUT/OUTPUT CONFIG ###
-###########################
-## swaymsg -t get_outputs
-## swaymsg -t get_inputs
-
-# General input settings go under the "*" identifier.
-# Exceptions are specified below.
-#input "*" {
-#	# Keyboards
-#	xkb_layout se
-#    xkb_variant dvorak_a5
-#	xkb_options caps:swapescape
-#
-#	# Pointers
-#	dwt                 disabled
-#	tap                 enabled
-#	natural_scroll      enabled
-#	middle_emulation    enabled
-#	tap_button_map      lrm
-#	scroll_method       two_finger
-#	scroll_factor       0.5
-#}
-
-# Exception: Bluetooth keyboard is too small to touch type on.
-# Will therefor be using the layout printed onto the keys.
-#input "2652:34050:Bluetooth_keyboard_Keyboard" {
-#	xkb_layout se
-#	xkb_variant ,nodeadkeys
-#	xkb_options caps:swapescape
-#}
-
+workspace 1     output 'Apple Computer Inc Color LCD 0x00000000' 
+workspace 2     output 'Apple Computer Inc Color LCD 0x00000000' 
+workspace 3     output 'Apple Computer Inc Color LCD 0x00000000' 
+workspace 4     output 'Apple Computer Inc Color LCD 0x00000000' 
+workspace 5     output 'Apple Computer Inc Color LCD 0x00000000' 
+workspace 6     output 'Unknown Viseo 200Ws D140C0194003' 
+workspace 7     output 'Unknown Viseo 200Ws D140C0194003' 
+workspace 8     output 'Unknown Viseo 200Ws D140C0194003' 
+workspace 9     output 'Unknown Viseo 200Ws D140C0194003' 
+workspace 10    output 'Unknown Viseo 200Ws D140C0194003' 
 
 ######################
 ### MEDIA KEYS ETC ###
@@ -162,7 +129,7 @@ bindsym Print						exec slurp | grim -t png -c -g - ~/screenshot.png
 ## man 5 sway-bar
 font pango:Bitstream Vera Sans 9,Font Awesome 9
 gaps inner 3
-gaps outer 2 
+gaps outer 2
 default_border pixel 3
 
 ## Syntax:
