@@ -24,6 +24,7 @@ alias diff='diff --color=auto'
 # Auto sudo
 alias ip='sudo ip'
 alias pacman='sudo pacman'
+alias systemctl='sudo systemctl'
 
 # System maintenance
 alias parch='ping archlinux.org'
