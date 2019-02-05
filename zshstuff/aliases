@@ -1,7 +1,7 @@
 #!/bin/sh
 # GUI applications
 alias spotify="spotify --force-device-scale-factor=2 & disown"
-alias firefox="GDK_BACKEND=wayland firefox-beta & disown"
+alias firefox="GDK_BACKEND=wayland firefox & disown"
 
 # Keeping it just in case, but shouldn't be needed anymore
 # alias sway="export XKB_DEFAULT_LAYOUT=se; export XKB_DEFAULT_VARIANT=dvorak_a5; export XKB_DEFAULT_MODEL=pc105; sway"
@@ -28,6 +28,7 @@ alias systemctl='sudo systemctl'
 
 # System maintenance
 alias parch='ping archlinux.org'
+alias free='free -ht'
 
 # YAY-stuff
 alias syu='yay -Syu'
