@@ -23,6 +23,7 @@ bindsym $mod+Return exec $term
 set $mod Mod4
 seat seat0 hide_cursor 3000
 bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Shift+Tab workspace next_on_output
 
 # Launcher
 set $menu rofi
