@@ -8,19 +8,21 @@
 ## - Media keys + printscreen
 ## - Aesthetics + status bar configuration
 
-# Navigate/move within and between workspaces
-include ~/.config/sway/workspaces
-
-# Most keybindings are kbd layout dependent.
+# Most keybindings are dependent on keyboard layout.
 # The defaults for these are in ./svorak
 include ~/.config/sway/svorak
 
+# Cursor-related stuff
 focus_follows_mouse no
 mouse_warping none
 tiling_drag disable
+
+xwayland enable
 set $term termite
 bindsym $mod+Return exec $term
 set $mod Mod4
+seat seat0 hide_cursor 3000
+bindsym $mod+Tab workspace back_and_forth
 
 # Launcher
 set $menu rofi
