@@ -44,9 +44,9 @@ bindsym $mod+minus scratchpad show
 
 # Monitors
 output eDP-1 {
-	pos 0 0
-	res 2560x1600
-	scale 2.0
+    pos 0 0
+    res 2560x1600
+    scale 2.0
 }
 
 # Place all extra outputs right of main screen.
@@ -86,28 +86,28 @@ workspace 10    output 'Unknown Viseo 200Ws D140C0194003'
 ### MEDIA KEYS ETC ###
 ######################
 # Dependencies:
-# Screen/keyboard brightness	acpilight
-# Sound levels					pamixer
-# Screenshots					grim, slurp
+# Screen/keyboard brightness    acpilight
+# Sound levels                  pamixer
+# Screenshots                   grim, slurp
 #
 # For almost all media keys these is an option for
 # slowly incrementing/decrementing with [shift/$mod]+mediakey
 
 # SCREEN BRIGHTNESS
-bindsym XF86MonBrightnessUp			exec xbacklight -inc 5, exec pkill -RTMIN+8 i3blocks
-bindsym XF86MonBrightnessDown		exec xbacklight -dec 5, exec pkill -RTMIN+8 i3blocks
-bindsym shift+XF86MonBrightnessUp	exec xbacklight -inc 1, exec pkill -RTMIN+8 i3blocks
+bindsym XF86MonBrightnessUp         exec xbacklight -inc 5, exec pkill -RTMIN+8 i3blocks
+bindsym XF86MonBrightnessDown       exec xbacklight -dec 5, exec pkill -RTMIN+8 i3blocks
+bindsym shift+XF86MonBrightnessUp   exec xbacklight -inc 1, exec pkill -RTMIN+8 i3blocks
 bindsym shift+XF86MonBrightnessDown exec xbacklight -dec 1, exec pkill -RTMIN+8 i3blocks
-bindsym $mod+XF86MonBrightnessUp	exec xbacklight -inc 1, exec pkill -RTMIN+8 i3blocks
-bindsym $mod+XF86MonBrightnessDown	exec xbacklight -dec 1, exec pkill -RTMIN+8 i3blocks
+bindsym $mod+XF86MonBrightnessUp    exec xbacklight -inc 1, exec pkill -RTMIN+8 i3blocks
+bindsym $mod+XF86MonBrightnessDown  exec xbacklight -dec 1, exec pkill -RTMIN+8 i3blocks
 
 # KEYBOARD BACKLIGHT
-bindsym XF86KbdBrightnessUp			exec xbacklight -ctrl smc::kbd_backlight -inc 5
-bindsym XF86KbdBrightnessDown		exec xbacklight -ctrl smc::kbd_backlight -dec 5
-bindsym shift+XF86KbdBrightnessUp	exec xbacklight -ctrl smc::kbd_backlight -inc 1
+bindsym XF86KbdBrightnessUp         exec xbacklight -ctrl smc::kbd_backlight -inc 5
+bindsym XF86KbdBrightnessDown       exec xbacklight -ctrl smc::kbd_backlight -dec 5
+bindsym shift+XF86KbdBrightnessUp   exec xbacklight -ctrl smc::kbd_backlight -inc 1
 bindsym shift+XF86KbdBrightnessDown exec xbacklight -ctrl smc::kbd_backlight -dec 1
-bindsym $mod+XF86KbdBrightnessUp	exec xbacklight -ctrl smc::kbd_backlight -inc 1
-bindsym $mod+XF86KbdBrightnessDown	exec xbacklight -ctrl smc::kbd_backlight -dec 1
+bindsym $mod+XF86KbdBrightnessUp    exec xbacklight -ctrl smc::kbd_backlight -inc 1
+bindsym $mod+XF86KbdBrightnessDown  exec xbacklight -ctrl smc::kbd_backlight -dec 1
 
 # VOLUME KEYS
 bindsym XF86AudioMute               exec pamixer -t, exec pkill -RTMIN+10 i3blocks
@@ -116,15 +116,14 @@ bindsym XF86AudioLowerVolume        exec pamixer -d 5, exec pkill -RTMIN+10 i3bl
 bindsym shift+XF86AudioRaiseVolume  exec pamixer -i 1, exec pkill -RTMIN+10 i3blocks
 bindsym shift+XF86AudioLowerVolume  exec pamixer -d 1, exec pkill -RTMIN+10 i3blocks
 bindsym $mod+XF86AudioRaiseVolume   exec pamixer -i 1, exec pkill -RTMIN+10 i3blocks
-bindsym $mod+XF86AudioLowerVolume   exec pamixer -d 1, exec pkill -RTMIN+10 i3blocks
+bindsym $mod+XF86AudioLowerVolum    exec pamixer -d 1, exec pkill -RTMIN+10 i3blocks
 
 # SCREENSHOTS
-# macOS-style bindings
-bindsym $mod+shift+3				exec grim -t png -c ~/screenshot.png
-bindsym $mod+shift+4				exec slurp | grim -t png -c -g - ~/screenshot.png 
-# Every other OS known to man-style bindings
-bindsym $mod+Print					exec grim -t png -c ~/screenshot.png
-bindsym Print						exec slurp | grim -t png -c -g - ~/screenshot.png 
+# macOS-style bindings vs everyone else-style bindings
+bindsym $mod+shift+3    exec grim -t png -c ~/screenshot.png
+bindsym $mod+shift+4    exec slurp | grim -t png -c -g - ~/screenshot.png 
+bindsym $mod+Print      exec grim -t png -c ~/screenshot.png
+bindsym Print           exec slurp | grim -t png -c -g - ~/screenshot.png 
 
 ###############################
 ### AESTHETICS + STATUS BAR ###
@@ -135,35 +134,36 @@ gaps inner 3
 gaps outer 2
 default_border pixel 3
 
-## Syntax:
-## client.<class> border background text indicator child_border
-## border	the border around the title bar
-## background	the background of the title bar
-## text			the text of the title bar
-## indicator		side of the border where the window will split
-## child_border	the border around the view itself
-## Defaults:
-##							border		background	text		indicator	child_border
-## client.background			N/A			#ffffff		N/A			N/A			N/A
-## client.focused			#4c7899		#285577		#ffffff		#2e9ef4		#285577
-## client.focused_inactive	#333333		#5f676a		#ffffff		#484e50		#5f676a
-## client.placeholder		#000000		#0c0c0c		#ffffff		#000000		#0c0c0c
-## client.unfocused			#333333		#222222		#888888		#292d2e		#222222
-## client.urgent			#2f343a		#900000		#ffffff		#900000		#900000
-client.focused				#5e81ac		#5e81ac		#eceff4		#88c0d0		#5e81ac
+## SYNTAX
+## client.<class>   border background text indicator child_border
+## border           the border around the title bar
+## background       the background of the title bar
+## text             the text of the title bar
+## indicator        side of the border where the window will split
+## child_border     the border around the view itself
+
+## DEFAULTS                 border      background  text        indicator   child_border
+## client.background        N/A         #ffffff     N/A         N/A         N/A
+## client.focused           #4c7899     #285577     #ffffff     #2e9ef4     #285577
+## client.focused_inactive  #333333     #5f676a     #ffffff     #484e50     #5f676a
+## client.placeholder       #000000     #0c0c0c     #ffffff     #000000     #0c0c0c
+## client.unfocused         #333333     #222222     #888888     #292d2e     #222222
+## client.urgent            #2f343a     #900000     #ffffff     #900000     #900000
+client.focused              #5e81ac     #5e81ac     #eceff4     #88c0d0     #5e81ac
+# client.focused            #5e81ac     #5e81ac     #eceff4     #88c0d0     #5e81ac
 
 bar {
 	status_command i3blocks
 	position top
     colors {
-        statusline			#ffffff
-        background			#2e344088
+        statusline          #ffffff
+        background          #2e344088
 
-		##############      Border    Filling   Text
-		inactive_workspace	#81a1c1   #4c566a   #eceff4
-		focused_workspace	#eceff4   #5e81ac   #eceff4
-		active_workspace	#eceff4   #5e81ac   #eceff4
-		urgent_workspace	#eceff4   #bf616a   #eceff4
-		binding_mode    	#3b4252   #a3be8c   #3b4252
+		##############      Border      Filling     Text
+		inactive_workspace  #81a1c1     #4c566a     #eceff4
+		focused_workspace   #eceff4     #5e81ac     #eceff4
+		active_workspace    #eceff4     #5e81ac     #eceff4
+		urgent_workspace    #eceff4     #bf616a     #eceff4
+		binding_mode        #3b4252     #a3be8c     #3b4252
     }
 }
