@@ -1,0 +1,7 @@
+# Only display filename in window title
+set window-title-basename   true
+set window-title-home-tilde false
+
+# Display path to file in statusbar
+set statusbar-basename      false
+set statusbar-home-tilde    true
