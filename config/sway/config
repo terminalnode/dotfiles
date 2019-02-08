@@ -14,16 +14,17 @@ include ~/.config/sway/svorak
 
 # Cursor-related stuff
 focus_follows_mouse no
-mouse_warping none
-tiling_drag disable
-
-xwayland enable
+mouse_warping       none
+tiling_drag         disable
+xwayland            enable
 set $term termite
-bindsym $mod+Return exec $term
 set $mod Mod4
-seat seat0 hide_cursor 3000
+bindsym $mod+Return exec $term
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Shift+Tab workspace next_on_output
+seat seat0 {
+    hide_cursor 3000
+}
 
 # Launcher
 set $menu rofi
@@ -116,7 +117,7 @@ bindsym XF86AudioLowerVolume        exec pamixer -d 5, exec pkill -RTMIN+10 i3bl
 bindsym shift+XF86AudioRaiseVolume  exec pamixer -i 1, exec pkill -RTMIN+10 i3blocks
 bindsym shift+XF86AudioLowerVolume  exec pamixer -d 1, exec pkill -RTMIN+10 i3blocks
 bindsym $mod+XF86AudioRaiseVolume   exec pamixer -i 1, exec pkill -RTMIN+10 i3blocks
-bindsym $mod+XF86AudioLowerVolum    exec pamixer -d 1, exec pkill -RTMIN+10 i3blocks
+bindsym $mod+XF86AudioLowerVolume   exec pamixer -d 1, exec pkill -RTMIN+10 i3blocks
 
 # SCREENSHOTS
 # macOS-style bindings vs everyone else-style bindings
