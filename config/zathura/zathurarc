@@ -5,3 +5,8 @@ set window-title-home-tilde false
 # Display path to file in statusbar
 set statusbar-basename      false
 set statusbar-home-tilde    true
+
+# Don't quit when q is pressed, it's annoying.
+# Make it do something useful instead.
+map q recolor
+map Q toggle_page_mode
