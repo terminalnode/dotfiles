@@ -4,11 +4,12 @@ vim/.netrwhist
 config/*
 
 # Unignore
-!config/termite
 !config/sway
 config/sway/test
-!config/rofi
 !config/i3
+!config/mpv
+!config/rofi
+!config/termite
 !config/zathura
 
 !config/newsboat
