@@ -36,9 +36,11 @@ alias pmsyu='yay -Syu'
 alias upsway="yay -S wlroots-git sway-git swayidle-git slurp-git grim-git"
 
 # PACMAN-stuff
-alias aur='sudo pacman -Qm'
-alias pmaur='sudo pacman -Qm'
-alias pmall='sudo pacman -Qe'
-alias pmgit='sudo pacman -Qm | grep "git\|hg"'
-alias pmnot='sudo pacman -Qdtq'
+alias aur='pacman -Qm'
+alias pmaur='pacman -Qm'
+alias pmall='pacman -Qe'
+alias pmgit='pacman -Qm | grep "git\|hg"'
+alias pmnot='pacman -Qdtq'
 alias pmlook="pacman -Qi"
+alias pmdel="sudo pacman -R"
+alias pmadd="sudo pacman -S"
