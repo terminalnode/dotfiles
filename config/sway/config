@@ -45,7 +45,8 @@ bindsym $mod+minus scratchpad show
 # Monitors
 output eDP-1 {
     pos 0 0
-    res 2560x1600
+    # illusion of choice
+    # res 2560x1600
     scale 2.0
 }
 
