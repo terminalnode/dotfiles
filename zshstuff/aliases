@@ -3,13 +3,6 @@
 alias spotify="spotify --force-device-scale-factor=2 & disown"
 alias ffwayland="GDK_BACKEND=wayland firefox & disown"
 
-# Keeping it just in case, but shouldn't be needed anymore
-# alias sway="export XKB_DEFAULT_LAYOUT=se; export XKB_DEFAULT_VARIANT=dvorak_a5; export XKB_DEFAULT_MODEL=pc105; sway"
-
-# Temporary
-alias llpsi='zathura text/llpsi/teachers_materials_and_answer_key.pdf & disown && zathura text/llpsi/pars_i/exercitia_latina_i.pdf & disown && zathura text/llpsi/pars_i/familia_romana.pdf & disown && exit'
-alias haskbook='zathura text/haskell-programming-1.0RC3-ereader.pdf & disown && exit'
-
 # I get confused sometimes....
 # and I enjoy adding support for dumb stuff.
 alias quit='exit'
