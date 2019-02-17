@@ -1,4 +1,5 @@
 # Ignore
+zshstuff/private
 vim/bundle
 vim/.netrwhist
 config/*
