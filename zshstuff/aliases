@@ -21,23 +21,21 @@ alias free='free -ht'
 
 # Auto sudo
 alias ip='sudo ip'
-alias pacman='sudo pacman'
 alias systemctl='sudo systemctl'
 
 # System maintenance
 alias parch='ping archlinux.org'
-
-# YAY-stuff
-alias syu='yay -Syu'
-alias pmsyu='yay -Syu'
-alias upsway="yay -S wlroots-git sway-git swayidle-git slurp-git grim-git"
-
-# PACMAN-stuff
+# List or look up pacman/aur packages
 alias aur='pacman -Qm'
 alias pmaur='pacman -Qm'
 alias pmall='pacman -Qe'
-alias pmgit='pacman -Qm | grep "git\|hg"'
+alias pmgit="pacman -Qm | grep '\-git\|\-hg' | awk '{print \$1}'"
 alias pmnot='pacman -Qdtq'
 alias pmlook="pacman -Qi"
+# Install or update pacman/aur packages
+alias syu='yay -Syu'
+alias pmsyu='yay -Syu'
+alias upsway="yay -S wlroots-git sway-git swayidle-git slurp-git grim-git"
+alias upgit="pacman -Qm | grep '\-git\|\-hg' | grep -v 'sway\|grim\|slurp\|wlroots' | awk '{print \$1}' | yay -S -"
 alias pmdel="sudo pacman -R"
 alias pmadd="sudo pacman -S"
