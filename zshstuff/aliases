@@ -1,10 +1,14 @@
 #!/bin/sh
 # GUI applications
 alias spotify="spotify --force-device-scale-factor=2 & disown"
-alias firefox="GDK_BACKEND=wayland firefox & disown"
+alias ffwayland="GDK_BACKEND=wayland firefox & disown"
 
 # Keeping it just in case, but shouldn't be needed anymore
 # alias sway="export XKB_DEFAULT_LAYOUT=se; export XKB_DEFAULT_VARIANT=dvorak_a5; export XKB_DEFAULT_MODEL=pc105; sway"
+
+# Temporary
+alias llpsi='zathura text/llpsi/teachers_materials_and_answer_key.pdf & disown && zathura text/llpsi/pars_i/exercitia_latina_i.pdf & disown && zathura text/llpsi/pars_i/familia_romana.pdf & disown && exit'
+alias haskbook='zathura text/haskell-programming-1.0RC3-ereader.pdf & disown && exit'
 
 # I get confused sometimes....
 # and I enjoy adding support for dumb stuff.
@@ -16,10 +20,11 @@ alias wq='exit'
 alias :wq='exit'
 alias :wq!='exit'
 
-# Colorisation
+# Colorisation and autosettings
 alias ls='ls -F --group-directories-first --color'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
+alias free='free -ht'
 
 # Auto sudo
 alias ip='sudo ip'
@@ -28,7 +33,6 @@ alias systemctl='sudo systemctl'
 
 # System maintenance
 alias parch='ping archlinux.org'
-alias free='free -ht'
 
 # YAY-stuff
 alias syu='yay -Syu'
