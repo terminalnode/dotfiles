@@ -26,7 +26,6 @@ fi
 bindkey    "^[[3~"          delete-char
 bindkey    "^[3;5~"         delete-char
 
-
 # Let's make a pretty prompt!!
 # Custom characters are listed in man zshmisc
 # Basic look without colours is:
