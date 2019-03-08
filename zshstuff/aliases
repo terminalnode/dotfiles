@@ -14,10 +14,11 @@ alias :wq='exit'
 alias :wq!='exit'
 
 # Colorisation and autosettings
-alias ls='ls -F --group-directories-first --color'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
+alias ls='ls -Fh --group-directories-first --color'
 alias free='free -ht'
+alias du='du -h'
 
 # Auto sudo
 alias ip='sudo ip'
@@ -35,7 +36,7 @@ alias pmlook="pacman -Qi"
 # Install or update pacman/aur packages
 alias syu='yay -Syu'
 alias pmsyu='yay -Syu'
-alias upsway="yay -S wlroots-git sway-git swayidle-git slurp-git grim-git"
-alias upgit="pacman -Qm | grep '\-git\|\-hg' | grep -v 'sway\|grim\|slurp\|wlroots' | awk '{print \$1}' | yay -S -"
+alias upsway="yay -S wlroots-git sway-git swayidle-git"
+alias upgit="pacman -Qm | grep '\-git\|\-hg' | grep -v 'sway\|wlroots' | awk '{print \$1}' | yay -S -"
 alias pmdel="sudo pacman -R"
 alias pmadd="sudo pacman -S"
