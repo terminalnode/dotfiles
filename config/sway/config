@@ -120,9 +120,9 @@ bindsym Print           exec slurp | grim -t png -c -g - ~/screenshot.png
 ###############################
 ## man 5 sway-bar
 font pango:Bitstream Vera Sans 9,Font Awesome 9
-gaps inner 3
-gaps outer 2
-default_border pixel 3
+# gaps inner 3
+# gaps outer 2
+default_border pixel 2
 
 ## SYNTAX
 ## client.<class>   border background text indicator child_border
