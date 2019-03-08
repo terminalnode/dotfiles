@@ -5,13 +5,15 @@ vim/.netrwhist
 config/*
 
 # Unignore
-!config/sway
-config/sway/test
 !config/i3
-!config/mpv
 !config/rofi
 !config/termite
 !config/zathura
 
+# Unignore, reignore
+!config/sway
+config/sway/test
+!config/mpv
+config/mpv/watch_later
 !config/newsboat
 config/newsboat/urls
