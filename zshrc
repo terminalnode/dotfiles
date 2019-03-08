@@ -6,6 +6,20 @@ zstyle :compinstall filename '~/.zshrc'
 autoload -Uz compinit; compinit
 eval $(dircolors ~/.dircolors)
 
+# Zplug-stuff
+source ~/.zplug/init.zsh
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "zsh-users/zsh-history-substring-search"
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+zplug load
+
 # Most settings are stored in their own
 # files in .zsh_settings to avoid clutter.
 # This imports those files and includes:
