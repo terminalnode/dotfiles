@@ -19,6 +19,7 @@ alias diff='diff --color=auto'
 alias ls='ls -Fh --group-directories-first --color'
 alias free='free -ht'
 alias du='du -h'
+alias vi='vim'
 
 # Auto sudo
 alias ip='sudo ip'
