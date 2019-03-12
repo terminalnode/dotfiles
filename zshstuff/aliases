@@ -35,9 +35,10 @@ alias pmgit="pacman -Qm | grep '\-git\|\-hg' | awk '{print \$1}'"
 alias pmnot='pacman -Qdtq'
 alias pmlook="pacman -Qi"
 # Install or update pacman/aur packages
+# alias upsway="yay -S wlroots-git sway-git swayidle-git"
+# alias upgit="pacman -Qm | grep '\-git\|\-hg' | grep -v 'sway\|wlroots' | awk '{print \$1}' | yay -S -"
+alias upgit="pacman -Qm | grep '\-git\|\-hg' | awk '{print \$1}' | yay -S -"
 alias syu='yay -Syu'
 alias pmsyu='yay -Syu'
-alias upsway="yay -S wlroots-git sway-git swayidle-git"
-alias upgit="pacman -Qm | grep '\-git\|\-hg' | grep -v 'sway\|wlroots' | awk '{print \$1}' | yay -S -"
 alias pmdel="sudo pacman -R"
 alias pmadd="sudo pacman -S"
