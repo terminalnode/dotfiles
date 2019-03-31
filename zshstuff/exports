@@ -17,6 +17,11 @@ export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 # breaks EXAPUNKS and some more stuff.
 #export SDL_VIDEODRIVER=wayland
 
+# ibus input method
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+export IBUS_ENABLE_SYNC_MODE=1 
 
 # Disabled but kept for future reference
 # Set a couple of HiDIP settings
