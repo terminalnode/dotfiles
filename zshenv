@@ -1,5 +1,6 @@
 # This file is sourced all the time and needs to be kept short.
 export ZDOTDIR="$HOME/.zshconf"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Pyenv initialization
 export PYENV_ROOT="$HOME/.pyenv"

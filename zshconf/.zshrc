@@ -1,1 +1,43 @@
-/home/monster/scripts/dotfiles/zshrc
+# History configuration
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+zstyle :compinstall filename '~/.zshconf/.zshrc'
+autoload -Uz compinit; compinit
+eval $(dircolors ~/.dircolors)
+
+# Zplug-stuff
+source ~/.zplug/init.zsh
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "zsh-users/zsh-history-substring-search"
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+zplug load
+
+# Some settings are stored as separate files in the
+# folder below. This to avoid clutter in this file.
+for file in ~/.zshconf/zshrc_script/*
+do
+    . ${file}
+done
+
+# This makes the delete key work as expected in zsh.
+bindkey    "^[[3~"          delete-char
+bindkey    "^[3;5~"         delete-char
+
+# Let's make a pretty prompt!!
+# Custom characters are listed in man zshmisc
+# Basic look without colours is:
+# BLANK LINE
+# [user@host ~/working_directory]
+# > INPUT
+PS1="
+%B%F{green}[%f%b%F{cyan}%n%f%B%F{green}@%f%b%F{blue}%M%f %F{yellow}%~%f%B%F{green}]%f%b
+%B%F{8}> %f%b"
+
