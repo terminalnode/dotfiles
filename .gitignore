@@ -16,4 +16,3 @@ config/sway/test
 !config/mpv
 config/mpv/watch_later
 !config/newsboat
-config/newsboat/urls
