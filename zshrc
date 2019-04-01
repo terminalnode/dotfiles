@@ -2,7 +2,7 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-zstyle :compinstall filename '~/.zshrc'
+zstyle :compinstall filename '~/.zshconf/.zshrc'
 autoload -Uz compinit; compinit
 eval $(dircolors ~/.dircolors)
 
@@ -20,21 +20,12 @@ if ! zplug check --verbose; then
 fi
 zplug load
 
-# Most settings are stored in their own
-# files in .zsh_settings to avoid clutter.
-# This imports those files and includes:
-# exports, aliases, colorized_man_pages
-for file in ~/.zshstuff/*
+# Some settings are stored as separate files in the
+# folder below. This to avoid clutter in this file.
+for file in ~/.zshconf/zshrc_script/*
 do
     . ${file}
 done
-
-# Pyenv initialization
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
 
 # This makes the delete key work as expected in zsh.
 bindkey    "^[[3~"          delete-char

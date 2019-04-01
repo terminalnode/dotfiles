@@ -1,27 +1,28 @@
-#!/bin/sh
+# This file is sourced on login.
+# Very similar to .zlogin except sourced right before .zshrc.
+
+# Basic environmental variables
 export EDITOR=vim
 export VISUAL=vim
 export BROWSER=firefox
 export TERMINAL=termite
 
-# fcitx stuff
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-
-# Wayland stuff
-export _JAVA_AWT_WM_NONREPARENTING=1
-export QT_QPA_PLATFORM=wayland
-export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-
-# This doesn't work very well yet
-# breaks EXAPUNKS and some more stuff.
-#export SDL_VIDEODRIVER=wayland
+# fcitx input method
+# export GTK_IM_MODULE=fcitx
+# export QT_IM_MODULE=fcitx
 
 # ibus input method
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
-export IBUS_ENABLE_SYNC_MODE=1 
+export IBUS_ENABLE_SYNC_MODE=1
+
+# Wayland stuff
+export _JAVA_AWT_WM_NONREPARENTING=1
+export QT_QPA_PLATFORM=wayland
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+# Broken for many programs and games:
+# export SDL_VIDEODRIVER=wayland
 
 # Disabled but kept for future reference
 # Set a couple of HiDIP settings
