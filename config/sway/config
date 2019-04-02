@@ -9,7 +9,7 @@
 
 # Most keybindings are dependent on keyboard layout.
 # The defaults for these are in ./svorak
-include ~/.config/sway/svorak
+include ~/.config/sway/qwerty
 
 # Cursor-related stuff
 focus_follows_mouse no
