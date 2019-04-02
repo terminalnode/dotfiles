@@ -16,6 +16,7 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 export IBUS_ENABLE_SYNC_MODE=1
+ibus-daemon -drx
 
 # Wayland stuff
 export _JAVA_AWT_WM_NONREPARENTING=1
