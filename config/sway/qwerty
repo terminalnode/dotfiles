@@ -9,7 +9,7 @@ bindsym $mod+x          kill                            # Svorak q
 bindsym $mod+y          fullscreen                      # Svorak f
 bindsym $mod+Shift+c    reload                          # Default
 bindsym $mod+v          split toggle                    # Default
-bindsym $mod+k          layout toggle tabbed split      # Svorak t
+bindsym $mod+odiaeresis layout toggle tabbed split      # Qwerty ö
 
 input "*" {
     # Keyboards
