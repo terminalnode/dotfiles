@@ -5,11 +5,12 @@ set $right l
 set $mod Mod4
 
 # Useful hotkeys
-bindsym $mod+x          kill                            # Svorak q
-bindsym $mod+y          fullscreen                      # Svorak f
-bindsym $mod+Shift+c    reload                          # Default
-bindsym $mod+v          split toggle                    # Default
-bindsym $mod+odiaeresis layout toggle tabbed split      # Qwerty ö
+# Corresponding to svorak qfcv and qwerty ö
+bindsym $mod+x          kill
+bindsym $mod+y          fullscreen
+bindsym $mod+Shift+i    reload
+bindsym $mod+period     split toggle
+bindsym $mod+odiaeresis layout toggle tabbed split
 
 input "*" {
     # Keyboards
@@ -138,5 +139,6 @@ mode "resize" {
     bindsym $mod+o  mode "default"
     bindsym o       mode "default"
 }
-bindsym $mod+o mode "resize" # Svorak r
+# Svorak r
+bindsym $mod+o mode "resize"
 
