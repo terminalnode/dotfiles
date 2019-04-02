@@ -5,16 +5,16 @@ set $right l
 set $mod Mod4
 
 # Useful hotkeys
-bindsym $mod+q          kill
-bindsym $mod+f          fullscreen
-bindsym $mod+Shift+c    reload
-bindsym $mod+v          split toggle
-bindsym $mod+t          layout toggle tabbed split
+bindsym $mod+x          kill                            # Svorak q
+bindsym $mod+y          fullscreen                      # Svorak f
+bindsym $mod+Shift+c    reload                          # Default
+bindsym $mod+v          split toggle                    # Default
+bindsym $mod+k          layout toggle tabbed split      # Svorak t
 
 input "*" {
     # Keyboards
     xkb_layout se
-    xkb_variant dvorak_a5
+    # xkb_variant dvorak_a5
     xkb_options caps:swapescape,compose:sclk
     
     # Pointers
@@ -66,15 +66,15 @@ bindsym $mod+Shift+Right    move right
 ### Navigate between workspaces ###
 ###################################
 bindsym $mod+a          workspace 1
-bindsym $mod+o          workspace 2
-bindsym $mod+e          workspace 3
-bindsym $mod+u          workspace 4
-bindsym $mod+i          workspace 5
-bindsym $mod+aring      workspace 6
-bindsym $mod+adiaeresis workspace 7
-bindsym $mod+odiaeresis workspace 8
-bindsym $mod+p          workspace 9
-bindsym $mod+y          workspace 10
+bindsym $mod+s          workspace 2
+bindsym $mod+d          workspace 3
+bindsym $mod+f          workspace 4
+bindsym $mod+g          workspace 5
+bindsym $mod+q          workspace 6
+bindsym $mod+w          workspace 7
+bindsym $mod+e          workspace 8
+bindsym $mod+r          workspace 9
+bindsym $mod+t          workspace 10
 
 ##############################
 ### Move containers around ###
@@ -83,15 +83,15 @@ bindsym $mod+y          workspace 10
 # move the focus to that workspace, since I find that's
 # usually what I want to do.
 bindsym $mod+Shift+a            move container to workspace 1,  workspace 1
-bindsym $mod+Shift+o            move container to workspace 2,  workspace 2
-bindsym $mod+Shift+e            move container to workspace 3,  workspace 3
-bindsym $mod+Shift+u            move container to workspace 4,  workspace 4
-bindsym $mod+Shift+i            move container to workspace 5,  workspace 5
-bindsym $mod+Shift+aring        move container to workspace 6,  workspace 6
-bindsym $mod+Shift+adiaeresis   move container to workspace 7,  workspace 7
-bindsym $mod+Shift+odiaeresis   move container to workspace 8,  workspace 8
-bindsym $mod+Shift+p            move container to workspace 9,  workspace 9
-bindsym $mod+Shift+y            move container to workspace 10, workspace 10
+bindsym $mod+Shift+s            move container to workspace 2,  workspace 2
+bindsym $mod+Shift+d            move container to workspace 3,  workspace 3
+bindsym $mod+Shift+f            move container to workspace 4,  workspace 4
+bindsym $mod+Shift+g            move container to workspace 5,  workspace 5
+bindsym $mod+Shift+q            move container to workspace 6,  workspace 6
+bindsym $mod+Shift+w            move container to workspace 7,  workspace 7
+bindsym $mod+Shift+e            move container to workspace 8,  workspace 8
+bindsym $mod+Shift+r            move container to workspace 9,  workspace 9
+bindsym $mod+Shift+t            move container to workspace 10, workspace 10
 
 ###################
 ### RESIZE MODE ###
@@ -135,8 +135,8 @@ mode "resize" {
     # return to default mode
     bindsym Return  mode "default"
     bindsym Escape  mode "default"
-    bindsym $mod+r  mode "default"
-    bindsym r       mode "default"
+    bindsym $mod+o  mode "default"
+    bindsym o       mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym $mod+o mode "resize" # Svorak r
 
