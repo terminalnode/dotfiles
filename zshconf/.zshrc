@@ -20,6 +20,14 @@ if ! zplug check --verbose; then
 fi
 zplug load
 
+# SSH agent 
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+        ssh-agent > ~/.ssh-agent-thing
+fi
+if [[ ! "$SSH_AUTH_SOCK" ]]; then
+        eval "$(<~/.ssh-agent-thing)"
+fi
+
 # Some settings are stored as separate files in the
 # folder below. This to avoid clutter in this file.
 for file in ~/.zshconf/zshrc_script/*
