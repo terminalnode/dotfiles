@@ -111,9 +111,9 @@ bindsym $mod+XF86AudioLowerVolume   exec pamixer -d 1, exec pkill -RTMIN+10 i3bl
 # SCREENSHOTS
 # macOS-style bindings vs everyone else-style bindings
 bindsym $mod+shift+3    exec grim -t png ~/screenshot.png
-bindsym $mod+shift+4    exec slurp | grim -t png -g - ~/screenshot.png 
+bindsym $mod+shift+4    exec slurp | grim -t png -g - ~/screenshot.png
 bindsym $mod+Print      exec grim -t png ~/screenshot.png
-bindsym Print           exec slurp | grim -t png -g - ~/screenshot.png 
+bindsym Print           exec slurp | grim -t png -g - ~/screenshot.png
 
 ###############################
 ### AESTHETICS + STATUS BAR ###
