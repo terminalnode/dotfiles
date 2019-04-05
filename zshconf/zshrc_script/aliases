@@ -3,7 +3,6 @@
 alias weather="curl wttr.in/Gothenburg\?0Q"
 
 # GUI applications
-alias spotify="spotify --force-device-scale-factor=2 & disown"
 alias ffwayland="GDK_BACKEND=wayland firefox & disown"
 
 # I get confused sometimes....
