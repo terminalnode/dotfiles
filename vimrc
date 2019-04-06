@@ -1,33 +1,38 @@
-""""""""""""""""""""
-""" Vundle setup """
-""""""""""""""""""""
-" This part is required for vundle to work.
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+"""""""""""""""""""""""""""""""""""
+""" Pull vim plug automatically """
+"""""""""""""""""""""""""""""""""""
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" See quick start help for more instructions
-" on how to use vundle and add plugins
-" https://github.com/VundleVim/Vundle.vim
+""""""""""""""""""""""
+""" vim plug setup """
+""""""""""""""""""""""
+" This part is required for vundle to work.
+" Unclear if necessary for vim plug
+set nocompatible
+
+call plug#begin('~/.vim/plugged')
+" Vim plug itself
+Plug 'junegunn/vim-plug'
 
 " Vim airline + themes
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'arcticicestudio/nord-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'arcticicestudio/nord-vim'
 
 " Other stuff
-Plugin 'valloric/youcompleteme'
-Plugin 'godlygeek/tabular'
+Plug 'valloric/youcompleteme'
+Plug 'godlygeek/tabular'
 
 " Syntax highlighting
-Plugin 'terminalnode/sway-vim-syntax'
-Plugin 'vim-python/python-syntax'
-Plugin 'neovimhaskell/haskell-vim'
+Plug 'terminalnode/sway-vim-syntax'
+Plug 'vim-python/python-syntax'
+Plug 'neovimhaskell/haskell-vim'
 
-call vundle#end()
-filetype plugin indent on
+call plug#end()
 
 """"""""""""""""""""""""""""""""""
 """ Regular config starts here """
