@@ -1,8 +1,11 @@
 # Ignore
-zshconf/zshrc_script/private
 vim/bundle
 vim/.netrwhist
 config/*
+
+# Zshstuff
+zshconf/.zcompdump
+zshconf/zshrc_script/private
 
 # Unignore
 !config/i3
