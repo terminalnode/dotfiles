@@ -1,5 +1,6 @@
 # Ignore
 zshconf/zshrc_script/private
+zshconf/.zcompdump
 vim/bundle
 vim/.netrwhist
 config/*
