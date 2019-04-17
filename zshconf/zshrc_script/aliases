@@ -24,6 +24,7 @@ alias du='du -h'
 alias df='df -h'
 alias vi='vim'
 alias neofetch='neofetch --disable icons theme resolution term_font model --uptime_shorthand on --shell_version off --memory_percent on --speed_shorthand on --os_arch off --shell_path on'
+alias mpv='mpv --no-audio-display'
 
 # Auto sudo
 alias ip='sudo ip'
