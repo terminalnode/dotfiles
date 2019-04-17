@@ -30,6 +30,7 @@ alias systemctl='sudo systemctl'
 
 # System maintenance
 alias parch='ping archlinux.org'
+alias systemage='head -n1 /var/log/pacman.log'
 # List or look up pacman/aur packages
 alias aur='pacman -Qm'
 alias pmaur='pacman -Qm'
@@ -41,9 +42,9 @@ alias pmlook="pacman -Qi"
 # alias upsway="yay -S wlroots-git sway-git swayidle-git"
 # alias upgit="pacman -Qm | grep '\-git\|\-hg' | grep -v 'sway\|wlroots' | awk '{print \$1}' | yay -S -"
 alias upgit="pacman -Qm | grep '\-git\|\-hg' | awk '{print \$1}' | yay -S -"
-alias syyu='yay -Syyu'
-alias syu='yay -Syu'
-alias pmsyu='yay -Syu'
-alias pmsyyu='yay -Syyu'
+alias syyu='yay -Syyu --upgrademenu --combinedupgrade'
+alias syu='yay -Syu --upgrademenu --combinedupgrade'
+alias pmsyu='yay -Syu --upgrademenu --combinedupgrade'
+alias pmsyyu='yay -Syyu --upgrademenu --combinedupgrade'
 alias pmdel="sudo pacman -R"
 alias pmadd="sudo pacman -S"
