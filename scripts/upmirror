@@ -66,6 +66,7 @@ country=FI&\
 country=DE\
 &protocol=https&use_mirror_status=on" 
 
+# Download new mirrors and test them for speed.
 curl -s $URL |
     sed -e 's/^#Server/Server/' -e '/^#/d' |
     rankmirrors -n 30 - >> $MIRROR_PATH/mirrorlist
