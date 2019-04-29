@@ -6,11 +6,11 @@
 function check_deps () {
     unset INSTALL
 
-    if ! [ $(command -v curl) ];
+    if ! [[ -x $(command -v curl) ]];
         then INSTALL="$INSTALL curl"
     fi
 
-    if ! [ $(command -v rankmirrors) ];
+    if ! [[ -x $(command -v rankmirrors) ]];
         then INSTALL="$INSTALL pacman-contrib"
     fi
 }
@@ -30,7 +30,7 @@ fi
 # See that dependencies were installed and are executable.
 check_deps
 if ! [ -z $INSTALL ]; then
-    echo "You didn't install the needed dependencies. Bye."
+    echo "Dependencies are either not installed or not executable. Bye."
     exit
 fi
 
