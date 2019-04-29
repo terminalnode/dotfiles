@@ -63,8 +63,9 @@ country=SE&\
 country=NO&\
 country=DK&\
 country=FI&\
-country=DE\
-&protocol=https&use_mirror_status=on" 
+country=DE&\
+protocol=https&\
+use_mirror_status=on" 
 
 # Download new mirrors and test them for speed.
 NEW_FILE=$(curl -s $URL |
