@@ -29,7 +29,7 @@ alias netctl='sudo netctl'
 ### SYSTEM MAINTENANCE ###
 ##########################
 # Various
-alias systemage="head -n1 /var/log/pacman.log | awk '{ print \$1 \" \" \$2 }'"
+alias systemage="head -n1 /var/log/pacman.log | awk '{ print \$1, \$2 }'"
 alias parch='ping -c 3 archlinux.org'
 
 # Updating
