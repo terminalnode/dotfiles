@@ -1,0 +1,21 @@
+## LLPSI
+alias llfr='zathura ~/text/llpsi/pars_i/familia_romana.pdf & disown'
+alias llcp='zathura ~/text/llpsi/supplementa/colloquia_personarum.pdf & disown'
+alias llfl='zathura ~/text/llpsi/supplementa/fabellae_latinae.pdf & disown'
+alias llel='zathura ~/text/llpsi/pars_i/exercitia_latina_i.pdf & disown'
+alias llak='zathura ~/text/llpsi/teachers_materials_and_answer_key.pdf & disown'
+alias llpsi='llfr && llcp && llfl && llel && llak'
+alias llmp3='cd ~/text/llpsi/pars_i/mp3'
+
+# Haskell
+alias haskbook='zathura ~/text/books/haskell-programming-1.0RC4-ereader.pdf & disown'
+
+# scp till andra datorer
+# <annan dator>lle
+function vilmalle () {
+    scp -r $@ vilma:~/alexandrosaurus/
+}
+
+function tobiuolle () {
+    scp -r $@ tobiuo:~/inbox/
+}

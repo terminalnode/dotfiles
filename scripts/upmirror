@@ -1,0 +1,73 @@
+#!/bin/bash
+# A simple script for downloading a new mirror list for Archlinux and rank them by speed.
+
+# Check that we have all dependencies.
+# If we don't, try to install them.
+function check_deps () {
+    unset INSTALL
+
+    if ! [ $(command -v curl) ];
+        then INSTALL="$INSTALL curl"
+    fi
+
+    if ! [ $(command -v rankmirrors) ];
+        then INSTALL="$INSTALL pacman-contrib"
+    fi
+}
+
+# If dependencies are not installed, try to install them.
+check_deps
+if ! [ -z $INSTALL ]; then
+    if [ $EUID -ne 0 ]; then
+        echo "Need to install dependencies and you're not root. Bye."
+        exit
+    fi
+
+    pacman -S $INSTALL;
+    echo
+fi
+
+# See that dependencies were installed and are executable.
+check_deps
+if ! [ -z $INSTALL ]; then
+    echo "You didn't install the needed dependencies. Bye."
+    exit
+fi
+
+# Check if root,
+# check if /etc/pacman.d exists
+# check if we need to backup the old mirrorlist.
+if [ $EUID -ne 0 ]; then
+    echo "Not root. Saving new mirrors to ~/mirrors."
+    MIRROR_PATH="$HOME"
+
+else
+    if [ -d /etc/pacman.d ]; then
+        echo "Running as root, your current mirror list will be replaced."
+        MIRROR_PATH="/etc/pacman.d/"
+
+        if [ -e /etc/pacman.d/mirrorlist ]; then
+            echo "A backup will be created at /etc/pacman.d/mirrorlist_old."
+            mv "$MIRROR_PATH/mirrorlist" "$MIRROR_PATH/mirrorlist_old"
+        fi
+    else
+        echo "Directory /etc/pacman.d/ does not exist."
+        echo "Saving new mirrors to ~/mirrors"
+        MIRROR_PATH="$HOME"
+    fi
+fi
+
+# Add/remove countries according to your preferences.
+URL="https://www.archlinux.org/mirrorlist/?\
+country=SE&\
+country=NO&\
+country=DK&\
+country=FI&\
+country=DE\
+&protocol=https&use_mirror_status=on" 
+
+curl -s $URL |
+    sed -e 's/^#Server/Server/' -e '/^#/d' |
+    rankmirrors -n 30 - >> $MIRROR_PATH/mirrorlist
+
+

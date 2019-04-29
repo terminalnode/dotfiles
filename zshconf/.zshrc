@@ -10,8 +10,6 @@ eval $(dircolors ~/.dircolors)
 source ~/.zplug/init.zsh
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug "zsh-users/zsh-history-substring-search"
-
-# Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
@@ -22,22 +20,22 @@ zplug load
 
 # SSH agent 
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-        ssh-agent > ~/.ssh-agent-thing
+    ssh-agent > ~/.ssh-agent-thing
 fi
 if [[ ! "$SSH_AUTH_SOCK" ]]; then
-        eval "$(<~/.ssh-agent-thing)" > /dev/null
+    eval "$(<~/.ssh-agent-thing)" > /dev/null
 fi
 
 # Some settings are stored as separate files in the
 # folder below. This to avoid clutter in this file.
-for file in ~/.zshconf/zshrc_script/*
+for file in ~/.zshconf/modules/*
 do
     . ${file}
 done
 
 # This makes the delete key work as expected in zsh.
-bindkey    "^[[3~"          delete-char
-bindkey    "^[3;5~"         delete-char
+bindkey "^[[3~"     delete-char
+bindkey "^[3;5~"    delete-char
 
 # Let's make a pretty prompt!!
 # Custom characters are listed in man zshmisc
