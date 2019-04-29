@@ -4,6 +4,9 @@ set $up k
 set $right l
 set $mod Mod4
 
+# Resize value.
+set $num 10
+
 # Useful hotkeys
 bindsym $mod+q          kill
 bindsym $mod+f          fullscreen
@@ -101,36 +104,36 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left           resize shrink width  10 px or 10 ppt
-    bindsym $down           resize grow   height 10 px or 10 ppt
-    bindsym $up             resize shrink height 10 px or 10 ppt
-    bindsym $right          resize grow   width  10 px or 10 ppt
+    bindsym $left           resize shrink width  $num px or $num ppt
+    bindsym $down           resize grow   height $num px or $num ppt
+    bindsym $up             resize shrink height $num px or $num ppt
+    bindsym $right          resize grow   width  $num px or $num ppt
 
-    bindsym $mod+$left      resize shrink width  10 px or 10 ppt
-    bindsym $mod+$down      resize grow   height 10 px or 10 ppt
-    bindsym $mod+$up        resize shrink height 10 px or 10 ppt
-    bindsym $mod+$right     resize grow   width  10 px or 10 ppt
+    bindsym $mod+$left      resize shrink width  $num px or $num ppt
+    bindsym $mod+$down      resize grow   height $num px or $num ppt
+    bindsym $mod+$up        resize shrink height $num px or $num ppt
+    bindsym $mod+$right     resize grow   width  $num px or $num ppt
 
-    bindsym shift+$left     resize shrink width  10 px or 10 ppt
-    bindsym shift+$down     resize grow   height 10 px or 10 ppt
-    bindsym shift+$up       resize shrink height 10 px or 10 ppt
-    bindsym shift+$right    resize grow   width  10 px or 10 ppt
+    bindsym shift+$left     resize shrink width  $num px or $num ppt
+    bindsym shift+$down     resize grow   height $num px or $num ppt
+    bindsym shift+$up       resize shrink height $num px or $num ppt
+    bindsym shift+$right    resize grow   width  $num px or $num ppt
 
     # ditto, with arrow keys
-    bindsym Left            resize shrink width  10 px or 10 ppt
-    bindsym Down            resize grow   height 10 px or 10 ppt
-    bindsym Up              resize shrink height 10 px or 10 ppt
-    bindsym Right           resize grow   width  10 px or 10 ppt
+    bindsym Left            resize shrink width  $num px or $num ppt
+    bindsym Down            resize grow   height $num px or $num ppt
+    bindsym Up              resize shrink height $num px or $num ppt
+    bindsym Right           resize grow   width  $num px or $num ppt
 
-    bindsym $mod+Left       resize shrink width  10 px or 10 ppt
-    bindsym $mod+Down       resize grow   height 10 px or 10 ppt
-    bindsym $mod+Up         resize shrink height 10 px or 10 ppt
-    bindsym $mod+Right      resize grow   width  10 px or 10 ppt
+    bindsym $mod+Left       resize shrink width  $num px or $num ppt
+    bindsym $mod+Down       resize grow   height $num px or $num ppt
+    bindsym $mod+Up         resize shrink height $num px or $num ppt
+    bindsym $mod+Right      resize grow   width  $num px or $num ppt
 
-    bindsym shift+Left      resize shrink width  10 px or 10 ppt
-    bindsym shift+Down      resize grow   height 10 px or 10 ppt
-    bindsym shift+Up        resize shrink height 10 px or 10 ppt
-    bindsym shift+Right     resize grow   width  10 px or 10 ppt
+    bindsym shift+Left      resize shrink width  $num px or $num ppt
+    bindsym shift+Down      resize grow   height $num px or $num ppt
+    bindsym shift+Up        resize shrink height $num px or $num ppt
+    bindsym shift+Right     resize grow   width  $num px or $num ppt
 
     # return to default mode
     bindsym Return  mode "default"
