@@ -12,12 +12,13 @@ export TERMINAL=termite
 # export QT_IM_MODULE=fcitx
 
 # Activate ibus if it's installed.
-if [[ -x $(command -v ibus-daemon) ]] then
+if [[ -x $(command -v ibus-daemon) ]] && [[ -z $TMUX ]]; then
     export GTK_IM_MODULE=ibus
     export XMODIFIERS=@im=ibus
     export QT_IM_MODULE=ibus
     export IBUS_ENABLE_SYNC_MODE=1
     ibus-daemon -drx
+    echo "active"
 fi
 
 # Wayland stuff
