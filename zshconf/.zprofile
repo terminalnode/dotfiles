@@ -11,12 +11,14 @@ export TERMINAL=termite
 # export GTK_IM_MODULE=fcitx
 # export QT_IM_MODULE=fcitx
 
-# ibus input method
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-export IBUS_ENABLE_SYNC_MODE=1
-ibus-daemon -drx
+# Activate ibus if it's installed.
+if [[ -x $(command -v ibus-daemon) ]] then
+    export GTK_IM_MODULE=ibus
+    export XMODIFIERS=@im=ibus
+    export QT_IM_MODULE=ibus
+    export IBUS_ENABLE_SYNC_MODE=1
+    ibus-daemon -drx
+fi
 
 # Wayland stuff
 export _JAVA_AWT_WM_NONREPARENTING=1
