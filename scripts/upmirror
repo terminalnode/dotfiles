@@ -5,15 +5,25 @@
 # If we don't, try to install them.
 function check_deps () {
     unset INSTALL
-
-    if ! [[ -x $(command -v curl) ]];
-        then INSTALL="$INSTALL curl"
-    fi
-
-    if ! [[ -x $(command -v rankmirrors) ]];
-        then INSTALL="$INSTALL pacman-contrib"
-    fi
+    if ! [[ -x $(command -v curl) ]]; then INSTALL="$INSTALL curl"; fi
+    if ! [[ -x $(command -v rankmirrors) ]]; then INSTALL="$INSTALL pacman-contrib"; fi
 }
+
+# Add/remove countries according to your preferences.
+# NL and DE are fairly close by and have a lot of good servers.
+URL="https://www.archlinux.org/mirrorlist/?protocol=https&use_mirror_status=on" 
+COUNTRIES="SE NO DK FI DE NL"
+for COUNTRY in $COUNTRIES
+do
+    URL="$URL&country=$COUNTRY"
+done
+
+# Option to just print out the URL for looking at it manually.
+if [[ $1 == "url" ]]; then
+    echo This is the full URL I\'ll be using:
+    echo $URL
+    exit
+fi
 
 # If dependencies are not installed, try to install them.
 check_deps
@@ -56,16 +66,6 @@ else
         MIRROR_PATH="$HOME"
     fi
 fi
-
-# Add/remove countries according to your preferences.
-URL="https://www.archlinux.org/mirrorlist/?\
-country=SE&\
-country=NO&\
-country=DK&\
-country=FI&\
-country=DE&\
-protocol=https&\
-use_mirror_status=on" 
 
 # Download new mirrors and test them for speed.
 NEW_FILE=$(curl -s $URL |
