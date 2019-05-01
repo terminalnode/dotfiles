@@ -19,6 +19,10 @@ c.qt.force_software_rendering = 'chromium'
 # Set blank default page
 c.url.default_page = 'about:blank'
 
+# Fix reversed keybindings.
+config.bind('J', 'tab-prev')
+config.bind('K', 'tab-next')
+
 # Demand confirmation before quitting when multiple tabs are open
 c.confirm_quit = ["multiple-tabs"]
 
