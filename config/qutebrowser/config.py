@@ -22,6 +22,9 @@ c.url.default_page = 'about:blank'
 # Fix reversed keybindings.
 config.bind('J', 'tab-prev')
 config.bind('K', 'tab-next')
+# Incognito mode on same keybinding as firefox.
+config.bind('<Ctrl-Shift-p>', 'open --private')
+
 
 # Demand confirmation before quitting when multiple tabs are open
 c.confirm_quit = ["multiple-tabs"]
