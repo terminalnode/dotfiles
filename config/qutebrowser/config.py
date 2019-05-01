@@ -16,6 +16,69 @@
 #   - none: Don't force software rendering.
 c.qt.force_software_rendering = 'chromium'
 
+# Set search engines
+c.url.searchengines = {
+    # Default search engine, with nothing else specified.
+    "DEFAULT"   : "https://www.qwant.com/?q={}",
+    # Arch stuff.
+    # Wiki, AUR, general repositiories (pm for pacman).
+    "aw"        : "https://wiki.archlinux.org/?search={}",
+    "aur"       : "https://aur.archlinux.org/packages/?K={}",
+    "pm"        : "https://www.archlinux.org/packages/?q={}",
+    # Video streaming
+    "vimeo"     : "https://vimeo.com/search?q={}",
+    "yt"        : "https://www.youtube.com/results?search_query={}",
+    # Google
+    "play"      : "https://play.google.com/store/search?q={}",
+    "drive"     : "https://drive.google.com/drive/search?q={}",
+    "gmail"     : "https://mail.google.com/mail/u/0/#search/{}",
+    # Generic search engines
+    "ddg"       : "https://duckduckgo.com/?q={}",
+    "q"         : "https://www.qwant.com/?q={}",
+    "g"         : "https://www.google.com/search?q={}",
+    "ecosia"    : "https://www.ecosia.org/search?q={}",
+    # Specialised search engines
+    "gimg"      : "https://www.google.com/search?tbm=isch&q={}",
+    "maps"      : "https://www.google.se/maps/search/{}",
+    "eniro"     : "https://kartor.eniro.se/?q={}",
+    "wa"        : "http://www.wolframalpha.com/input/?i={}",
+    "emoji"     : "https://emojipedia.org/search/?q={}",
+    "imdb"      : "https://www.imdb.com/find?q={}",
+    "rtomato"   : "https://www.rottentomatoes.com/search/?search={}",
+    "bgg"       : "https://www.boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q={}",
+    "gunda"     : "https://gu-se-primo.hosted.exlibrisgroup.com/primo-explore/search?query=any,contains,{}&vid=46GUB_VU1",
+    "ebay"      : "https://www.ebay.com/sch/i.html?LH_PrefLoc=5&_nkw={}",
+    # Warez
+    "genlib"    : "http://gen.lib.rus.ec/search.php?req={}",
+    "tpb"       : "https://thepiratebay.org/search/{}",
+    "rarbg"     : "https://rarbg.to/torrents.php?search={}",
+    # Dictionaries
+    "fren"      : "http://www.larousse.fr/dictionnaires/rechercher?q={}&l=anglais-francais&culture=",
+    "enfr"      : "http://www.larousse.fr/dictionnaires/rechercher?q={}&l=francais-anglais&culture=",
+    "linguee"   : "http://www.linguee.com/english-french/search?source=french&query={}",
+    "tyda"      : "http://tyda.se/search/{}",
+    "ud"        : "http://www.urbandictionary.com/define.php?term={}",
+    "dict"      : "http://www.dictionary.com/browse/{}",
+    "kotoba"    : "https://tangorin.com/words?search={}",
+    # Forvo
+    "forvo"     : "https://forvo.com/search/{}",
+    "forvi"     : "https://forvo.com/search/{}/fi/",
+    "forvoja"   : "https://forvo.com/search/{}/ja/",
+    "forvopl"   : "https://forvo.com/search/{}/pl/",
+    # Wikipedia / Wikimedia
+    "wen"       : "https://en.wikipedia.org?search={}",
+    "wsv"       : "https://sv.wikipedia.org?search={}",
+    "wja"       : "https://ja.wikipedia.org?search={}",
+    "wfr"       : "https://fr.wikipedia.org?search={}",
+    "wfi"       : "https://fi.wikipedia.org?search={}",
+    "wpl"       : "https://pl.wikipedia.org?search={}",
+    "wikt"      : "https://en.wiktionary.org?search={}",
+    # Games
+    "eu4"       : "https://eu4.paradoxwikis.com?search={}",
+    "rimworld"  : "https://rimworldwiki.com?search={}",
+    "nethack"   : "https://nethackwiki.com/?search={}",
+}
+
 # When to use Chromium's low-end device mode. This improves the RAM
 # usage of renderer processes, at the expense of performance.
 # Valid values:
@@ -41,7 +104,6 @@ c.window.title_format = '{perc}{title}{title_sep}qtbrowse'
 
 # FONTS
 c.fonts.monospace               = '"Source Code Pro", "Ubuntu Monospace", Monospace, monospace'
-
 c.fonts.completion.entry        = '10pt monospace'
 c.fonts.completion.category     = 'bold 12pt monospace'
 c.fonts.debug_console           = '10pt monospace'
