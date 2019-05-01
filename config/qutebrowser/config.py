@@ -16,6 +16,9 @@
 #   - none: Don't force software rendering.
 c.qt.force_software_rendering = 'chromium'
 
+# Set blank default page
+c.url.default_page = 'about:blank'
+
 # Set search engines
 c.url.searchengines = {
     # Default search engine, with nothing else specified.
