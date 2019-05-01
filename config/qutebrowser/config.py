@@ -19,6 +19,9 @@ c.qt.force_software_rendering = 'chromium'
 # Set blank default page
 c.url.default_page = 'about:blank'
 
+# Demand confirmation before quitting when multiple tabs are open
+c.confirm_quit = ["multiple-tabs"]
+
 # Set search engines
 c.url.searchengines = {
     # Default search engine, with nothing else specified.
