@@ -31,6 +31,7 @@ Plug 'godlygeek/tabular'
 Plug 'terminalnode/sway-vim-syntax'
 Plug 'vim-python/python-syntax'
 Plug 'neovimhaskell/haskell-vim'
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -52,8 +53,11 @@ let g:nord_italic_comments = 1
 let g:nord_comment_brightness = 20
 let g:nord_cursor_line_number_background = 1
 let g:airline_powerline_fonts=1
+
 " Enable vim-python/python-syntax
 let g:python_highlight_all = 1
+" Run :RustFmt on saving a .rs-file
+let g:rustfmt_autosave = 1
 
 "let g:airline#extensions#hunks#non_zero_only = 1
 "let g:airline#extensions#tabline#enabled = 1
