@@ -4,12 +4,8 @@
 # Basic environmental variables
 export EDITOR=vim
 export VISUAL=vim
-export BROWSER=firefox
+export BROWSER=qutebrowser
 export TERMINAL=termite
-
-# fcitx input method
-# export GTK_IM_MODULE=fcitx
-# export QT_IM_MODULE=fcitx
 
 # Activate ibus if it's installed.
 if [[ -x $(command -v ibus-daemon) ]] && [[ -z $TMUX ]]; then
@@ -18,7 +14,6 @@ if [[ -x $(command -v ibus-daemon) ]] && [[ -z $TMUX ]]; then
     export QT_IM_MODULE=ibus
     export IBUS_ENABLE_SYNC_MODE=1
     ibus-daemon -drx
-    echo "active"
 fi
 
 # Wayland stuff
@@ -28,9 +23,8 @@ export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 # Broken for many programs and games:
 # export SDL_VIDEODRIVER=wayland
 
-# Disabled but kept for future reference
-# Set a couple of HiDIP settings
-# Wayland already handles scaling great.
+# X-specific settings for HiDPI displays.
+# Currently not in use. Kept for future reference.
 # export OPENRA_DISPLAY_SCALE=2
 # export GDK_DPI_SCALE=0.5
 # export GDK_SCALE=2
