@@ -12,10 +12,16 @@ zshconf/zshrc_script/private
 !config/rofi
 !config/termite
 !config/zathura
+!config/newsboat
 
 # Unignore, reignore
 !config/sway
 config/sway/test
+
 !config/mpv
 config/mpv/watch_later
-!config/newsboat
+
+!config/qutebrowser
+!config/qutebrowser/quickmarks
+!config/qutebrowser/bookmarks
+!config/qutebrowser/bookmarks/*
