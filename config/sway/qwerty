@@ -5,7 +5,7 @@ set $right l
 set $mod Mod4
 
 # Resize value.
-set $num 10
+set $num 5
 
 # Useful hotkeys
 # Corresponding to svorak qfcv and qwerty ö
