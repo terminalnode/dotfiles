@@ -22,6 +22,5 @@ config/sway/test
 config/mpv/watch_later
 
 !config/qutebrowser
-!config/qutebrowser/quickmarks
-!config/qutebrowser/bookmarks
-!config/qutebrowser/bookmarks/*
+config/qutebrowser/quickmarks
+config/qutebrowser/bookmarks
