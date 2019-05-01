@@ -8,6 +8,8 @@ function check_deps () {
     if ! [[ -x $(command -v curl) ]]; then INSTALL="$INSTALL curl"; fi
     if ! [[ -x $(command -v rankmirrors) ]]; then INSTALL="$INSTALL pacman-contrib"; fi
 }
+
+# Get bold text if tput is available.
 if [[ -x $(command -v tput) ]]; then BOLD=$(tput bold); NORMAL=$(tput sgr0); fi
 
 # Add/remove countries according to your preferences.
