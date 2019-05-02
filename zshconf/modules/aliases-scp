@@ -1,0 +1,15 @@
+# Shorthands for moving files between various computers.
+# The names are supposed and probably butchered illatives in Finnish.
+DEST="~/.scp-inbox"
+
+function vilmalle () {
+    scp -r $@ vilma:$DEST
+}
+
+function tobiuolle () {
+    scp -r $@ tobiuo:$DEST
+}
+
+function irukalle () {
+    scp -r $@ iruka:$DEST
+}
