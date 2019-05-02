@@ -11,22 +11,21 @@
 # The defaults for these are in ./svorak
 include ~/.config/sway/svorak
 
+# Setting some variables.
+set $mod Mod4
+set $term termite
+set $menu rofi
+
 # Cursor-related stuff
 focus_follows_mouse no
 mouse_warping       none
 tiling_drag         disable
 xwayland            enable
-set $term termite
-set $mod Mod4
 bindsym $mod+Return exec $term
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Shift+Tab workspace next_on_output
-seat seat0 {
-    hide_cursor 3000
-}
 
 # Launcher
-set $menu rofi
 bindsym $mod+Space exec $menu -show drun
 bindsym $mod+Shift+Space exec $menu -show run
 
@@ -42,6 +41,9 @@ floating_modifier $mod normal
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
+######################
+### INPUT / OUTPUT ###
+######################
 # Monitors
 output eDP-1 {
     pos 0 0
@@ -57,6 +59,22 @@ output HDMI-1 pos 1280 0
 
 # Same background for all screens.
 output * bg ~/pics/wallpaper fill
+
+input "*" {
+    # Pointers
+    dwt                 disabled
+    tap                 enabled
+    natural_scroll      enabled
+    middle_emulation    enabled
+    tap_button_map      lrm
+    scroll_method       two_finger
+    scroll_factor       0.5
+}
+
+# Hide pointer
+seat seat0 {
+    hide_cursor 1250
+}
 
 ##################################
 ### Workspace output placement ###

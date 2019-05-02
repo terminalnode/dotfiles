@@ -1,8 +1,8 @@
+set $mod Mod4
 set $left h
 set $down j
 set $up k
 set $right l
-set $mod Mod4
 
 # Resize value.
 set $num 5
@@ -16,26 +16,8 @@ bindsym $mod+period     split toggle
 bindsym $mod+odiaeresis layout toggle tabbed split
 
 input "*" {
-    # Keyboards
     xkb_layout se
-    # xkb_variant dvorak_a5
     xkb_options caps:swapescape,compose:sclk
-    
-    # Pointers
-    dwt                 disabled
-    tap                 enabled
-    natural_scroll      enabled
-    middle_emulation    enabled
-    tap_button_map      lrm
-    scroll_method       two_finger
-    scroll_factor       0.5
-}
-
-# Exception: Bluetooth keyboard is too small to touch type on.
-# Will therefor be using the layout printed onto the keys.
-input "2652:34050:Bluetooth_keyboard_Keyboard" {
-    xkb_layout se
-    xkb_variant ,nodeadkeys
 }
 
 ############################
