@@ -4,7 +4,10 @@ HISTSIZE=1000
 SAVEHIST=1000
 zstyle :compinstall filename '~/.zshconf/.zshrc'
 autoload -Uz compinit; compinit
-eval $(dircolors ~/.dircolors)
+
+if [[ -x $(command -v dircolors) && ~/.dircolors ]]; then
+    eval $(dircolors ~/.dircolors)
+fi
 
 # Zplug-stuff
 source ~/.zplug/init.zsh
