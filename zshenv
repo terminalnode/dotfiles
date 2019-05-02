@@ -10,6 +10,7 @@ if [[ -d "$HOME/.scripts" ]]; then
 fi
 if [[ "Darwin" = $(uname) && -x $(command -v brew) ]]; then
     export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+    export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 fi
 
 # Pyenv initialization
