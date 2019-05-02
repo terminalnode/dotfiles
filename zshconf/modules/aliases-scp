@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 # Shorthands for moving files between various computers.
 # The names are supposed and probably butchered illatives in Finnish.
 DEST="~/.scp-inbox"
