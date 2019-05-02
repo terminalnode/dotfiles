@@ -2,11 +2,16 @@
 export ZDOTDIR="$HOME/.zshconf"
 
 # Add stuff to path.
-if [ -d "$HOME/.cargo" ]; then
+if [[ -d "$HOME/.cargo" ]]; then
     export PATH="$HOME/.cargo/bin:$PATH"
 fi
-if [ -d "$HOME/.scripts" ]; then
+if [[ -d "$HOME/.scripts" ]]; then
     export PATH="$HOME/.scripts:$PATH"
+fi
+if [[ "Darwin" = $(uname) ]]; then
+    export PATH="/usr/local/bin:$PATH"
+    export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+    echo "helloooo"
 fi
 
 # Pyenv initialization
