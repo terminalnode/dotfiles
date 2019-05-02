@@ -7,9 +7,47 @@ if [[ "Darwin" = $(uname) ]]; then
             CHECK="TRUE"
         fi }
 
-    check_installed ls
-    if [[ -z $CHECK ]]; then
-        alias ls='gls -Fh --group-directories-first --color'
-    fi
+    check_installed gls # If we have gls we have coreutils.
+    for COREUTIL in $(ls -i /usr/local/opt/coreutils | grep ^g )
+    do
+        GNUUTIL=$COREUTIL
+        COREUTIL=$(echo $COREUTIL | sed 's/^.//' - )
+        alias $COREUTIL=$GNUUTIL
+    done
+
+    check_installed gsed
+    if [[ -z $CHECK ]]; then; alias sed='gsed'; fi
+
+    check_installed gtar
+    if [[ -z $CHECK ]]; then; alias tar='gtar'; fi
+
+    check_installed ggrep
+    if [[ -z $CHECK ]]; then; alias grep='ggrep'; fi
+
+    check_installed gcp
+    if [[ -z $CHECK ]]; then; alias cp='gcp'; fi
+
+    check_installed gmv
+    if [[ -z $CHECK ]]; then; alias mv='gmv'; fi
+
+    check_installed gwhoami
+    if [[ -z $CHECK ]]; then; alias =''; fi
+
+    check_installed 
+    if [[ -z $CHECK ]]; then; alias =''; fi
+
+    check_installed 
+    if [[ -z $CHECK ]]; then; alias =''; fi
+
+    check_installed 
+    if [[ -z $CHECK ]]; then; alias =''; fi
+
+    check_installed 
+    if [[ -z $CHECK ]]; then; alias =''; fi
+
+    # check_installed 
+    # if [[ -z $CHECK ]]; then
+    #     alias ls='gls -Fh --group-directories-first --color'
+    # fi
 
 fi
