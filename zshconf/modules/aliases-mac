@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+# Add aliases for all the GNU Utilities.
+if ! [[ "Darwin" = $(uname) ]]; then
+    function check_installed () {
+        unset CHECK
+        if [[ -x $(command -v $1) ]]; then
+            CHECK="TRUE"
+        fi }
+
+    check_installed ls
+    if [[ -z $CHECK ]]; then
+        alias ls='gls -Fh --group-directories-first --color'
+    fi
+
+fi
