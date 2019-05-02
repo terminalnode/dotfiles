@@ -8,10 +8,9 @@ fi
 if [[ -d "$HOME/.scripts" ]]; then
     export PATH="$HOME/.scripts:$PATH"
 fi
-if [[ "Darwin" = $(uname) ]]; then
+if [[ "Darwin" = $(uname) && -x $(command -v brew) ]]; then
     export PATH="/usr/local/bin:$PATH"
     export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-    echo "helloooo"
 fi
 
 # Pyenv initialization
