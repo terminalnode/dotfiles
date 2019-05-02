@@ -52,6 +52,7 @@ c.url.searchengines = {
     "bgg"       : "https://www.boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q={}",
     "gunda"     : "https://gu-se-primo.hosted.exlibrisgroup.com/primo-explore/search?query=any,contains,{}&vid=46GUB_VU1",
     "ebay"      : "https://www.ebay.com/sch/i.html?LH_PrefLoc=5&_nkw={}",
+    "systemet"  : "https://www.systembolaget.se/sok-dryck/?searchquery={}",
     # Warez
     "genlib"    : "http://gen.lib.rus.ec/search.php?req={}",
     "tpb"       : "https://thepiratebay.org/search/{}",
