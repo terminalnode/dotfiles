@@ -24,27 +24,6 @@ if [[ "Darwin" = $(uname) ]]; then
     check_installed ggrep
     if [[ -z $CHECK ]]; then; alias grep='ggrep'; fi
 
-    check_installed gcp
-    if [[ -z $CHECK ]]; then; alias cp='gcp'; fi
-
-    check_installed gmv
-    if [[ -z $CHECK ]]; then; alias mv='gmv'; fi
-
-    check_installed gwhoami
-    if [[ -z $CHECK ]]; then; alias =''; fi
-
-    check_installed 
-    if [[ -z $CHECK ]]; then; alias =''; fi
-
-    check_installed 
-    if [[ -z $CHECK ]]; then; alias =''; fi
-
-    check_installed 
-    if [[ -z $CHECK ]]; then; alias =''; fi
-
-    check_installed 
-    if [[ -z $CHECK ]]; then; alias =''; fi
-
     # check_installed 
     # if [[ -z $CHECK ]]; then
     #     alias ls='gls -Fh --group-directories-first --color'
