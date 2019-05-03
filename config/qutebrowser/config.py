@@ -2,7 +2,6 @@ config.bind('J', 'tab-prev')
 config.bind('K', 'tab-next')
 config.bind('<Ctrl-Shift-p>', 'open --private') # Emulate Firefox binding
 
-c.content.pdfjs                 = True
 c.qt.highdpi                    = True
 c.tabs.background               = True
 c.content.autoplay              = False
@@ -12,6 +11,7 @@ c.downloads.location.directory  = '~/downloads/'
 c.confirm_quit                  = ["multiple-tabs"]
 c.editor.command                = ['termite', '-e', 'vim {}']
 c.window.title_format           = '{perc}{title}{title_sep}'
+# c.content.pdfjs                 = False
 
 # Enable JavaScript.
 config.set('content.javascript.enabled', True, 'file://*')
