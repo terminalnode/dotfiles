@@ -4,6 +4,7 @@ config.bind('<Ctrl-Shift-p>', 'open --private') # Emulate Firefox binding
 
 c.content.pdfjs                 = True
 c.qt.highdpi                    = True
+c.tabs.background               = True
 c.content.autoplay              = False
 c.qt.low_end_device_mode        = 'auto'
 c.url.default_page              = 'about:blank'
