@@ -12,35 +12,23 @@
 include ~/.config/sway/svorak
 
 # Setting some variables.
-set $mod Mod4
+set $mod  Mod4
 set $term termite
 set $menu rofi
 
 # Cursor-related stuff
-focus_follows_mouse no
-mouse_warping       none
-tiling_drag         disable
-xwayland            enable
-bindsym $mod+Return exec $term
-bindsym $mod+Tab workspace back_and_forth
-bindsym $mod+Shift+Tab workspace next_on_output
-bindsym $mod+Ctrl+Space floating toggle
-
-# Launcher
-bindsym $mod+Space exec $menu -show drun
-bindsym $mod+Shift+Space exec $menu -show run
-
-# Drag floating windows by holding down $mod and left mouse button.
-# Resize them with right mouse button + $mod.
-# Change normal to inverse to use left mouse button for resizing and right mouse button for dragging.
-# Despite the name, also works for non-floating windows.
-floating_modifier $mod normal
-
-# Scratchpad:
-# Sway has a "scratchpad", which is a bag of holding for windows.
-# You can send windows there and get them back later.
+focus_follows_mouse      no
+mouse_warping            none
+tiling_drag              disable
+xwayland                 enable
+bindsym $mod+Return      exec $term
+bindsym $mod+Tab         workspace back_and_forth
+bindsym $mod+Shift+Tab   workspace next_on_output
+bindsym $mod+Ctrl+Space  floating toggle
+bindsym $mod+Space       exec $menu -show drun
+floating_modifier        $mod normal
 bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
+bindsym $mod+minus       scratchpad show
 
 ######################
 ### INPUT / OUTPUT ###
@@ -132,9 +120,6 @@ bindsym $mod+Shift+0    move container to workspace 20, workspace 20
 # Sound levels                  pamixer
 # Screenshots                   grim, slurp
 #
-# For almost all media keys these is an option for
-# slowly incrementing/decrementing with [shift/$mod]+mediakey
-
 # SCREEN BRIGHTNESS
 bindsym XF86MonBrightnessUp         exec xbacklight -inc 5, exec pkill -RTMIN+8 i3blocks
 bindsym XF86MonBrightnessDown       exec xbacklight -dec 5, exec pkill -RTMIN+8 i3blocks
@@ -142,7 +127,6 @@ bindsym shift+XF86MonBrightnessUp   exec xbacklight -inc 1, exec pkill -RTMIN+8 
 bindsym shift+XF86MonBrightnessDown exec xbacklight -dec 1, exec pkill -RTMIN+8 i3blocks
 bindsym $mod+XF86MonBrightnessUp    exec xbacklight -inc 1, exec pkill -RTMIN+8 i3blocks
 bindsym $mod+XF86MonBrightnessDown  exec xbacklight -dec 1, exec pkill -RTMIN+8 i3blocks
-
 # KEYBOARD BACKLIGHT
 bindsym XF86KbdBrightnessUp         exec xbacklight -ctrl smc::kbd_backlight -inc 5
 bindsym XF86KbdBrightnessDown       exec xbacklight -ctrl smc::kbd_backlight -dec 5
@@ -150,7 +134,6 @@ bindsym shift+XF86KbdBrightnessUp   exec xbacklight -ctrl smc::kbd_backlight -in
 bindsym shift+XF86KbdBrightnessDown exec xbacklight -ctrl smc::kbd_backlight -dec 1
 bindsym $mod+XF86KbdBrightnessUp    exec xbacklight -ctrl smc::kbd_backlight -inc 1
 bindsym $mod+XF86KbdBrightnessDown  exec xbacklight -ctrl smc::kbd_backlight -dec 1
-
 # VOLUME KEYS
 bindsym XF86AudioMute               exec pamixer -t, exec pkill -RTMIN+10 i3blocks
 bindsym XF86AudioRaiseVolume        exec pamixer -i 5, exec pkill -RTMIN+10 i3blocks
@@ -159,22 +142,14 @@ bindsym shift+XF86AudioRaiseVolume  exec pamixer -i 1, exec pkill -RTMIN+10 i3bl
 bindsym shift+XF86AudioLowerVolume  exec pamixer -d 1, exec pkill -RTMIN+10 i3blocks
 bindsym $mod+XF86AudioRaiseVolume   exec pamixer -i 1, exec pkill -RTMIN+10 i3blocks
 bindsym $mod+XF86AudioLowerVolume   exec pamixer -d 1, exec pkill -RTMIN+10 i3blocks
-
 # SCREENSHOTS
-# macOS-style bindings vs everyone else-style bindings.
-# Disabled in favor of lots more workspaces.
-# bindsym $mod+shift+3    exec grim -t png ~/screenshot.png
-# bindsym $mod+shift+4    exec slurp | grim -t png -g - ~/screenshot.png
-bindsym $mod+Print      exec grim -t png ~/screenshot.png
-bindsym Print           exec slurp | grim -t png -g - ~/screenshot.png
+bindsym $mod+Print                  exec grim -t png ~/screenshot.png
+bindsym Print                       exec slurp | grim -t png -g - ~/screenshot.png
 
 ###############################
 ### AESTHETICS + STATUS BAR ###
 ###############################
-## man 5 sway-bar
 font pango:Bitstream Vera Sans 9,Font Awesome 9
-# gaps inner 3
-# gaps outer 2
 default_border pixel 1
 
 ## SYNTAX
@@ -184,7 +159,7 @@ default_border pixel 1
 ## text             the text of the title bar
 ## indicator        side of the border where the window will split
 ## child_border     the border around the view itself
-
+##
 ## DEFAULTS                 border      background  text        indicator   child_border
 ## client.background        N/A         #ffffff     N/A         N/A         N/A
 ## client.focused           #4c7899     #285577     #ffffff     #2e9ef4     #285577
@@ -196,14 +171,13 @@ client.focused              #5e81ac     #5e81ac     #eceff4     #88c0d0     #5e8
 # client.focused            #5e81ac     #5e81ac     #eceff4     #88c0d0     #5e81ac
 
 bar {
-	status_command i3blocks
-	position top
-    mode hide
-    modifier $mod
+	status_command  i3blocks
+    modifier        $mod
+    mode            hide
+	position        top
     colors {
         statusline          #ffffff
         background          #2e3440aa
-
 		##############      Border      Filling     Text
 		inactive_workspace  #81a1c1     #4c566a     #eceff4
 		focused_workspace   #eceff4     #5e81ac     #eceff4
