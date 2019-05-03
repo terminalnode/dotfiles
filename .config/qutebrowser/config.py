@@ -81,6 +81,7 @@ c.url.searchengines = {
     "wikt"      : "https://en.wiktionary.org?search={}",
     # Games
     "steam"     : "https://store.steampowered.com/search/?term={}",
+    "gog"       : "https://www.gog.com/games?search={}",
     "eu4"       : "https://eu4.paradoxwikis.com?search={}",
     "rimworld"  : "https://rimworldwiki.com?search={}",
     "nethack"   : "https://nethackwiki.com/?search={}",
