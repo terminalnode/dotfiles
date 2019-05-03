@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+# scp with a default destination.
+function scplle {
+    DEST="~/.scp-inbox"
+    if [[ -z $2 ]]; then
+        echo "SYNTAX:"
+        echo "scplle [files and folders to transfer] [destination host] / IP"
+    else
+        echo "Sending files/folders ${@:1:-1} to ${@: -1}:$DEST"
+        echo
+        scp -r ${@:1:-1} ${@: -1}:$DEST
+    fi
+}
+
+# Execute a command and mercilessly disconnect it from the terminal.
+function opignore {
+    nohup $@ &> /dev/null & disown
+}
