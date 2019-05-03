@@ -1,5 +1,5 @@
 # This file is sourced all the time and needs to be kept short.
-export ZDOTDIR="$HOME/.zshconf"
+export ZDOTDIR="$HOME/.zsh"
 
 # Add stuff to path.
 if [[ -d "$HOME/.cargo" ]]; then

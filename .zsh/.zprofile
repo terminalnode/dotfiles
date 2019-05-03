@@ -1,13 +1,18 @@
-# This file is sourced on login.
-# Very similar to .zlogin except sourced right before .zshrc.
+# This file is sourced on login
+# Order is: .zprofile -> .zshrc -> .zlogin
 
-# Basic environmental variables
+###################
+### ENVIRONMENT ###
+###################
 export EDITOR=vim
 export VISUAL=vim
 export BROWSER=qutebrowser
 export TERMINAL=termite
 
-# Activate ibus if it's installed.
+############
+### IBUS ###
+############
+# Activate ibus, if ibus-daemon is available and not in tmux session.
 if [[ -x $(command -v ibus-daemon) ]] && [[ -z $TMUX ]]; then
     export GTK_IM_MODULE=ibus
     export XMODIFIERS=@im=ibus
@@ -16,15 +21,26 @@ if [[ -x $(command -v ibus-daemon) ]] && [[ -z $TMUX ]]; then
     ibus-daemon -drx
 fi
 
-# Wayland stuff
+###############
+### WAYLAND ###
+###############
+### Java
 export _JAVA_AWT_WM_NONREPARENTING=1
-export QT_QPA_PLATFORM=wayland
+### Qt
+export QT_QPA_PLATFORM=wayland-egl
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-# Broken for many programs and games:
+# export QT_WAYLAND_FORCE_DPI=physical
+### GTK
+# export GDK_BACKEND=wayland
+export CLUTTER_BACKEND=wayland
+### SDL
 # export SDL_VIDEODRIVER=wayland
 
-# X-specific settings for HiDPI displays.
+############
+### XORG ###
+############
 # Currently not in use. Kept for future reference.
+# Sway handles scaling for us.
 # export OPENRA_DISPLAY_SCALE=2
 # export GDK_DPI_SCALE=0.5
 # export GDK_SCALE=2

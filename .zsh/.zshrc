@@ -2,7 +2,7 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-zstyle :compinstall filename '~/.zshconf/.zshrc'
+zstyle :compinstall filename '~/.zsh/.zshrc'
 autoload -Uz compinit; compinit
 
 if [[ -x $(command -v dircolors) && ~/.dircolors ]]; then
@@ -31,7 +31,7 @@ fi
 
 # Some settings are stored as separate files in the
 # folder below. This to avoid clutter in this file.
-for file in ~/.zshconf/modules/*
+for file in ~/.zsh/modules/*
 do
     . ${file}
 done

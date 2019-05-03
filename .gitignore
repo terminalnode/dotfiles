@@ -1,28 +1,28 @@
 # Ignore
-vim/bundle
-vim/.netrwhist
-config/*
+.vim/bundle
+.vim/.netrwhist
+.config/*
 
 # Zshstuff
-zshconf/.zcompdump
-zshconf/modules/private
+.zsh/.zcompdump
+.zsh/modules/private
 
 # Unignore
-!config/i3
-!config/rofi
-!config/termite
-!config/zathura
-!config/newsboat
+!.config/i3
+!.config/rofi
+!.config/termite
+!.config/zathura
+!.config/newsboat
 
 # Unignore, reignore
-!config/sway
-config/sway/test
+!.config/sway
+.config/sway/test
 
-!config/mpv
-config/mpv/watch_later
+!.config/mpv
+.config/mpv/watch_later
 
-!config/qutebrowser
-config/qutebrowser/quickmarks
-config/qutebrowser/autoconfig.yml
-config/qutebrowser/bookmarks
-config/qutebrowser/qsettings/QtProject.conf
+!.config/qutebrowser
+.config/qutebrowser/quickmarks
+.config/qutebrowser/autoconfig.yml
+.config/qutebrowser/bookmarks
+.config/qutebrowser/qsettings/QtProject.conf
