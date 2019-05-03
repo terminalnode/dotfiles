@@ -80,6 +80,7 @@ c.url.searchengines = {
     "wpl"       : "https://pl.wikipedia.org?search={}",
     "wikt"      : "https://en.wiktionary.org?search={}",
     # Games
+    "steam"     : "https://store.steampowered.com/search/?term={}",
     "eu4"       : "https://eu4.paradoxwikis.com?search={}",
     "rimworld"  : "https://rimworldwiki.com?search={}",
     "nethack"   : "https://nethackwiki.com/?search={}",
