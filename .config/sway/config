@@ -24,6 +24,7 @@ xwayland            enable
 bindsym $mod+Return exec $term
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Shift+Tab workspace next_on_output
+bindsym $mod+Ctrl+Space floating toggle
 
 # Launcher
 bindsym $mod+Space exec $menu -show drun
