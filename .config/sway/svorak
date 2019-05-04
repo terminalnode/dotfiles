@@ -16,7 +16,7 @@ bindsym $mod+t          layout toggle tabbed split
 
 input "*" {
     xkb_layout se(dvorak_a5),se
-    xkb_options caps:swapescape,compose:sclk,grp:alt_caps_toggle
+    xkb_options caps:swapescape,compose:rctrl,grp:alt_caps_toggle
 }
 
 # Exception: Bluetooth keyboard is too small to touch type on.

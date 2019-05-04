@@ -17,7 +17,7 @@ bindsym $mod+odiaeresis layout toggle tabbed split
 
 input "*" {
     xkb_layout se,se(dvorak_a5)
-    xkb_options caps:swapescape,compose:sclk,grp:alt_caps_toggle
+    xkb_options caps:swapescape,compose:rctrl,grp:alt_caps_toggle
 }
 
 ############################
