@@ -1,73 +1,23 @@
-##########################
-## Structure:
-## This configuration file is split into multiple files, imported at the top of the file.
-## Sections
-## - Various (mod key definitions, default terminal, hot keys [...])
-## - Input/output configuration
-## - Media keys + printscreen
-## - Aesthetics + status bar configuration
+############################
+### VARIABLES / SETTINGS ###
+############################
+set $mod    Mod4
+set $term   termite
+set $menu   rofi
+set $left   h
+set $down   j
+set $up     k
+set $right  l
+set $resize 5
 
-# Most keybindings are dependent on keyboard layout.
-# The defaults for these are in ./svorak
-include svorak
+focus_follows_mouse no
+mouse_warping       none
+tiling_drag         disable
+xwayland            enable
+floating_modifier   $mod normal
+default_border      pixel 1
+font                pango:Bitstream Vera Sans 9,Font Awesome 9
 
-# Setting some variables.
-set $mod  Mod4
-set $term termite
-set $menu rofi
-
-# Cursor-related stuff
-focus_follows_mouse      no
-mouse_warping            none
-tiling_drag              disable
-xwayland                 enable
-bindsym $mod+Return      exec $term
-bindsym $mod+Tab         workspace back_and_forth
-bindsym $mod+Shift+Tab   workspace next_on_output
-bindsym $mod+Ctrl+Space  floating toggle
-bindsym $mod+Space       exec $menu -show drun
-floating_modifier        $mod normal
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus       scratchpad show
-
-######################
-### INPUT / OUTPUT ###
-######################
-# Monitors
-output eDP-1 {
-    pos 0 0
-    # illusion of choice
-    # res 2560x1600
-    scale 2.0
-}
-
-# Place all extra outputs right of main screen.
-output DP-1 pos 1280 0
-output DP-2 pos 1280 0
-output HDMI-1 pos 1280 0
-
-# Same background for all screens.
-output * bg ~/pics/wallpaper fill
-
-input "*" {
-    # Pointers
-    dwt                 disabled
-    tap                 enabled
-    natural_scroll      enabled
-    middle_emulation    enabled
-    tap_button_map      lrm
-    scroll_method       two_finger
-    scroll_factor       0.5
-}
-
-# Hide pointer
-seat seat0 {
-    hide_cursor 1500
-}
-
-##################################
-### Workspace output placement ###
-##################################
 # Workspace     Primary out     Secondary outs
 workspace 1     output eDP-1    DP-1 DP-2 HDMI-1
 workspace 2     output eDP-1    DP-1 DP-2 HDMI-1
@@ -90,51 +40,189 @@ workspace 18    output eDP-1    DP-1 DP-2 HDMI-1
 workspace 19    output eDP-1    DP-1 DP-2 HDMI-1
 workspace 20    output eDP-1    DP-1 DP-2 HDMI-1
 
-# Navigation between workspace 1-10 is keyboard layout dependent, 11-20 is not.
-bindsym $mod+1          workspace 11
-bindsym $mod+2          workspace 12
-bindsym $mod+3          workspace 13
-bindsym $mod+4          workspace 14
-bindsym $mod+5          workspace 15
-bindsym $mod+6          workspace 16
-bindsym $mod+7          workspace 17
-bindsym $mod+8          workspace 18
-bindsym $mod+9          workspace 19
-bindsym $mod+0          workspace 20
-bindsym $mod+Shift+1    move container to workspace 11, workspace 11
-bindsym $mod+Shift+2    move container to workspace 12, workspace 12
-bindsym $mod+Shift+3    move container to workspace 13, workspace 13
-bindsym $mod+Shift+4    move container to workspace 14, workspace 14
-bindsym $mod+Shift+5    move container to workspace 15, workspace 15
-bindsym $mod+Shift+6    move container to workspace 16, workspace 16
-bindsym $mod+Shift+7    move container to workspace 17, workspace 17
-bindsym $mod+Shift+8    move container to workspace 18, workspace 18
-bindsym $mod+Shift+9    move container to workspace 19, workspace 19
-bindsym $mod+Shift+0    move container to workspace 20, workspace 20
+#############
+### INPUT ###
+#############
+seat seat0 hide_cursor 1500
 
-######################
-### MEDIA KEYS ETC ###
-######################
+input "*" {
+    # Keyboard
+    xkb_layout se(dvorak_a5),se
+    xkb_options caps:swapescape,compose:rctrl,grp:alt_caps_toggle
+
+    # Pointers
+    dwt                 disabled
+    tap                 enabled
+    natural_scroll      enabled
+    middle_emulation    enabled
+    tap_button_map      lrm
+    scroll_method       two_finger
+    scroll_factor       0.5
+    }
+
+# Exception: Bluetooth keyboard is too small to touch type on.
+input "2652:34050:Bluetooth_keyboard_Keyboard" {
+    xkb_layout se
+    }
+
+
+##############
+### OUTPUT ###
+##############
+output eDP-1 {
+    pos 0 0
+    scale 2.0
+
+    # only available resolution
+    res 2560x1600 
+    }
+
+output DP-1   pos 1280 0
+output DP-2   pos 1280 0
+output HDMI-1 pos 1280 0
+output * bg ~/pics/current_wallpaper fill
+
+
+###################
+### KEYBINDINGS ###
+###################
+# Non-navigational bindings.
+bindsym --to-code $mod+q           kill
+bindsym --to-code $mod+f           fullscreen
+bindsym --to-code $mod+Shift+c     reload
+bindsym --to-code $mod+v           split toggle
+bindsym --to-code $mod+t           layout toggle tabbed split
+bindsym           $mod+Return      exec $term
+bindsym           $mod+Tab         workspace back_and_forth
+bindsym           $mod+Shift+Tab   workspace next_on_output
+bindsym           $mod+Ctrl+Space  floating toggle
+bindsym           $mod+Space       exec $menu -show drun
+bindsym           $mod+Shift+minus move scratchpad
+bindsym           $mod+minus       scratchpad show
+
+# Intra-workspace navigation
+# HJKL
+bindsym --to-code $mod+$left  focus left
+bindsym --to-code $mod+$down  focus down
+bindsym --to-code $mod+$up    focus up
+bindsym --to-code $mod+$right focus right
+bindsym --to-code $mod+Left   focus left
+bindsym --to-code $mod+Down   focus down
+bindsym --to-code $mod+Up     focus up
+bindsym --to-code $mod+Right  focus right
+# ←↓↑→
+bindsym --to-code $mod+Shift+$left  move left
+bindsym --to-code $mod+Shift+$down  move down
+bindsym --to-code $mod+Shift+$up    move up
+bindsym --to-code $mod+Shift+$right move right
+bindsym --to-code $mod+Shift+Left   move left
+bindsym --to-code $mod+Shift+Down   move down
+bindsym --to-code $mod+Shift+Up     move up
+bindsym --to-code $mod+Shift+Right  move right
+
+# Workspace hopping
+# (Moving a container to a specific workspace will also move the focus to that workspace)
+bindsym --to-code $mod+a                workspace 1
+bindsym --to-code $mod+o                workspace 2
+bindsym --to-code $mod+e                workspace 3
+bindsym --to-code $mod+u                workspace 4
+bindsym --to-code $mod+i                workspace 5
+bindsym --to-code $mod+aring            workspace 6
+bindsym --to-code $mod+adiaeresis       workspace 7
+bindsym --to-code $mod+odiaeresis       workspace 8
+bindsym --to-code $mod+p                workspace 9
+bindsym --to-code $mod+y                workspace 10
+bindsym --to-code $mod+Shift+a          move container to workspace 1,  workspace 1
+bindsym --to-code $mod+Shift+o          move container to workspace 2,  workspace 2
+bindsym --to-code $mod+Shift+e          move container to workspace 3,  workspace 3
+bindsym --to-code $mod+Shift+u          move container to workspace 4,  workspace 4
+bindsym --to-code $mod+Shift+i          move container to workspace 5,  workspace 5
+bindsym --to-code $mod+Shift+aring      move container to workspace 6,  workspace 6
+bindsym --to-code $mod+Shift+adiaeresis move container to workspace 7,  workspace 7
+bindsym --to-code $mod+Shift+odiaeresis move container to workspace 8,  workspace 8
+bindsym --to-code $mod+Shift+p          move container to workspace 9,  workspace 9
+bindsym --to-code $mod+Shift+y          move container to workspace 10, workspace 10
+bindsym           $mod+1                workspace 11
+bindsym           $mod+2                workspace 12
+bindsym           $mod+3                workspace 13
+bindsym           $mod+4                workspace 14
+bindsym           $mod+5                workspace 15
+bindsym           $mod+6                workspace 16
+bindsym           $mod+7                workspace 17
+bindsym           $mod+8                workspace 18
+bindsym           $mod+9                workspace 19
+bindsym           $mod+0                workspace 20
+bindsym           $mod+Shift+1          move container to workspace 11, workspace 11
+bindsym           $mod+Shift+2          move container to workspace 12, workspace 12
+bindsym           $mod+Shift+3          move container to workspace 13, workspace 13
+bindsym           $mod+Shift+4          move container to workspace 14, workspace 14
+bindsym           $mod+Shift+5          move container to workspace 15, workspace 15
+bindsym           $mod+Shift+6          move container to workspace 16, workspace 16
+bindsym           $mod+Shift+7          move container to workspace 17, workspace 17
+bindsym           $mod+Shift+8          move container to workspace 18, workspace 18
+bindsym           $mod+Shift+9          move container to workspace 19, workspace 19
+bindsym           $mod+Shift+0          move container to workspace 20, workspace 20
+
+# Resize mode
+mode "resize" {
+    # Left/Right will shrink/grow the containers width
+    # Up/Down will shrink/grow the containers height
+    bindsym --to-code $left           resize shrink width  $resize px or $resize ppt
+    bindsym --to-code $down           resize grow   height $resize px or $resize ppt
+    bindsym --to-code $up             resize shrink height $resize px or $resize ppt
+    bindsym --to-code $right          resize grow   width  $resize px or $resize ppt
+    bindsym --to-code $mod+$left      resize shrink width  $resize px or $resize ppt
+    bindsym --to-code $mod+$down      resize grow   height $resize px or $resize ppt
+    bindsym --to-code $mod+$up        resize shrink height $resize px or $resize ppt
+    bindsym --to-code $mod+$right     resize grow   width  $resize px or $resize ppt
+    bindsym --to-code shift+$left     resize shrink width  $resize px or $resize ppt
+    bindsym --to-code shift+$down     resize grow   height $resize px or $resize ppt
+    bindsym --to-code shift+$up       resize shrink height $resize px or $resize ppt
+    bindsym --to-code shift+$right    resize grow   width  $resize px or $resize ppt
+    # Same but with arrow keys
+    bindsym           Left            resize shrink width  $resize px or $resize ppt
+    bindsym           Down            resize grow   height $resize px or $resize ppt
+    bindsym           Up              resize shrink height $resize px or $resize ppt
+    bindsym           Right           resize grow   width  $resize px or $resize ppt
+    bindsym           $mod+Left       resize shrink width  $resize px or $resize ppt
+    bindsym           $mod+Down       resize grow   height $resize px or $resize ppt
+    bindsym           $mod+Up         resize shrink height $resize px or $resize ppt
+    bindsym           $mod+Right      resize grow   width  $resize px or $resize ppt
+    bindsym           shift+Left      resize shrink width  $resize px or $resize ppt
+    bindsym           shift+Down      resize grow   height $resize px or $resize ppt
+    bindsym           shift+Up        resize shrink height $resize px or $resize ppt
+    bindsym           shift+Right     resize grow   width  $resize px or $resize ppt
+    # Return to default mode
+    bindsym           Return  mode "default"
+    bindsym           Escape  mode "default"
+    bindsym --to-code $mod+r  mode "default"
+    bindsym --to-code r       mode "default"
+    }
+bindsym --to-code $mod+r mode "resize"
+
+
+##################
+### MEDIA KEYS ###
+##################
 # Dependencies:
-# Screen/keyboard brightness    acpilight
-# Sound levels                  pamixer
-# Screenshots                   grim, slurp
-#
-# SCREEN BRIGHTNESS
+# Screen/keyboard brightness        acpilight
+# Sound levels                      pamixer
+# Screenshots                       grim, slurp
+# Screen brightness
 bindsym XF86MonBrightnessUp         exec xbacklight -inc 5, exec pkill -RTMIN+8 i3blocks
 bindsym XF86MonBrightnessDown       exec xbacklight -dec 5, exec pkill -RTMIN+8 i3blocks
 bindsym shift+XF86MonBrightnessUp   exec xbacklight -inc 1, exec pkill -RTMIN+8 i3blocks
 bindsym shift+XF86MonBrightnessDown exec xbacklight -dec 1, exec pkill -RTMIN+8 i3blocks
 bindsym $mod+XF86MonBrightnessUp    exec xbacklight -inc 1, exec pkill -RTMIN+8 i3blocks
 bindsym $mod+XF86MonBrightnessDown  exec xbacklight -dec 1, exec pkill -RTMIN+8 i3blocks
-# KEYBOARD BACKLIGHT
+# Keyboard backlight
 bindsym XF86KbdBrightnessUp         exec xbacklight -ctrl smc::kbd_backlight -inc 5
 bindsym XF86KbdBrightnessDown       exec xbacklight -ctrl smc::kbd_backlight -dec 5
 bindsym shift+XF86KbdBrightnessUp   exec xbacklight -ctrl smc::kbd_backlight -inc 1
 bindsym shift+XF86KbdBrightnessDown exec xbacklight -ctrl smc::kbd_backlight -dec 1
 bindsym $mod+XF86KbdBrightnessUp    exec xbacklight -ctrl smc::kbd_backlight -inc 1
 bindsym $mod+XF86KbdBrightnessDown  exec xbacklight -ctrl smc::kbd_backlight -dec 1
-# VOLUME KEYS
+# Volume keys
 bindsym XF86AudioMute               exec pamixer -t, exec pkill -RTMIN+10 i3blocks
 bindsym XF86AudioRaiseVolume        exec pamixer -i 5, exec pkill -RTMIN+10 i3blocks
 bindsym XF86AudioLowerVolume        exec pamixer -d 5, exec pkill -RTMIN+10 i3blocks
@@ -142,16 +230,13 @@ bindsym shift+XF86AudioRaiseVolume  exec pamixer -i 1, exec pkill -RTMIN+10 i3bl
 bindsym shift+XF86AudioLowerVolume  exec pamixer -d 1, exec pkill -RTMIN+10 i3blocks
 bindsym $mod+XF86AudioRaiseVolume   exec pamixer -i 1, exec pkill -RTMIN+10 i3blocks
 bindsym $mod+XF86AudioLowerVolume   exec pamixer -d 1, exec pkill -RTMIN+10 i3blocks
-# SCREENSHOTS
+# Screenshots
 bindsym $mod+Print                  exec grim -t png ~/screenshot.png
 bindsym Print                       exec slurp | grim -t png -g - ~/screenshot.png
 
 ###############################
 ### AESTHETICS + STATUS BAR ###
 ###############################
-font pango:Bitstream Vera Sans 9,Font Awesome 9
-default_border pixel 1
-
 ## SYNTAX
 ## client.<class>   border background text indicator child_border
 ## border           the border around the title bar
