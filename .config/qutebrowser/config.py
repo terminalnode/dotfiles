@@ -54,6 +54,7 @@ c.url.searchengines = {
     "gunda"     : "https://gu-se-primo.hosted.exlibrisgroup.com/primo-explore/search?query=any,contains,{}&vid=46GUB_VU1",
     "ebay"      : "https://www.ebay.com/sch/i.html?LH_PrefLoc=5&_nkw={}",
     "systemet"  : "https://www.systembolaget.se/sok-dryck/?searchquery={}",
+    "bandcamp"  : "https://bandcamp.com/search?q={}",
     # Warez
     "genlib"    : "http://gen.lib.rus.ec/search.php?req={}",
     "tpb"       : "https://thepiratebay.org/search/{}",
