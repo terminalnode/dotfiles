@@ -2,12 +2,10 @@
 export ZDOTDIR="$HOME/.zsh"
 
 # Add stuff to path.
-if [[ -d "$HOME/.cargo" ]]; then
-    export PATH="$HOME/.cargo/bin:$PATH"
-fi
-if [[ -d "$HOME/.scripts" ]]; then
-    export PATH="$HOME/.scripts:$PATH"
-fi
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.scripts:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
 if [[ "Darwin" = $(uname) && -x $(command -v brew) ]]; then
     export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
     export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
