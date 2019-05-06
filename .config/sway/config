@@ -43,7 +43,7 @@ workspace 20    output eDP-1    DP-1 DP-2 HDMI-1
 #############
 ### INPUT ###
 #############
-seat seat0 hide_cursor 1500
+seat * hide_cursor 1500
 
 input "*" {
     # Keyboard
