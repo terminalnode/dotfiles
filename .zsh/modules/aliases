@@ -7,6 +7,7 @@ alias weather="curl wttr.in/Gothenburg\?0Q"
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias ls='ls -Fh --group-directories-first --color'
+alias ll="ls -la"
 alias free='free -ht'
 alias du='du -h'
 alias df='df -h'
