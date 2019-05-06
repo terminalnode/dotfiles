@@ -1,41 +1,41 @@
 #!/bin/bash
 # A simple script for downloading a new mirror list for Archlinux and rank them by speed.
+# Option 'url': Just print the URL and exit.
 
-# Check that we have all dependencies.
-# If we don't, try to install them.
+# Get bold text if tput is available.
+if [[ -x $(command -v tput) ]]; then
+    BOLD=$(tput bold)
+    NORMAL=$(tput sgr0)
+fi
+
+# URL SETUP
+# Add/remove countries according to your preferences.
+URL="https://www.archlinux.org/mirrorlist/?protocol=https&use_mirror_status=on" 
+for COUNTRY in SE NO DK FI DE NL
+    do
+        URL="$URL&country=$COUNTRY";
+    done
+
+if [[ $1 == "url" || $1 == "--url" ]]; then
+    echo -e "${BOLD}This is the full URL I'll be using:${NORMAL}\n$URL"
+    exit
+fi
+
+### DEPENDENCY CHECK
 function check_deps () {
     unset INSTALL
     if ! [[ -x $(command -v curl) ]]; then INSTALL="$INSTALL curl"; fi
     if ! [[ -x $(command -v rankmirrors) ]]; then INSTALL="$INSTALL pacman-contrib"; fi
 }
 
-# Get bold text if tput is available.
-if [[ -x $(command -v tput) ]]; then BOLD=$(tput bold); NORMAL=$(tput sgr0); fi
-
-# Add/remove countries according to your preferences.
-# NL and DE are fairly close by and have a lot of good servers.
-URL="https://www.archlinux.org/mirrorlist/?protocol=https&use_mirror_status=on" 
-for COUNTRY in SE NO DK FI DE NL
-do
-    URL="$URL&country=$COUNTRY"
-done
-
-# Option to just print out the URL for looking at it manually.
-if [[ $1 == "url" ]]; then
-    echo "${BOLD}This is the full URL I'll be using:${NORMAL}"
-    echo $URL
-    exit
-fi
-
-# If dependencies are not installed, try to install them.
+# Install necessary dependencies.
 check_deps
 if ! [[ -z $INSTALL ]]; then
     if [[ $EUID -ne 0 ]]; then
         echo "${BOLD}Need to install dependencies and you're not root. Bye.${NORMAL}"
         exit
     fi
-    pacman -S $INSTALL;
-    echo
+    pacman -S $INSTALL; echo
 fi
 
 # See that dependencies were installed and are executable.
@@ -45,14 +45,14 @@ if ! [[ -z $INSTALL ]]; then
     exit
 fi
 
-# Check if root, if /etc/pacman.d exists, and if a mirrorlist already exists.
+### MIRROR_PATH CHECK
 if [[ $EUID -ne 0 ]]; then
     echo "${BOLD}Not root. Saving new mirrors to ~/mirrorlist.${NORMAL}"
     MIRROR_PATH="$HOME"
 
 else
     if [[ -d /etc/pacman.d ]]; then
-        echo "${BOLD}Running as root, your current mirror list will be replaced.${NORMAL}"
+        echo "${BOLD}Running as root. Saving new mirrors to /etc/pacman.d/mirrorlist.${NORMAL}"
         MIRROR_PATH="/etc/pacman.d/"
 
         if [[ -e /etc/pacman.d/mirrorlist ]]; then
@@ -60,23 +60,21 @@ else
             cp "$MIRROR_PATH/mirrorlist" "$MIRROR_PATH/mirrorlist_old"
         fi
     else
-        echo "${BOLD}Directory /etc/pacman.d/ does not exist.${NORMAL}"
-        echo "Saving new mirrors to ~/mirrors"
+        echo -e "${BOLD}Directory /etc/pacman.d/ does not exist.${NORMAL}\nSaving new mirrors to ~/mirrors"
         MIRROR_PATH="$HOME"
     fi
 fi
 
-# Download new mirrors and test them for speed.
+### DOWNLOAD NEW MIRRORS
 NEW_FILE=$(
     curl -s $URL |
     sed -e 's/^#Server/Server/' -e '/^#/d' |
     rankmirrors -n 30 -
 ) 
 
+### COPY NEW MIRRORS TO PATH
 if ! [[ -z $NEW_FILE ]]; then
-    printf "$NEW_FILE" > $MIRROR_PATH/mirrorlist
-    echo "Done!"
+    printf "$NEW_FILE" > $MIRROR_PATH/mirrorlist && echo "Done!"
 else
-    echo
-    echo "${BOLD}Error! New mirror file was empty, not saving to file.${NORMAL}"
+    echo -e "${BOLD}\nError! New mirror file was empty, not saving to file.${NORMAL}"
 fi
