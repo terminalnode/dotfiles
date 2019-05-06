@@ -3,10 +3,7 @@
 # Option 'url': Just print the URL and exit.
 
 # Get bold text if tput is available.
-if [[ -x $(command -v tput) ]]; then
-    BOLD=$(tput bold)
-    NORMAL=$(tput sgr0)
-fi
+[[ -x $(command -v tput) ]] && BOLD=$(tput bold) && NORMAL=$(tput sgr0)
 
 # URL SETUP
 # Add/remove countries according to your preferences.
