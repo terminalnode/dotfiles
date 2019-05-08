@@ -8,30 +8,39 @@
 [options]
 font = Source Code Pro 10
 cursor_shape = underline
+cursor_blink = off
 
 [colors]
-cursor = #d8dee9
+cursor            = #eceff4
 cursor_foreground = #2e3440
 
-foreground = #d8dee9
-foreground_bold = #d8dee9
-background = rgba(36, 42, 54, 0.95)
+foreground      = #d8dee9
+foreground_bold = #e5e9f0
+background      = rgba(21, 27, 39, 0.97)
 
+# Brightest "Polar Night"
 highlight = #4c566a
-
-color0  = #3b4252
+# Red
 color1  = #bf616a
-color2  = #a3be8c
-color3  = #ebcb8b
-color4  = #81a1c1
-color5  = #b48ead
-color6  = #88c0d0
-color7  = #e5e9f0
-color8  = #4c566a
 color9  = #bf616a
+# Green
+color2  = #a3be8c
 color10 = #a3be8c
+# Yellow
+color3  = #ebcb8b
 color11 = #ebcb8b
+# Blue
+color4  = #81a1c1
 color12 = #81a1c1
+# Magenta
+color5  = #b48ead
 color13 = #b48ead
+# Cyan (ice-blue/greenish frost)
+color6  = #88c0d0
 color14 = #8fbcbb
+# Black / Grey
+color0  = #3b4252
+color8  = #4c566a
+# White / grey
+color7  = #e5e9f0
 color15 = #eceff4
