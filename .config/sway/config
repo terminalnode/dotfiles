@@ -15,7 +15,8 @@ mouse_warping       none
 tiling_drag         disable
 xwayland            enable
 floating_modifier   $mod normal
-default_border      pixel 1
+default_border      pixel 2
+smart_borders       on
 font                pango:Bitstream Vera Sans 9,Font Awesome 9
 
 # Workspace     Primary out     Secondary outs
