@@ -12,6 +12,9 @@ c.confirm_quit                      = ["multiple-tabs"]
 c.editor.command                    = ['termite', '-e', 'vim {}']
 c.window.title_format               = '{perc}{title}{title_sep}'
 c.content.register_protocol_handler = False
+c.auto_save.session                 = True
+
+# Previously enabled options that are disabled now.
 # c.content.pdfjs               = False
 
 # Enable JavaScript.
