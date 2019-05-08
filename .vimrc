@@ -32,6 +32,8 @@ Plug 'terminalnode/sway-vim-syntax'
 Plug 'vim-python/python-syntax'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'rust-lang/rust.vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 
@@ -53,14 +55,17 @@ let g:nord_italic_comments = 1
 let g:nord_comment_brightness = 20
 let g:nord_cursor_line_number_background = 1
 let g:airline_powerline_fonts=1
-
-" Enable vim-python/python-syntax
-let g:python_highlight_all = 1
-" Run :RustFmt on saving a .rs-file
-let g:rustfmt_autosave = 1
-
 "let g:airline#extensions#hunks#non_zero_only = 1
 "let g:airline#extensions#tabline#enabled = 1
+
+" Python
+let g:python_highlight_all = 1
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
+" Rust
+let g:rustfmt_autosave = 1
+
+" Haskell
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
 let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
 let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
@@ -68,6 +73,16 @@ let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
 let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
 let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
 let g:haskell_backpack = 1                " to enable highlighting of backpack keyword
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 
 """ FEEL
 syntax on						" enables syntax highlighning
