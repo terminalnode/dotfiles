@@ -263,7 +263,7 @@ bar {
 	position        top
     colors {
         statusline          #ffffff
-        background          #2e3440aa
+        background          #2e3440
 		##############      Border      Filling     Text
 		inactive_workspace  #81a1c1     #4c566a     #eceff4
 		focused_workspace   #eceff4     #5e81ac     #eceff4
