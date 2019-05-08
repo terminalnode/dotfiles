@@ -238,6 +238,27 @@ bindsym Print                       exec slurp | grim -t png -g - ~/screenshot.p
 ###############################
 ### AESTHETICS + STATUS BAR ###
 ###############################
+# Nord Polar (lower is darker)
+set $polar-1 #2e3440
+set $polar-2 #3b4252
+set $polar-3 #434c5e
+set $polar-4 #3c566a
+# Nord Snow (lower is grayer)
+set $snow-1  #d8dee9
+set $snow-2  #e5e9f0
+set $snow-3  #eceff4
+# Nord Frost (lower is greener, higher is bluer)
+set $frost-1 #8fbcbb
+set $frost-2 #88c0d0
+set $frost-3 #81a1c1
+set $frost-4 #5e81ac
+# Nord Aurora (extra colors)
+set $red     #bf616a
+set $orange  #d08770
+set $yellow  #ebcb8b
+set $green   #a3be8c
+set $magenta #b48ead
+
 ## SYNTAX
 ## client.<class>   border background text indicator child_border
 ## border           the border around the title bar
@@ -245,7 +266,6 @@ bindsym Print                       exec slurp | grim -t png -g - ~/screenshot.p
 ## text             the text of the title bar
 ## indicator        side of the border where the window will split
 ## child_border     the border around the view itself
-##
 ## DEFAULTS                 border      background  text        indicator   child_border
 ## client.background        N/A         #ffffff     N/A         N/A         N/A
 ## client.focused           #4c7899     #285577     #ffffff     #2e9ef4     #285577
@@ -253,7 +273,7 @@ bindsym Print                       exec slurp | grim -t png -g - ~/screenshot.p
 ## client.placeholder       #000000     #0c0c0c     #ffffff     #000000     #0c0c0c
 ## client.unfocused         #333333     #222222     #888888     #292d2e     #222222
 ## client.urgent            #2f343a     #900000     #ffffff     #900000     #900000
-client.focused              #5e81ac     #5e81ac     #eceff4     #88c0d0     #5e81ac
+client.focused              $frost-4    $frost-4    $snow-3     $frost-2    $frost-4
 # client.focused            #5e81ac     #5e81ac     #eceff4     #88c0d0     #5e81ac
 
 bar {
@@ -262,13 +282,14 @@ bar {
     mode            hide
 	position        top
     colors {
-        statusline          #ffffff
-        background          #2e3440
+        statusline          $frost-3
+        background          $polar-1
 		##############      Border      Filling     Text
-		inactive_workspace  #81a1c1     #4c566a     #eceff4
-		focused_workspace   #eceff4     #5e81ac     #eceff4
-		active_workspace    #eceff4     #5e81ac     #eceff4
-		urgent_workspace    #eceff4     #bf616a     #eceff4
-		binding_mode        #3b4252     #a3be8c     #3b4252
+		inactive_workspace  $frost-3    $polar-3    $snow-3
+		focused_workspace   $snow-3     $frost-4    $snow-3
+
+		active_workspace    $snow-3     $frost-4    $snow-3
+		urgent_workspace    $snow-3     $red        $snow-3
+		binding_mode        $polar-2    $green      $polar-3
     }
 }
