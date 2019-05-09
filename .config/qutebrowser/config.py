@@ -60,6 +60,7 @@ c.url.searchengines = {
     "systemet"  : "https://www.systembolaget.se/sok-dryck/?searchquery={}",
     "bandcamp"  : "https://bandcamp.com/search?q={}",
     "fawe"      : "https://fontawesome.com/icons?d=gallery&q={}",
+    "r/"        : "https://reddit.com/r/{}",
     # Warez
     "genlib"    : "http://gen.lib.rus.ec/search.php?req={}",
     "tpb"       : "https://thepiratebay.org/search/{}",
