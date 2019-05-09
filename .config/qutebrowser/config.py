@@ -1,6 +1,13 @@
+# Keybindings
 config.bind('J', 'tab-prev')
 config.bind('K', 'tab-next')
-config.bind('<Ctrl-Shift-p>', 'open --private') # Emulate Firefox binding
+config.bind('<Ctrl-Shift-p>', 'open -p') # Emulate Firefox binding
+
+# Do stuff with URLs
+# ; for hints, , for current page.
+config.bind(';t', 'hint links spawn transmission-remote -a {hint-url}')
+config.bind(';p', 'hint links spawn mpv {hint-url}')
+config.bind(',p', 'spawn mpv {url}')
 
 c.qt.highdpi                        = True
 c.tabs.background                   = True
