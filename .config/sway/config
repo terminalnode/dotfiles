@@ -260,21 +260,18 @@ set $green   #a3be8c
 set $magenta #b48ead
 
 ## SYNTAX
-## client.<class>   border background text indicator child_border
 ## border           the border around the title bar
 ## background       the background of the title bar
 ## text             the text of the title bar
 ## indicator        side of the border where the window will split
 ## child_border     the border around the view itself
-## DEFAULTS                 border      background  text        indicator   child_border
-## client.background        N/A         #ffffff     N/A         N/A         N/A
-## client.focused           #4c7899     #285577     #ffffff     #2e9ef4     #285577
-## client.focused_inactive  #333333     #5f676a     #ffffff     #484e50     #5f676a
-## client.placeholder       #000000     #0c0c0c     #ffffff     #000000     #0c0c0c
-## client.unfocused         #333333     #222222     #888888     #292d2e     #222222
-## client.urgent            #2f343a     #900000     #ffffff     #900000     #900000
-client.focused              $frost-4    $frost-4    $snow-3     $frost-2    $frost-4
-# client.focused            #5e81ac     #5e81ac     #eceff4     #88c0d0     #5e81ac
+##
+## NAME                     border      background  text        indicator   child_border
+client.focused              $polar-4    $polar-4    $snow-3     $frost-3    $polar-4
+client.urgent               $orange     $red        $snow-1     $orange     $orange
+# Focused inactive and unfocused should act the same.
+client.focused_inactive     $polar-1    $polar-2    $snow-1     $polar-1    $polar-1
+client.unfocused            $polar-1    $polar-2    $snow-1     $polar-1    $polar-1
 
 bar {
 	status_command  i3blocks
@@ -285,11 +282,13 @@ bar {
         statusline          $frost-3
         background          $polar-1
 		##############      Border      Filling     Text
-		inactive_workspace  $frost-3    $polar-3    $snow-3
-		focused_workspace   $snow-3     $frost-4    $snow-3
-
-		active_workspace    $snow-3     $frost-4    $snow-3
-		urgent_workspace    $snow-3     $red        $snow-3
-		binding_mode        $polar-2    $green      $polar-3
+        # Bright
+		active_workspace    $frost-1    $polar-3    $snow-3
+		focused_workspace   $frost-1    $polar-3    $snow-3
+        # Dim
+		inactive_workspace  $frost-4    $polar-1    $snow-1
+        # Lit
+		urgent_workspace    $polar-1    $red        $polar-1
+		binding_mode        $polar-1    $green      $polar-1
     }
 }
