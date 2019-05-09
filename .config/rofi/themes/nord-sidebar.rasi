@@ -1,0 +1,114 @@
+/*
+ * User: qball (nordified by terminalnode)
+ * Copyright: Dave Davenport
+*/
+
+* {
+    // Transparent
+    background-color:  rgba(0,0,0,0);
+
+    // Polar Night (black)
+    polar1:       #2e3440;
+    polar2:       #3b4252;
+    polar3:       #434c5e;
+    polar4:       #4c566a;
+    polarbg:      #2e3440ee;
+    black:        @polar2; // original: #3d352a;
+    lightblack:   @polar4; // original: #554444;
+    dark:         @polar1; // original: #1c1c1c;
+
+    // Snow Storm (white)
+    snow1:        #d8dee9;
+    snow2:        #e5e9f0;
+    snow3:        #eceff4;
+    text-color:   @snow1; // original: #ffeedd;
+    white:        @snow1; // original: #bbaa99;
+    lightwhite:   @snow2; // original: #ddccbb;
+    highlight:    @snow3; // original: bold #ffffff;
+
+    // Frost (turquoise to blue)
+    frost1:       #8fbcbb;
+    frost2:       #88c0d0;
+    frost3:       #81a1c1;
+    frost4:       #5e81ac;
+    blue:         @frost4; // original: ##6495ed;
+    lightblue:    @frost3; // original: ##87ceeb;
+    cyan:         @frost2; // original: #b0c4de;
+    lightcyan:    @frost1; // original: #b0c4de;
+
+    // Aurora (various colours)
+    // Red
+    red:          #bf616a; // original: #cd5c5c;
+    lightred:     #bf616a; // original: #cc5533;
+
+    // Green
+    green:        #a3be8c; // original: #86af80;
+    lightgreen:   #a3be8c; // original: #88cc22;
+
+    // Yellow
+    yellow:       #ebcb8b; // original: #e8ae5b;
+    lightyellow:  #ebcb8b; // original: ##ffa75d;
+
+    // Magenta
+    magenta:      #b48ead; // original: ##deb887;
+    lightmagenta: #b48ead; // original: ##996600;
+}
+#window {
+    height:   100%;
+    width: 30em;
+    location: west;
+    anchor:   west;
+    border:  0px 2px 0px 0px;
+    text-color: @lightwhite;
+}
+
+#mode-switcher {
+    border: 2px 0px 0px 0px;
+    background-color: @lightblack;
+    padding: 4px;
+}
+#button selected {
+    border-color: @lightgreen;
+    text-color: @lightgreen;
+}
+#inputbar {
+    background-color: @lightblack;
+    text-color: @lightgreen;
+    padding: 4px;
+    border: 0px 0px 2px 0px;
+}
+#mainbox {
+    expand: true;
+    background-color: @polarbg;
+    spacing: 1em;
+}
+#listview {
+    padding: 0em 0.4em 0em 1em;
+    dynamic: false;
+    lines: 0;
+}
+#element selected  normal {
+    background-color: @blue;
+}
+#element normal active {
+    text-color: @lightblue;
+}
+#element normal urgent {
+    text-color: @lightred;
+}
+#element alternate normal {
+}
+#element alternate active {
+    text-color: @lightblue;
+}
+#element alternate urgent {
+    text-color: @lightred;
+}
+#element selected active {
+    background-color: @lightblue;
+    text-color: @dark;
+}
+#element selected urgent {
+    background-color: @lightred;
+    text-color: @dark;
+}

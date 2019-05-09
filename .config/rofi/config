@@ -4,3 +4,4 @@ rofi.location:		3
 rofi.matching:		fuzzy
 rofi.modi:			combi
 rofi.line-padding:	20
+rofi.theme: /home/monster/.local/share/rofi/themes/nord-sidebar.rasi
