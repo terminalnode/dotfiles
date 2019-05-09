@@ -1,5 +1,6 @@
 #!/bin/sh
 alias weather="curl wttr.in/Gothenburg\?0Q"
+alias rightnow="date +\(%a\)\ %d\ %b\ %H:%M"
 
 ################
 ### DEFAULTS ###
