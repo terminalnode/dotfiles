@@ -182,13 +182,6 @@ c.colors.keyhint.suffix.fg                      = nord['yellow']
 ################
 ### MESSAGES ###
 ################
-# Original colors (white on colored background)
-# c.colors.messages.info.bg                     = nord['frost-2']
-# c.colors.messages.info.fg                     = nord['snow-2']
-# c.colors.messages.error.bg                    = nord['red']
-# c.colors.messages.error.fg                    = nord['snow-2']
-# c.colors.messages.warning.bg                  = nord['orange']
-# c.colors.messages.warning.fg                  = nord['snow-2']
 ## Info messages
 c.colors.messages.info.bg                       = nord['polar-1']
 c.colors.messages.info.fg                       = nord['frost-2']
