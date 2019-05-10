@@ -16,7 +16,7 @@ tiling_drag         disable
 xwayland            enable
 floating_modifier   $mod normal
 default_border      pixel 2
-titlebar_padding    1 1
+titlebar_padding    2 2
 smart_borders       on
 font                pango:Bitstream Vera Sans 9,Font Awesome 9
 
