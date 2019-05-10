@@ -2,6 +2,7 @@
 config.bind('J', 'tab-prev')
 config.bind('K', 'tab-next')
 config.bind('<Ctrl-Shift-p>', 'set-cmd-text -s :open -p') # Emulate Firefox binding
+config.unbind('q') # No need for macros in a browser.
 
 # Do stuff with URLs
 # ; for hints, , for current page.
