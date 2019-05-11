@@ -247,23 +247,22 @@ c.colors.statusbar.url.warn.fg                  = nord['orange']
 ##   - rgb/hsv/hsl: Interpolate in the RGB/HSV/HSL color system.
 ##   - none: Don't show a gradient.
 c.colors.tabs.indicator.system                  = 'none'
-# c.colors.tabs.indicator.start                 = nord['violet']
-# c.colors.tabs.indicator.stop                  = nord['orange']
+c.colors.tabs.indicator.start                   = nord['yellow']
+c.colors.tabs.indicator.stop                    = nord['green']
+c.colors.tabs.indicator.error                   = nord['red']
 
 ## Default colours
-c.colors.tabs.bar.bg                            = nord['polar-4']
+c.colors.tabs.bar.bg                            = nord['polar-1']
 ## Selected tabs
-c.colors.tabs.selected.even.bg                  = nord['polar-1']
+c.colors.tabs.selected.even.bg                  = nord['polar-4']
+c.colors.tabs.selected.odd.bg                   = nord['polar-4']
 c.colors.tabs.selected.even.fg                  = nord['snow-2']
-c.colors.tabs.selected.odd.bg                   = nord['polar-1']
 c.colors.tabs.selected.odd.fg                   = nord['snow-2']
 ## Unselected tabs
-c.colors.tabs.even.bg                           = nord['polar-4']
+c.colors.tabs.even.bg                           = nord['polar-1']
+c.colors.tabs.odd.bg                            = nord['polar-1']
 c.colors.tabs.even.fg                           = nord['snow-2']
-c.colors.tabs.odd.bg                            = nord['polar-4']
 c.colors.tabs.odd.fg                            = nord['snow-2']
-## Tab indicator on errors
-c.colors.tabs.indicator.error                   = nord['red']
 
 ####################
 # Stuff currently not in use. Stashed away in case I'll need it later.
