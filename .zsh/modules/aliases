@@ -25,6 +25,11 @@ alias neofetch='neofetch \
 #################
 alias ip='sudo ip'
 alias systemctl='sudo systemctl'
+alias service='sudo systemctl'
+alias restart='sudo systemctl restart'
+alias start='sudo systemctl start'
+alias stop='sudo systemctl stop'
+alias status='sudo systemctl status'
 alias netctl='sudo netctl'
 
 ##########################
