@@ -16,8 +16,3 @@ function scpille {
 function opignore {
     nohup $@ &> /dev/null & disown
 }
-
-# Post output of something to termbin.
-function termbin {
-    $@ | nc termbin.com 9999
-}
