@@ -45,11 +45,14 @@ workspace 20    output eDP-1    DP-1 DP-2 HDMI-1
 #############
 ### INPUT ###
 #############
-seat * hide_cursor 1500
+# hide_cursor also deactivates it, so a longer timeout
+# is required in order to show stuff like tooltips etc.
+seat * hide_cursor 5000
 
 input "*" {
     # Keyboard
-    xkb_layout se(dvorak_a5),se
+    xkb_layout se,se
+    xkb_variant dvorak_a5,
     xkb_options caps:swapescape,compose:rctrl,grp:alt_caps_toggle
 
     # Pointers
