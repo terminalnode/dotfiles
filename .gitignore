@@ -22,7 +22,6 @@
 .config/mpv/watch_later
 
 !.config/qutebrowser
-.config/qutebrowser/quickmarks
 .config/qutebrowser/autoconfig.yml
 .config/qutebrowser/bookmarks
 .config/qutebrowser/qsettings/QtProject.conf
