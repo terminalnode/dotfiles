@@ -210,34 +210,49 @@ bindsym --to-code $mod+r mode "resize"
 ### MEDIA KEYS ###
 ##################
 # Dependencies:
-# Screen/keyboard brightness        acpilight
-# Sound levels                      PulseAudio (pactl)
-# Screenshots                       grim, slurp
-# Screen brightness
-bindsym XF86MonBrightnessUp         exec xbacklight -inc 5, exec pkill -RTMIN+8 i3blocks
-bindsym XF86MonBrightnessDown       exec xbacklight -dec 5, exec pkill -RTMIN+8 i3blocks
-bindsym shift+XF86MonBrightnessUp   exec xbacklight -inc 1, exec pkill -RTMIN+8 i3blocks
-bindsym shift+XF86MonBrightnessDown exec xbacklight -dec 1, exec pkill -RTMIN+8 i3blocks
-bindsym $mod+XF86MonBrightnessUp    exec xbacklight -inc 1, exec pkill -RTMIN+8 i3blocks
-bindsym $mod+XF86MonBrightnessDown  exec xbacklight -dec 1, exec pkill -RTMIN+8 i3blocks
+# Screen/keyboard backlight     acpilight
+# Sound levels                  PulseAudio (pactl)
+# Screenshots                   grim, slurp
+
+# SCREEN BACKLIGHT
+set $increase_screen                xbacklight -inc
+set $decrease_screen                xbacklight -dec
+bindsym XF86MonBrightnessUp         exec $increase_screen 5, exec pkill -RTMIN+8 i3blocks
+bindsym shift+XF86MonBrightnessUp   exec $increase_screen 1, exec pkill -RTMIN+8 i3blocks
+bindsym $mod+XF86MonBrightnessUp    exec $increase_screen 1, exec pkill -RTMIN+8 i3blocks
+bindsym XF86MonBrightnessDown       exec $decrease_screen 5, exec pkill -RTMIN+8 i3blocks
+bindsym shift+XF86MonBrightnessDown exec $decrease_screen 1, exec pkill -RTMIN+8 i3blocks
+bindsym $mod+XF86MonBrightnessDown  exec $decrease_screen 1, exec pkill -RTMIN+8 i3blocks
+
 # Keyboard backlight
-bindsym XF86KbdBrightnessUp         exec xbacklight -ctrl smc::kbd_backlight -inc 5
-bindsym XF86KbdBrightnessDown       exec xbacklight -ctrl smc::kbd_backlight -dec 5
-bindsym shift+XF86KbdBrightnessUp   exec xbacklight -ctrl smc::kbd_backlight -inc 1
-bindsym shift+XF86KbdBrightnessDown exec xbacklight -ctrl smc::kbd_backlight -dec 1
-bindsym $mod+XF86KbdBrightnessUp    exec xbacklight -ctrl smc::kbd_backlight -inc 1
-bindsym $mod+XF86KbdBrightnessDown  exec xbacklight -ctrl smc::kbd_backlight -dec 1
+set $increase_kbd                   xbacklight -ctrl smc::kbd_backlight -inc
+set $decrease_kbd                   xbacklight -ctrl smc::kbd_backlight -dec
+bindsym XF86KbdBrightnessUp         exec $increase_kbd 5
+bindsym shift+XF86KbdBrightnessUp   exec $increase_kbd 1
+bindsym $mod+XF86KbdBrightnessUp    exec $increase_kbd 1
+bindsym XF86KbdBrightnessDown       exec $decrease_kbd 5
+bindsym shift+XF86KbdBrightnessDown exec $decrease_kbd 1
+bindsym $mod+XF86KbdBrightnessDown  exec $decrease_kbd 1
+
 # Volume keys
-bindsym XF86AudioMute               exec pactl set-sink-mute @DEFAULT_SINK@ toggle, exec pkill -RTMIN+10 i3blocks
-bindsym XF86AudioRaiseVolume        exec pactl set-sink-volume @DEFAULT_SINK@ +5%,  exec pkill -RTMIN+10 i3blocks
-bindsym XF86AudioLowerVolume        exec pactl set-sink-volume @DEFAULT_SINK@ -5%,  exec pkill -RTMIN+10 i3blocks
-bindsym shift+XF86AudioRaiseVolume  exec pactl set-sink-volume @DEFAULT_SINK@ +1%,  exec pkill -RTMIN+10 i3blocks
-bindsym shift+XF86AudioLowerVolume  exec pactl set-sink-volume @DEFAULT_SINK@ -1%,  exec pkill -RTMIN+10 i3blocks
-bindsym $mod+XF86AudioRaiseVolume   exec pactl set-sink-volume @DEFAULT_SINK@ +1%,  exec pkill -RTMIN+10 i3blocks
-bindsym $mod+XF86AudioLowerVolume   exec pactl set-sink-volume @DEFAULT_SINK@ -1%,  exec pkill -RTMIN+10 i3blocks
+# Changing volume but not letting it go over 100% is tricky with only pactl,
+# it's about half as fast as pamixer but reduces the need for external dependencies.
+set $mute                           pactl set-sink-mute @DEFAULT_SINK@ toggle
+set $change_volume                  ~/.config/sway/set_volume.sh
+bindsym XF86AudioMute               exec $mute,             exec pkill -RTMIN+10 i3blocks
+bindsym shift+XF86AudioMute         exec $mute,             exec pkill -RTMIN+10 i3blocks
+bindsym $mod+XF86AudioMute          exec $mute,             exec pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume        exec $change_volume +5, exec pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume        exec $change_volume -5, exec pkill -RTMIN+10 i3blocks
+bindsym shift+XF86AudioRaiseVolume  exec $change_volume +1, exec pkill -RTMIN+10 i3blocks
+bindsym shift+XF86AudioLowerVolume  exec $change_volume -1, exec pkill -RTMIN+10 i3blocks
+bindsym $mod+XF86AudioRaiseVolume   exec $change_volume +1, exec pkill -RTMIN+10 i3blocks
+bindsym $mod+XF86AudioLowerVolume   exec $change_volume -1, exec pkill -RTMIN+10 i3blocks
+
 # Screenshots
-bindsym $mod+Print                  exec grim -t png ~/screenshot.png
-bindsym Print                       exec slurp | grim -t png -g - ~/screenshot.png
+set $screenshot                     ~/screenshot.png
+bindsym $mod+Print                  exec grim -t png $screenshot
+bindsym Print                       exec slurp | grim -t png -g - $screenshot
 
 ###############################
 ### AESTHETICS + STATUS BAR ###
