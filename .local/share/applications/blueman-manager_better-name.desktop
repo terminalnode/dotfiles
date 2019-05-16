@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=blueman (Manager)
+Icon=blueman
+Exec=blueman-manager
+Terminal=false
+Type=Application
+StartupNotify=true

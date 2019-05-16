@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Steam
+Exec=/usr/bin/steam %U
+Icon=steam
+Terminal=false
+Type=Application

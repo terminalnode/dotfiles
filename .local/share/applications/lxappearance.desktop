@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=LXAppearance
+Keywords=windows;preferences;settings;theme;style;appearance;
+Icon=preferences-desktop-theme
+Exec=lxappearance
+NotShowIn=GNOME;KDE;XFCE;MATE;
+StartupNotify=true
+Categories=GTK;Settings;DesktopSettings;X-LXDE-Settings;

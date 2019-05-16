@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=OpenRA (Dune 2000)
+Icon=openra-d2k
+Exec=openra-d2k %U
+Terminal=false
+Categories=Game;StrategyGame;
+MimeType=x-scheme-handler/openra-d2k-release-20190314;

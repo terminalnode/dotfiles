@@ -2,8 +2,6 @@
 .vim/bundle
 .vim/.netrwhist
 .config/*
-
-# Zshstuff
 .zsh/.zcompdump
 .zsh/modules/private
 
@@ -14,14 +12,22 @@
 !.config/zathura
 !.config/newsboat
 
-# Unignore, reignore
+# Sway
 !.config/sway
 .config/sway/test
 
+# MPV
 !.config/mpv
 .config/mpv/watch_later
 
+# Qutebrowser
 !.config/qutebrowser
 .config/qutebrowser/autoconfig.yml
 .config/qutebrowser/bookmarks
 .config/qutebrowser/qsettings/QtProject.conf
+
+# .desktop-files
+.local/*
+!.local/share
+.local/share/*
+!.local/share/applications

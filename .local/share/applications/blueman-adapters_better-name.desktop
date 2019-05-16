@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=blueman (Adapters)
+Exec=blueman-adapters
+Icon=blueman-device
+Terminal=false
+Type=Application
+StartupNotify=true
