@@ -268,7 +268,8 @@ bindsym $MOD+$quieter       exec $set_volume    0%, exec $pkill_volume
 
 # Screenshots
 set $location               ~/screenshot.png
-set $grab_screen            grim -t png
+set $get_output             swaymsg -t get_outputs | jq -r '.[] | select(.focused)' | jq -r '.name'
+set $grab_screen            grim -t png -o $($get_output)
 set $grab_selection         slurp | grim -t png -g -
 bindsym shift+Print         exec $grab_screen $location
 bindsym Print               exec $grab_selection $location
