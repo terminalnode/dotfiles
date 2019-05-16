@@ -11,6 +11,7 @@
 !.config/termite
 !.config/zathura
 !.config/newsboat
+!.config/user-dirs.dirs
 
 # Sway
 !.config/sway

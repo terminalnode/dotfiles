@@ -1,0 +1,11 @@
+# XDG User directories
+# $HOME/box is a general trash bin directory
+XDG_DOCUMENTS_DIR="$HOME/text"
+XDG_DOWNLOAD_DIR="$HOME/downloads"
+XDG_MUSIC_DIR="$HOME/audio"
+XDG_PICTURES_DIR="$HOME/pics"
+XDG_VIDEOS_DIR="$HOME/video"
+# Boxed directories
+XDG_DESKTOP_DIR="$HOME/box"
+XDG_PUBLICSHARE_DIR="$HOME/box"
+XDG_TEMPLATES_DIR="$HOME/box"
