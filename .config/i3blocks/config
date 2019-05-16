@@ -1,0 +1,81 @@
+# i3blocks config file
+
+# GLOBAL PRCOPERTIES
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+command=/usr/lib/i3blocks/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+# Unused nord colors:
+# color=#5e81ac # frost4
+
+[pulsevolume]
+command=~/.config/i3blocks/pulsevolume
+interval=once
+color=#d08770 # orange
+signal=10
+
+[brightness]
+command=echo $(~/.config/i3blocks/brightness)
+label=
+interval=once
+color=#d8dee9 # snow1
+signal=8
+
+
+[memory-sh]
+label=
+command=free -tbh | tail -n1 | awk '{print $4}'
+color=#b48ead # magenta
+interval=30
+
+[disk-sh]
+label=
+command=df -h / | awk 'FNR > 1 {print $4}'
+color=#bf616a # red
+interval=30
+
+# [cpu_usage]
+# label=
+# color=#88c0d0 # frost2
+# interval=10
+# separator=false
+# [load-average]
+# label=/ 
+# command=uptime | sed 's/.*average: //' | cut -d',' -f1
+# color=#88c0d0 # frost2
+# interval=10
+
+[cpu-load]
+label=
+command=~/.config/i3blocks/cpu_load
+color=#88c0d0 # frost2
+interval=10
+
+[get-ip]
+label=
+command=hostname -i | cut -d' ' -f1
+color=#a3be8c # green
+interval=10
+
+# [ssid]
+# command=netctl list | grep '*' | cut -d' ' -f2-
+# color=#a3be8c
+# interval=10
+
+[get-public-ip]
+label=
+command=curl ifconfig.me
+color=#81a1c1 # frost3
+interval=600 # every 10 minutes
+
+[battery]
+command=~/.config/i3blocks/battery
+color=#ebcb8b # yellow
+interval=30
+
+[calendar]
+command=date +\(%a\)\ %d\ %b\ %H:%M
+color=#8fbcbb # frost1
+interval=5

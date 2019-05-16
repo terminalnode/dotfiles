@@ -10,6 +10,7 @@
 !.config/rofi
 !.config/termite
 !.config/zathura
+!.config/i3blocks
 !.config/newsboat
 !.config/user-dirs.dirs
 
