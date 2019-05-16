@@ -1,25 +1,33 @@
-#!/bin/bash
+#!/bin/sh
 # Simple utility to change the volume in pactl without going over a certain limit.
 # If you don't care about limits this script can be replaced by a simple command:
 #   pactl set-sink-volume @DEFAULT_SINK@ +$(volume)%
 # where $(volume) is the amount you want to increase by.
 
-function current_volume {
-    # Thank you stack exchange. :)
-    SINK=$( pactl list short sinks | sed -e 's,^\([0-9][0-9]*\)[^0-9].*,\1,' | head -n 1 )
-    NOW=$( pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,' )
-    return $NOW
+getsink() {
+    pacmd list-sinks |
+        awk '/index:/{i++} /* index:/{print i; exit}'
+}
+
+getvolume() {
+    pacmd list-sinks |
+        awk '/^\svolume:/{i++} i=='$(getsink)'{print $5; exit}' |
+        cut -d'%' -f1 # remove trailing % sign
+}
+
+getmute() {
+    pacmd list-sinks |
+        awk '/^\smuted:/{i++} i=='$(getsink)'{print $2; exit}'
 }
 
 # Stop script if no input.
-if [[ -z $1 ]]; then
+if [ -z $1 ]; then
     exit 33
 fi
 
-current_volume
-DESIRED_VOLUME=$(($NOW + $1))
+DESIRED_VOLUME=$(($(getvolume) + $1))
 
-if [[ $DESIRED_VOLUME -gt 100 ]]; then
+if [ $DESIRED_VOLUME -gt 100 ]; then
     DESIRED_VOLUME=100
 fi
 
