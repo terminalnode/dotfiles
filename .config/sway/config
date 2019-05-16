@@ -9,7 +9,6 @@ set $left   h
 set $down   j
 set $up     k
 set $right  l
-set $resize 5
 
 focus_follows_mouse no
 mouse_warping       none
@@ -95,15 +94,15 @@ output * bg ~/pics/current_wallpaper fill
 # Non-navigational bindings.
 bindsym --to-code $mod+q           kill
 bindsym --to-code $mod+f           fullscreen
-bindsym --to-code $mod+Shift+c     reload
+bindsym --to-code $MOD+c           reload
 bindsym --to-code $mod+v           split toggle
 bindsym --to-code $mod+t           layout toggle tabbed split
 bindsym           $mod+Return      exec $term
 bindsym           $mod+Tab         workspace back_and_forth
-bindsym           $mod+Shift+Tab   workspace next_on_output
+bindsym           $MOD+Tab         workspace next_on_output
 bindsym           $mod+Ctrl+Space  floating toggle
 bindsym           $mod+Space       exec $menu -show drun
-bindsym           $mod+Shift+minus move scratchpad
+bindsym           $MOD+minus       move scratchpad
 bindsym           $mod+minus       scratchpad show
 
 # Intra-workspace navigation
@@ -117,59 +116,60 @@ bindsym --to-code $mod+Down   focus down
 bindsym --to-code $mod+Up     focus up
 bindsym --to-code $mod+Right  focus right
 # ←↓↑→
-bindsym --to-code $mod+Shift+$left  move left
-bindsym --to-code $mod+Shift+$down  move down
-bindsym --to-code $mod+Shift+$up    move up
-bindsym --to-code $mod+Shift+$right move right
-bindsym --to-code $mod+Shift+Left   move left
-bindsym --to-code $mod+Shift+Down   move down
-bindsym --to-code $mod+Shift+Up     move up
-bindsym --to-code $mod+Shift+Right  move right
+bindsym --to-code $MOD+$left  move left
+bindsym --to-code $MOD+$down  move down
+bindsym --to-code $MOD+$up    move up
+bindsym --to-code $MOD+$right move right
+bindsym --to-code $MOD+Left   move left
+bindsym --to-code $MOD+Down   move down
+bindsym --to-code $MOD+Up     move up
+bindsym --to-code $MOD+Right  move right
 
 # Workspace hopping
 # (Moving a container to a specific workspace will also move the focus to that workspace)
-bindsym --to-code $mod+a                workspace 1
-bindsym --to-code $mod+o                workspace 2
-bindsym --to-code $mod+e                workspace 3
-bindsym --to-code $mod+u                workspace 4
-bindsym --to-code $mod+i                workspace 5
-bindsym --to-code $mod+aring            workspace 6
-bindsym --to-code $mod+adiaeresis       workspace 7
-bindsym --to-code $mod+odiaeresis       workspace 8
-bindsym --to-code $mod+p                workspace 9
-bindsym --to-code $mod+y                workspace 10
-bindsym --to-code $mod+Shift+a          move container to workspace 1,  workspace 1
-bindsym --to-code $mod+Shift+o          move container to workspace 2,  workspace 2
-bindsym --to-code $mod+Shift+e          move container to workspace 3,  workspace 3
-bindsym --to-code $mod+Shift+u          move container to workspace 4,  workspace 4
-bindsym --to-code $mod+Shift+i          move container to workspace 5,  workspace 5
-bindsym --to-code $mod+Shift+aring      move container to workspace 6,  workspace 6
-bindsym --to-code $mod+Shift+adiaeresis move container to workspace 7,  workspace 7
-bindsym --to-code $mod+Shift+odiaeresis move container to workspace 8,  workspace 8
-bindsym --to-code $mod+Shift+p          move container to workspace 9,  workspace 9
-bindsym --to-code $mod+Shift+y          move container to workspace 10, workspace 10
-bindsym           $mod+1                workspace 11
-bindsym           $mod+2                workspace 12
-bindsym           $mod+3                workspace 13
-bindsym           $mod+4                workspace 14
-bindsym           $mod+5                workspace 15
-bindsym           $mod+6                workspace 16
-bindsym           $mod+7                workspace 17
-bindsym           $mod+8                workspace 18
-bindsym           $mod+9                workspace 19
-bindsym           $mod+0                workspace 20
-bindsym           $mod+Shift+1          move container to workspace 11, workspace 11
-bindsym           $mod+Shift+2          move container to workspace 12, workspace 12
-bindsym           $mod+Shift+3          move container to workspace 13, workspace 13
-bindsym           $mod+Shift+4          move container to workspace 14, workspace 14
-bindsym           $mod+Shift+5          move container to workspace 15, workspace 15
-bindsym           $mod+Shift+6          move container to workspace 16, workspace 16
-bindsym           $mod+Shift+7          move container to workspace 17, workspace 17
-bindsym           $mod+Shift+8          move container to workspace 18, workspace 18
-bindsym           $mod+Shift+9          move container to workspace 19, workspace 19
-bindsym           $mod+Shift+0          move container to workspace 20, workspace 20
+bindsym --to-code $mod+a            workspace 1
+bindsym --to-code $mod+o            workspace 2
+bindsym --to-code $mod+e            workspace 3
+bindsym --to-code $mod+u            workspace 4
+bindsym --to-code $mod+i            workspace 5
+bindsym --to-code $mod+aring        workspace 6
+bindsym --to-code $mod+adiaeresis   workspace 7
+bindsym --to-code $mod+odiaeresis   workspace 8
+bindsym --to-code $mod+p            workspace 9
+bindsym --to-code $mod+y            workspace 10
+bindsym --to-code $MOD+a            move container to workspace 1,  workspace 1
+bindsym --to-code $MOD+o            move container to workspace 2,  workspace 2
+bindsym --to-code $MOD+e            move container to workspace 3,  workspace 3
+bindsym --to-code $MOD+u            move container to workspace 4,  workspace 4
+bindsym --to-code $MOD+i            move container to workspace 5,  workspace 5
+bindsym --to-code $MOD+aring        move container to workspace 6,  workspace 6
+bindsym --to-code $MOD+adiaeresis   move container to workspace 7,  workspace 7
+bindsym --to-code $MOD+odiaeresis   move container to workspace 8,  workspace 8
+bindsym --to-code $MOD+p            move container to workspace 9,  workspace 9
+bindsym --to-code $MOD+y            move container to workspace 10, workspace 10
+bindsym           $mod+1            workspace 11
+bindsym           $mod+2            workspace 12
+bindsym           $mod+3            workspace 13
+bindsym           $mod+4            workspace 14
+bindsym           $mod+5            workspace 15
+bindsym           $mod+6            workspace 16
+bindsym           $mod+7            workspace 17
+bindsym           $mod+8            workspace 18
+bindsym           $mod+9            workspace 19
+bindsym           $mod+0            workspace 20
+bindsym           $MOD+1            move container to workspace 11, workspace 11
+bindsym           $MOD+2            move container to workspace 12, workspace 12
+bindsym           $MOD+3            move container to workspace 13, workspace 13
+bindsym           $MOD+4            move container to workspace 14, workspace 14
+bindsym           $MOD+5            move container to workspace 15, workspace 15
+bindsym           $MOD+6            move container to workspace 16, workspace 16
+bindsym           $MOD+7            move container to workspace 17, workspace 17
+bindsym           $MOD+8            move container to workspace 18, workspace 18
+bindsym           $MOD+9            move container to workspace 19, workspace 19
+bindsym           $MOD+0            move container to workspace 20, workspace 20
 
 # Resize mode
+set $resize 5
 mode "resize" {
     # Left/Right will shrink/grow the containers width
     # Up/Down will shrink/grow the containers height
