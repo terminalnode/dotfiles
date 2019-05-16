@@ -2,6 +2,7 @@
 ### VARIABLES / SETTINGS ###
 ############################
 set $mod    Mod4
+set $MOD    shift+$mod
 set $term   termite
 set $menu   rofi
 set $left   h
@@ -215,44 +216,62 @@ bindsym --to-code $mod+r mode "resize"
 # Screenshots                   grim, slurp
 
 # SCREEN BACKLIGHT
-set $increase_screen                xbacklight -inc
-set $decrease_screen                xbacklight -dec
-bindsym XF86MonBrightnessUp         exec $increase_screen 5, exec pkill -RTMIN+8 i3blocks
-bindsym shift+XF86MonBrightnessUp   exec $increase_screen 1, exec pkill -RTMIN+8 i3blocks
-bindsym $mod+XF86MonBrightnessUp    exec $increase_screen 1, exec pkill -RTMIN+8 i3blocks
-bindsym XF86MonBrightnessDown       exec $decrease_screen 5, exec pkill -RTMIN+8 i3blocks
-bindsym shift+XF86MonBrightnessDown exec $decrease_screen 1, exec pkill -RTMIN+8 i3blocks
-bindsym $mod+XF86MonBrightnessDown  exec $decrease_screen 1, exec pkill -RTMIN+8 i3blocks
+set $increase_screen        xbacklight -inc
+set $decrease_screen        xbacklight -dec
+set $pkill_backlight        pkill -RTMIN+8 i3blocks
+set $brighter               XF86MonBrightnessUp
+set $dimmer                 XF86MonBrightnessDown
+bindsym $brighter           exec $increase_screen 5, exec $pkill_backlight
+bindsym shift+$brighter     exec $increase_screen 1, exec $pkill_backlight
+bindsym $mod+$brighter      exec $increase_screen 1, exec $pkill_backlight
+bindsym $dimmer             exec $decrease_screen 5, exec $pkill_backlight
+bindsym shift+$dimmer       exec $decrease_screen 1, exec $pkill_backlight
+bindsym $mod+$dimmer        exec $decrease_screen 1, exec $pkill_backlight
+bindsym $MOD+$brighter      exec $increase_screen 100, exec $pkill_backlight
+bindsym $MOD+$dimmer        exec $decrease_screen 100, exec $pkill_backlight
 
 # Keyboard backlight
-set $increase_kbd                   xbacklight -ctrl smc::kbd_backlight -inc
-set $decrease_kbd                   xbacklight -ctrl smc::kbd_backlight -dec
-bindsym XF86KbdBrightnessUp         exec $increase_kbd 5
-bindsym shift+XF86KbdBrightnessUp   exec $increase_kbd 1
-bindsym $mod+XF86KbdBrightnessUp    exec $increase_kbd 1
-bindsym XF86KbdBrightnessDown       exec $decrease_kbd 5
-bindsym shift+XF86KbdBrightnessDown exec $decrease_kbd 1
-bindsym $mod+XF86KbdBrightnessDown  exec $decrease_kbd 1
+set $increase_kbd           xbacklight -ctrl smc::kbd_backlight -inc
+set $decrease_kbd           xbacklight -ctrl smc::kbd_backlight -dec
+set $kbdbrighter            XF86KbdBrightnessUp
+set $kbddimmer              XF86KbdBrightnessDown
+bindsym $MOD+$kbdbrighter   exec $increase_kbd 100
+bindsym $kbdbrighter        exec $increase_kbd 5
+bindsym shift+$kbdbrighter  exec $increase_kbd 1
+bindsym $mod+$kbdbrighter   exec $increase_kbd 1
+bindsym $MOD+$kbddimmer     exec $decrease_kbd 100
+bindsym $kbddimmer          exec $decrease_kbd 5
+bindsym shift+$kbddimmer    exec $decrease_kbd 1
+bindsym $mod+$kbddimmer     exec $decrease_kbd 1
 
 # Volume keys
 # Changing volume but not letting it go over 100% is tricky with only pactl,
 # it's about half as fast as pamixer but reduces the need for external dependencies.
-set $mute                           pactl set-sink-mute @DEFAULT_SINK@ toggle
-set $change_volume                  ~/.config/sway/set_volume.sh
-bindsym XF86AudioMute               exec $mute,             exec pkill -RTMIN+10 i3blocks
-bindsym shift+XF86AudioMute         exec $mute,             exec pkill -RTMIN+10 i3blocks
-bindsym $mod+XF86AudioMute          exec $mute,             exec pkill -RTMIN+10 i3blocks
-bindsym XF86AudioRaiseVolume        exec $change_volume +5, exec pkill -RTMIN+10 i3blocks
-bindsym XF86AudioLowerVolume        exec $change_volume -5, exec pkill -RTMIN+10 i3blocks
-bindsym shift+XF86AudioRaiseVolume  exec $change_volume +1, exec pkill -RTMIN+10 i3blocks
-bindsym shift+XF86AudioLowerVolume  exec $change_volume -1, exec pkill -RTMIN+10 i3blocks
-bindsym $mod+XF86AudioRaiseVolume   exec $change_volume +1, exec pkill -RTMIN+10 i3blocks
-bindsym $mod+XF86AudioLowerVolume   exec $change_volume -1, exec pkill -RTMIN+10 i3blocks
+set $mute                   pactl set-sink-mute @DEFAULT_SINK@ toggle
+set $change_volume          ~/.config/sway/set_volume.sh
+set $set_volume             pactl set-sink-volume @DEFAULT_SINK@
+set $pkill_volume           pkill -RTMIN+10 i3blocks
+set $louder                 XF86AudioRaiseVolume
+set $quieter                XF86AudioLowerVolume
+set $silent                 XF86AudioMute
+bindsym $silent             exec $mute,             exec $pkill_volume
+bindsym shift+$silent       exec $mute,             exec $pkill_volume
+bindsym $mod+$silent        exec $mute,             exec $pkill_volume
+bindsym $louder             exec $change_volume +5, exec $pkill_volume
+bindsym shift+$louder       exec $change_volume +1, exec $pkill_volume
+bindsym $mod+$louder        exec $change_volume +1, exec $pkill_volume
+bindsym $MOD+$louder        exec $set_volume  100%, exec $pkill_volume
+bindsym $quieter            exec $change_volume -5, exec $pkill_volume
+bindsym shift+$quieter      exec $change_volume -1, exec $pkill_volume
+bindsym $mod+$quieter       exec $change_volume -1, exec $pkill_volume
+bindsym $MOD+$quieter       exec $set_volume    0%, exec $pkill_volume
 
 # Screenshots
-set $screenshot                     ~/screenshot.png
-bindsym $mod+Print                  exec grim -t png $screenshot
-bindsym Print                       exec slurp | grim -t png -g - $screenshot
+set $location               ~/screenshot.png
+set $grab_screen            grim -t png
+set $grab_selection         slurp | grim -t png -g -
+bindsym shift+Print         exec $grab_screen $location
+bindsym Print               exec $grab_selection $location
 
 ###############################
 ### AESTHETICS + STATUS BAR ###
