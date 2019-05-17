@@ -23,7 +23,6 @@ interval=once
 color=#d8dee9 # snow1
 signal=8
 
-
 [memory-sh]
 label=
 command=free -tbh | tail -n1 | awk '{print $4}'
