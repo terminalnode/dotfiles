@@ -211,24 +211,23 @@ bindsym --to-code $mod+r mode "resize"
 ### MEDIA KEYS ###
 ##################
 # Dependencies:
-# Screen/keyboard backlight     acpilight
-# Sound levels                  PulseAudio (pactl)
-# Screenshots                   grim, slurp
+# Keyboard backlight    acpilight
+# Sound levels          PulseAudio (pactl)
+# Screenshots           grim, slurp
 
 # SCREEN BACKLIGHT
-set $increase_screen        xbacklight -inc
-set $decrease_screen        xbacklight -dec
+set $set_screen             ~/.config/sway/set_screen.sh
 set $pkill_backlight        pkill -RTMIN+8 i3blocks
 set $brighter               XF86MonBrightnessUp
 set $dimmer                 XF86MonBrightnessDown
-bindsym $brighter           exec $increase_screen 5, exec $pkill_backlight
-bindsym shift+$brighter     exec $increase_screen 1, exec $pkill_backlight
-bindsym $mod+$brighter      exec $increase_screen 1, exec $pkill_backlight
-bindsym $dimmer             exec $decrease_screen 5, exec $pkill_backlight
-bindsym shift+$dimmer       exec $decrease_screen 1, exec $pkill_backlight
-bindsym $mod+$dimmer        exec $decrease_screen 1, exec $pkill_backlight
-bindsym $MOD+$brighter      exec $increase_screen 100, exec $pkill_backlight
-bindsym $MOD+$dimmer        exec $decrease_screen 100, exec $pkill_backlight
+bindsym $brighter           exec $set_screen 5,    exec $pkill_backlight
+bindsym shift+$brighter     exec $set_screen 1,    exec $pkill_backlight
+bindsym $mod+$brighter      exec $set_screen 1,    exec $pkill_backlight
+bindsym $MOD+$brighter      exec $set_screen 100,  exec $pkill_backlight
+bindsym $dimmer             exec $set_screen -5,   exec $pkill_backlight
+bindsym shift+$dimmer       exec $set_screen -1,   exec $pkill_backlight
+bindsym $mod+$dimmer        exec $set_screen -1,   exec $pkill_backlight
+bindsym $MOD+$dimmer        exec $set_screen -100, exec $pkill_backlight
 
 # Keyboard backlight
 set $increase_kbd           xbacklight -ctrl smc::kbd_backlight -inc
