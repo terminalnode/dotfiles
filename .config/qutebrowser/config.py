@@ -2,13 +2,21 @@
 config.bind('J', 'tab-prev')
 config.bind('K', 'tab-next')
 config.bind('<Ctrl-Shift-p>', 'set-cmd-text -s :open -p') # Emulate Firefox binding
-config.unbind('q') # No need for macros in a browser.
+config.bind('<Ctrl-t>', 'set-cmd-text -s :open -t') # Defaults to creating new empty tab, which is useless.
+
+# Bookmarks
+# Creating new bookmarks with M is default.
+config.bind('B', 'set-cmd-text -s :bookmark-load') # Defaults to :quickmark-load, which is useless.
+config.bind('D', 'bookmark-del {url}') # Defaults to close tab, which is already done by lower-case d.
 
 # Do stuff with URLs
 # ; for hints, , for current page.
 config.bind(';t', 'hint links spawn -v transmission-remote -a {hint-url}')
 config.bind(';p', 'hint links spawn -dv mpv {hint-url}')
 config.bind(',p', 'spawn -dv mpv {url}')
+
+# Unbindings
+config.unbind('q') # No need for macros in a browser.
 
 c.qt.highdpi                        = True
 c.tabs.background                   = True
