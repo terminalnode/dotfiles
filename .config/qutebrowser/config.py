@@ -77,6 +77,8 @@ c.url.searchengines = {
     "bandcamp"  : "https://bandcamp.com/search?q={}",
     "fawe"      : "https://fontawesome.com/icons?d=gallery&q={}",
     "r/"        : "https://reddit.com/r/{}",
+    "cc"        : "https://search.creativecommons.org/search?q={}",
+    "giphy"     : "https://giphy.com/search/{}",
     # Warez
     "genlib"    : "http://gen.lib.rus.ec/search.php?req={}",
     "tpb"       : "https://thepiratebay.org/search/{}",
