@@ -213,7 +213,7 @@ bindsym --to-code $mod+r mode "resize"
 # Dependencies:
 # Keyboard backlight    acpilight
 # Sound levels          PulseAudio (pactl)
-# Screenshots           grim, slurp
+# Screenshots           grim, slurp, jq
 
 # SCREEN BACKLIGHT
 set $set_screen             ~/.config/sway/set_screen.sh
@@ -308,8 +308,8 @@ set $magenta #b48ead
 client.focused              $polar-4    $polar-4    $snow-3     $frost-3    $polar-4
 client.urgent               $orange     $red        $snow-1     $orange     $orange
 # Focused inactive and unfocused should act the same.
-client.focused_inactive     $polar-1    $polar-2    $snow-1     $polar-1    $polar-1
-client.unfocused            $polar-1    $polar-2    $snow-1     $polar-1    $polar-1
+client.focused_inactive     $polar-1    $polar-1    $snow-1     $polar-1    $polar-1
+client.unfocused            $polar-1    $polar-1    $snow-1     $polar-1    $polar-1
 
 bar {
 	status_command  i3blocks
