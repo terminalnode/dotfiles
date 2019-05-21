@@ -321,12 +321,12 @@ bar {
         background          $polar-1
 		##############      Border      Filling     Text
         # Bright
-		active_workspace    $frost-1    $polar-3    $snow-3
-		focused_workspace   $frost-1    $polar-3    $snow-3
+		active_workspace    $frost-4    $polar-1    $snow-3
+		focused_workspace   $frost-4    $polar-2    $snow-3
         # Dim
-		inactive_workspace  $frost-4    $polar-1    $snow-1
+		inactive_workspace  $polar-1    $polar-1    $snow-1
         # Lit
-		urgent_workspace    $polar-1    $red        $polar-1
-		binding_mode        $polar-1    $green      $polar-1
+		urgent_workspace    $red        $polar-1    $red
+		binding_mode        $orange     $polar-1    $orange
     }
 }
