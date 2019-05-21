@@ -213,7 +213,7 @@ bindsym --to-code $mod+r mode "resize"
 # Dependencies:
 # Keyboard backlight    acpilight
 # Sound levels          PulseAudio (pactl)
-# Screenshots           grim, slurp, jq
+# Screenshots           grim, slurp
 
 # SCREEN BACKLIGHT
 set $set_screen             ~/.config/sway/set_screen.sh
@@ -267,7 +267,7 @@ bindsym $MOD+$quieter       exec $set_volume    0%, exec $pkill_volume
 
 # Screenshots
 set $location               ~/screenshot.png
-set $get_output             swaymsg -t get_outputs | jq -r '.[] | select(.focused)' | jq -r '.name'
+set $get_output             swaymsg --pretty -t get_outputs | awk '/focused/ {print $2}'
 set $grab_screen            grim -t png -o $($get_output)
 set $grab_selection         slurp | grim -t png -g -
 bindsym shift+Print         exec $grab_screen $location
