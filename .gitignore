@@ -7,6 +7,7 @@
 
 # Unignore
 !.config/i3
+!.config/nvim
 !.config/rofi
 !.config/termite
 !.config/zathura
