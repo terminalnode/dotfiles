@@ -11,17 +11,17 @@ getsink() {
 
 getvolume() {
     pacmd list-sinks |
-        awk '/^\svolume:/{i++} i=='$(getsink)'{print $5; exit}' |
+        awk '/^\svolume:/{i++} i=='"$(getsink)"'{print $5; exit}' |
         cut -d'%' -f1 # remove trailing % sign
 }
 
 getmute() {
     pacmd list-sinks |
-        awk '/^\smuted:/{i++} i=='$(getsink)'{print $2; exit}'
+        awk '/^\smuted:/{i++} i=='"$(getsink)"'{print $2; exit}'
 }
 
 # Stop script if no input.
-if [ -z $1 ]; then
+if [ -z "$1" ]; then
     exit 33
 fi
 
