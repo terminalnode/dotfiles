@@ -22,15 +22,18 @@ config.unbind('q') # No need for macros in a browser.
 c.qt.highdpi                        = True
 c.tabs.background                   = True
 c.content.autoplay                  = False
+c.content.register_protocol_handler = False
+c.auto_save.session                 = True
+c.tabs.mousewheel_switching         = False
+c.tabs.wrap                         = False
 c.qt.low_end_device_mode            = 'auto'
 c.url.default_page                  = 'about:blank'
 c.downloads.location.directory      = '~/downloads/'
 c.confirm_quit                      = ["multiple-tabs"]
 c.editor.command                    = ['termite', '-e', 'vim {}']
 c.window.title_format               = '{perc}{title}{title_sep}'
-c.content.register_protocol_handler = False
-c.auto_save.session                 = True
-c.tabs.mousewheel_switching         = False
+c.zoom.levels                       = ["5%", "10%", "15%", "25%", "33%", "50%", "67%", "75%", "90%", "100%",
+                                       "110%", "125%", "150%", "175%", "200%", "250%", "300%", "400%", "500%"]
 
 # Previously enabled options that are disabled now.
 # c.content.pdfjs               = False
