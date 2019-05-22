@@ -52,7 +52,7 @@ seat * hide_cursor 5000
 input "*" {
     # Keyboard
     xkb_layout se,se
-    xkb_variant dvorak_a5,
+    xkb_variant dvorak_a5,basic
     xkb_options caps:swapescape,compose:rctrl,grp:alt_caps_toggle
 
     # Pointers
