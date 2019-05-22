@@ -7,17 +7,17 @@ getsink() {
 
 getvolume() {
     pacmd list-sinks |
-        awk '/^\svolume:/{i++} i=='$(getsink)'{print $5; exit}' |
+        awk '/^\svolume:/{i++} i=='"$(getsink)"'{print $5; exit}' |
         cut -d'%' -f1 # remove trailing % sign
 }
 
 getmute() {
     pacmd list-sinks |
-        awk '/^\smuted:/{i++} i=='$(getsink)'{print $2; exit}'
+        awk '/^\smuted:/{i++} i=='"$(getsink)"'{print $2; exit}'
 }
 
 VOL=$(getvolume)
-[ $(getmute) = "yes" ] && echo .MUTE && return
-[ $VOL -ge 75 ] && echo  $VOL && return
-[ $VOL -ge 25 ] && echo  $VOL && return
+[ "$(getmute)" = "yes" ] && echo .MUTE && return
+[ "$VOL" -ge 75 ] && echo " $VOL" && return
+[ "$VOL" -ge 25 ] && echo " $VOL" && return
 echo  $VOL
