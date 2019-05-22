@@ -41,7 +41,7 @@ autocmd ColorScheme * highlight NonText ctermbg=None
 set background=dark
 
 " Set neomake to check code on write
-call neomake#configure#automake('w')
+call neomake#configure#automake('nrwi', 500)
 
 " FEEL
 set guicursor=              " disable neovim setting cursor
@@ -84,3 +84,32 @@ inoremap <C-Space> <Esc>/<++><Enter>"_c4l
 
 " :w!! will write to file using sudo
 cmap w!! w !sudo tee > /dev/null %
+
+" MACROS
+let mapleader = "§"
+
+" [;p] print
+" (python, rust)
+autocmd FileType python inoremap <Leader>p print(<++>)<Esc>0/<++><Enter>"_c4l
+autocmd FileType rust	inoremap <Leader>p println!("<++>"<++>);<Esc>0/<++><Enter>"_c4l
+
+" [;a] array/list
+" (python, rust)
+" Python version is kinda iffy, but also only included for completeness.
+autocmd FileType python inoremap <Leader>a <++> = [<++>]<++><Esc>k$/<++><Enter>"_c4l
+autocmd FileType rust	inoremap <Leader>a let <++>: [<++>; <++>] = [<++>];<++><Esc>0/<++><Enter>"_c4l
+
+" [;f] create function
+" (python, rust)
+autocmd FileType python inoremap <Leader>f def <++>(<++>):<Enter><++><Esc>k0/<++><Enter>"_c4l
+autocmd FileType rust	inoremap <Leader>f fn <++>() {<Enter><++><Enter>}<Esc>kk0/<++><Enter>"_c4l
+
+" [;c] create class
+" (python, rust TBA)
+autocmd FileType python inoremap <Leader>c class <++>():<Enter>def __init__(self<++>):<Enter><++><Esc>kk0/<++><Enter>"_c4l
+autocmd FileType rust	inoremap <Leader>c <Nop>
+
+" [<L>-tf] try-finally
+" (python, rust TBA)
+autocmd FileType python inoremap <Leader>tf	try:<Enter><++><Enter><Enter>except Exception as e:<Enter><++><Enter><Enter>finally:<Enter><++><Esc>6k0/<++><Enter>"_c4l
+autocmd FileType rust	inoremap <Leader>tf <Nop>
