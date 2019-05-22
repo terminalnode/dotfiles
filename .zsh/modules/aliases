@@ -13,7 +13,8 @@ alias ll="ls -la"
 alias free='free -ht'
 alias du='du -h'
 alias df='df -h'
-alias vi='vim'
+alias vi='nvim'
+alias vim='nvim'
 alias mpv='mpv --audio-display=no'
 alias neofetch='neofetch \
 --disable icons theme resolution term_font model \
