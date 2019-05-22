@@ -44,7 +44,7 @@ c.url.yank_ignored_parameters = ['ref', 'utm_source', 'utm_medium', 'utm_campaig
 # Set search engines
 c.url.searchengines = {
     # Default search engine, with nothing else specified.
-    "DEFAULT"   : "https://www.ecosia.org/search?q={}",
+    "DEFAULT"   : "https://duckduckgo.com/?q={}",
     # Arch stuff.
     # Wiki, AUR, general repositiories (pm for pacman).
     "aw"        : "https://wiki.archlinux.org/?search={}",
