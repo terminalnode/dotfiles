@@ -7,7 +7,7 @@ config.bind('<Ctrl-t>', 'set-cmd-text -s :open -t') # Defaults to creating new e
 # Bookmarks
 # Creating new bookmarks with M is default.
 config.bind('B', 'set-cmd-text -s :bookmark-load') # Defaults to :quickmark-load, which is useless.
-config.bind('D', 'bookmark-del {url}') # Defaults to close tab, which is already done by lower-case d.
+config.bind('D', 'message-info "Deleting bookmark!" ;; bookmark-del {url}') # Defaults to close tab, which is already done by lower-case d.
 config.bind('E', 'open-editor')
 
 # Do stuff with URLs
