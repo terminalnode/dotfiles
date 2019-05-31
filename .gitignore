@@ -5,7 +5,7 @@
 .zsh/.zcompdump
 .zsh/modules/private
 
-# Unignore
+# Simple unignores
 !.config/i3
 !.config/rofi
 !.config/termite
@@ -14,9 +14,14 @@
 !.config/newsboat
 !.config/user-dirs.dirs
 
-# Sway
-!.config/sway
-.config/sway/test
+# Unignore directory,
+# then reignore subdirectories/files
+
+# .desktop-files
+.local/*
+!.local/share
+.local/share/*
+!.local/share/applications
 
 # MPV
 !.config/mpv
@@ -32,8 +37,6 @@
 .config/qutebrowser/bookmarks
 .config/qutebrowser/qsettings/QtProject.conf
 
-# .desktop-files
-.local/*
-!.local/share
-.local/share/*
-!.local/share/applications
+# Sway
+!.config/sway
+.config/sway/test
