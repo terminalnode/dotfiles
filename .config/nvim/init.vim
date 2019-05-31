@@ -9,6 +9,13 @@ Plug 'arcticicestudio/nord-vim'
 " Code auto complete thing
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
+" Syntax highlighting
+Plug 'terminalnode/sway-vim-syntax'
+Plug 'rust-lang/rust.vim'
+
+" Linter (async alternative for syntastic)
+Plug 'neomake/neomake'
+
 " Haskell
 " Code completion
 " Requires: deoplete.nvim and stack install ghc-mod
@@ -16,20 +23,29 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Syntax highlighting and stuff
 " Plug 'neovimhaskell/haskell-vim'
 
-" Syntax highlighting
-Plug 'terminalnode/sway-vim-syntax'
-
-" Linter (async alternative for syntastic)
-Plug 'neomake/neomake'
-
 " Copied from .vimrc, but not yet tested.
 " Plug 'godlygeek/tabular'
 " Syntax highlighting
-" Plug 'vim-python/python-syntax'
-" Plug 'rust-lang/rust.vim'
+" Plug 'vim-python/python-syntax', { 'for': 'python', 'branch': 'develop' }
 " Plug 'majutsushi/tagbar'
 
 call plug#end()
+
+" PLUGINS (configuration)
+" Set neomake to check code on write
+call neomake#configure#automake('nrwi', 500)
+
+" Activate deoplete on startup
+let g:deoplete#enable_at_startup = 1
+
+" Rust.vim run rustfmt automatically on save.
+let g:rustfmt_autosave = 1
+
+" Nord theme
+let g:nord_italic = 1
+let g:nord_underline = 1
+let g:nord_italic_comments = 1
+let g:nord_cursor_line_number_background = 1
 
 " LOOK
 " Override theme to turn off bg colour.
@@ -39,9 +55,7 @@ let g:airline_powerline_fonts=1
 autocmd ColorScheme * highlight Normal ctermbg=None
 autocmd ColorScheme * highlight NonText ctermbg=None
 set background=dark
-
-" Set neomake to check code on write
-call neomake#configure#automake('nrwi', 500)
+colorscheme nord
 
 " FEEL
 set guicursor=              " disable neovim setting cursor

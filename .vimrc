@@ -21,18 +21,29 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'arcticicestudio/nord-vim'
 
 " Other stuff
-Plug 'valloric/youcompleteme', { 'do:': './install.py' }
+Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'roxma/nvim-yarp'          " Necessary for deoplete in vim
+Plug 'roxma/vim-hug-neovim-rpc' " Necessary for deoplete in vim
 Plug 'godlygeek/tabular'
 
 " Syntax highlighting
 Plug 'terminalnode/sway-vim-syntax'
-Plug 'vim-python/python-syntax'
-Plug 'neovimhaskell/haskell-vim'
+Plug 'vim-python/python-syntax', { 'for': 'python', 'branch': 'develop' }
 Plug 'rust-lang/rust.vim'
 Plug 'neomake/neomake'
 Plug 'majutsushi/tagbar'
 
 call plug#end()
+
+" PLUGINS (configuration)
+" Neomake
+call neomake#configure#automake('nrwi', 500)
+" Python
+let g:python_highlight_all = 1
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
+" Rust
+let g:rustfmt_autosave = 1
 
 """"""""""""""""""""""""""""""""""
 """ Regular config starts here """
@@ -45,33 +56,14 @@ let g:airline_powerline_fonts=1
 autocmd ColorScheme * highlight Normal ctermbg=None
 autocmd ColorScheme * highlight NonText ctermbg=None
 
-" colorscheme nord " nord colorscheme can't do haskell so fuck it
+" Nord theme
+colorscheme nord
 let g:nord_italic = 1
 let g:nord_underline = 1
 let g:nord_italic_comments = 1
-let g:nord_comment_brightness = 20
 let g:nord_cursor_line_number_background = 1
 "let g:airline#extensions#hunks#non_zero_only = 1
 "let g:airline#extensions#tabline#enabled = 1
-
-" Python
-let g:python_highlight_all = 1
-" Tagbar
-nmap <F8> :TagbarToggle<CR>
-" Rust
-let g:rustfmt_autosave = 1
-
-" Neomake
-call neomake#configure#automake('w')
-
-" Haskell
-let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-let g:haskell_backpack = 1                " to enable highlighting of backpack keyword
 
 """ FEEL
 set number relativenumber		" neat line numbering
@@ -137,10 +129,8 @@ nnoremap <C-Space> /<++><Enter>"_c4l
 inoremap <C-Space> <Esc>/<++><Enter>"_c4l
 
 """ MACROS
-" TODO	These mappings are kinda shitty, specifically the
-"		leader key being ; and used in insert mode.
-"		Needs to be remapped to something non-ridiculous.
-let mapleader = ";"
+let mapleader = "§"
+
 " [;p] print
 " (python, rust)
 autocmd FileType python inoremap <Leader>p print(<++>)<Esc>0/<++><Enter>"_c4l
