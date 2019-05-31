@@ -7,7 +7,6 @@
 
 # Unignore
 !.config/i3
-!.config/nvim
 !.config/rofi
 !.config/termite
 !.config/zathura
@@ -22,6 +21,10 @@
 # MPV
 !.config/mpv
 .config/mpv/watch_later
+
+# Neovim
+!.config/nvim
+.config/nvim/.netrwhist
 
 # Qutebrowser
 !.config/qutebrowser
