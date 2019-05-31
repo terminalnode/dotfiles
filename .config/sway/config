@@ -23,6 +23,9 @@ font                pango:Bitstream Vera Sans 9,Font Awesome 9
 # Ibus
 exec ibus-daemon -drx
 
+# Notification daemon
+exec mako
+
 # Workspace     Primary out     Secondary outs
 workspace 1     output eDP-1    DP-1 DP-2 HDMI-1
 workspace 2     output eDP-1    DP-1 DP-2 HDMI-1
