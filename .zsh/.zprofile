@@ -9,18 +9,6 @@ export VISUAL=nvim
 export BROWSER=qutebrowser
 export TERMINAL=termite
 
-############
-### IBUS ###
-############
-# Activate ibus, if ibus-daemon is available and not in tmux session.
-if [[ -x $(command -v ibus-daemon) ]] && [[ -z $TMUX ]]; then
-    export GTK_IM_MODULE=ibus
-    export XMODIFIERS=@im=ibus
-    export QT_IM_MODULE=ibus
-    export IBUS_ENABLE_SYNC_MODE=1
-    ibus-daemon -drx
-fi
-
 ###############
 ### WAYLAND ###
 ###############

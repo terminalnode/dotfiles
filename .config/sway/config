@@ -20,6 +20,9 @@ titlebar_padding    2 2
 smart_borders       on
 font                pango:Bitstream Vera Sans 9,Font Awesome 9
 
+# Ibus
+exec ibus-daemon -drx
+
 # Workspace     Primary out     Secondary outs
 workspace 1     output eDP-1    DP-1 DP-2 HDMI-1
 workspace 2     output eDP-1    DP-1 DP-2 HDMI-1
