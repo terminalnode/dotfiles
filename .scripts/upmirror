@@ -3,7 +3,7 @@
 # Option 'url': Just print the URL and exit.
 
 # Get bold text if tput is available.
-[ -x $(command -v tput) ] && BOLD=$(tput bold) && NORMAL=$(tput sgr0)
+[ -x "$(command -v tput)" ] && BOLD=$(tput bold) && NORMAL=$(tput sgr0)
 
 # URL SETUP
 # Add/remove countries according to your preferences.
@@ -12,37 +12,37 @@ for COUNTRY in SE NO DK FI DE NL
     do URL="$URL&country=$COUNTRY"; done;
 
 if [ "$1" = "url" ] || [ "$1" = "-url" ] || [ "$1" = "--url" ]; then
-    echo "${BOLD}This is the full URL I'll be using:${NORMAL}\n$URL"
+    printf "%sThis is the full URL I'll be using:%s\n%s\n" "$BOLD" "$NORMAL" "$URL"
     exit 33
 fi
 
 ### DEPENDENCY CHECK
 check_deps() {
-    if [ -z $(command -v curl) ]; then
+    if [ -z "$(command -v curl)" ]; then
         echo curl; fi
-    if [ -z $(command -v rankmirrors) ]; then
+    if [ -z "$(command -v rankmirrors)" ]; then
         echo pacman-contrib; fi
 }
 
 # Install necessary dependencies.
 INSTALL=$(check_deps)
-if [ ! -z "$INSTALL" ]; then
-    if [ $(id -u) -ne 0 ]; then
+if [ -n "$INSTALL" ]; then
+    if [ "$(id -u)" -ne 0 ]; then
         echo "${BOLD}Need to install dependencies and you're not root. Bye.${NORMAL}"
         exit 33
     fi
-    pacman -S $INSTALL; echo
+    pacman -S "$INSTALL"; echo
 fi
 
 # See that dependencies were installed and are executable.
 INSTALL=$(check_deps)
-if [ ! -z "$INSTALL" ]; then
+if [ -n "$INSTALL" ]; then
     echo "${BOLD}Dependencies are either not installed or not executable. Bye.${NORMAL}"
     exit 33
 fi
 
 ### MIRROR_PATH CHECK
-if [ $(id -u) -ne 0 ]; then
+if [ "$(id -u)" -ne 0 ]; then
     echo "${BOLD}Not root. Saving new mirrors to ~/mirrorlist.${NORMAL}"
     MIRROR_PATH="$HOME"
 
@@ -56,22 +56,22 @@ else
             cp "$MIRROR_PATH/mirrorlist" "$MIRROR_PATH/mirrorlist_old"
         fi
     else
-        echo "${BOLD}Directory /etc/pacman.d/ does not exist.${NORMAL}\nSaving new mirrors to ~/mirrors"
+        printf "%sDirectory /etc/pacman.d/ does not exist.%s\nSaving new mirrors to ~/mirrors\n" "$BOLD" "$NORMAL"
         MIRROR_PATH="$HOME"
     fi
 fi
 
 ### DOWNLOAD NEW MIRRORS
 NEW_FILE=$(
-    curl -s $URL |
+    curl -s "$URL" |
     sed -e 's/^#Server/Server/' -e '/^#/d' |
     rankmirrors -n 30 -
 ) 
 
 ### COPY NEW MIRRORS TO PATH
-if ! [ -z "$NEW_FILE" ]; then
-    printf "$NEW_FILE" > $MIRROR_PATH/mirrorlist && echo "Done!"
+if [ -n "$NEW_FILE" ]; then
+    echo "$NEW_FILE" > "$MIRROR_PATH/mirrorlist" && echo "Done!"
 else
-    echo "${BOLD}\nError! New mirror file was empty, not saving to file.${NORMAL}"
+    printf "%s\nError! New mirror file was empty, not saving to file.%s\n" "$BOLD" "$NORMAL"
     exit 33
 fi
