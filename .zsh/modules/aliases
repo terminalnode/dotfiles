@@ -17,17 +17,17 @@ alias vi='nvim'
 alias vim='nvim'
 alias oldvim='/usr/bin/vim'
 alias mpv='mpv --audio-display=no'
-alias neofetch='neofetch \
---disable icons theme resolution term_font model \
---uptime_shorthand on --shell_version off \
---memory_percent on --speed_shorthand on \
---os_arch off --shell_path on'
+alias neofetch="neofetch '\
+'--disable icons theme resolution term_font model '\
+'--uptime_shorthand on --shell_version off '\
+'--memory_percent on --speed_shorthand on '\
+'--os_arch off --shell_path on"
 
 #################
 ### AUTO SUDO ###
 #################
 alias ip='sudo ip'
-alias systemctl='sudo systemctl'
+#alias systemctl='sudo systemctl'
 alias service='sudo systemctl'
 alias restart='sudo systemctl restart'
 alias start='sudo systemctl start'
