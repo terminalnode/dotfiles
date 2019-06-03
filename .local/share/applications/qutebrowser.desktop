@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name=Qutebrowser
+Icon=qutebrowser
+Type=Application
+Exec=qutebrowser %u
+Terminal=false
+StartupNotify=false
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/qute;
+Actions=new-window;preferences;
+
+[Desktop Action new-window]
+Exec=qutebrowser
+
+[Desktop Action preferences]
+Exec=qutebrowser "qute://settings"

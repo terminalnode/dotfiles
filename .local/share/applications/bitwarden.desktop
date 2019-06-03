@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Bitwarden
+Exec=env GDK_BACKEND=x11 /opt/Bitwarden/bitwarden %U
+Terminal=false
+Type=Application
+Icon=bitwarden
+StartupWMClass=Bitwarden
+Categories=Utility;
