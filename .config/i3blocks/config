@@ -56,7 +56,7 @@ interval=10
 label=
 command=hostname -i | cut -d' ' -f1
 color=#a3be8c # green
-interval=10
+interval=60
 
 # [ssid]
 # command=netctl list | grep '*' | cut -d' ' -f2-
