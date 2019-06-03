@@ -220,6 +220,7 @@ bindsym --to-code $mod+r mode "resize"
 # Keyboard backlight    acpilight
 # Sound levels          PulseAudio (pactl)
 # Screenshots           grim, slurp
+# mpd controls          mpd, mpc (obviously...)
 
 # SCREEN BACKLIGHT
 set $set_screen             ~/.config/sway/set_screen.sh
@@ -278,6 +279,12 @@ set $grab_screen            grim -t png -o $($get_output)
 set $grab_selection         slurp | grim -t png -g -
 bindsym shift+Print         exec $grab_screen $location
 bindsym Print               exec $grab_selection $location
+
+# Media controls for mpd (using mpc)
+# Obviously depends on mpd and mpc.
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc prev
 
 ###############################
 ### AESTHETICS + STATUS BAR ###
