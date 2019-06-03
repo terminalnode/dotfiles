@@ -2,6 +2,7 @@
 .vim/bundle
 .vim/.netrwhist
 .config/*
+.local/*
 .zsh/.zcompdump
 .zsh/modules/private
 
@@ -14,15 +15,20 @@
 !.config/newsboat
 !.config/user-dirs.dirs
 
-# Unignore directory,
-# then reignore subdirectories/files
+# .local executables
+!.local/bin
 
 # .desktop-files
-.local/*
 !.local/share
 .local/share/*
 !.local/share/applications
 .local/share/applications/gog_com*
+
+# Systemd
+!.config/systemd
+.config/systemd/user/*
+!.config/systemd/user/*.target
+!.config/systemd/user/*.service
 
 # MPV
 !.config/mpv
