@@ -220,7 +220,7 @@ bindsym --to-code $mod+r mode "resize"
 # mpd controls          mpd, mpc (obviously...)
 
 # SCREEN BACKLIGHT
-set $set_screen             ~/.config/sway/set_screen.sh
+set $set_screen             ~/.config/sway/scripts/set_screen.sh
 set $pkill_backlight        pkill -RTMIN+8 i3blocks
 set $brighter               XF86MonBrightnessUp
 set $dimmer                 XF86MonBrightnessDown
@@ -251,7 +251,7 @@ bindsym $mod+$kbddimmer     exec $decrease_kbd 1
 # Changing volume but not letting it go over 100% is tricky with only pactl,
 # it's about half as fast as pamixer but reduces the need for external dependencies.
 set $mute                   pactl set-sink-mute @DEFAULT_SINK@ toggle
-set $change_volume          ~/.config/sway/set_volume.sh
+set $change_volume          ~/.config/sway/scripts/set_volume.sh
 set $set_volume             pactl set-sink-volume @DEFAULT_SINK@
 set $pkill_volume           pkill -RTMIN+10 i3blocks
 set $louder                 XF86AudioRaiseVolume
