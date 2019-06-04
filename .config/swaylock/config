@@ -1,0 +1,51 @@
+image=~/pics/current_wallpaper
+hide-keyboard-layout
+show-failed-attempts
+ignore-empty-password
+indicator-caps-lock
+line-uses-inside
+
+# Nord Polar (lower is darker)
+#   polar-1 #2e3440
+#   polar-2 #3b4252
+#   polar-3 #434c5e
+#   polar-4 #3c566a
+# Nord Snow (lower is grayer)
+#   snow-1  #d8dee9
+#   snow-2  #e5e9f0
+#   snow-3  #eceff4
+# Nord Frost (lower is greener, higher is bluer)
+#   frost-1 #8fbcbb
+#   frost-2 #88c0d0
+#   frost-3 #81a1c1
+#   frost-4 #5e81ac
+# Nord Aurora (extra colors)
+#   red     #bf616a
+#   orange  #d08770
+#   yellow  #ebcb8b
+#   green   #a3be8c
+#   magenta #b48ead
+
+# Color of the ring while typing
+# polar-1
+ring-color=2e3440ee
+separator-color=2e3440ee
+
+# Color of the ring when wrong password entered
+# red
+ring-wrong-color=bf616aee
+
+# Color of the ring while verifying
+# frost-4
+ring-ver-color=5e81acee
+
+# Color of the ring while capslock is activated
+# orange
+ring-caps-lock-color=d08770ee
+
+# Color of the indicator when a key is pressed
+# polar-4 for normal key, red otherwise
+key-hl-color=3c566aaa
+caps-lock-key-hl-color=3c566aaa
+bs-hl-color=bf616aee
+caps-lock-bs-hl-color=bf616aee

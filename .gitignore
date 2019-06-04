@@ -52,3 +52,4 @@
 # Sway
 !.config/sway
 .config/sway/test
+!.config/swaylock
