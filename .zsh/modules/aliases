@@ -52,7 +52,7 @@ alias upgit="pacman -Qm |
     yay -S -"
 
 # Installing/removing packages
-alias pmdel="sudo pacman -R"
+alias pmdel="sudo pacman -Rs"
 alias pmadd="sudo pacman -S"
 
 # Checking/listing
