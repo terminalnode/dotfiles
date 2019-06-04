@@ -15,20 +15,19 @@
 !.config/newsboat
 !.config/user-dirs.dirs
 
-# .local executables
-!.local/bin
-
 # .desktop-files
 !.local/share
 .local/share/*
 !.local/share/applications
 .local/share/applications/gog_com*
 
-# Systemd
-!.config/systemd
-.config/systemd/user/*
-!.config/systemd/user/*.target
-!.config/systemd/user/*.service
+# .local executables
+!.local/bin
+
+# MPD
+!.config/mpd
+.config/mpd/*
+!.config/mpd/mpd.conf
 
 # MPV
 !.config/mpv
@@ -43,6 +42,12 @@
 .config/qutebrowser/autoconfig.yml
 .config/qutebrowser/bookmarks
 .config/qutebrowser/qsettings/QtProject.conf
+
+# Systemd
+!.config/systemd
+.config/systemd/user/*
+!.config/systemd/user/*.target
+!.config/systemd/user/*.service
 
 # Sway
 !.config/sway
