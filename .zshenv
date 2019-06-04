@@ -3,7 +3,6 @@ export ZDOTDIR="$HOME/.zsh"
 
 # Add stuff to path.
 export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.scripts:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # XDG
