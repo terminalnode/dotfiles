@@ -88,9 +88,9 @@ c.url.searchengines = {
     "genlib"    : "http://gen.lib.rus.ec/search.php?req={}",
     "tpb"       : "https://thepiratebay.org/search/{}",
     "rarbg"     : "https://rarbg.to/torrents.php?search={}",
-    # Dictionaries
-    "fren"      : "http://www.larousse.fr/dictionnaires/rechercher?q={}&l=anglais-francais&culture=",
-    "enfr"      : "http://www.larousse.fr/dictionnaires/rechercher?q={}&l=francais-anglais&culture=",
+    # Dictionarie
+    "fren"      : "https://www.larousse.fr/dictionnaires/francais-anglais/{}",
+    "enfr"      : "https://www.larousse.fr/dictionnaires/anglais-francais/{}",
     "linguee"   : "http://www.linguee.com/english-french/search?source=french&query={}",
     "tyda"      : "http://tyda.se/search/{}",
     "ud"        : "http://www.urbandictionary.com/define.php?term={}",
