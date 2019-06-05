@@ -214,6 +214,7 @@ bindsym --to-code $mod+r mode "resize"
 ### MEDIA KEYS ###
 ##################
 # Dependencies:
+# Screen brightness     bc
 # Keyboard backlight    acpilight
 # Sound levels          PulseAudio (pactl)
 # Screenshots           grim, slurp
