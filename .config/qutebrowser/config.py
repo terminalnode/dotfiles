@@ -1,6 +1,6 @@
 # Keybindings
-config.bind('J', 'tab-prev')
-config.bind('K', 'tab-next')
+# config.bind('J', 'tab-prev')
+# config.bind('K', 'tab-next')
 config.bind('<Ctrl-Shift-p>', 'set-cmd-text -s :open -p') # Emulate Firefox binding
 config.bind('<Ctrl-t>', 'set-cmd-text -s :open -t') # Defaults to creating new empty tab, which is useless.
 
