@@ -206,7 +206,6 @@ mode "resize" {
     }
 bindsym --to-code $mod+r mode "resize"
 
-
 ##################
 ### MEDIA KEYS ###
 ##################
