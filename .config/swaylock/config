@@ -1,3 +1,5 @@
+# Swaylock
+# General settings
 image=~/pics/current_wallpaper
 hide-keyboard-layout
 show-failed-attempts
@@ -5,42 +7,49 @@ ignore-empty-password
 indicator-caps-lock
 line-uses-inside
 
-# Nord Polar (lower is darker)
-#   polar-1 #2e3440
-#   polar-2 #3b4252
-#   polar-3 #434c5e
-#   polar-4 #3c566a
-# Nord Snow (lower is grayer)
-#   snow-1  #d8dee9
-#   snow-2  #e5e9f0
-#   snow-3  #eceff4
-# Nord Frost (lower is greener, higher is bluer)
-#   frost-1 #8fbcbb
-#   frost-2 #88c0d0
-#   frost-3 #81a1c1
-#   frost-4 #5e81ac
-# Nord Aurora (extra colors)
-#   red     #bf616a
-#   orange  #d08770
-#   yellow  #ebcb8b
-#   green   #a3be8c
-#   magenta #b48ead
-
-# Color of the ring while typing
-# polar-1
+# Color options for the ring while typing
+# Nord Polar (lighter to darker)
 ring-color=2e3440ee
+# ring-color=3b4252ee
+# ring-color=434c5eee
+# ring-color=3c566aee
+# Nord Snow (lower is grayer)
+# ring-color=d8dee9
+# ring-color=e5e9f0
+# ring-color=eceff4
+
+# Color options for the separator
+# Nord Polar (lighter to darker)
 separator-color=2e3440ee
+# separator-color=3b4252ee
+# separator-color=434c5eee
+# separator-color=3c566aee
+# Nord Snow (lower is grayer)
+# separator-color=d8dee9
+# separator-color=e5e9f0
+# separator-color=eceff4
 
-# Color of the ring when wrong password entered
-# red
-ring-wrong-color=bf616aee
-
-# Color of the ring while verifying
-# frost-4
+# Color options for the ring while verifying
+# Nord Frost (grue to bleen)
+# ring-ver-color=8fbcbbee
+# ring-ver-color=88c0d0ee
+# ring-ver-color=81a1c1ee
 ring-ver-color=5e81acee
 
+More colorful settings
+# Nord Aurora (extra colors)
+#   red     bf616aee
+#   orange  d08770ee
+#   yellow  ebcb8bee
+#   green   a3be8cee
+#   magenta b48eadee
+
+# Color of the ring when wrong password entered
+# Red
+#ring-wrong-color=bf616aee
+ring-wrong-color=000000ee
 # Color of the ring while capslock is activated
-# orange
+# Orange
 ring-caps-lock-color=d08770ee
 
 # Color of the indicator when a key is pressed
