@@ -1,0 +1,11 @@
+[Unit]
+Description=Background for (s)Wayland
+Documentation=man:swaybg(1)
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/swaybg -m fill -i /home/monster/pics/current_wallpaper
+
+[Install]
+WantedBy=sway-session.target

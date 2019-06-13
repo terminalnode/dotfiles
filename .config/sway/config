@@ -73,7 +73,6 @@ input "2652:34050:Bluetooth_keyboard_Keyboard" {
     xkb_layout se
     }
 
-
 ##############
 ### OUTPUT ###
 ##############
@@ -88,8 +87,6 @@ output eDP-1 {
 output DP-1   pos 1280 0
 output DP-2   pos 1280 0
 output HDMI-1 pos 1280 0
-output * bg ~/pics/current_wallpaper fill
-
 
 ###################
 ### KEYBINDINGS ###
