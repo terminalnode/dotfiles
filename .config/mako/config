@@ -1,0 +1,27 @@
+# Nord colors
+# Nord Aurora (extra colors)
+# red     #bf616a
+# orange  #d08770
+# yellow  #ebcb8b
+# green   #a3be8c
+# magenta #b48ead
+
+# Bg color options, dark polar to light polar.
+background-color=#2e3440ff
+#background-color=#3b4252ff
+#background-color=#434c5eff
+#background-color=#3c566aff
+
+# Text color options, light grey to white.
+#text-color=#d8dee9ff
+#text-color=#e5e9f0ff
+text-color=#eceff4ff
+
+# Border color options, grue to bleen
+#border-color=#8fbcbbff
+#border-color=#88c0d0ff
+#border-color=#81a1c1ff
+border-color=#5e81acff
+
+# How rounded the corners should be
+border-radius=3
