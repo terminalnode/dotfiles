@@ -27,13 +27,23 @@ alias neofetch="neofetch '\
 ### AUTO SUDO ###
 #################
 alias ip='sudo ip'
-#alias systemctl='sudo systemctl'
+alias netctl='sudo netctl'
+
+###############
+### SYSTEMD ###
+###############
+# System services
 alias service='sudo systemctl'
 alias restart='sudo systemctl restart'
 alias start='sudo systemctl start'
 alias stop='sudo systemctl stop'
 alias status='sudo systemctl status'
-alias netctl='sudo netctl'
+# User services
+alias uservice='systemctl --user'
+alias urestart='systemctl restart --user'
+alias ustart='systemctl start --user'
+alias ustop='systemctl stop --user'
+alias ustatus='systemctl status --user'
 
 ##########################
 ### SYSTEM MAINTENANCE ###
