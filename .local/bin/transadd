@@ -10,10 +10,13 @@
 # Make sure variables are unused
 unset HOST ADDED
 
-usage() {
+prelude() {
     echo "transadd"
     echo "A simpler interface for adding torrents via transmission-remote."
     echo
+}
+
+usage() {
     echo "transadd [-c HOSTNAME/IP] [-h] FILES"
     exit
 }
@@ -27,7 +30,7 @@ while getopts ":c::h" o; do
     case "${o}" in
         c)  HOST=${OPTARG}
             ;;
-        h)  usage
+        h)  prelude && usage
             ;;
         *)  echo "Invalid option: ${OPTARG}"
             usage
