@@ -1,6 +1,5 @@
 #!/bin/sh
 # A simple script for downloading a new mirror list for Archlinux and rank them by speed.
-# Option 'url': Just print the URL and exit.
 
 # Defaults
 COUNTRIES="SE NO DK FI DE NL"
@@ -29,7 +28,7 @@ Default path:
     ${BOLD}/etc/pacman.d/${NORMAL} when running as root.
     ${BOLD}~/${NORMAL} when running as any other user.
 
-    (If PATH/mirrorlist already exists a backup will be created)
+    (if mirrorlist already exists in the directory a backup will be created)
 EOF
     exit 0
 }
