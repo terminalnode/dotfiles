@@ -2,76 +2,156 @@
 # A simple script for downloading a new mirror list for Archlinux and rank them by speed.
 # Option 'url': Just print the URL and exit.
 
-# Get bold text if tput is available.
+# Defaults
+COUNTRIES="SE NO DK FI DE NL"
+[ "$(id -u)" -eq 0 ] &&
+    LOCATION="/etc/pacman.d" ||
+    LOCATION="$HOME"
+
+# Bold typeface and stuff
 [ -x "$(command -v tput)" ] && BOLD=$(tput bold) && NORMAL=$(tput sgr0)
 
-# URL SETUP
-# Add/remove countries according to your preferences.
-URL="https://www.archlinux.org/mirrorlist/?protocol=https&use_mirror_status=on" 
-for COUNTRY in SE NO DK FI DE NL
-    do URL="$URL&country=$COUNTRY"; done;
+# Most of the script logic resides in the following functions.
+help() {
+    cat << EOF
+${BOLD}upmirror${NORMAL}
+A tool for fetching the latest and fastest mirrors for Archlinux.
 
-if [ "$1" = "url" ] || [ "$1" = "-url" ] || [ "$1" = "--url" ]; then
-    printf "%sThis is the full URL I'll be using:%s\n%s\n" "$BOLD" "$NORMAL" "$URL"
-    exit 33
-fi
+-h, --help               Show this help text, then exit.
+-u, --url                Print the URL from which mirrors will be fetched, then exit.
+-c, --countries [CODES]  Countries from which mirrors will be picked.
+-p, --path [PATH]        The path to which the new mirrors will be saved.
 
-### DEPENDENCY CHECK
-check_deps() {
-    if [ -z "$(command -v curl)" ]; then
-        echo curl; fi
-    if [ -z "$(command -v rankmirrors)" ]; then
-        echo pacman-contrib; fi
+Default countries:
+    ${BOLD}${COUNTRIES}${NORMAL}
+
+Default path:
+    ${BOLD}/etc/pacman.d/${NORMAL} when running as root.
+    ${BOLD}~/${NORMAL} when running as any other user.
+
+    (If PATH/mirrorlist already exists a backup will be created)
+EOF
+    exit 0
 }
 
-# Install necessary dependencies.
-INSTALL=$(check_deps)
-if [ -n "$INSTALL" ]; then
-    if [ "$(id -u)" -ne 0 ]; then
-        echo "${BOLD}Need to install dependencies and you're not root. Bye.${NORMAL}"
-        exit 33
-    fi
-    pacman -S "$INSTALL"; echo
-fi
+check_deps() {
+    # Checks if dependencies are installed and executable.
+    unset DEPS
+    [ -z "$(command -v curl)" ] &&
+        DEPS="${DEPS} curl"
+    [ -z "$(command -v rankmirrors)" ] &&
+        DEPS="${DEPS} pacman-contrib"
+    [ -z "$(command -v getopt)" ] &&
+        DEPS="${DEPS} util-linux"
+}
 
-# See that dependencies were installed and are executable.
-INSTALL=$(check_deps)
-if [ -n "$INSTALL" ]; then
-    echo "${BOLD}Dependencies are either not installed or not executable. Bye.${NORMAL}"
-    exit 33
-fi
+install_deps() {
+    # See what dependencies need installing, return if none.
+    check_deps
+    [ -z "$DEPS" ] &&
+        return
 
-### MIRROR_PATH CHECK
-if [ "$(id -u)" -ne 0 ]; then
-    echo "${BOLD}Not root. Saving new mirrors to ~/mirrorlist.${NORMAL}"
-    MIRROR_PATH="$HOME"
+    # Install dependencies
+    [ "$(id -u)" -eq "0" ] && pacman -S ${DEPS}
+    [ "$(id -u)" -ne "0" ] && sudo pacman -S ${DEPS}
 
-else
-    if [ -d /etc/pacman.d ]; then
-        echo "${BOLD}Running as root. Saving new mirrors to /etc/pacman.d/mirrorlist.${NORMAL}"
-        MIRROR_PATH="/etc/pacman.d/"
+    # Check that dependencies were indeed installed.
+    check_deps
+    [ -n "$DEPS" ] &&
+        echo "Dependencies were either not installed or are still not executable." &&
+        exit 1
+}
 
-        if [ -e /etc/pacman.d/mirrorlist ]; then
-            echo "A backup will be created at /etc/pacman.d/mirrorlist_old."
-            cp "$MIRROR_PATH/mirrorlist" "$MIRROR_PATH/mirrorlist_old"
-        fi
-    else
-        printf "%sDirectory /etc/pacman.d/ does not exist.%s\nSaving new mirrors to ~/mirrors\n" "$BOLD" "$NORMAL"
-        MIRROR_PATH="$HOME"
-    fi
-fi
+make_url() {
+    [ -z "$COUNTRIES" ] &&
+        echo "${BOLD}ERROR!${NORMAL} The list of country codes is empty. Exiting." &&
+        exit 1
+    URL="https://www.archlinux.org/mirrorlist/?protocol=https&use_mirror_status=on" 
+    for COUNTRY in ${COUNTRIES}
+        do URL="$URL&country=$COUNTRY"
+    done
 
-### DOWNLOAD NEW MIRRORS
-NEW_FILE=$(
-    curl -s "$URL" |
-    sed -e 's/^#Server/Server/' -e '/^#/d' |
-    rankmirrors -n 30 -
-) 
+    # If --url is set, display URL and exit.
+    [ -n "$URL_ONLY" ] &&
+        echo "${BOLD}This is the URL I would be using to download the mirrors:${NORMAL}" &&
+        echo "$URL" &&
+        exit 0
+}
 
-### COPY NEW MIRRORS TO PATH
-if [ -n "$NEW_FILE" ]; then
-    echo "$NEW_FILE" > "$MIRROR_PATH/mirrorlist" && echo "Done!"
-else
-    printf "%s\nError! New mirror file was empty, not saving to file.%s\n" "$BOLD" "$NORMAL"
-    exit 33
-fi
+get_mirrors() {
+    make_url
+    MIRRORS=$(
+        curl -s "$URL" |
+        sed -e 's/^#Server/Server/' -e '/^#/d' |
+        rankmirrors -n 30 -
+    )
+
+    [ -z "$MIRRORS" ] &&
+        echo "${BOLD}ERROR!${NORMAL} New mirror file was empty." &&
+        echo "This may happen if the URL supplied was bad." &&
+        echo "Check that the country codes you supplied were correct." &&
+        exit 1
+}
+
+write_file() {
+    # If there is a trailing slash on the save location, remove it.
+    LOCATION="$(echo "$LOCATION" | sed 's/\/$//g')"
+
+    # Replace ~ with $HOME
+    echo "$HOME" | grep -q ':' &&
+        echo "${BOLD}ERROR!${NORMAL} Your home path can't have \":\" in it. What's wrong with you?" &&
+        exit 1
+    LOCATION=$(echo "$LOCATION" | sed "s:~:${HOME}:")
+
+    # Check that save location exists and is a directory.
+    [ ! -d "$LOCATION" ] &&
+        echo "${BOLD}ERROR!${NORMAL} ${LOCATION} either does not exist or isn't a directory. Aborting." &&
+        exit 1
+
+    # Check that the save location exists and is writeable.
+    [ ! -w "$LOCATION" ] &&
+        echo "${BOLD}ERROR!${NORMAL} ${LOCATION}/ is not writeable. Aborting." &&
+        exit 1
+    
+    # Check if a mirrorlist already exists in $LOCATION, if it does create a backup
+    [ -r "${LOCATION}/mirrorlist" ] &&
+        cp "${LOCATION}/mirrorlist" "${LOCATION}/mirrorlist_backup"
+
+    # Write new mirrorlist
+    echo "$MIRRORS" > "${LOCATION}/mirrorlist"
+}
+
+# Parse options
+options=$(getopt -l "help,url,path:,countries:" -o "hup:c:" -- "$@")
+eval set -- "$options"
+
+while true
+do
+    case $1 in
+        -h|--help)
+            help
+            exit 0
+            ;;
+        -u|--url)
+            URL_ONLY=true
+            ;;
+        -c|--countries)
+            COUNTRIES="$2"
+            shift
+            ;;
+        -p|--path)
+            LOCATION="$2"
+            shift
+            ;;
+        --)
+            shift
+            break
+            ;;
+    esac
+    shift
+done
+
+# Run program
+install_deps
+get_mirrors
+write_file
