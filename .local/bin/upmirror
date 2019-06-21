@@ -2,122 +2,119 @@
 # A simple script for downloading a new mirror list for Archlinux and rank them by speed.
 
 # Defaults
-COUNTRIES="SE NO DK FI DE NL"
-[ "$(id -u)" -eq 0 ] &&
-    LOCATION="/etc/pacman.d" ||
-    LOCATION="$HOME"
+countries="SE NO DK FI DE NL"
+if [ "$(id -u)" -eq 0 ]
+then
+    path="/etc/pacman.d"
+else
+    path="$HOME"
+fi
 
 # Bold typeface and stuff
-[ -x "$(command -v tput)" ] && BOLD=$(tput bold) && NORMAL=$(tput sgr0)
+[ -x "$(command -v tput)" ] &&
+    bold=$(tput bold) &&
+    default=$(tput sgr0)
 
 # Most of the script logic resides in the following functions.
 help() {
     cat << EOF
-${BOLD}upmirror${NORMAL}
+${bold}upmirror${default}
 A tool for fetching the latest and fastest mirrors for Archlinux.
 
 -h, --help               Show this help text, then exit.
--u, --url                Print the URL from which mirrors will be fetched, then exit.
+-u, --url                Print the url from which mirrors will be fetched, then exit.
 -c, --countries [CODES]  Countries from which mirrors will be picked.
--p, --path [PATH]        The path to which the new mirrors will be saved.
+-p, --path [PATH]        The directory in which the new mirrors will be saved.
 
-Default countries:
-    ${BOLD}${COUNTRIES}${NORMAL}
+Countries:
+    Countries are specified using ISO 3166-1 two letter codes.
+    Default: ${bold}${countries}${default}
 
-Default path:
-    ${BOLD}/etc/pacman.d/${NORMAL} when running as root.
-    ${BOLD}~/${NORMAL} when running as any other user.
-
-    (if mirrorlist already exists in the directory a backup will be created)
+Path:
+    If a file called mirrorlist already exists in the given directory a backup called mirrorlist.backup will be created.
+    
+    Defaults:
+    ${bold}/etc/pacman.d/${default} when running as root.
+    ${bold}~/${default} when running as any other user.
 EOF
     exit 0
 }
 
-check_deps() {
+dependency_check() {
     # Checks if dependencies are installed and executable.
-    unset DEPS
     [ -z "$(command -v curl)" ] &&
-        DEPS="${DEPS} curl"
+        echo "curl not found, please install the arch package curl." &&
+        depfail="yes"
+
     [ -z "$(command -v rankmirrors)" ] &&
-        DEPS="${DEPS} pacman-contrib"
+        echo "rankmirrors not found, please install the package pacman-contrib." &&
+        depfail="yes"
+
     [ -z "$(command -v getopt)" ] &&
-        DEPS="${DEPS} util-linux"
-}
+        echo "getopt not found, please install the package util-linux." &&
+        depfail="yes"
 
-install_deps() {
-    # See what dependencies need installing, return if none.
-    check_deps
-    [ -z "$DEPS" ] &&
-        return
-
-    # Install dependencies
-    [ "$(id -u)" -eq "0" ] && pacman -S ${DEPS}
-    [ "$(id -u)" -ne "0" ] && sudo pacman -S ${DEPS}
-
-    # Check that dependencies were indeed installed.
-    check_deps
-    [ -n "$DEPS" ] &&
-        echo "Dependencies were either not installed or are still not executable." &&
+    [ -n "$depfail" ] &&
         exit 1
 }
 
 make_url() {
-    [ -z "$COUNTRIES" ] &&
-        echo "${BOLD}ERROR!${NORMAL} The list of country codes is empty. Exiting." &&
+    [ -z "$countries" ] &&
+        echo "${bold}ERROR!${default} The list of country codes is empty. Exiting." &&
         exit 1
-    URL="https://www.archlinux.org/mirrorlist/?protocol=https&use_mirror_status=on" 
-    for COUNTRY in ${COUNTRIES}
-        do URL="$URL&country=$COUNTRY"
+    url="https://www.archlinux.org/mirrorlist/?protocol=https&use_mirror_status=on" 
+    for country in ${countries}
+        do url="$url&country=$country"
     done
 
-    # If --url is set, display URL and exit.
-    [ -n "$URL_ONLY" ] &&
-        echo "${BOLD}This is the URL I would be using to download the mirrors:${NORMAL}" &&
-        echo "$URL" &&
+    # If --url is set, display url and exit.
+    [ -n "$url_only" ] &&
+        echo "${bold}This is the url I would be using to download the mirrors:${default}" &&
+        echo "$url" &&
         exit 0
 }
 
 get_mirrors() {
     make_url
-    MIRRORS=$(
-        curl -s "$URL" |
+    mirrors=$(
+        curl -s "$url" |
         sed -e 's/^#Server/Server/' -e '/^#/d' |
         rankmirrors -n 30 -
     )
 
-    [ -z "$MIRRORS" ] &&
-        echo "${BOLD}ERROR!${NORMAL} New mirror file was empty." &&
-        echo "This may happen if the URL supplied was bad." &&
+    [ -z "$mirrors" ] &&
+        echo "${bold}ERROR!${default} New mirror file was empty." &&
+        echo "This may happen if the url supplied was bad." &&
         echo "Check that the country codes you supplied were correct." &&
         exit 1
 }
 
 write_file() {
-    # If there is a trailing slash on the save location, remove it.
-    LOCATION="$(echo "$LOCATION" | sed 's/\/$//g')"
+    # If there is a trailing slash on $path, remove it.
+    path="$(echo "$path" | sed 's/\/$//g')"
 
     # Replace ~ with $HOME
     echo "$HOME" | grep -q ':' &&
-        echo "${BOLD}ERROR!${NORMAL} Your home path can't have \":\" in it. What's wrong with you?" &&
+        echo "${bold}ERROR!${default} Your home path can't have \":\" in it. What's wrong with you?" &&
         exit 1
-    LOCATION=$(echo "$LOCATION" | sed "s:~:${HOME}:")
+    path=$(echo "$path" | sed "s:$~:${HOME}:")
 
     # Check that save location exists and is a directory.
-    [ ! -d "$LOCATION" ] &&
-        echo "${BOLD}ERROR!${NORMAL} ${LOCATION} either does not exist or isn't a directory. Aborting." &&
+    [ ! -d "$path" ] &&
+        echo "${bold}ERROR!${default} ${path} either does not exist or isn't a directory. Aborting." &&
         exit 1
 
     # Check that the save location exists and is writeable.
-    [ ! -w "$LOCATION" ] &&
-        echo "${BOLD}ERROR!${NORMAL} ${LOCATION}/ is not writeable. Aborting." &&
+    [ ! -w "$path" ] &&
+        echo "${bold}ERROR!${default} ${path}/ is not writeable. Aborting." &&
         exit 1
     
-    # Check if a mirrorlist already exists in $LOCATION, if it does create a backup
-    [ -r "${LOCATION}/mirrorlist" ] &&
-        cp "${LOCATION}/mirrorlist" "${LOCATION}/mirrorlist_backup"
+    # Check if a mirrorlist already exists in $path, if it does create a backup
+    [ -r "${path}/mirrorlist" ] &&
+        cp "${path}/mirrorlist" "${path}/mirrorlist.backup"
 
     # Write new mirrorlist
-    echo "$MIRRORS" > "${LOCATION}/mirrorlist"
+    echo "$mirrors" > "${path}/mirrorlist"
 }
 
 # Parse options
@@ -132,14 +129,14 @@ do
             exit 0
             ;;
         -u|--url)
-            URL_ONLY=true
+            url_only=true
             ;;
         -c|--countries)
-            COUNTRIES="$2"
+            countries="$2"
             shift
             ;;
         -p|--path)
-            LOCATION="$2"
+            path="$2"
             shift
             ;;
         --)
@@ -151,6 +148,6 @@ do
 done
 
 # Run program
-install_deps
+dependency_check
 get_mirrors
 write_file
