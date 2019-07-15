@@ -124,6 +124,19 @@ set smartcase				" unless there are upper case letters in searchstr
 """ OTHER
 " No more ex-mode
 nnoremap Q <Nop>
+
+" Mappings for switching between tabs.
+nnoremap <C-h> :tabp<CR>
+nnoremap <C-l> :tabn<CR>
+nnoremap <C-j> :tablast<CR>
+nnoremap <C-k> :tabfirst<CR>
+
+" Mappings for moving tabs
+nnoremap <C-A-h> :tabm -1<CR>
+nnoremap <C-A-l> :tabm +1<CR>
+nnoremap <C-A-j> :tabm $<CR>
+nnoremap <C-A-k> :tabm 0<CR>
+
 " Ctrl+Space will find next <++>, jump to it and delete it.
 nnoremap <C-Space> /<++><Enter>"_c4l
 inoremap <C-Space> <Esc>/<++><Enter>"_c4l
