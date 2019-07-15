@@ -24,6 +24,7 @@
 
 # .local executables
 !.local/bin
+.local/bin/backup*
 
 # Mako
 !.config/mako
