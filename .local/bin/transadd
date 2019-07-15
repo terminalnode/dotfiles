@@ -28,7 +28,7 @@ usage() {
 # Get c if c is specified
 while getopts ":c::h" o; do
     case "${o}" in
-        c)  HOST=${OPTARG}
+        c)  host=${OPTARG}
             ;;
         h)  prelude && usage
             ;;
@@ -48,7 +48,8 @@ for file in "$@"; do
     ADDED="yes"
 
     echo "File: ${file}"
-    transmission-remote "$HOST" -a "${file}"
+    [ -z "${host}" ] && transmission-remote -a "${file}"
+    [ -n "${host}" ] && transmission-remote "${host}" -a "${file}"
 done;
 
 # No files added, help the user out
