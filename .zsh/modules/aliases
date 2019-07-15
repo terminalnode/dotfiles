@@ -2,6 +2,8 @@
 alias weather="curl wttr.in/Gothenburg\?0Q"
 alias rightnow="date +\(%a\)\ %d\ %b\ %H:%M"
 alias termbin="nc termbin.com 9999"
+alias ytdl="youtube-dl"
+alias svtdl="svtplay-dl"
 
 ################
 ### DEFAULTS ###
@@ -33,6 +35,7 @@ alias netctl='sudo netctl'
 ### SYSTEMD ###
 ###############
 # System services
+# enable and disable are already taken
 alias service='sudo systemctl'
 alias restart='sudo systemctl restart'
 alias start='sudo systemctl start'
@@ -44,6 +47,8 @@ alias urestart='systemctl restart --user'
 alias ustart='systemctl start --user'
 alias ustop='systemctl stop --user'
 alias ustatus='systemctl status --user'
+alias uenable='systemctl enable --user'
+alias udisable='systemctl disable --user'
 
 ##########################
 ### SYSTEM MAINTENANCE ###
