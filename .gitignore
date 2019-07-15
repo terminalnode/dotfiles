@@ -13,6 +13,7 @@
 !.config/zathura
 !.config/i3blocks
 !.config/newsboat
+!.config/youtube-dl
 !.config/user-dirs.dirs
 
 # .desktop-files

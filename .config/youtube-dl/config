@@ -1,0 +1,5 @@
+# No 4k video, no 60 FPS
+-f "bestvideo[height<=1080][fps<60]+bestaudio"
+
+# Save file in ~/ytdl/Uploader/Title.extension
+-o "~/ytdl/%(uploader)s/%(title)s.%(ext)s"
