@@ -13,6 +13,6 @@ function scpille {
 }
 
 # Execute a command and mercilessly disconnect it from the terminal.
-function opignore {
+function opig {
     nohup $@ &> /dev/null & disown
 }
