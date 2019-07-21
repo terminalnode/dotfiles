@@ -31,7 +31,7 @@ c.url.default_page                  = 'about:blank'
 c.downloads.location.directory      = '~/downloads/'
 c.confirm_quit                      = ["multiple-tabs"]
 c.editor.command                    = ['termite', '-e', 'vim {}']
-c.window.title_format               = '{perc}{title}{title_sep}'
+c.window.title_format               = '{perc}{current_title}{title_sep}'
 c.zoom.levels                       = ["5%", "10%", "15%", "25%", "33%", "50%", "67%", "75%", "90%", "100%",
                                        "110%", "125%", "150%", "175%", "200%", "250%", "300%", "400%", "500%"]
 
