@@ -25,3 +25,7 @@ border-color=#5e81acff
 
 # How rounded the corners should be
 border-radius=3
+
+# Timeout settings
+default-timeout=3500
+ignore-timeout=1
