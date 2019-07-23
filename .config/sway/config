@@ -10,15 +10,24 @@ set $down   j
 set $up     k
 set $right  l
 
-focus_follows_mouse no
-mouse_warping       none
-tiling_drag         disable
-xwayland            enable
-floating_modifier   $mod normal
-default_border      pixel 2
 titlebar_padding    2 2
-smart_borders       on
 font                pango:Bitstream Vera Sans 9,Font Awesome 9
+
+# Allow starting non-wayland applications through xwayland.
+xwayland            enable
+
+# Mouse warping moves the cursor when focus is changed.
+# Focus follows mouse moves focus when the cursor is changed.
+mouse_warping       none
+focus_follows_mouse no
+# Default border specifies the type and size of window borders.
+# If smart borders are enabled, these borders are not visible on single window workspaces.
+default_border      pixel 2
+smart_borders       off
+# Floating modifier enables moving floating windows with the mouse.
+# Tiling drag allows using the floating modifier key to move tiled windows too.
+floating_modifier   $mod normal
+tiling_drag         disable
 
 # Ibus
 exec ibus-daemon -drx
@@ -321,8 +330,8 @@ client.unfocused            $polar-1    $polar-1    $snow-1     $polar-1    $pol
 bar {
 	status_command  i3blocks
     modifier        $mod
-    mode            hide
-	position        bottom
+    mode            dock
+	position        top
     colors {
         statusline          $frost-3
         background          $polar-1
