@@ -59,8 +59,9 @@ workspace 20    output eDP-1    DP-1 DP-2 HDMI-1
 #############
 # hide_cursor also deactivates it, so a longer timeout
 # is required in order to show stuff like tooltips etc.
-seat * hide_cursor 5000
+seat * hide_cursor 7000
 
+# Generic keyboard settings
 input "*" {
     # Keyboard
     xkb_layout se,se
@@ -68,16 +69,24 @@ input "*" {
     xkb_options caps:swapescape,compose:rctrl,grp:alt_caps_toggle
 
     # Pointers
-    dwt                 disabled
-    tap                 enabled
     natural_scroll      enabled
-    middle_emulation    enabled
-    tap_button_map      lrm
-    scroll_method       two_finger
     scroll_factor       0.5
     }
 
-# Exception: Bluetooth keyboard is too small to touch type on.
+# Apple laptop-specific keyboard settings
+input "1452:602:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
+    xkb_model apple_laptop
+    xkb_layout se
+
+    # Pointers
+    dwt                 disabled
+    tap                 enabled
+    middle_emulation    enabled
+    tap_button_map      lrm
+    scroll_method       two_finger
+    }
+
+# Bluetooth keyboard-specific settings
 input "2652:34050:Bluetooth_keyboard_Keyboard" {
     xkb_layout se
     }
