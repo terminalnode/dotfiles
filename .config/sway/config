@@ -76,7 +76,6 @@ input "*" {
 # Apple laptop-specific keyboard settings
 input "1452:602:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
     xkb_model apple_laptop
-    xkb_layout se
 
     # Pointers
     dwt                 disabled
