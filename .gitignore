@@ -11,6 +11,7 @@
 !.config/rofi
 !.config/termite
 !.config/zathura
+!.config/neofetch   
 !.config/i3blocks
 !.config/newsboat
 !.config/youtube-dl
