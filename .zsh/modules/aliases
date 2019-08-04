@@ -1,17 +1,10 @@
 #!/bin/sh
-alias weather="curl wttr.in/Gothenburg\?0Q"
-alias rightnow="date +\(%a\)\ %d\ %b\ %H:%M"
-alias termbin="nc termbin.com 9999"
-alias ytdl="youtube-dl"
-alias svtdl="svtplay-dl"
 
-################
-### DEFAULTS ###
-################
+# DEFAULTS
+# Commands replaced with themselves + various options.
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias ls='ls -Fh --group-directories-first --color'
-alias ll="ls -la"
 alias free='free -ht'
 alias du='du -h'
 alias df='df -h'
@@ -19,29 +12,35 @@ alias vi='nvim'
 alias vim='nvim'
 alias oldvim='/usr/bin/vim'
 alias mpv='mpv --audio-display=no'
-alias neofetch="neofetch '\
-'--disable icons theme resolution term_font model '\
-'--uptime_shorthand on --shell_version off '\
-'--memory_percent on --speed_shorthand on '\
-'--os_arch off --shell_path on"
-
-#################
-### AUTO SUDO ###
-#################
+# Commands replaced with themselves + sudo
 alias ip='sudo ip'
 alias netctl='sudo netctl'
 
-###############
-### SYSTEMD ###
-###############
-# System services
-# enable and disable are already taken
+# ALIASES
+# Simple aliases for various commands
+alias ytdl="youtube-dl"
+alias svtdl="svtplay-dl"
+alias ll="ls -la"
+alias la="ls ./*"
+alias cpdir="cp -rfv"
+# A little more complicated aliases
+alias weather="curl wttr.in/Gothenburg\?0Q"
+alias rightnow="date +\(%a\)\ %d\ %b\ %H:%M"
+alias termbin="nc termbin.com 9999"
+alias systemage="head -n1 /var/log/pacman.log | awk '{ print \$1, \$2 }'"
+alias parch='ping -c 3 archlinux.org'
+alias publicip='curl ifconfig.me'
+
+# SYSTEMD
+# SystemD system services
+# (enable and disable are already taken)
 alias service='sudo systemctl'
 alias restart='sudo systemctl restart'
 alias start='sudo systemctl start'
 alias stop='sudo systemctl stop'
 alias status='sudo systemctl status'
-# User services
+# SystemD user services
+# Same names as above but with a u at the beginning
 alias uservice='systemctl --user'
 alias urestart='systemctl restart --user'
 alias ustart='systemctl start --user'
@@ -50,26 +49,17 @@ alias ustatus='systemctl status --user'
 alias uenable='systemctl enable --user'
 alias udisable='systemctl disable --user'
 
-##########################
-### SYSTEM MAINTENANCE ###
-##########################
-# Various
-alias systemage="head -n1 /var/log/pacman.log | awk '{ print \$1, \$2 }'"
-alias parch='ping -c 3 archlinux.org'
-alias publicip='curl ifconfig.me'
-
-# Updating
+# PACMAN/YAY
+# Update packages
 alias syyu='yay -Syyu --upgrademenu --combinedupgrade'
 alias syu='yay -Syu --upgrademenu --combinedupgrade'
 alias upgit="pacman -Qm |
     grep '\-git\|\-hg' |
     awk '{print \$1}' |
     yay -S -"
-
 # Installing/removing packages
 alias pmdel="sudo pacman -Rs"
 alias pmadd="sudo pacman -S"
-
 # Checking/listing
 alias pmall='pacman -Qe'
 alias pmnot='pacman -Qdtq'
@@ -78,9 +68,8 @@ alias pmaur='pacman -Qm'
 alias pmgit="pacman -Qm | grep '\-git\|\-hg' | awk '{print \$1}'"
 alias pmlook="pacman -Qi"
 
-###################
-### DUMB EXITS ###
-###################
+# DUMB EXITS
+# Sorry...
 alias quit='exit'; alias q='exit'; alias :q='exit'
 alias :q!='exit'; alias wq='exit'; alias :wq='exit'
 alias :wq!='exit'
