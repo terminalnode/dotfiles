@@ -7,8 +7,11 @@ command=/usr/lib/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
-# Unused nord colors:
-# color=#5e81ac # frost4
+[newsboat]
+command=newsboat -x reload && newsboat -x print-unread | cut -d' ' -f1
+color=#5e81ac # frost4
+interval=3600 # once an hour
+label=
 
 [pulsevolume]
 command=~/.config/i3blocks/pulsevolume
