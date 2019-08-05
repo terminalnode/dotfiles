@@ -20,4 +20,4 @@ VOL=$(getvolume)
 [ "$(getmute)" = "yes" ] && echo .MUTE && return
 [ "$VOL" -ge 75 ] && echo " $VOL" && return
 [ "$VOL" -ge 25 ] && echo " $VOL" && return
-echo  $VOL
+echo " $VOL"
