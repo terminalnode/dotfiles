@@ -12,11 +12,6 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 export XDG_CONFIG_DIRS="/etc/xdg"
 
-if [[ "Darwin" = $(uname) && -x $(command -v brew) ]]; then
-    export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
-    export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-fi
-
 # Pyenv initialization
 # (adding pyenv to path)
 export PYENV_ROOT="$HOME/.pyenv"
