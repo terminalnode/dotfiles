@@ -1,6 +1,7 @@
 # Basic settings
-auto-reload	yes # Reload all feeds on start
-player mplayer  # Set mplayer to default media player
+auto-reload	yes     # Reload all feeds on start
+player mplayer      # Set mplayer to default media player
+show-keymap-hint no # Hide the keymap hint because it lists <none> bindings.
 
 # Formatting
 # Header for the list of feeds
@@ -77,3 +78,17 @@ color listfocus         black       yellow
 color listfocus_unread  black       yellow
 color info              default     black
 color article			default     default
+
+highlight feedlist    "^  *[0-9]+  *N  "                    color156 default
+highlight articlelist "^  *[0-9]+  *N  "                    color156 default
+
+highlight article     "(^Feed:.*|^Title:.*|^Author:.*)"     color75  default
+highlight article     "(^Link:.*|^Date:.*)"                 color75  default
+highlight article     "^Podcast Download URL:.*"            color71  default
+highlight article     "^Links:"                             white    color240 underline
+highlight article     "\\[[0-9][0-9]*\\]"                   color72  default  bold
+highlight article     "\\[image [0-9][0-9]*\\]"             color72  default  bold
+highlight article     "\\[embedded flash: [0-9][0-9]*\\]"   color72  default  bold
+highlight article     ":.*\\(link\\)$"                      color74  default
+highlight article     ":.*\\(image\\)$"                     color74  default
+highlight article     ":.*\\(embedded flash\\)$"            color74  default
