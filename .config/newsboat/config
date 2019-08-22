@@ -1,22 +1,79 @@
-# Example config 1:
-# https://gist.github.com/anonymous/42d2f5956e7bc8ee1ebc
-#
-# Example config 2:
-# http://moparx.com/configs/newsbeuter/
+# Basic settings
+auto-reload	yes # Reload all feeds on start
+player mplayer  # Set mplayer to default media player
 
-auto-reload	yes
-player mplayer
+# Formatting
+# Header for the list of feeds
+feedlist-title-format "Newsboat %V [%u unread, %t total]"
+# Header for a specific feed
+articlelist-title-format "Articles in %T [%u unread, %t total]"
+# Header for a specific article
+itemview-title-format "%T [%u unread, %t total]"
 
-# TODO
-# show-keymap-hint false 
-# download-path "INSERT PATH"
+# Unbind almost everything
+# HJKL and G
+unbind-key "h"
+unbind-key "j"
+unbind-key "k"
+unbind-key "l"
+unbind-key "H"
+unbind-key "J"
+unbind-key "K"
+unbind-key "L"
+unbind-key "g"
+unbind-key "G"
+# I don't use tags and filters really
+unbind-key "t"
+unbind-key "f"
+unbind-key "F"
+unbind-key "^T"
+unbind-key "^F"
+# Other stuff
+unbind-key ":"          # cmdline
+unbind-key "^L"         # redraw
+unbind-key "PAGEUP"     # pageup
+unbind-key "PAGEDOWN"   # pagedown
+unbind-key "^V"         # next-dialog
+unbind-key "^G"         # prev-dialog
+unbind-key ","          # macro-prefix
+unbind-key "E"          # edit-urls
+unbind-key "^R"         # reload-urls
+unbind-key "^K"         # random-unread
+unbind-key "n"          # next-unread
+unbind-key "p"          # prev-unread
+unbind-key "C"          # mark-all-feeds-read
+unbind-key "v"          # view-dialogs
 
-# Solarized colour scheme
-color listfocus_unread  black	yellow
-color background         default   default
-color listnormal         default   default
-color listnormal_unread  default   default
-color listfocus          black     yellow
-color listfocus_unread   black     yellow
-color info               default   black
-color article			 default default
+# Bindings for opening stuff
+bind-key "SPACE"    open # enter also works
+bind-key "o"        open-in-browser
+bind-key "O"        open-all-unread-in-browser
+# J = "down", "K" = "up"
+bind-key "j"        down
+bind-key "k"        up
+bind-key "J"        end
+bind-key "K"        home
+# H = "left", L = "right"
+bind-key "h"        prev-dialog 
+bind-key "l"        next-dialog
+bind-key "H"        prev-unread
+bind-key "L"        next-unread
+# vim-like bindings for g/G
+bind-key "g"        home
+bind-key "G"        end
+# Unbind R from reload all feeds and rebind r to do that instead.
+# No need to reload one feed at a time.
+bind-key "r"        reload-all
+unbind-key "r"
+unbind-key "R"
+
+# Themeing
+#     Component         Foreground  Background
+color listfocus_unread  black       yellow
+color background        default     default
+color listnormal        default     default
+color listnormal_unread default     default
+color listfocus         black       yellow
+color listfocus_unread  black       yellow
+color info              default     black
+color article			default     default

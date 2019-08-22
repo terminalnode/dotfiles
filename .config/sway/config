@@ -228,7 +228,7 @@ bindsym --to-code $mod+r mode "resize"
 ##################
 # Dependencies:
 # Screen brightness     bc
-# Keyboard backlight    acpilight
+# Keyboard backlight    bc
 # Sound levels          PulseAudio (pactl)
 # Screenshots           grim, slurp
 # mpd controls          mpd, mpc (obviously...)
@@ -248,18 +248,19 @@ bindsym $mod+$dimmer        exec $set_screen -1,   exec $pkill_backlight
 bindsym $MOD+$dimmer        exec $set_screen -100, exec $pkill_backlight
 
 # Keyboard backlight
-set $increase_kbd           xbacklight -ctrl smc::kbd_backlight -inc
-set $decrease_kbd           xbacklight -ctrl smc::kbd_backlight -dec
+# set $increase_kbd           xbacklight -ctrl smc::kbd_backlight -inc
+# set $decrease_kbd           xbacklight -ctrl smc::kbd_backlight -dec
+set $set_kbd                ~/.config/sway/scripts/set_kb_backlight.sh
 set $kbdbrighter            XF86KbdBrightnessUp
 set $kbddimmer              XF86KbdBrightnessDown
-bindsym $MOD+$kbdbrighter   exec $increase_kbd 100
-bindsym $kbdbrighter        exec $increase_kbd 5
-bindsym shift+$kbdbrighter  exec $increase_kbd 1
-bindsym $mod+$kbdbrighter   exec $increase_kbd 1
-bindsym $MOD+$kbddimmer     exec $decrease_kbd 100
-bindsym $kbddimmer          exec $decrease_kbd 5
-bindsym shift+$kbddimmer    exec $decrease_kbd 1
-bindsym $mod+$kbddimmer     exec $decrease_kbd 1
+bindsym $MOD+$kbdbrighter   exec $set_kbd 100
+bindsym $kbdbrighter        exec $set_kbd 5
+bindsym shift+$kbdbrighter  exec $set_kbd 1
+bindsym $mod+$kbdbrighter   exec $set_kbd 1
+bindsym $MOD+$kbddimmer     exec $set_kbd -100
+bindsym $kbddimmer          exec $set_kbd -5
+bindsym shift+$kbddimmer    exec $set_kbd -1
+bindsym $mod+$kbddimmer     exec $set_kbd -1
 
 # Volume keys
 # Changing volume but not letting it go over 100% is tricky with only pactl,
