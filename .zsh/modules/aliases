@@ -22,6 +22,7 @@ alias ytdl="youtube-dl"
 alias svtdl="svtplay-dl"
 alias ll="ls -la"
 alias la="ls ./*"
+alias l1="ls -1"
 alias cpdir="cp -rfv"
 # A little more complicated aliases
 alias weather="curl wttr.in/Gothenburg\?0Q"
