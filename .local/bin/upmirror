@@ -33,7 +33,7 @@ Countries:
 Path:
     If a file called mirrorlist already exists in the given directory a backup called mirrorlist.backup will be created.
     
-    Defaults:
+    The default value for this parameter is:
     ${bold}/etc/pacman.d/${default} when running as root.
     ${bold}~/${default} when running as any other user.
 EOF
@@ -43,15 +43,15 @@ EOF
 dependency_check() {
     # Checks if dependencies are installed and executable.
     [ -z "$(command -v curl)" ] &&
-        echo "curl not found, please install the arch package curl." &&
+        echo "curl not found, please install the package ${bold}curl${default}." &&
         depfail="yes"
 
     [ -z "$(command -v rankmirrors)" ] &&
-        echo "rankmirrors not found, please install the package pacman-contrib." &&
+        echo "rankmirrors not found, please install the package ${bold}pacman-contrib${default}." &&
         depfail="yes"
 
     [ -z "$(command -v getopt)" ] &&
-        echo "getopt not found, please install the package util-linux." &&
+        echo "getopt not found, please install the package ${bold}util-linux${default}." &&
         depfail="yes"
 
     [ -n "$depfail" ] &&
