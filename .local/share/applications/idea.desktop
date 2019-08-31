@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=IntelliJ IDEA Community Edition (X11)
+Comment=Develop with pleasure!
+Exec=idea %f
+Icon=idea
+Terminal=false
+StartupNotify=true
+StartupWMClass=jetbrains-idea-ce
+Categories=Development;IDE;Java;
+NoDisplay=true
