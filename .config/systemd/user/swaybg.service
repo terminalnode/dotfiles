@@ -1,5 +1,5 @@
 [Unit]
-Description=Background for (s)Wayland
+Description=Swaybg - Background manager for Wayland
 Documentation=man:swaybg(1)
 PartOf=graphical-session.target
 

@@ -1,5 +1,5 @@
 [Unit]
-Description=A lightweight Wayland notification daemon
+Description=Mako - A lightweight Wayland notification daemon
 Documentation=man:mako(1)
 PartOf=graphical-session.target
 
