@@ -29,30 +29,10 @@ smart_borders       off
 floating_modifier   $mod normal
 tiling_drag         disable
 
-# Ibus
-exec ibus-daemon -drx
-
-# Workspace     Primary out     Secondary outs
-workspace 1     output eDP-1    DP-1 DP-2 HDMI-1
-workspace 2     output eDP-1    DP-1 DP-2 HDMI-1
-workspace 3     output eDP-1    DP-1 DP-2 HDMI-1
-workspace 4     output eDP-1    DP-1 DP-2 HDMI-1
-workspace 5     output eDP-1    DP-1 DP-2 HDMI-1
-workspace 6     output DP-1     DP-2 HDMI-1 eDP-1
-workspace 7     output DP-1     DP-2 HDMI-1 eDP-1
-workspace 8     output DP-1     DP-2 HDMI-1 eDP-1
-workspace 9     output DP-1     DP-2 HDMI-1 eDP-1
-workspace 10    output HDMI-1   DP-1 DP-2 eDP-1
-workspace 11    output HDMI-1   DP-1 DP-2 eDP-1
-workspace 12    output HDMI-1   DP-1 DP-2 eDP-1
-workspace 13    output HDMI-1   DP-1 DP-2 eDP-1
-workspace 14    output HDMI-1   DP-1 DP-2 eDP-1
-workspace 15    output HDMI-1   DP-1 DP-2 eDP-1
-workspace 16    output eDP-1    DP-1 DP-2 HDMI-1
-workspace 17    output eDP-1    DP-1 DP-2 HDMI-1
-workspace 18    output eDP-1    DP-1 DP-2 HDMI-1
-workspace 19    output eDP-1    DP-1 DP-2 HDMI-1
-workspace 20    output eDP-1    DP-1 DP-2 HDMI-1
+##############
+### OUTPUT ###
+##############
+include output
 
 #############
 ### INPUT ###
@@ -71,39 +51,11 @@ input "*" {
     # Pointers
     natural_scroll      enabled
     scroll_factor       0.5
-    }
+}
 
-# Apple laptop-specific keyboard settings
-input "1452:602:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
-    xkb_model apple_laptop
+# Device specific configuration
+include input
 
-    # Pointers
-    dwt                 disabled
-    tap                 enabled
-    middle_emulation    enabled
-    tap_button_map      lrm
-    scroll_method       two_finger
-    }
-
-# Bluetooth keyboard-specific settings
-input "2652:34050:Bluetooth_keyboard_Keyboard" {
-    xkb_layout se
-    }
-
-##############
-### OUTPUT ###
-##############
-output eDP-1 {
-    pos 0 0
-    scale 2.0
-
-    # only available resolution
-    res 2560x1600 
-    }
-
-output DP-1   pos 1280 0
-output DP-2   pos 1280 0
-output HDMI-1 pos 1280 0
 
 ###################
 ### KEYBINDINGS ###
