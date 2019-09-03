@@ -44,13 +44,17 @@ seat * hide_cursor 7000
 # Generic keyboard settings
 input "*" {
     # Keyboard
-    xkb_layout se,se
-    xkb_variant dvorak_a5,basic
+    xkb_layout se(dvorak_a5),se(basic)
     xkb_options caps:swapescape,compose:rctrl,grp:alt_caps_toggle
 
     # Pointers
     natural_scroll      enabled
     scroll_factor       0.5
+    dwt                 disabled
+    tap                 enabled
+    middle_emulation    enabled
+    tap_button_map      lrm
+    scroll_method       two_finger
 }
 
 # Device specific configuration

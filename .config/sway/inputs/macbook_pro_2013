@@ -1,13 +1,6 @@
 # Apple laptop-specific keyboard settings
 input "1452:602:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
     xkb_model apple_laptop
-
-    # Pointers
-    dwt                 disabled
-    tap                 enabled
-    middle_emulation    enabled
-    tap_button_map      lrm
-    scroll_method       two_finger
 }
 
 # Bluetooth keyboard-specific settings
