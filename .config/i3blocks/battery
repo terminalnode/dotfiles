@@ -42,4 +42,4 @@ if [ "$STATUS" = "Discharging" ]; then
 fi
 
 echo "${SYMBOL}${CHARGE}"
-return
+echo "${SYMBOL}${CHARGE}"
