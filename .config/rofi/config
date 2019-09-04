@@ -1,7 +1,6 @@
-rofi.theme:			solarized-darker.rasi
-rofi.font:			hack 11
-rofi.location:		3
-rofi.matching:		fuzzy
-rofi.modi:			combi
-rofi.line-padding:	20
-rofi.theme: /home/monster/.local/share/rofi/themes/nord-sidebar.rasi
+rofi.font:          hack 11
+rofi.location:      3
+rofi.matching:      fuzzy
+rofi.modi:          combi
+rofi.line-padding:  20
+rofi.theme:         ~/.config/rofi/themes/nord-sidebar.rasi
