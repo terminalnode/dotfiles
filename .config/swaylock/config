@@ -1,6 +1,6 @@
 # Swaylock
 # General settings
-image=~/pics/current_wallpaper
+image=~/pics/wallpapers/current_wallpaper
 hide-keyboard-layout
 show-failed-attempts
 ignore-empty-password
