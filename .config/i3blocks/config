@@ -7,35 +7,41 @@ command=/usr/lib/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
+# frost4
+# Every fifteen minutes.
 [newsboat]
+label= 
 command=newsboat -x reload && newsboat -x print-unread | cut -d' ' -f1
-color=#5e81ac # frost4
-interval=3600 # once an hour
-label=
+color=#5e81ac
+interval=900
 
+# orange
 [pulsevolume]
 command=~/.config/i3blocks/pulsevolume
 interval=once
-color=#d08770 # orange
+color=#d08770
 signal=10
 
+# snow1
 [brightness]
+label= 
 command=echo $(~/.config/i3blocks/brightness)
-label=
 interval=once
-color=#d8dee9 # snow1
+color=#d8dee9
 signal=8
 
+# magenta
 [memory-sh]
-label=
+label= 
 command=free -tbh | tail -n1 | awk '{print $4}'
-color=#b48ead # magenta
+color=#b48ead
 interval=30
 
+# red
 [disk-sh]
-label=
+label= 
 command=df -h / | awk 'FNR > 1 {print $4}'
-color=#bf616a # red
+color=#bf616a
 interval=30
 
 # [cpu_usage]
@@ -49,16 +55,18 @@ interval=30
 # color=#88c0d0 # frost2
 # interval=10
 
+# frost2
 [cpu-load]
-label=
+label= 
 command=~/.config/i3blocks/cpu_load
-color=#88c0d0 # frost2
+color=#88c0d0
 interval=10
 
+# green
 [get-ip]
-label=
+label= 
 command=hostname -i | cut -d' ' -f1
-color=#a3be8c # green
+color=#a3be8c
 interval=60
 
 # [ssid]
@@ -66,18 +74,22 @@ interval=60
 # color=#a3be8c
 # interval=10
 
+# frost3
+# every 10 minutes
 [get-public-ip]
-label=
-command=curl ifconfig.me
-color=#81a1c1 # frost3
-interval=600 # every 10 minutes
+label= 
+command=echo $(curl ifconfig.me)
+color=#81a1c1
+interval=600
 
+# yellow
 [battery]
 command=~/.config/i3blocks/battery
-color=#ebcb8b # yellow
+color=#ebcb8b
 interval=30
 
+# frost1
 [calendar]
 command=date +\(%a\)\ %d\ %b\ %H:%M
-color=#8fbcbb # frost1
+color=#8fbcbb
 interval=5
