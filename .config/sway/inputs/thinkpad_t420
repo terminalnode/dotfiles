@@ -1,0 +1,4 @@
+input "2:10:TPPS/2_IBM_TrackPoint" {
+    pointer_accel   -0.7
+
+}
