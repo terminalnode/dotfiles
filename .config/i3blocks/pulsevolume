@@ -16,8 +16,14 @@ getmute() {
         awk '/^\smuted:/{i++} i=='"$(getsink)"'{print $2; exit}'
 }
 
-MUTE=$(getmute)
-VOL=$(getvolume)
-[ "$MUTE" = "yes" ] && echo ".MUTE"
-[ "$VOL" -ge 75 ] && echo " $VOL"
-[ "$VOL" -ge 25 ] && echo " $VOL"
+mute=$(getmute)
+vol=$(getvolume)
+if [ "$mute" = "yes" ]; then
+    echo " Muted"
+elif [ "$vol" -ge 75 ]; then
+    echo " ${vol}%"
+elif [ "$vol" -ge 40 ]; then
+    echo " ${vol}%"
+else
+    echo " ${vol}%"
+fi
