@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Keybase (X11)
+Exec= env GDK_BACKEND=x11 electron /usr/share/keybase-app
+# Exec=env GDK_BACKEND=x11 keybase-gui %u
+Icon=keybase
+Terminal=false
+Type=Application
+Categories=Network;
+StartupNotify=false
+MimeType=x-scheme-handler/web+stellar;x-scheme-handler/keybase;
