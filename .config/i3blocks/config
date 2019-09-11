@@ -25,15 +25,16 @@ signal=10
 # snow1
 [brightness]
 label= 
-command=echo $(~/.config/i3blocks/brightness)
+command=~/.config/i3blocks/brightness
 interval=once
 color=#d8dee9
 signal=8
 
 # magenta
+#label= 
+#command=free -tbh | tail -n1 | awk '{print $4}'
 [memory-sh]
-label= 
-command=free -tbh | tail -n1 | awk '{print $4}'
+command=~/.config/i3blocks/memory
 color=#b48ead
 interval=30
 
