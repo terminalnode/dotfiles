@@ -12,11 +12,13 @@ cursor_blink = off
 
 [colors]
 cursor            = #eceff4
-cursor_foreground = #2e3440
+# cursor_foreground = #2e3440
+cursor_foreground = #e5e9f0
 
 foreground      = #d8dee9
 foreground_bold = #e5e9f0
-background      = rgba(21, 27, 39, 0.97)
+# background      = rgba(21, 27, 39, 0.97)
+background = #111515
 
 # Brightest "Polar Night"
 highlight = #4c566a
@@ -41,6 +43,6 @@ color14 = #8fbcbb
 # Black / Grey
 color0  = #3b4252
 color8  = #4c566a
-# White / grey
+# White / Grey
 color7  = #e5e9f0
 color15 = #eceff4
