@@ -1,5 +1,5 @@
 # Basic settings
-auto-reload	yes     # Reload all feeds on start
+auto-reload	no      # Don't reload all feeds on start
 player mplayer      # Set mplayer to default media player
 show-keymap-hint no # Hide the keymap hint because it lists <none> bindings.
 
