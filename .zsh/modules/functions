@@ -16,3 +16,16 @@ function scpille {
 function opig {
     nohup $@ &> /dev/null & disown
 }
+
+# Shows / deletes annoying dotfiles
+function print-ds {
+    # The grep command is used to highlight stuff
+    find . -name '.DS_Store' -type f -print | grep .DS_Store
+    find . -name '._*' -type f -print | grep ._
+}
+
+function delete-ds {
+    find . -name '.DS_Store' -type f -delete
+    find . -name '._*' -type f -delete
+}
+
