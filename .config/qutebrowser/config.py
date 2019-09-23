@@ -68,6 +68,7 @@ c.url.searchengines = {
     "g"         : "https://www.google.com/search?q={}",
     "ecosia"    : "https://www.ecosia.org/search?q={}",
     # Specialised search engines
+    "hoogle"    : "https://hoogle.haskell.org/?hoogle={}",
     "gimg"      : "https://www.google.com/search?tbm=isch&q={}",
     "maps"      : "https://www.google.se/maps/search/{}",
     "eniro"     : "https://kartor.eniro.se/?q={}",
@@ -84,11 +85,8 @@ c.url.searchengines = {
     "r"        : "https://reddit.com/r/{}",
     "cc"        : "https://search.creativecommons.org/search?q={}",
     "giphy"     : "https://giphy.com/search/{}",
-    # Warez
     "genlib"    : "http://gen.lib.rus.ec/search.php?req={}",
-    "tpb"       : "https://thepiratebay.org/search/{}",
-    "rarbg"     : "https://rarbg.to/torrents.php?search={}",
-    # Dictionarie
+    # Dictionaries
     "fren"      : "https://www.larousse.fr/dictionnaires/francais-anglais/{}",
     "enfr"      : "https://www.larousse.fr/dictionnaires/anglais-francais/{}",
     "linguee"   : "http://www.linguee.com/english-french/search?source=french&query={}",
