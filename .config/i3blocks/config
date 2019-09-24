@@ -66,7 +66,7 @@ interval=10
 # green
 [get-ip]
 label= 
-command=hostname -i | cut -d' ' -f1
+command=~/.config/i3blocks/lan
 color=#a3be8c
 interval=60
 
