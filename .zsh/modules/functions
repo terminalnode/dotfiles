@@ -17,6 +17,20 @@ function opig {
     nohup $@ &> /dev/null & disown
 }
 
+# Searches through all songs in mpd/mpc and greps whatever you wrote
+# Name is short for mpcgrep.
+function mpcg {
+    if [ -z "$1" ]
+    then
+        echo "Need an argument to search for."
+    elif [ -n "$2" ]
+    then
+        echo "Too many arguments! Try quoting."
+    else
+        mpc listall | grep -i "$@"
+    fi
+}
+
 # Shows / deletes annoying dotfiles
 function print-ds {
     # The grep command is used to highlight stuff
