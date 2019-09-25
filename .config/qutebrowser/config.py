@@ -6,9 +6,13 @@ config.bind('<Ctrl-t>', 'set-cmd-text -s :open -t') # Defaults to creating new e
 
 # Bookmarks
 # Creating new bookmarks with M is default.
-config.bind('B', 'set-cmd-text -s :bookmark-load') # Defaults to :quickmark-load, which is useless.
-config.bind('D', 'bookmark-del {url}') # Defaults to close tab, which is already done by lower-case d.
+config.bind('b', 'set-cmd-text -s :bookmark-load') # Defaults to :quickmark-load, which is useless.
 config.bind('E', 'open-editor')
+
+# Both upper and lower-case d/r are bound to close/reload tab respectively.
+# We only need one binding for each option, so let's make it upper case to avoid mistakes.
+config.bind('d', 'bookmark-del {url}')  # Both d and D are bound to close tab by default. Let's bind lower-case to something less lethal.
+config.unbind('r')                      # Easily pressed by mistake and upper-case R still works for reloading pages.
 
 # Do stuff with URLs
 # ; for hints, , for current page.
@@ -17,7 +21,7 @@ config.bind(';p', 'hint links spawn -dv mpv {hint-url}')
 config.bind(',p', 'spawn -dv mpv {url}')
 
 # Unbindings
-config.unbind('q') # No need for macros in a browser.
+config.unbind('q')                      # I have no need for macros.
 
 c.qt.highdpi                        = True
 c.tabs.background                   = True
@@ -244,7 +248,7 @@ c.colors.statusbar.command.fg                   = nord['snow-2']
 ## [...] while private browsing
 c.colors.statusbar.command.private.bg           = nord['polar-3']
 c.colors.statusbar.command.private.fg           = nord['snow-2']
-## Background color of the progress bar.        
+## Background color of the progress bar.
 c.colors.statusbar.progress.bg                  = nord['snow-2']
 c.colors.statusbar.url.fg                       = nord['snow-2']
 c.colors.statusbar.url.success.http.fg          = nord['snow-2']
@@ -281,7 +285,7 @@ c.colors.tabs.odd.fg                            = nord['snow-2']
 # Stuff currently not in use. Stashed away in case I'll need it later.
 ####################
 
-# Force software rendering for QtWebEngine. 
+# Force software rendering for QtWebEngine.
 # Valid values:
 #   - software-opengl: Tell LibGL to use a software implementation of GL (`LIBGL_ALWAYS_SOFTWARE` / `QT_XCB_FORCE_SOFTWARE_OPENGL`)
 #   - qt-quick: Tell Qt Quick to use a software renderer instead of OpenGL. (`QT_QUICK_BACKEND=software`)
