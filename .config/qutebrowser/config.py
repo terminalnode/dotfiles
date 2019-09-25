@@ -267,19 +267,28 @@ c.colors.tabs.indicator.system                  = 'none'
 c.colors.tabs.indicator.start                   = nord['yellow']
 c.colors.tabs.indicator.stop                    = nord['green']
 c.colors.tabs.indicator.error                   = nord['red']
-
 ## Default colours
 c.colors.tabs.bar.bg                            = nord['polar-1']
-## Selected tabs
+## Selected tabs bg
 c.colors.tabs.selected.even.bg                  = nord['polar-4']
+c.colors.tabs.pinned.selected.even.bg           = nord['polar-4']
 c.colors.tabs.selected.odd.bg                   = nord['polar-4']
-c.colors.tabs.selected.even.fg                  = nord['snow-2']
-c.colors.tabs.selected.odd.fg                   = nord['snow-2']
-## Unselected tabs
+c.colors.tabs.pinned.selected.odd.bg            = nord['polar-4']
+## Unselected tabs bg
 c.colors.tabs.even.bg                           = nord['polar-1']
-c.colors.tabs.odd.bg                            = nord['polar-1']
+c.colors.tabs.pinned.even.bg                    = nord['polar-1']
+c.colors.tabs.odd.bg                            = nord['polar-2']
+c.colors.tabs.pinned.odd.bg                     = nord['polar-2']
+# Selected tabs fg
+c.colors.tabs.selected.even.fg                  = nord['yellow']
+c.colors.tabs.pinned.selected.even.fg           = nord['yellow']
+c.colors.tabs.selected.odd.fg                   = nord['yellow']
+c.colors.tabs.pinned.selected.odd.fg            = nord['yellow']
+# Unselected tabs fg
 c.colors.tabs.even.fg                           = nord['snow-2']
+c.colors.tabs.pinned.even.fg                    = nord['snow-2']
 c.colors.tabs.odd.fg                            = nord['snow-2']
+c.colors.tabs.pinned.odd.fg                     = nord['snow-2']
 
 ####################
 # Stuff currently not in use. Stashed away in case I'll need it later.
