@@ -8,10 +8,15 @@ alias ls='ls -Fh --group-directories-first --color'
 alias free='free -ht'
 alias du='du -h'
 alias df='df -h'
+alias mpv='mpv --audio-display=no'
+# Replace vi/vim with nvim
 alias vi='nvim'
 alias vim='nvim'
 alias oldvim='/usr/bin/vim'
-alias mpv='mpv --audio-display=no'
+# Replace cat with plain unpaged bat,
+# which is basically cat with syntax highlighting
+alias cat='bat --style plain --paging never'
+alias oldcat='/usr/bin/cat'
 # Commands replaced with themselves + sudo
 alias ip='sudo ip'
 alias netctl='sudo netctl'
