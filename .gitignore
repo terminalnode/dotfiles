@@ -8,14 +8,15 @@
 
 # Simple unignores
 !.config/i3
+!.config/i3blocks
+!.config/neofetch   
+!.config/newsboat
+!.config/redshift
 !.config/rofi
 !.config/termite
-!.config/zathura
-!.config/neofetch   
-!.config/i3blocks
-!.config/newsboat
-!.config/youtube-dl
 !.config/user-dirs.dirs
+!.config/youtube-dl
+!.config/zathura
 
 # .desktop-files
 !.local/share
