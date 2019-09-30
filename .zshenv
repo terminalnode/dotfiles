@@ -12,6 +12,9 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 export XDG_CONFIG_DIRS="/etc/xdg"
 
+# bat theme
+export BAT_THEME="Monokai Extended Bright"
+
 # Pyenv initialization
 # (adding pyenv to path)
 export PYENV_ROOT="$HOME/.pyenv"
