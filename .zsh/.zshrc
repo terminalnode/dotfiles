@@ -11,12 +11,13 @@ fi
 # Activate syntax highlighting if it exists
 if [[ -n /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
     source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
 fi
 
 # Let's make a pretty prompt!! Custom characters are listed in man zshmisc
 # BLANK LINE
 # [user@host ~/working_directory]
-# > 
+# >
 PS1="
 %B%F{green}[%f%b%F{cyan}%n%f%B%F{green}@%f%b%F{blue}%M%f %F{yellow}%~%f%B%F{green}]%f%b
 %B%F{8}> %f%b"
@@ -38,7 +39,7 @@ if ! zplug check --verbose; then
 fi
 zplug load
 
-# SSH agent 
+# SSH agent
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     ssh-agent > ~/.ssh-agent-thing
 fi

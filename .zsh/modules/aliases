@@ -25,8 +25,9 @@ alias netctl='sudo netctl'
 # Simple aliases for various commands
 alias ytdl="youtube-dl"
 alias svtdl="svtplay-dl"
-alias ll="ls -la"
-alias la="ls ./*"
+alias ll="ls -l"
+alias la="ls -a"
+alias lla="ls -la"
 alias l1="ls -1"
 alias cpdir="cp -rfv"
 # A little more complicated aliases
