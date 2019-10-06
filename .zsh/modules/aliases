@@ -36,6 +36,7 @@ alias gita="git add"
 alias gitb="git branch"
 alias gitc="git commit -m"
 alias gitl="git log"
+alias gitp="git push"
 alias chko="git checkout"
 # A little more complicated aliases
 alias weather="curl wttr.in/Gothenburg\?0Q"

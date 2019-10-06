@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+# Activate syntax highlighting if it exists
+zsh_syntax_hl="/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+if [[ -n "${zsh_syntax_hl}" ]]; then
+    source "${zsh_syntax_hl}"
+    ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
+fi
