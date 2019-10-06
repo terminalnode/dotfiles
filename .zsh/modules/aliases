@@ -30,6 +30,13 @@ alias la="ls -a"
 alias lla="ls -la"
 alias l1="ls -1"
 alias cpdir="cp -rfv"
+# Lazy gitting
+alias gits="git status"
+alias gita="git add"
+alias gitb="git branch"
+alias gitc="git commit -m"
+alias gitl="git log"
+alias chko="git checkout"
 # A little more complicated aliases
 alias weather="curl wttr.in/Gothenburg\?0Q"
 alias rightnow="date +\(%a\)\ %d\ %b\ %H:%M"
@@ -57,27 +64,6 @@ alias ustatus='systemctl status --user'
 alias uenable='systemctl enable --user'
 alias udisable='systemctl disable --user'
 
-# PACMAN/YAY
-# Update packages
-alias syyu='yay -Syyu --upgrademenu --combinedupgrade'
-alias syu='yay -Syu --upgrademenu --combinedupgrade'
-alias upgit="pacman -Qm |
-    grep '\-git\|\-hg' |
-    awk '{print \$1}' |
-    yay -S -"
-# Installing/removing packages
-alias pmdel="sudo pacman -Rs"
-alias pmadd="sudo pacman -S"
-# Checking/listing
-alias pmall='pacman -Qe'
-alias pmnot='pacman -Qdtq'
-alias aur='pacman -Qm'
-alias pmaur='pacman -Qm'
-alias pmgit="pacman -Qm | grep '\-git\|\-hg' | awk '{print \$1}'"
-alias pmlook="pacman -Qi"
-
 # DUMB EXITS
 # Sorry...
 alias quit='exit'; alias q='exit'; alias :q='exit'
-alias :q!='exit'; alias wq='exit'; alias :wq='exit'
-alias :wq!='exit'
