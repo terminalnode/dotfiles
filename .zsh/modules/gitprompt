@@ -1,0 +1,2 @@
+setopt prompt_subst
+RPROMPT='$([ -x "$(command -v pretty-git-prompt)" ] && pretty-git-prompt)'
