@@ -37,6 +37,7 @@ alias termbin="nc termbin.com 9999"
 alias systemage="head -n1 /var/log/pacman.log | awk '{ print \$1, \$2 }'"
 alias parch='ping -c 3 archlinux.org'
 alias publicip='curl ifconfig.me'
+alias demoterm='setopt interactivecomments && export PS1="%B%F{cyan}$ %f%b" && clear'
 
 # SYSTEMD
 # SystemD system services
