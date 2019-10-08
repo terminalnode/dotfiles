@@ -16,14 +16,15 @@ fi
 autoload -U compinit; compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-fpath=(~/.zsh/completion $fpath)
+fpath=("~/.zsh/completions" $fpath)
+[ -d ~/.zsh/completions.local ] && fpath=("~/.zsh/completions.local" $fpath)
+
+# Load all the files in ./modules
+for file in ~/.zsh/modules*/*
+do
+    source ${file}
+done
 
 # This makes the delete key work as expected in zsh.
 bindkey "^[[3~"     delete-char
 bindkey "^[3;5~"    delete-char
-
-# Load all the files in ./modules
-for file in ~/.zsh/modules/*
-do
-    . ${file}
-done

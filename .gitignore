@@ -4,7 +4,7 @@
 .config/*
 .local/*
 .zsh/.zcompdump
-.zsh/modules/private
+.zsh/*.local
 
 # Simple unignores
 !.config/i3
