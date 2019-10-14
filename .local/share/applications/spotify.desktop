@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Spotify
-Icon=spotify-client
-Exec=env GDK_BACKEND=x11 spotify %U
-Terminal=false
-MimeType=x-scheme-handler/spotify;
-StartupWMClass=spotify
