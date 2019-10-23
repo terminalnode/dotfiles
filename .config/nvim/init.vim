@@ -1,61 +1,64 @@
 " PLUGINS
+" Indentation is not strictly necessary, but makes it easier to read I think.
 call plug#begin('~/.local/share/nvim/plugged')
+    " Vim airline/themes
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 
-" Vim airline/themes
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'arcticicestudio/nord-vim'
+    " Vim color schemes. They all suck, but some suck less.
+    Plug 'arcticicestudio/nord-vim'         " Doesn't work well with haskell, unfortunately.
+    Plug 'ayu-theme/ayu-vim'                " let ayucolor= one of dark, mirage or light
+    Plug 'joshdick/onedark.vim'             " Background sucks, needs to be darker.
+    Plug 'drewtempelmeyer/palenight.vim'    " Background is acceptable, but needs to be darker.
 
-" Code auto complete thing
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    " Code auto complete and related things
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Syntax highlighting
-Plug 'terminalnode/sway-vim-syntax'
-Plug 'rust-lang/rust.vim'
+    " Syntax highlighting
+    Plug 'terminalnode/sway-vim-syntax'     " My own fork of i3-vim-syntax. It's incomplete, but better than nothing
+    Plug 'rust-lang/rust.vim'               " Rust syntax highlighting
+    Plug 'ElmCast/elm-vim'
 
-" Linter (async alternative for syntastic)
-Plug 'neomake/neomake'
-
-" Haskell
-" Code completion
-" Requires: deoplete.nvim and stack install ghc-mod
-" Plug 'eagletmt/neco-ghc' " stack install ghc-mod for this to work
-" Syntax highlighting and stuff
-" Plug 'neovimhaskell/haskell-vim'
-
-" Copied from .vimrc, but not yet tested.
-" Plug 'godlygeek/tabular'
-" Syntax highlighting
-" Plug 'vim-python/python-syntax', { 'for': 'python', 'branch': 'develop' }
-" Plug 'majutsushi/tagbar'
+    "Haskell specific
+    Plug 'neovimhaskell/haskell-vim'
 
 call plug#end()
 
-" PLUGINS (configuration)
-" Set neomake to check code on write
-call neomake#configure#automake('nrwi', 500)
+" PLUGIN CONFIGURATION
+" call neomake#configure#automake('nrwi', 500) " Set neomake to check code on write
+let g:deoplete#enable_at_startup = 1         " Activate deoplete on startup
+let g:rustfmt_autosave = 1                   " Rust.vim run rustfmt automatically on save.
 
-" Activate deoplete on startup
-let g:deoplete#enable_at_startup = 1
+" haskell-vim features
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 
-" Rust.vim run rustfmt automatically on save.
-let g:rustfmt_autosave = 1
-
-" Nord theme
-let g:nord_italic = 1
-let g:nord_underline = 1
-let g:nord_italic_comments = 1
-let g:nord_cursor_line_number_background = 1
+" default indentation levels
+let g:haskell_indent_if = 2
+let g:haskell_indent_case = 2
+let g:haskell_indent_let = 2
+let g:haskell_indent_where = 2
+let g:haskell_indent_before_where = 2
+let g:haskell_indent_after_bare_where = 2
+let g:haskell_indent_do = 2
+let g:haskell_indent_in = 2
+let g:haskell_indent_guard = 2
 
 " LOOK
-" Override theme to turn off bg colour.
-" Just the second is good for making non-text and
-" text bgs the same (i.e. lines in and after document)
-let g:airline_powerline_fonts=1
-autocmd ColorScheme * highlight Normal ctermbg=None
-autocmd ColorScheme * highlight NonText ctermbg=None
+set termguicolors   " needed for 99% of themes to not look awful.
+colorscheme palenight
 set background=dark
-colorscheme nord
+let g:airline_powerline_fonts=1
+let g:airline_theme="palenight"
+" Override theme to turn off bg colour. (doesn't work with termguicolors)
+" autocmd ColorScheme * highlight Normal ctermbg=None
+" autocmd ColorScheme * highlight NonText ctermbg=None
 
 " FEEL
 set guicursor=              " disable neovim setting cursor
@@ -71,7 +74,7 @@ set ignorecase			    " ignore case when searching...
 set smartcase			    " ...unless there are upper case letters in searchstr
 
 " TABS & SEARCH
-set shiftwidth=4		    " size of an indentation 
+set shiftwidth=4		    " size of an indentation
 set tabstop=4			    " length of a tab character in spaces
 set softtabstop=0		    " idk felt cute might delete later
 set expandtab			    " Make the tabkey insert spaces instead of tabs
@@ -88,8 +91,8 @@ set expandtab			    " Make the tabkey insert spaces instead of tabs
 " j		when sense it does make, comment leader go away, in joining of lines
 set formatoptions=rqn1Mj
 
-" OTHER
-" Unmap Q from ex-mode
+" KEYBOARD MAPPINGS
+" Unmap Q from ex-mode because ex-mode is a scourge.
 nnoremap Q <Nop>
 
 " Mappings for switching between tabs.
@@ -97,7 +100,7 @@ nnoremap <C-h> :tabp<CR>
 nnoremap <C-l> :tabn<CR>
 nnoremap <C-j> :tablast<CR>
 nnoremap <C-k> :tabfirst<CR>
-nnoremap <C-n> :tabnew 
+nnoremap <C-n> :tabnew<Space>
 
 " Mappings for moving tabs
 nnoremap <C-A-h> :tabm -1<CR>
@@ -106,6 +109,7 @@ nnoremap <C-A-j> :tabm $<CR>
 nnoremap <C-A-k> :tabm 0<CR>
 
 " Ctrl+Space will find next <++>, jump to it and delete it.
+" Very useful for macros
 nnoremap <C-Space> /<++><Enter>"_c4l
 inoremap <C-Space> <Esc>/<++><Enter>"_c4l
 
@@ -113,6 +117,7 @@ inoremap <C-Space> <Esc>/<++><Enter>"_c4l
 cmap w!! w !sudo tee > /dev/null %
 
 " MACROS
+" Not updated as they're currently not really in use.
 let mapleader = "§"
 
 " [;p] print
