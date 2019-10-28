@@ -19,6 +19,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'terminalnode/sway-vim-syntax'     " My own fork of i3-vim-syntax. It's incomplete, but better than nothing
     Plug 'rust-lang/rust.vim'               " Rust syntax highlighting
     Plug 'ElmCast/elm-vim'
+    Plug 'udalov/kotlin-vim'
 
     "Haskell specific
     Plug 'neovimhaskell/haskell-vim'
