@@ -15,6 +15,9 @@ export XDG_CONFIG_DIRS="/etc/xdg"
 # bat theme
 export BAT_THEME="Monokai Extended Bright"
 
+# Java
+export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
+
 # Pyenv initialization
 # (adding pyenv to path)
 export PYENV_ROOT="$HOME/.pyenv"
