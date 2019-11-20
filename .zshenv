@@ -22,6 +22,9 @@ export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
 # (adding pyenv to path)
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
+if [[ -n "${PYENV_ROOT}" ]]; then
   eval "$(pyenv init -)"
+  if [[ -d "${PYENV_ROOT}/plugins/pyenv-virtualenv" ]] 1>/dev/null 2>&1; then
+      eval "$(pyenv virtualenv-init -)"
+  fi
 fi
