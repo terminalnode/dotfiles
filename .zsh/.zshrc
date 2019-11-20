@@ -28,3 +28,15 @@ done
 # This makes the delete key work as expected in zsh.
 bindkey "^[[3~"     delete-char
 bindkey "^[3;5~"    delete-char
+
+# Pyenv initialization
+# (adding pyenv to path)
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if [[ -n "${PYENV_ROOT}" ]]; then
+  eval "$(pyenv init -)"
+  if [[ -d "${PYENV_ROOT}/plugins/pyenv-virtualenv" ]] 1>/dev/null 2>&1; then
+      eval "$(pyenv virtualenv-init -)"
+  fi
+fi
+
