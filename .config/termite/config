@@ -6,7 +6,7 @@
 # License:    MIT
 
 [options]
-font = Source Code Pro 10
+font = SauceCodePro Nerd Font Mono 10, Source Code Pro 10
 cursor_shape = underline
 cursor_blink = off
 
