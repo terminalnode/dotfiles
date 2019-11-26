@@ -9,7 +9,7 @@
 # Simple unignores
 !.config/i3
 !.config/i3blocks
-!.config/neofetch   
+!.config/neofetch
 !.config/newsboat
 !.config/redshift
 !.config/rofi
@@ -62,3 +62,32 @@
 !.config/swaylock
 .config/sway/input
 .config/sway/output
+
+# Some python applications that tend to be installed to .local/bin
+.local/bin/epylint
+.local/bin/futurize
+.local/bin/isort
+.local/bin/pasteurize
+.local/bin/pipenv
+.local/bin/pipenv-resolver
+.local/bin/pylint
+.local/bin/pyls
+.local/bin/pyreverse
+.local/bin/symilar
+.local/bin/virtualenv
+.local/bin/virtualenv-clone
+.local/bin/pip
+.local/bin/pip3
+.local/bin/pip3.7
+
+# Some haskell applications that tend to be installed to .local/bin
+.local/bin/brittany
+.local/bin/hdevtools
+.local/bin/hlint
+.local/bin/hindent
+.local/bin/hoogle
+.local/bin/stylish-haskell
+
+# Others applications in .local/bin
+.local/bin/emojify
+.local/bin/track_renamer.py
