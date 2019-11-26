@@ -1,0 +1,38 @@
+# Built-in laptop display
+output LVDS-1 {
+    pos 0 0
+    scale 1
+
+    # Only available resolution
+    # res 1600x900
+}
+
+# Place any VGA display to the right, because
+# that's where my display normaly sits. ¯\_(ツ)_/¯
+# Computer only has one VGA, but apparently sometimes
+# it thinks it's VGA-2.
+output VGA-1 pos 1600 0
+output VGA-2 pos 1600 0
+
+# Lots and lots of possible outputs.
+# Workspace     Primary out           Secondary outs
+workspace 1     output LVDS-1         VGA-1 VGA-2 
+workspace 2     output LVDS-1         VGA-1 VGA-2 
+workspace 3     output LVDS-1         VGA-1 VGA-2 
+workspace 4     output LVDS-1         VGA-1 VGA-2 
+workspace 5     output LVDS-1         VGA-1 VGA-2 
+workspace 6     output VGA-1 VGA-2    LVDS-1
+workspace 7     output VGA-1 VGA-2    LVDS-1
+workspace 8     output VGA-1 VGA-2    LVDS-1
+workspace 9     output VGA-1 VGA-2    LVDS-1
+workspace 10    output VGA-1 VGA-2    LVDS-1
+workspace 11    output VGA-1 VGA-2    LVDS-1
+workspace 12    output VGA-1 VGA-2    LVDS-1
+workspace 13    output VGA-1 VGA-2    LVDS-1
+workspace 14    output VGA-1 VGA-2    LVDS-1
+workspace 15    output VGA-1 VGA-2    LVDS-1
+workspace 16    output LVDS-1         VGA-1 VGA-2
+workspace 17    output LVDS-1         VGA-1 VGA-2 
+workspace 18    output LVDS-1         VGA-1 VGA-2 
+workspace 19    output LVDS-1         VGA-1 VGA-2 
+workspace 20    output LVDS-1         VGA-1 VGA-2 
