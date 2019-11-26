@@ -34,4 +34,10 @@ fi
 #export GDK_DPI_SCALE=0.5
 #export ELM_SCALE=1.5
 
+setxkbmap \
+    -layout se,se \
+    -variant dvorak_a5,basic \
+    -option caps:swapescape,compose:rctrl,grp:alt_caps_toggle
+# exec startxfce4
+# exec startplasma-x11
 exec i3
