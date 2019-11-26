@@ -19,3 +19,5 @@ export TERMINAL=termite
 # export GDK_SCALE=2
 # export QT_AUTO_SCREEN_SCALE_FACTOR=1
 # export ELM_SCALE=1.5
+
+export PATH="$HOME/.cargo/bin:$PATH"
