@@ -2,21 +2,53 @@
     "languageserver": {
         "haskell": {
             "command": "hie-wrapper",
-            "rootPatterns": [
-                "stack.yaml",
-                "cabal.config",
-                "package.yaml"
-            ],
-            "filetypes": [
-                "hs",
-                "lhs",
-                "haskell"
-            ],
-            "initializationOptions": {
-                "languageServerHaskell": {
-                    "hlintOn": true
-                }
+            "rootPatterns": [".stack.yaml", "cabal.config", "package.yaml"],
+            "filetypes": ["hs", "lhs", "haskell"],
+            "initializationOptions": {},
+            "settings": {
+              "languageServerHaskell": {
+                "hlintOn": true,
+                "maxNumberOfProblems": 10,
+                "completionSnippetsOn": true
+              }
             }
-        }
-    }
+          }
+    },
+    "java.errors.incompleteClasspath.severity": "warning",
+    "java.import.gradle.enabled": true,
+    "java.import.gradle.wrapper.enabled": true,
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "coc.preferences.extensionUpdateCheck": "weekly",
+    "suggest.defaultSortMethod": "alphabetical",
+    "suggest.completionItemKindLabels": {
+        "class":         "[C]",
+        "function":      "[F]",
+        "method":        "[M]",
+        "interface":     "[I]",
+        "text":          "[text]",
+        "module":        "[module]",
+        "folder":        "folder",
+        "file":          "file",
+        "enum":          "",
+        "enumMember":    " M",
+        "event":         "event",
+        "variable":      "var",
+        "reference":     "ref",
+        "value":         "val",
+        "property":      "prop",
+        "field":         "fld",
+        "snippet":       "snip",
+        "keyword":       "kw",
+        "color":         "clr",
+        "constant":      "const",
+        "operator":      "op",
+        "typeParameter": "param",
+        "constructor":   "constructor",
+        "struct":        "struct",
+        "unit":          "unit",
+        "default":       "?"
+    },
+    "python.linting.mypyEnabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.pylintEnabled": true
 }
