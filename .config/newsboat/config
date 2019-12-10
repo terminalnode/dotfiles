@@ -3,6 +3,15 @@ auto-reload	no      # Don't reload all feeds on start
 player mplayer      # Set mplayer to default media player
 show-keymap-hint no # Hide the keymap hint because it lists <none> bindings.
 
+# Filters
+# Ignore LWN articles on security updates
+ignore-mode "display"
+ignore-article "https://lwn.net/headlines/rss" "title =~ \"^Security updates for\""
+ignore-article "https://lwn.net/headlines/rss" "title =~ \"^Kernel prepatch\""
+ignore-article "https://lwn.net/headlines/rss" "title =~ \"stable kernel\""
+ignore-article "https://lwn.net/headlines/rss" "title =~ \"kernel (has been )?released\""
+ignore-article "https://lwn.net/headlines/rss" "title =~ \"LWN.net Weekly Edition\""
+
 # Formatting
 # Header for the list of feeds
 feedlist-title-format "Newsboat %V [%u unread, %t total]"
