@@ -1,9 +1,10 @@
 " PLUGINS
 " Indentation is not strictly necessary, but makes it easier to read I think.
 call plug#begin('~/.local/share/nvim/plugged')
-    " Vim airline/themes
+    " Aesthetics (except color schemes)
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'ryanoasis/vim-devicons'
 
     " Vim color schemes. They all suck, but some suck less.
     Plug 'arcticicestudio/nord-vim'         " Doesn't work well with haskell, unfortunately.
@@ -20,27 +21,15 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'ElmCast/elm-vim'
     Plug 'udalov/kotlin-vim'
 
-    "Haskell specific
+    " Haskell
     Plug 'neovimhaskell/haskell-vim'
 
-
-    Plug 'ryanoasis/vim-devicons'
-
+    " Other
+    Plug 'scrooloose/nerdtree'
 call plug#end()
 
 " PLUGIN CONFIGURATION
 let g:rustfmt_autosave = 1                   " Rust.vim run rustfmt automatically on save.
-
-" Coc settings
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -51,12 +40,6 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-" Remap for rename current word
-nmap rn <Plug>(coc-rename)
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -71,17 +54,35 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" Coc settings
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [ <Plug>(coc-diagnostic-prev)
+nmap <silent> ] <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Remap for rename current word
+nmap rn <Plug>(coc-rename)
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+" Use <alt-enter> to trigger fix suggestions
+nmap <a-cr> :<C-u>CocFix<cr>
+
 " Using CocList
 " Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<CR>
 " Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>e  :<C-u>CocList extensions<CR>
 " Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent> <space>c  :<C-u>CocList commands<CR>
 " Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent> <space>o  :<C-u>CocList outline<CR>
 " Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<CR>
 
 " haskell-vim features
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
@@ -114,6 +115,7 @@ let g:airline_theme="palenight"
 " autocmd ColorScheme * highlight NonText ctermbg=None
 
 " FEEL
+set hidden                  " buffers
 set guicursor=              " disable neovim setting cursor
 set number relativenumber	" neat line numbering
 set scrolloff=10            " number of lines to show after end of document
@@ -150,18 +152,12 @@ set formatoptions=rqn1Mj
 " Unmap Q from ex-mode because ex-mode is a scourge.
 nnoremap Q <Nop>
 
-" Mappings for switching between tabs.
-nnoremap <C-h> :tabp<CR>
-nnoremap <C-l> :tabn<CR>
-nnoremap <C-j> :tablast<CR>
-nnoremap <C-k> :tabfirst<CR>
-nnoremap <C-n> :tabnew<Space>
-
-" Mappings for moving tabs
-nnoremap <C-A-h> :tabm -1<CR>
-nnoremap <C-A-l> :tabm +1<CR>
-nnoremap <C-A-j> :tabm $<CR>
-nnoremap <C-A-k> :tabm 0<CR>
+" Mappings for switching between buffers etc
+map <C-h> :bp<CR>
+map <C-l> :bn<CR>
+map <C-w> :bw<CR>
+map Q :NERDTreeToggle<CR>
+map <C-n> :NERDTree<CR>
 
 " Ctrl+Space will find next <++>, jump to it and delete it.
 " Very useful for macros
