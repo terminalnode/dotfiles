@@ -5,7 +5,6 @@ show-keymap-hint no # Hide the keymap hint because it lists <none> bindings.
 
 # Filters
 # Ignore LWN articles on security updates
-ignore-mode "display"
 ignore-article "https://lwn.net/headlines/rss" "title =~ \"^Security updates for\""
 ignore-article "https://lwn.net/headlines/rss" "title =~ \"^Kernel prepatch\""
 ignore-article "https://lwn.net/headlines/rss" "title =~ \"stable kernel\""
@@ -64,7 +63,7 @@ bind-key "k"        up
 bind-key "J"        end
 bind-key "K"        home
 # H = "left", L = "right"
-bind-key "h"        prev-dialog 
+bind-key "h"        prev-dialog
 bind-key "l"        next-dialog
 bind-key "H"        prev-unread
 bind-key "L"        next-unread
