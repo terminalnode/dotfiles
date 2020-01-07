@@ -33,7 +33,7 @@ bindkey "^[3;5~"    delete-char
 # (adding pyenv to path)
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-if [[ -n "${PYENV_ROOT}" ]]; then
+if [[ -d "${PYENV_ROOT}" ]]; then
   eval "$(pyenv init -)"
 fi
 
