@@ -20,6 +20,7 @@ Query packages:
   aur
   git
   look
+  search
 
 Any other command will show this help menu.
 EOF
@@ -55,9 +56,10 @@ case $1 in
     all)    notify_run "yay -Qe";;
     not)    notify_run "yay -Qdtq";;
     aur)    notify_run "yay -Qm";;
-    git)    notify_run "pacman -Qm |
+    git)    notify_run "yay -Qm |
     grep '\-git\|\-hg' |
     awk '{print \$1}'";;
+    search) notify_run "yay -Ss";;
     look)   notify_run "yay -Qi ${args}";;
     *)      usage;;
 esac
