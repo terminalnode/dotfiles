@@ -4,6 +4,7 @@ export ZDOTDIR="$HOME/.zsh"
 # Add stuff to path.
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 
 # XDG
 export XDG_CONFIG_HOME="$HOME/.config"
