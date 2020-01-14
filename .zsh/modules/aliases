@@ -2,6 +2,7 @@
 # SHORTCUTS
 alias cwh="cd ~/code/codewars/haskell"
 alias cwj="cd ~/code/codewars/java"
+alias cwjs="cd ~/code/codewars/js"
 alias cwp="cd ~/code/codewars/python"
 alias cwr="cd ~/code/codewars/ruby"
 alias cdh="cd ~/code/haskbook"
