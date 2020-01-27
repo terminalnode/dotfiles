@@ -6,7 +6,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
- 
+
 """"""""""""""""""""""
 """ vim plug setup """
 """"""""""""""""""""""
@@ -55,6 +55,11 @@ let g:rustfmt_autosave = 1
 let g:airline_powerline_fonts=1
 autocmd ColorScheme * highlight Normal ctermbg=None
 autocmd ColorScheme * highlight NonText ctermbg=None
+
+" Highlight extra whitespace at the end of a line
+highlight ExtraWhitespace ctermbg=red guibg=darkred
+match ExtraWhitespace /\s\+$/
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=darkred
 
 " Nord theme
 colorscheme nord

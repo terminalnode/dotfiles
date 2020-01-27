@@ -106,6 +106,12 @@ let g:haskell_indent_guard = 2
 
 " LOOK
 set termguicolors   " needed for 99% of themes to not look awful.
+
+" Highlight any extra whitespace at the end of a line
+highlight ExtraWhitespace ctermbg=red guibg=darkred
+match ExtraWhitespace /\s\+$/
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=darkred
+
 colorscheme palenight
 set background=dark
 let g:airline_powerline_fonts=1
