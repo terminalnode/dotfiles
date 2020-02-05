@@ -21,7 +21,7 @@ config.bind(';p', 'hint links spawn -dv mpv {hint-url}')
 config.bind(',p', 'spawn -dv mpv {url}')
 
 # Unbindings
-config.unbind('q')                      # I have no need for macros.
+config.unbind('q')                  # I have no need for macros.
 
 c.qt.highdpi                        = True
 c.tabs.background                   = True
@@ -53,84 +53,84 @@ c.url.yank_ignored_parameters = ['ref', 'utm_source', 'utm_medium', 'utm_campaig
 # Set search engines
 c.url.searchengines = {
     # Default search engine, with nothing else specified.
-    "DEFAULT"   : "https://duckduckgo.com/?q={}",
+    "DEFAULT":    "https://duckduckgo.com/?q={}",
     # Arch stuff.
     # Wiki, AUR, general repositiories (pm for pacman).
-    "aw"        : "https://wiki.archlinux.org/?search={}",
-    "aur"       : "https://aur.archlinux.org/packages/?K={}",
-    "pm"        : "https://www.archlinux.org/packages/?q={}",
+    "aw":         "https://wiki.archlinux.org/?search={}",
+    "aur":        "https://aur.archlinux.org/packages/?K={}",
+    "pm":         "https://www.archlinux.org/packages/?q={}",
     # Video streaming
-    "vimeo"     : "https://vimeo.com/search?q={}",
-    "yt"        : "https://www.youtube.com/results?search_query={}",
+    "vimeo":      "https://vimeo.com/search?q={}",
+    "yt":         "https://www.youtube.com/results?search_query={}",
     # Google
-    "play"      : "https://play.google.com/store/search?q={}",
-    "drive"     : "https://drive.google.com/drive/search?q={}",
-    "gmail"     : "https://mail.google.com/mail/u/0/#search/{}",
+    "play":       "https://play.google.com/store/search?q={}",
+    "drive":      "https://drive.google.com/drive/search?q={}",
+    "gmail":      "https://mail.google.com/mail/u/0/#search/{}",
     # Generic search engines
-    "ddg"       : "https://duckduckgo.com/?q={}",
-    "q"         : "https://www.qwant.com/?q={}",
-    "g"         : "https://www.google.com/search?q={}",
-    "ecosia"    : "https://www.ecosia.org/search?q={}",
+    "ddg":        "https://duckduckgo.com/?q={}",
+    "q":          "https://www.qwant.com/?q={}",
+    "g":          "https://www.google.com/search?q={}",
+    "ecosia":     "https://www.ecosia.org/search?q={}",
     # Specialised search engines
-    "hoogle"    : "https://hoogle.haskell.org/?hoogle={}",
-    "gimg"      : "https://www.google.com/search?tbm=isch&q={}",
-    "maps"      : "https://www.google.se/maps/search/{}",
-    "eniro"     : "https://kartor.eniro.se/?q={}",
-    "wa"        : "http://www.wolframalpha.com/input/?i={}",
-    "emoji"     : "https://emojipedia.org/search/?q={}",
-    "imdb"      : "https://www.imdb.com/find?q={}",
-    "rtomato"   : "https://www.rottentomatoes.com/search/?search={}",
-    "bgg"       : "https://www.boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q={}",
-    "gunda"     : "https://gu-se-primo.hosted.exlibrisgroup.com/primo-explore/search?query=any,contains,{}&vid=46GUB_VU1",
-    "ebay"      : "https://www.ebay.com/sch/i.html?LH_PrefLoc=5&_nkw={}",
-    "systemet"  : "https://www.systembolaget.se/sok-dryck/?searchquery={}",
-    "bandcamp"  : "https://bandcamp.com/search?q={}",
-    "fawe"      : "https://fontawesome.com/icons?d=gallery&q={}",
-    "r"        : "https://reddit.com/r/{}",
-    "cc"        : "https://search.creativecommons.org/search?q={}",
-    "giphy"     : "https://giphy.com/search/{}",
-    "genlib"    : "http://gen.lib.rus.ec/search.php?req={}",
+    "hoogle":     "https://hoogle.haskell.org/?hoogle={}",
+    "gimg":       "https://www.google.com/search?tbm=isch&q={}",
+    "maps":       "https://www.google.se/maps/search/{}",
+    "eniro":      "https://kartor.eniro.se/?q={}",
+    "wa":         "http://www.wolframalpha.com/input/?i={}",
+    "emoji":      "https://emojipedia.org/search/?q={}",
+    "imdb":       "https://www.imdb.com/find?q={}",
+    "rtomato":    "https://www.rottentomatoes.com/search/?search={}",
+    "bgg":        "https://www.boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q={}",
+    "gunda":      "https://gu-se-primo.hosted.exlibrisgroup.com/primo-explore/search?query=any,contains,{}&vid=46GUB_VU1",
+    "ebay":       "https://www.ebay.com/sch/i.html?LH_PrefLoc=5&_nkw={}",
+    "systemet":   "https://www.systembolaget.se/sok-dryck/?searchquery={}",
+    "bandcamp":   "https://bandcamp.com/search?q={}",
+    "fawe":       "https://fontawesome.com/icons?d=gallery&q={}",
+    "r":          "https://reddit.com/r/{}",
+    "cc":         "https://search.creativecommons.org/search?q={}",
+    "giphy":      "https://giphy.com/search/{}",
+    "genlib":     "http://gen.lib.rus.ec/search.php?req={}",
     # Dictionaries
-    "fren"      : "https://www.larousse.fr/dictionnaires/francais-anglais/{}",
-    "enfr"      : "https://www.larousse.fr/dictionnaires/anglais-francais/{}",
-    "linguee"   : "http://www.linguee.com/english-french/search?source=french&query={}",
-    "tyda"      : "http://tyda.se/search/{}",
-    "ud"        : "http://www.urbandictionary.com/define.php?term={}",
-    "dict"      : "http://www.dictionary.com/browse/{}",
-    "kotoba"    : "https://tangorin.com/words?search={}",
+    "fren":       "https://www.larousse.fr/dictionnaires/francais-anglais/{}",
+    "enfr":       "https://www.larousse.fr/dictionnaires/anglais-francais/{}",
+    "linguee":    "http://www.linguee.com/english-french/search?source=french&query={}",
+    "tyda":       "http://tyda.se/search/{}",
+    "ud":         "http://www.urbandictionary.com/define.php?term={}",
+    "dict":       "http://www.dictionary.com/browse/{}",
+    "kotoba":     "https://tangorin.com/words?search={}",
     # Forvo
-    "forvo"     : "https://forvo.com/search/{}",
-    "forvi"     : "https://forvo.com/search/{}/fi/",
-    "forvoja"   : "https://forvo.com/search/{}/ja/",
-    "forvopl"   : "https://forvo.com/search/{}/pl/",
+    "forvo":      "https://forvo.com/search/{}",
+    "forvi":      "https://forvo.com/search/{}/fi/",
+    "forvoja":    "https://forvo.com/search/{}/ja/",
+    "forvopl":    "https://forvo.com/search/{}/pl/",
     # Wikipedia / Wikimedia
-    "wen"       : "https://en.wikipedia.org?search={}",
-    "wsv"       : "https://sv.wikipedia.org?search={}",
-    "wja"       : "https://ja.wikipedia.org?search={}",
-    "wfr"       : "https://fr.wikipedia.org?search={}",
-    "wfi"       : "https://fi.wikipedia.org?search={}",
-    "wpl"       : "https://pl.wikipedia.org?search={}",
-    "wikt"      : "https://en.wiktionary.org?search={}",
+    "wen":        "https://en.wikipedia.org?search={}",
+    "wsv":        "https://sv.wikipedia.org?search={}",
+    "wja":        "https://ja.wikipedia.org?search={}",
+    "wfr":        "https://fr.wikipedia.org?search={}",
+    "wfi":        "https://fi.wikipedia.org?search={}",
+    "wpl":        "https://pl.wikipedia.org?search={}",
+    "wikt":       "https://en.wiktionary.org?search={}",
     # Games
-    "steam"     : "https://store.steampowered.com/search/?term={}",
-    "gog"       : "https://www.gog.com/games?search={}",
-    "eu4"       : "https://eu4.paradoxwikis.com?search={}",
-    "rimworld"  : "https://rimworldwiki.com?search={}",
-    "nethack"   : "https://nethackwiki.com/?search={}",
+    "steam":      "https://store.steampowered.com/search/?term={}",
+    "gog":        "https://www.gog.com/games?search={}",
+    "eu4":        "https://eu4.paradoxwikis.com?search={}",
+    "rimworld":   "https://rimworldwiki.com?search={}",
+    "nethack":    "https://nethackwiki.com/?search={}",
 }
 
 # FONTS
-c.fonts.monospace               = '"Source Code Pro", "Ubuntu Monospace", Monospace, monospace'
-c.fonts.completion.entry        = '10pt monospace'
-c.fonts.completion.category     = 'bold 12pt monospace'
-c.fonts.debug_console           = '10pt monospace'
-c.fonts.downloads               = '10pt monospace'
-c.fonts.hints                   = 'bold 10pt monospace'
-c.fonts.keyhint                 = '10pt monospace'
-c.fonts.messages.error          = '10pt monospace'
-c.fonts.messages.info           = '10pt monospace'
-c.fonts.messages.warning        = '10pt monospace'
-c.fonts.statusbar               = '10pt monospace'
+c.fonts.default_family = [ "Source Code Pro", "Ubuntu Monospace", "Monospace", "monospace" ]
+c.fonts.completion.entry = '10pt monospace'
+c.fonts.completion.category = 'bold 12pt monospace'
+c.fonts.debug_console = '10pt monospace'
+c.fonts.downloads = '10pt monospace'
+c.fonts.hints = 'bold 10pt monospace'
+c.fonts.keyhint = '10pt monospace'
+c.fonts.messages.error = '10pt monospace'
+c.fonts.messages.info = '10pt monospace'
+c.fonts.messages.warning = '10pt monospace'
+c.fonts.statusbar = '10pt monospace'
 
 nord = {
     # Polar Night
