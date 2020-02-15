@@ -72,6 +72,7 @@ alias ustop='systemctl stop --user'
 alias ustatus='systemctl status --user'
 alias uenable='systemctl enable --user'
 alias udisable='systemctl disable --user'
+alias ujournal='journalctl --user -u'
 
 # DUMB EXITS
 # Sorry...
