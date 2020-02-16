@@ -1,5 +1,11 @@
 {
     "languageserver": {
+        "efm": {
+        "command": "efm-langserver",
+        "args": [],
+        "filetypes": ["vim", "eruby", "markdown", "yaml"]
+        },
+
         "haskell": {
             "command": "hie-wrapper",
             "rootPatterns": [".stack.yaml", "cabal.config", "package.yaml"],
@@ -12,7 +18,7 @@
                 "completionSnippetsOn": true
               }
             }
-          }
+        }
     },
     "java.errors.incompleteClasspath.severity": "warning",
     "java.import.gradle.enabled": true,
