@@ -20,6 +20,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'rust-lang/rust.vim'               " Rust syntax highlighting
     Plug 'ElmCast/elm-vim'
     Plug 'udalov/kotlin-vim'
+    Plug 'pangloss/vim-javascript'
 
     " Haskell
     Plug 'neovimhaskell/haskell-vim'
@@ -103,6 +104,9 @@ let g:haskell_indent_after_bare_where = 2
 let g:haskell_indent_do = 2
 let g:haskell_indent_in = 2
 let g:haskell_indent_guard = 2
+
+" javascript
+let g:javascript_plugin_flow = 1
 
 " LOOK
 set termguicolors   " needed for 99% of themes to not look awful.
