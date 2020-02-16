@@ -9,6 +9,7 @@
 font = SauceCodePro Nerd Font Mono 10, Source Code Pro 10
 cursor_shape = underline
 cursor_blink = off
+scrollback_lines = 100000
 
 [colors]
 cursor            = #eceff4
