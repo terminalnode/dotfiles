@@ -32,8 +32,14 @@ bindkey "^[3;5~"    delete-char
 # Pyenv initialization
 # (adding pyenv to path)
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 if [[ -d "${PYENV_ROOT}" ]]; then
   eval "$(pyenv init -)"
+  export PATH="$PYENV_ROOT/bin:$PATH"
 fi
 
+export RBENV_ROOT="$HOME/.rbenv"
+if [[ -d "${RBENV_ROOT}" ]]; then
+  eval "$(rbenv init -)"
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+fi
