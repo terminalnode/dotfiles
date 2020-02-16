@@ -79,6 +79,9 @@
 .local/bin/pip
 .local/bin/pip3
 .local/bin/pip3.7
+.local/bin/tox
+.local/bin/tox-quickstart
+.mypy_cache
 
 # Some haskell applications that tend to be installed to .local/bin
 .local/bin/brittany
