@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=Discord (x11)
+Name=Discord
 StartupWMClass=discord
-Exec=env GDK_BACKEND=x11 /opt/discord/Discord
+Exec=/opt/discord/Discord
 Type=Application
