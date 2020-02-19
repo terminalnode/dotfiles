@@ -39,5 +39,5 @@ setxkbmap \
     -variant dvorak_a5,basic \
     -option caps:swapescape,compose:rctrl,grp:alt_caps_toggle
 # exec startxfce4
-# exec startplasma-x11
-exec i3
+exec startplasma-x11
+# exec i3
