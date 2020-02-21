@@ -24,6 +24,7 @@
     "java.import.gradle.enabled": true,
     "java.import.gradle.wrapper.enabled": true,
     "java.configuration.updateBuildConfiguration": "interactive",
+    "yank.list.maxsize": 20,
     "coc.preferences.extensionUpdateCheck": "weekly",
     "suggest.defaultSortMethod": "alphabetical",
     "suggest.completionItemKindLabels": {
