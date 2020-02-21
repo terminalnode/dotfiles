@@ -32,6 +32,9 @@ call plug#end()
 " PLUGIN CONFIGURATION
 let g:rustfmt_autosave = 1                   " Rust.vim run rustfmt automatically on save.
 
+" coc-yank
+nnoremap <silent> <C-p>  :<C-u>CocList -A --normal yank<cr>
+
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
