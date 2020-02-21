@@ -6,6 +6,10 @@ alias cwjs="cd ~/code/codewars/js"
 alias cwp="cd ~/code/codewars/python"
 alias cwr="cd ~/code/codewars/ruby"
 alias cdh="cd ~/code/haskbook"
+alias xswapescape="setxkbmap \
+    -layout se,se \
+    -variant dvorak_a5,basic \
+    -option caps:swapescape,compose:rctrl,grp:alt_caps_toggle"
 
 # DEFAULTS
 # Commands replaced with themselves + various options.
