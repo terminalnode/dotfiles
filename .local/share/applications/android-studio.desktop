@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Android Studio (default env)
+Exec=android-studio %f
+Icon=android-studio
+Terminal=false
+StartupNotify=true
+StartupWMClass=jetbrains-studio
+MimeType=application/x-extension-iml;

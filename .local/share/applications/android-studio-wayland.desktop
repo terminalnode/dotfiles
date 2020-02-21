@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Android Studio (Wayland)
+Exec=env _JAVA_AWT_WM_NONREPARENTING=1 android-studio %f
+Icon=android-studio
+Terminal=false
+StartupNotify=true
+StartupWMClass=jetbrains-studio
+MimeType=application/x-extension-iml;
