@@ -21,9 +21,23 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'ElmCast/elm-vim'
     Plug 'udalov/kotlin-vim'
     Plug 'pangloss/vim-javascript'
-
-    " Haskell
     Plug 'neovimhaskell/haskell-vim'
+
+    " textobj-user, required for various plugins for adding new text objects
+    Plug 'kana/vim-textobj-user'
+
+    " textobj-user for various quotes
+    " iq/aq for all single and double quotes or back ticks
+    Plug 'beloglazov/vim-textobj-quotes'
+
+    " textobj-user for variable segments
+    " iv/av for selecting between underscores or a word in a camelCase
+    Plug 'Julian/vim-textobj-variable-segment'
+
+    " textobj-user for ruby stuff
+    " ir/ar for blocks, if/af for functions,
+    " ic/ac for classes and an for name
+    Plug 'tek/vim-textobj-ruby'
 
     " Other
     Plug 'scrooloose/nerdtree'
