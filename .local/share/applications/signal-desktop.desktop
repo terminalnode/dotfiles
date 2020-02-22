@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=Signal (x11)
+Name=Signal
 Icon=signal
-Exec=env GDK_BACKEND=x11 signal-desktop
+Exec=signal-desktop
 StartupNotify=true
 
