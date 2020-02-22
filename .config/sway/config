@@ -55,6 +55,8 @@ input "*" {
     middle_emulation    enabled
     tap_button_map      lrm
     scroll_method       two_finger
+    repeat_delay        280
+    repeat_rate         48
 }
 
 # Device specific configuration
