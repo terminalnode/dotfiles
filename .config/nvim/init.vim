@@ -22,6 +22,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'udalov/kotlin-vim'
     Plug 'pangloss/vim-javascript'
     Plug 'neovimhaskell/haskell-vim'
+    Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
     " textobj-user, required for various plugins for adding new text objects
     Plug 'kana/vim-textobj-user'
