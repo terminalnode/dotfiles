@@ -33,6 +33,7 @@ tiling_drag         disable
 ### OUTPUT ###
 ##############
 include output
+exec ~/.config/sway/scripts/fader.py
 
 #############
 ### INPUT ###
@@ -56,7 +57,7 @@ input "*" {
     tap_button_map      lrm
     scroll_method       two_finger
     repeat_delay        280
-    repeat_rate         48
+    repeat_rate         55
 }
 
 # Device specific configuration
