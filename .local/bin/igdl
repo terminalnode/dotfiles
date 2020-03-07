@@ -1,0 +1,51 @@
+#!/bin/env ruby
+require "nokogiri"
+require "open-uri"
+require "json"
+
+if ARGV.empty?
+  puts "No urls specified, fuck off."
+  exit
+end
+
+ARGV.each do |url|
+  puts "Downloading #{url}... "
+  page = Nokogiri::HTML URI.open(url)
+
+  metadata = JSON.parse(Nokogiri::HTML(URI.open("#{url}?__a=1")))
+    .dig("graphql", "shortcode_media")
+
+  time = Time.at(metadata["taken_at_timestamp"])
+  timeStamp = time.strftime("%Y-%m-%d_%H-%M")
+  username = metadata.dig("owner", "username")
+  username = unknown if username.nil?
+
+  if time.year.odd?
+    path = "#{username}/#{time.year} - #{time.year + 1}"
+  else
+    path = "#{username}/#{time.year - 1} - #{time.year}"
+  end
+
+  descCSS = page.at_css('meta[property="og:description"]')
+  puts descCSS["content"]
+
+  imageCSS = page.at_css('meta[property="og:image"]')
+  videoCSS = page.at_css('meta[property="og:video"]')
+
+  if videoCSS.nil?
+    downloadURL = imageCSS["content"]
+  else
+    downloadURL = videoCSS["content"]
+    path = "#{path}/video"
+  end
+
+  image = URI.open downloadURL
+  extension = downloadURL[/\.\w+\?/][/\w+/]
+
+  FileUtils.mkpath(path) unless Dir.exists?(path)
+  File.open("./#{path}/#{timeStamp}.#{extension}", "wb") do |file|
+    file.write(image.read)
+  end
+
+  puts "\n"
+end
