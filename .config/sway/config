@@ -4,7 +4,7 @@
 set $mod    Mod4
 set $MOD    shift+$mod
 set $term   termite
-set $menu   rofi
+set $menu   wofi --show drun
 set $left   h
 set $down   j
 set $up     k
@@ -77,7 +77,7 @@ bindsym           $mod+Return      exec $term
 bindsym           $mod+Tab         workspace back_and_forth
 bindsym           $MOD+Tab         workspace next_on_output
 bindsym           $mod+Ctrl+Space  floating toggle
-bindsym           $mod+Space       exec $menu -show drun
+bindsym           $mod+Space       exec $menu
 bindsym           $MOD+minus       move scratchpad
 bindsym           $mod+minus       scratchpad show
 

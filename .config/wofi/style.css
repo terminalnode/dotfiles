@@ -1,0 +1,55 @@
+/*
+  polar1:       #2E3440;
+  polar2:       #3B4252;
+  polar3:       #434C5E;
+  polar4:       #4C566A;
+
+  snow1:        #D8DEE9;
+  snow2:        #E5E9F0;
+  snow3:        #ECEFF4;
+
+  frost1:       #8FBCBB;
+  frost2:       #88C0D0;
+  frost3:       #81A1C1;
+  frost4:       #5E81AC;
+
+  red:          #BF616A;
+  green:        #A3BE8C;
+  yellow:       #EBCB8B;
+  magenta:      #B48EAD;
+*/
+
+window {
+  opacity: 0.95;
+  margin: 2px;
+  border: 2px solid #2E3440;
+  background-color: #2E3440;
+}
+
+#input {
+  margin: 3px;
+  border: 2px solid #3B4252;
+  background-color: #3B4252;
+}
+
+#outer-box {
+  margin: 4px;
+  background-color: var(--black);
+}
+
+#scroll {
+  margin: 3px;
+  border: 1px solid #4c566a;
+  background-color: #434c5e;
+}
+
+#text {
+  margin: 5px;
+  color: var(--polar4);
+}
+
+#entry:selected {
+  color: #88c0d0;
+  border: 1px solid #81a1c1;
+  background-color: #4c566a;
+}
