@@ -20,7 +20,8 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'rust-lang/rust.vim'
     Plug 'ElmCast/elm-vim'
     Plug 'udalov/kotlin-vim'
-    Plug 'pangloss/vim-javascript'
+    Plug 'yuezk/vim-js'
+    Plug 'MaxMEllon/vim-jsx-pretty'
     Plug 'neovimhaskell/haskell-vim'
     Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
@@ -47,7 +48,7 @@ call plug#end()
 
 
 """"""""""""""""""""
-""" LET g:STATEMENTS
+""" LET STATEMENTS
 """"""""""""""""""""
 " Mostly for plugins and stuff
 let g:rustfmt_autosave = 1                  " run rustfmt automatically on rust filetype save
@@ -134,7 +135,6 @@ let g:airline_theme="palenight"
 """ GENERIC SETTINGS CONFIGURATION
 """"""""""""""""""""""""""""""""""
 set hidden                  " buffers
-set guicursor=              " disable neovim setting cursor
 set number relativenumber   " neat line numbering
 set scrolloff=10            " number of lines to show after end of document
 set confirm                 " ask to save instead of failing cmd due to unsaved changes
@@ -147,6 +147,7 @@ set updatetime=300          " how many ms nvim should wait after you stop typing
 set sidescrolloff=3
 set nowrap
 set wildmode=list:longest,full
+set guicursor=
 " Tabs and search stuff
 set shiftwidth=2            " size of an indentation
 set tabstop=2               " number of spaces a tab-character will be displayed as
