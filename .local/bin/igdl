@@ -8,44 +8,71 @@ if ARGV.empty?
   exit
 end
 
+print "Fetching metadata and stuff for #{ARGV.count} entries... "
+files = Array.new
+threads = Array.new
 ARGV.each do |url|
-  puts "Downloading #{url}... "
-  page = Nokogiri::HTML URI.open(url)
+  threads << Thread.new(url) do |url|
+    file = Hash.new
 
-  metadata = JSON.parse(Nokogiri::HTML(URI.open("#{url}?__a=1")))
-    .dig("graphql", "shortcode_media")
+    # Fetch page and metadata
+    page = Nokogiri::HTML URI.open(url)
+    metadata = JSON.parse(Nokogiri::HTML(URI.open("#{url}?__a=1"))).dig("graphql", "shortcode_media")
 
-  time = Time.at(metadata["taken_at_timestamp"])
-  timeStamp = time.strftime("%Y-%m-%d_%H-%M")
-  username = metadata.dig("owner", "username")
-  username = unknown if username.nil?
+    # Produce time stamp
+    time = Time.at(metadata["taken_at_timestamp"])
+    file[:timestamp] = time.strftime("%Y-%m-%d_%H-%M")
 
-  if time.year.odd?
-    path = "#{username}/#{time.year} - #{time.year + 1}"
-  else
-    path = "#{username}/#{time.year - 1} - #{time.year}"
+    # Get username
+    username = metadata.dig("owner", "username")
+    username = "unknown" if username.nil?
+
+    # Print description
+    desc = page.at_css('meta[property="og:description"]')["content"]
+    file[:desc] = desc.sub(/^.*on Instagram: /, "")
+                      .gsub("\n", " ")
+
+    # Determine parent folder
+    if time.year.odd?
+      file[:path] = "#{username}/#{time.year} - #{time.year + 1}"
+    else
+      file[:path] = "#{username}/#{time.year - 1} - #{time.year}"
+    end
+
+    # See if post is an image or video
+    imageCSS = page.at_css('meta[property="og:image"]')
+    videoCSS = page.at_css('meta[property="og:video"]')
+
+    videoCSS.nil? ?
+      file[:url] = imageCSS["content"] :
+      file[:url] = videoCSS["content"] and path = "#{path}/video"
+
+    files << file
   end
-
-  descCSS = page.at_css('meta[property="og:description"]')
-  puts descCSS["content"]
-
-  imageCSS = page.at_css('meta[property="og:image"]')
-  videoCSS = page.at_css('meta[property="og:video"]')
-
-  if videoCSS.nil?
-    downloadURL = imageCSS["content"]
-  else
-    downloadURL = videoCSS["content"]
-    path = "#{path}/video"
-  end
-
-  image = URI.open downloadURL
-  extension = downloadURL[/\.\w+\?/][/\w+/]
-
-  FileUtils.mkpath(path) unless Dir.exists?(path)
-  File.open("./#{path}/#{timeStamp}.#{extension}", "wb") do |file|
-    file.write(image.read)
-  end
-
-  puts "\n"
 end
+threads.each { |a| a.join }
+puts "done!"
+
+puts "Downloading all of the files... "
+threads = Array.new
+files.each do |file|
+  threads << Thread.new(file) do |file|
+    file[:file] = URI.open file[:url]
+    file[:ext] = file[:url][/\.\w+\?/][/\w+/]
+    puts "Downloaded: #{file[:desc]}"
+  end
+end
+threads.each { |a| a.join }
+
+print "Saving files to disk... "
+threads = Array.new
+files.each do |file|
+  threads << Thread.new(file) do |file|
+    FileUtils.mkpath(file[:path]) unless Dir.exists?(file[:path])
+    File.open("./#{file[:path]}/#{file[:timestamp]}.#{file[:ext]}", "wb") do |ioFile|
+      ioFile.write(file[:file].read)
+    end
+  end
+end
+threads.each { |a| a.join }
+puts "done!"
