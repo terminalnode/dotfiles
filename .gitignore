@@ -5,12 +5,14 @@
 .local/*
 .zsh/.zcompdump
 .zsh/*.local
+.mypy_cache/
 
 # Simple unignores
 !.config/i3
 !.config/i3blocks
 !.config/neofetch
 !.config/newsboat
+!.config/mako
 !.config/redshift
 !.config/rofi
 !.config/termite
@@ -24,13 +26,6 @@
 .local/share/*
 !.local/share/applications
 .local/share/applications/gog_com*
-
-# .local executables
-!.local/bin
-.local/bin/backup*
-
-# Mako
-!.config/mako
 
 # MPD
 !.config/mpd
@@ -60,38 +55,15 @@
 # Sway
 !.config/sway
 .config/sway/test
-!.config/swaylock
 .config/sway/input
 .config/sway/output
+!.config/swaylock
 
-# Some python applications that tend to be installed to .local/bin
-.local/bin/epylint
-.local/bin/futurize
-.local/bin/isort
-.local/bin/pasteurize
-.local/bin/pipenv
-.local/bin/pipenv-resolver
-.local/bin/pylint
-.local/bin/pyls
-.local/bin/pyreverse
-.local/bin/symilar
-.local/bin/virtualenv
-.local/bin/virtualenv-clone
-.local/bin/pip
-.local/bin/pip3
-.local/bin/pip3.7
-.local/bin/tox
-.local/bin/tox-quickstart
-.mypy_cache
-
-# Some haskell applications that tend to be installed to .local/bin
-.local/bin/brittany
-.local/bin/hdevtools
-.local/bin/hlint
-.local/bin/hindent
-.local/bin/hoogle
-.local/bin/stylish-haskell
-
-# Others applications in .local/bin
-.local/bin/emojify
-.local/bin/track_renamer.py
+# Ignore .local/bin with the exception of...
+!.local/bin
+.local/bin/*
+!.local/bin/igdl
+!.local/bin/pm
+!.local/bin/sway-service
+!.local/bin/transadd
+!.local/bin/upmirror
