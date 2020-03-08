@@ -2,77 +2,95 @@
 require "nokogiri"
 require "open-uri"
 require "json"
+require "cli/ui"
 
-if ARGV.empty?
-  puts "No urls specified, fuck off."
-  exit
-end
+def parseArgs()
+  if ARGV.empty?
+    puts "No URLs specified you schmuck."
+    exit
+  end
 
-print "Fetching metadata and stuff for #{ARGV.count} entries... "
-files = Array.new
-threads = Array.new
-ARGV.each do |url|
-  threads << Thread.new(url) do |url|
-    file = Hash.new
+  parsed = Array.new
+  ARGV.each do |url|
+    hash = Hash.new
+    original = url
 
-    # Fetch page and metadata
-    page = Nokogiri::HTML URI.open(url)
-    metadata = JSON.parse(Nokogiri::HTML(URI.open("#{url}?__a=1"))).dig("graphql", "shortcode_media")
+    url = url.strip
+    url = url[/www\.instagram\.com\/p\/[\w\d\-_]+/]
 
-    # Produce time stamp
-    time = Time.at(metadata["taken_at_timestamp"])
-    file[:timestamp] = time.strftime("%Y-%m-%d_%H-%M")
-
-    # Get username
-    username = metadata.dig("owner", "username")
-    username = "unknown" if username.nil?
-
-    # Print description
-    desc = page.at_css('meta[property="og:description"]')["content"]
-    file[:desc] = desc.sub(/^.*on Instagram: /, "")
-                      .gsub("\n", " ")
-
-    # Determine parent folder
-    if time.year.odd?
-      file[:path] = "#{username}/#{time.year} - #{time.year + 1}"
+    if url.nil?
+      puts "Skipping \"#{original}\", unexpected format."
     else
-      file[:path] = "#{username}/#{time.year - 1} - #{time.year}"
-    end
-
-    # See if post is an image or video
-    imageCSS = page.at_css('meta[property="og:image"]')
-    videoCSS = page.at_css('meta[property="og:video"]')
-
-    videoCSS.nil? ?
-      file[:url] = imageCSS["content"] :
-      file[:url] = videoCSS["content"] and path = "#{path}/video"
-
-    files << file
-  end
-end
-threads.each { |a| a.join }
-puts "done!"
-
-puts "Downloading all of the files... "
-threads = Array.new
-files.each do |file|
-  threads << Thread.new(file) do |file|
-    file[:file] = URI.open file[:url]
-    file[:ext] = file[:url][/\.\w+\?/][/\w+/]
-    puts "Downloaded: #{file[:desc]}"
-  end
-end
-threads.each { |a| a.join }
-
-print "Saving files to disk... "
-threads = Array.new
-files.each do |file|
-  threads << Thread.new(file) do |file|
-    FileUtils.mkpath(file[:path]) unless Dir.exists?(file[:path])
-    File.open("./#{file[:path]}/#{file[:timestamp]}.#{file[:ext]}", "wb") do |ioFile|
-      ioFile.write(file[:file].read)
+      hash[:post] = URI("https://#{url}")
+      hash[:meta] = URI("https://#{url}?__a=1")
+      parsed << hash
     end
   end
+
+  parsed
 end
-threads.each { |a| a.join }
-puts "done!"
+
+def fetchMetadata(post, index)
+  metadata = JSON.parse(Nokogiri::HTML(post[:meta].open)).dig("graphql", "shortcode_media")
+
+  time = Time.at(metadata["taken_at_timestamp"])
+  post[:time] = time.strftime("%Y-%m-%d_%H-%M")
+  post[:caption] = metadata.dig("edge_media_to_caption", "edges", 0, "node", "text")&.gsub("\n", "")
+  post[:caption] = "No caption" if post[:caption].nil? or post[:caption].empty?
+  post[:isVideo] = metadata["is_video"]
+
+  username = metadata.dig("owner", "username")
+  username.nil? ? post[:username] = "unknown" : post[:username] = username
+
+
+  if time.year.odd?
+    post[:path] = "#{username}/#{time.year} - #{time.year + 1}"
+  else
+    post[:path] = "#{username}/#{time.year - 1} - #{time.year}"
+  end
+
+  if metadata["is_video"]
+    post[:download] = metadata["video_url"]
+    post[:path] = "#{post[:path]}/video"
+  else
+    post[:download] = metadata["display_url"]
+  end
+
+  ext = post[:download][/\.\w+\?/][/\w+/]
+  post[:filename] = "#{post[:time]}.#{ext}"
+
+  post
+end
+
+def run
+  posts = parseArgs
+
+  CLI::UI::StdoutRouter.enable
+  CLI::UI::Frame.open("igdl") do
+    sg = CLI::UI::SpinGroup.new
+    posts.each_with_index do |post, index|
+      sg.add("#{post[:post]}") do |spinner|
+        fetchMetadata post, index
+
+        if post[:isVideo]
+          spinner.update_title("#{index}. Downloading video #{post[:caption]}")
+        else
+          spinner.update_title("#{index}. Downloading image #{post[:caption]}")
+        end
+
+        post[:file] = URI.open post[:download]
+
+        spinner.update_title("#{index}. Saving file #{post[:caption]}")
+        FileUtils.mkpath(post[:path]) unless Dir.exists?(post[:path])
+        File.open("./#{post[:path]}/#{post[:filename]}", "wb") do |file|
+          file.write(post[:file].read)
+        end
+
+        spinner.update_title("#{index}. All done! #{post[:caption]}")
+      end
+    end
+    sg.wait
+  end
+end
+
+run
