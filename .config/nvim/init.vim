@@ -15,6 +15,9 @@ call plug#begin('~/.local/share/nvim/plugged')
     " Code auto complete and related things
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+    " Allow . to repeat plugin mappings
+    Plug 'tpope/vim-repeat'
+
     " Syntax highlighting
     Plug 'terminalnode/sway-vim-syntax'
     Plug 'rust-lang/rust.vim'
