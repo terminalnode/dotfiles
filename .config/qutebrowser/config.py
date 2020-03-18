@@ -59,6 +59,15 @@ c.url.searchengines = {
     "aw":         "https://wiki.archlinux.org/?search={}",
     "aur":        "https://aur.archlinux.org/packages/?K={}",
     "pm":         "https://www.archlinux.org/packages/?q={}",
+    # Programming-related search engines
+    "hoogle":     "https://hoogle.haskell.org/?hoogle={}",
+    "npm":        "https://www.npmjs.com/search?q={}",
+    "pypi":       "https://pypi.org/search/?q={}",
+    "pydoc":      "https://docs.python.org/3.8/search.html?q={}",
+    "rudoc":      "https://ruby-doc.com/search.html?q={}",
+    "maven":      "https://mvnrepository.com/search?q={}",
+    "gem":        "https://rubygems.org/search?utf8=%E2%9C%93&query={}",
+    "cc":         "https://search.creativecommons.org/search?q={}",
     # Video streaming
     "vimeo":      "https://vimeo.com/search?q={}",
     "yt":         "https://www.youtube.com/results?search_query={}",
@@ -72,7 +81,6 @@ c.url.searchengines = {
     "g":          "https://www.google.com/search?q={}",
     "ecosia":     "https://www.ecosia.org/search?q={}",
     # Specialised search engines
-    "hoogle":     "https://hoogle.haskell.org/?hoogle={}",
     "gimg":       "https://www.google.com/search?tbm=isch&q={}",
     "maps":       "https://www.google.se/maps/search/{}",
     "eniro":      "https://kartor.eniro.se/?q={}",
@@ -87,7 +95,6 @@ c.url.searchengines = {
     "bandcamp":   "https://bandcamp.com/search?q={}",
     "fawe":       "https://fontawesome.com/icons?d=gallery&q={}",
     "r":          "https://reddit.com/r/{}",
-    "cc":         "https://search.creativecommons.org/search?q={}",
     "giphy":      "https://giphy.com/search/{}",
     "genlib":     "http://gen.lib.rus.ec/search.php?req={}",
     # Dictionaries
