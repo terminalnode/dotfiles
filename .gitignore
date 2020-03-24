@@ -3,13 +3,13 @@
 .vim/.netrwhist
 .config/*
 .local/*
-.zsh/.zcompdump
-.zsh/*.local
 .mypy_cache/
 
 # Simple unignores
+!.config/dircolors
 !.config/i3
 !.config/i3blocks
+!.config/irb
 !.config/neofetch
 !.config/newsboat
 !.config/mako
@@ -20,6 +20,13 @@
 !.config/wofi
 !.config/youtube-dl
 !.config/zathura
+!.config/xinitrc
+!.config/xserverrc
+
+# ZSH
+!.config/zsh
+.config/zsh/.zcompdump
+.config/zsh/*.local
 
 # .desktop-files
 !.local/share
@@ -39,6 +46,11 @@
 # Neovim
 !.config/nvim
 .config/nvim/.netrwhist
+
+# NPM
+!.config/npm
+.config/npm/_*
+.config/npm/*anonymous*
 
 # Qutebrowser
 !.config/qutebrowser

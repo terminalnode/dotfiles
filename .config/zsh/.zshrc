@@ -9,18 +9,18 @@ SAVEHIST=10000
 
 # Activate dircolors if installed and configured
 if [[ -x $(command -v dircolors) && ~/.dircolors ]]; then
-    eval $(dircolors ~/.dircolors)
+    eval $(dircolors "$XDG_CONFIG_HOME/dircolors")
 fi
 
 # Autocompletion settings
 autoload -U compinit; compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-fpath=("~/.zsh/completions" $fpath)
-[ -d ~/.zsh/completions.local ] && fpath=("~/.zsh/completions.local" $fpath)
+fpath=("$ZDOTDIR/completions" $fpath)
+[ -d ~/.zsh/completions.local ] && fpath=("$ZDOTDIR/completions.local" $fpath)
 
 # Load all the files in ./modules
-for file in ~/.zsh/modules*/*
+for file in $ZDOTDIR/modules*/*
 do
     source ${file}
 done
@@ -31,15 +31,13 @@ bindkey "^[3;5~"    delete-char
 
 # Pyenv initialization
 # (adding pyenv to path)
-export PYENV_ROOT="$HOME/.pyenv"
 if [[ -d "${PYENV_ROOT}" ]]; then
   export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init -)"
 fi
 
-export RBENV_ROOT="$HOME/.rbenv"
 if [[ -d "${RBENV_ROOT}" ]]; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+  export PATH="$RBENV_ROOT/bin:$PATH"
+  export PATH="$RBENV_ROOT/plugins/ruby-build/bin:$PATH"
   eval "$(rbenv init -)"
 fi
