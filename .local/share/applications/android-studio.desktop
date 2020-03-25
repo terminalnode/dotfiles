@@ -3,6 +3,7 @@ Version=1.0
 Type=Application
 Name=Android Studio (default env)
 Exec=android-studio %f
+Exec=env JAVA_HOME=/opt/android-studio/jre android-studio %f
 Icon=android-studio
 Terminal=false
 StartupNotify=true
