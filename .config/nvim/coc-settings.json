@@ -20,13 +20,18 @@
             }
         }
     },
+    "coc.preferences.extensionUpdateCheck": "weekly",
     "eslint.autoFixOnSave": true,
     "java.errors.incompleteClasspath.severity": "warning",
     "java.import.gradle.enabled": true,
     "java.import.gradle.wrapper.enabled": true,
     "java.configuration.updateBuildConfiguration": "interactive",
-    "yank.list.maxsize": 20,
-    "coc.preferences.extensionUpdateCheck": "weekly",
+    "python.linting.mypyEnabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.pylintEnabled": true,
+    "solargraph.autoformat": true,
+    "solargraph.rename": true,
+    "solargraph.symbols": true,
     "suggest.defaultSortMethod": "alphabetical",
     "suggest.completionItemKindLabels": {
         "class":         "[C]",
@@ -56,7 +61,5 @@
         "unit":          "unit",
         "default":       "?"
     },
-    "python.linting.mypyEnabled": true,
-    "python.linting.flake8Enabled": true,
-    "python.linting.pylintEnabled": true
+    "yank.list.maxsize": 20
 }
