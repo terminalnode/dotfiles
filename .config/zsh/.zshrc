@@ -41,3 +41,6 @@ if [[ -d "${RBENV_ROOT}" ]]; then
   export PATH="$RBENV_ROOT/plugins/ruby-build/bin:$PATH"
   eval "$(rbenv init -)"
 fi
+
+# Heroku autocomplete setup
+HEROKU_AC_ZSH_SETUP_PATH=/home/terminal/.cache/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
