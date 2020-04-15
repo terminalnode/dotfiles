@@ -10,6 +10,7 @@ alias xswapescape="setxkbmap \
     -layout se,se \
     -variant dvorak_a5,basic \
     -option caps:swapescape,compose:rctrl,grp:alt_caps_toggle"
+alias sway="env XDG_CURRENT_DESKTOP=sway sway"
 
 # DEFAULTS
 # Commands replaced with themselves + various options.
