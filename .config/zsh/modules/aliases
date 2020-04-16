@@ -11,6 +11,7 @@ alias xswapescape="setxkbmap \
     -variant dvorak_a5,basic \
     -option caps:swapescape,compose:rctrl,grp:alt_caps_toggle"
 alias sway="env XDG_CURRENT_DESKTOP=sway sway"
+alias swaybar_ip="pkill -RTMIN+9 i3blocks"
 
 # DEFAULTS
 # Commands replaced with themselves + various options.
