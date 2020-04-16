@@ -78,14 +78,14 @@ unbind-key "R"
 
 # Themeing
 #     Component         Foreground  Background
-color listfocus_unread  black       yellow
 color background        default     default
 color listnormal        default     default
 color listnormal_unread default     default
-color listfocus         black       yellow
-color listfocus_unread  black       yellow
+color listfocus_unread  yellow      default
+color listfocus         yellow      default
+color listfocus_unread  yellow      default
 color info              default     black
-color article			default     default
+color article			      default     default
 
 highlight feedlist    "^  *[0-9]+  *N  "                    color156 default
 highlight articlelist "^  *[0-9]+  *N  "                    color156 default
