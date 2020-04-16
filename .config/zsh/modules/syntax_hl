@@ -1,7 +1,13 @@
 #!/usr/bin/env zsh
-# Activate syntax highlighting if it exists
-zsh_syntax_hl="/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-if [[ -n "${zsh_syntax_hl}" ]]; then
-    source "${zsh_syntax_hl}"
-    ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
-fi
+# Activates syntax highlighting if it exists
+# Fedora and Arch installs these to different paths, so we'll check if
+# either of the paths are readable files and execute the one that is.
+arch_path="/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fedora_path="/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+[[ -r "${arch_path}" ]] &&
+  source "${arch_path}" &&
+  return
+
+[[ -r "${fedora_path}" ]] &&
+  source "${fedora_path}"
