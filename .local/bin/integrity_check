@@ -1,0 +1,17 @@
+#!/bin/sh
+status=$(curl -s "https://api.5july.net/1.0/ipcheck" | jq ".connected")
+
+if [ -z $status ]; then
+  echo "  No response, bro! "
+
+elif ($status); then
+  echo "  It's up bro! "
+
+else
+  echo "  Bro, it's down :( "
+
+fi
+
+# Update the i3block
+# Does nothing if the process does not exist
+pkill -RTMIN+9 i3blocks

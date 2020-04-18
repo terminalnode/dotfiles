@@ -76,6 +76,7 @@
 .local/bin/*
 !.local/bin/igdl
 !.local/bin/editorrenamer
+!.local/bin/integrity_check
 !.local/bin/pm
 !.local/bin/sway-service
 !.local/bin/transadd
