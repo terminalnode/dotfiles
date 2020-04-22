@@ -34,7 +34,7 @@ window {
 
 #outer-box {
   margin: 4px;
-  background-color: var(--black);
+  background-color: #000000;
 }
 
 #scroll {
@@ -45,7 +45,7 @@ window {
 
 #text {
   margin: 5px;
-  color: var(--polar4);
+  color:  #4C566A;
 }
 
 #entry:selected {
