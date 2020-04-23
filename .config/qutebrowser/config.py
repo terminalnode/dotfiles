@@ -104,7 +104,9 @@ c.url.searchengines = {
     "tyda":       "http://tyda.se/search/{}",
     "ud":         "http://www.urbandictionary.com/define.php?term={}",
     "dict":       "http://www.dictionary.com/browse/{}",
-    "kotoba":     "https://tangorin.com/words?search={}",
+    "kotoba":      "https://jisho.org/search/{}",
+    "jisho":      "https://jisho.org/search/{}",
+    "tangorin":   "https://tangorin.com/words?search={}",
     # Forvo
     "forvo":      "https://forvo.com/search/{}",
     "forvi":      "https://forvo.com/search/{}/fi/",
