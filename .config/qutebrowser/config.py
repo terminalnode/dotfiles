@@ -104,9 +104,10 @@ c.url.searchengines = {
     "tyda":       "http://tyda.se/search/{}",
     "ud":         "http://www.urbandictionary.com/define.php?term={}",
     "dict":       "http://www.dictionary.com/browse/{}",
-    "kotoba":      "https://jisho.org/search/{}",
+    "kotoba":     "https://jisho.org/search/{}", # default ja-en dictionary alias
     "jisho":      "https://jisho.org/search/{}",
     "tangorin":   "https://tangorin.com/words?search={}",
+    "weblio":     "https://www.weblio.jp/content/{}",
     # Forvo
     "forvo":      "https://forvo.com/search/{}",
     "forvi":      "https://forvo.com/search/{}/fi/",
