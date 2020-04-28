@@ -71,11 +71,10 @@ color=#a3feac
 interval=60
 signal=9
 
-# Every fifteen minutes.
 [integrityst]
 command=~/.config/i3blocks/integrity_ip_check
 color=#a3fe8c
-interval=45
+interval=60
 signal=9
 
 # [ssid]
