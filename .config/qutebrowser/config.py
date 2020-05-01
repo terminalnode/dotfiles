@@ -6,7 +6,8 @@ config.bind('<Ctrl-t>', 'set-cmd-text -s :open -t') # Defaults to creating new e
 
 # Bookmarks
 # Creating new bookmarks with M is default.
-config.bind('b', 'set-cmd-text -s :bookmark-load') # Defaults to :quickmark-load, which is useless.
+config.bind('b', 'set-cmd-text -s :bookmark-load -t') # Defaults to :quickmark-load, which is useless.
+config.bind('B', 'set-cmd-text -s :bookmark-load -t') # Defaults to :quickmark-load, which is useless.
 config.bind('E', 'open-editor')
 
 # Both upper and lower-case d/r are bound to close/reload tab respectively.
