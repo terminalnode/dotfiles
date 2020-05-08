@@ -98,6 +98,7 @@ c.url.searchengines = {
     "r":          "https://reddit.com/r/{}",
     "giphy":      "https://giphy.com/search/{}",
     "genlib":     "http://gen.lib.rus.ec/search.php?req={}",
+    "daddict":    "https://wiki.d-addicts.com?search={}",
     # Dictionaries
     "fren":       "https://www.larousse.fr/dictionnaires/francais-anglais/{}",
     "enfr":       "https://www.larousse.fr/dictionnaires/anglais-francais/{}",
@@ -105,7 +106,8 @@ c.url.searchengines = {
     "tyda":       "http://tyda.se/search/{}",
     "ud":         "http://www.urbandictionary.com/define.php?term={}",
     "dict":       "http://www.dictionary.com/browse/{}",
-    "kotoba":     "https://jisho.org/search/{}", # default ja-en dictionary alias
+    # Japanese dictionaries
+    "kotoba":     "https://jisho.org/search/{}",  # default ja-en dictionary alias
     "jisho":      "https://jisho.org/search/{}",
     "tangorin":   "https://tangorin.com/words?search={}",
     "weblio":     "https://www.weblio.jp/content/{}",
