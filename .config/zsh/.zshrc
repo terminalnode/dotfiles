@@ -29,18 +29,22 @@ done
 bindkey "^[[3~"     delete-char
 bindkey "^[3;5~"    delete-char
 
-# Pyenv initialization
-# (adding pyenv to path)
+# pyenv initialization
 if [[ -d "${PYENV_ROOT}" ]]; then
   export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init -)"
 fi
 
+# rbenv initialization
 if [[ -d "${RBENV_ROOT}" ]]; then
   export PATH="$RBENV_ROOT/bin:$PATH"
   export PATH="$RBENV_ROOT/plugins/ruby-build/bin:$PATH"
   eval "$(rbenv init -)"
 fi
+
+# nvm initialization
+[[ -e "/usr/share/nvm/init-nvm.sh" ]] &&
+  source /usr/share/nvm/init-nvm.sh
 
 # Heroku autocomplete setup
 HEROKU_AC_ZSH_SETUP_PATH=/home/terminal/.cache/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;

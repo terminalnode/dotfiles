@@ -34,6 +34,7 @@ export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export STACK_ROOT="$XDG_DATA_HOME/stack"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
+export NVM_DIR="$XDG_DATA_HOME/nvm"
 
 # Moving stuff to XDG_CACHE_HOME
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
