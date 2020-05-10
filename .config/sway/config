@@ -4,7 +4,8 @@
 set $mod    Mod4
 set $MOD    shift+$mod
 set $term   termite
-set $menu   wofi --show drun
+#set $menu   wofi --show drun
+set $menu   rofi -show drun
 set $left   h
 set $down   j
 set $up     k
