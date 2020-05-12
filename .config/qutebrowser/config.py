@@ -125,6 +125,7 @@ c.url.searchengines = {
     "wpl":        "https://pl.wikipedia.org?search={}",
     "wikt":       "https://en.wiktionary.org?search={}",
     # Games
+    "nooki":      "https://nookipedia.com/w/index.php?search={}",
     "steam":      "https://store.steampowered.com/search/?term={}",
     "gog":        "https://www.gog.com/games?search={}",
     "eu4":        "https://eu4.paradoxwikis.com?search={}",
