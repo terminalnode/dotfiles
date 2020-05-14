@@ -47,4 +47,4 @@ fi
   source /usr/share/nvm/init-nvm.sh
 
 # Heroku autocomplete setup
-HEROKU_AC_ZSH_SETUP_PATH=/home/terminal/.cache/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+# HEROKU_AC_ZSH_SETUP_PATH=/home/terminal/.cache/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
