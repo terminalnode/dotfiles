@@ -46,7 +46,7 @@ case $1 in
     syu)    notify_run "yay -Syu --upgrademenu --combinedupgrade";;
     syyu)   notify_run "yay -Syyu --upgrademenu --combinedupgrade";;
     upgit)  notify_run "yay -Qm |
-    grep '\-git\|\-hg' |
+    grep '\-git\s\|\-hg\s' |
     awk '{print \$1}' |
     yay -S -";;
     # Installation/uninstallation
