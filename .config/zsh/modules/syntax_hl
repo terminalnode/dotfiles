@@ -5,9 +5,9 @@
 arch_path="/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fedora_path="/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-[[ -r "${arch_path}" ]] &&
-  source "${arch_path}" &&
-  return
+if [[ -r "${arch_path}" ]] ; then
+  source "${arch_path}"
 
-[[ -r "${fedora_path}" ]] &&
+elif [[ -r "${fedora_path}" ]] ; then
   source "${fedora_path}"
+fi
