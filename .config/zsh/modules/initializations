@@ -1,0 +1,28 @@
+#!/usr/bin/env zsh
+function init-pyenv {
+  if [[ -d "${PYENV_ROOT}" ]] ; then
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+  fi
+}
+
+function init-rbenv {
+  if [[ -d "${RBENV_ROOT}" ]] ; then
+    export PATH="$RBENV_ROOT/bin:$PATH"
+    export PATH="$RBENV_ROOT/plugins/ruby-build/bin:$PATH"
+    eval "$(rbenv init -)"
+  fi
+}
+
+function init-nbenv {
+  if [[ -e "/usr/share/nvm/init-nvm.sh" ]] ; then
+    source /usr/share/nvm/init-nvm.sh
+  fi
+}
+
+function init-heroku {
+  HEROKU_AC_ZSH_SETUP_PATH=/home/terminal/.cache/heroku/autocomplete/zsh_setup
+  if [[ -f $HEROKU_AC_ZSH_SETUP_PATH ]] ; then
+    source $HEROKU_AC_ZSH_SETUP_PATH
+  fi
+}
