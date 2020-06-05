@@ -26,10 +26,7 @@ alias mpv='mpv --audio-display=no'
 alias vi='nvim'
 alias vim='nvim'
 alias oldvim='/usr/bin/vim'
-# Replace cat with plain unpaged bat,
-# which is basically cat with syntax highlighting
-alias cat='bat --style plain --paging never'
-alias oldcat='/usr/bin/cat'
+alias bat='bat --style plain --paging never'
 # Commands replaced with themselves + sudo
 alias ip='sudo ip'
 alias netctl='sudo netctl'
