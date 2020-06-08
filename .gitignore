@@ -20,8 +20,7 @@
 !.config/wofi
 !.config/youtube-dl
 !.config/zathura
-!.config/xinitrc
-!.config/xserverrc
+!.config/X11
 
 # ZSH
 !.config/zsh
