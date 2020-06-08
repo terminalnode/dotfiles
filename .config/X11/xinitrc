@@ -40,4 +40,4 @@ xset r rate 280 65
 # exec startxfce4
 # exec startplasma-x11
 # exec i3
-exec dwm
+export _JAVA_AWT_WM_NONREPARENTING=1; exec dwm

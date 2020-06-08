@@ -1,5 +1,4 @@
 /* See LICENSE file for copyright and license details. */
-
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -26,10 +25,12 @@ static const Rule rules[] = {
    *	WM_CLASS(STRING) = instance, class
    *	WM_NAME(STRING) = title
    */
-  /* class      instance    title       tags mask     isfloating   isterminal noswallow monitor */
-  { "Gimp",     NULL,       NULL,       0,            1,           0,         0,        -1 },
-  { "Firefox",  NULL,       NULL,       1 << 8,       0,           0,         0,        -1 },
-  { "st",       NULL,       NULL,       0,            0,           1,         1,        -1 },
+  /* class            instance    title       tags mask     isfloating    isterminal  noswallow   monitor */
+  { "Gimp",           NULL,       NULL,       0,            1,            0,          0,          -1 },
+  { "Firefox",        NULL,       NULL,       1 << 8,       0,            0,          0,          -1 },
+  { "st",             NULL,       NULL,       0,            0,            1,          1,          -1 },
+  { "Android Studio", NULL,       NULL,       0,            0,            0,          1,          -1 },
+  { "Intellij IDEA",  NULL,       NULL,       0,            0,            0,          1,          -1 },
 };
 
 /* layout(s) */
