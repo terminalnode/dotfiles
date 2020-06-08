@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
+static char *font = "SauceCodePro Nerd Font Mono:pixelsize=13:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -59,8 +59,8 @@ static unsigned int blinktimeout = 800;
 static unsigned int cursorthickness = 2;
 
 /*
- * bell volume. It must be a value between -100 and 100. Use 0 for disabling
- * it
+ * bell volume. It must be a value between -100 and 100.
+ * Use 0 for disabling it
  */
 static int bellvolume = 0;
 
@@ -130,12 +130,11 @@ static unsigned int defaultrcs = 257;
  * 6: Bar ("|")
  * 7: Snowman ("☃")
  */
-static unsigned int cursorshape = 2;
+static unsigned int cursorshape = 4;
 
 /*
  * Default columns and rows numbers
  */
-
 static unsigned int cols = 80;
 static unsigned int rows = 24;
 
