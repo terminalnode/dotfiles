@@ -6,6 +6,8 @@ alias cwjs="cd ~/code/codewars/js"
 alias cwp="cd ~/code/codewars/python"
 alias cwr="cd ~/code/codewars/ruby"
 alias cdh="cd ~/code/haskbook"
+alias cddwm="cd ~/.dotfiles/suckless/dwm"
+alias cdst="cd ~/.dotfiles/suckless/st"
 alias xswapescape="setxkbmap \
     -layout se,se \
     -variant dvorak_a5,basic \
