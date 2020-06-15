@@ -22,6 +22,10 @@
 !.config/zathura
 !.config/X11
 
+# Tmux
+!.config/tmux
+.config/tmux/plugins/
+
 # ZSH
 !.config/zsh
 .config/zsh/.zcompdump
