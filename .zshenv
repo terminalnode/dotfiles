@@ -7,6 +7,7 @@ export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 export XDG_CONFIG_DIRS="/etc/xdg"
 
 # Add stuff to path.
+export PATH="$XDG_DATA_HOME/node_modules/bin:$PATH"
 export PATH="$HOME/.local/share/cargo/bin:$PATH"
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
@@ -39,6 +40,7 @@ export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export NVM_DIR="$XDG_DATA_HOME/nvm"
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle"
 export GEM_HOME="$XDG_DATA_HOME/gem"
+export npm_config_prefix="$XDG_DATA_HOME/node_modules"
 
 # Moving stuff to XDG_CACHE_HOME
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
