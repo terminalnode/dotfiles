@@ -1,0 +1,33 @@
+# Unbind almost everything
+# HJKL and G
+unbind-key "h"
+unbind-key "j"
+unbind-key "k"
+unbind-key "l"
+unbind-key "H"
+unbind-key "J"
+unbind-key "K"
+unbind-key "L"
+unbind-key "g"
+unbind-key "G"
+# I don't use tags and filters really
+unbind-key "t"
+unbind-key "f"
+unbind-key "F"
+unbind-key "^T"
+unbind-key "^F"
+# Other stuff
+unbind-key "^L"         # redraw
+unbind-key "PAGEUP"     # pageup
+unbind-key "PAGEDOWN"   # pagedown
+unbind-key "^V"         # next-dialog
+unbind-key "^G"         # prev-dialog
+unbind-key ","          # macro-prefix
+unbind-key "E"          # edit-urls
+unbind-key "^K"         # random-unread
+unbind-key "n"          # next-unread
+unbind-key "p"          # prev-unread
+unbind-key "C"          # mark-all-feeds-read
+unbind-key "v"          # view-dialogs
+unbind-key "r"
+unbind-key "R"

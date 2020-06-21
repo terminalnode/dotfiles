@@ -1,7 +1,7 @@
-# Basic settings
-auto-reload	no      # Don't reload all feeds on start
-player mplayer      # Set mplayer to default media player
-show-keymap-hint no # Hide the keymap hint because it lists <none> bindings.
+include "theme"
+include "unbind"
+auto-reload	no
+show-keymap-hint no
 
 # Filters
 # Ignore LWN articles on security updates
@@ -19,84 +19,16 @@ articlelist-title-format "Articles in %T [%u unread, %t total]"
 # Header for a specific article
 itemview-title-format "%T [%u unread, %t total]"
 
-# Unbind almost everything
-# HJKL and G
-unbind-key "h"
-unbind-key "j"
-unbind-key "k"
-unbind-key "l"
-unbind-key "H"
-unbind-key "J"
-unbind-key "K"
-unbind-key "L"
-unbind-key "g"
-unbind-key "G"
-# I don't use tags and filters really
-unbind-key "t"
-unbind-key "f"
-unbind-key "F"
-unbind-key "^T"
-unbind-key "^F"
-# Other stuff
-unbind-key ":"          # cmdline
-unbind-key "^L"         # redraw
-unbind-key "PAGEUP"     # pageup
-unbind-key "PAGEDOWN"   # pagedown
-unbind-key "^V"         # next-dialog
-unbind-key "^G"         # prev-dialog
-unbind-key ","          # macro-prefix
-unbind-key "E"          # edit-urls
-unbind-key "^R"         # reload-urls
-unbind-key "^K"         # random-unread
-unbind-key "n"          # next-unread
-unbind-key "p"          # prev-unread
-unbind-key "C"          # mark-all-feeds-read
-unbind-key "v"          # view-dialogs
-
 # Bindings for opening stuff
-bind-key "SPACE"    open # enter also works
-bind-key "o"        open-in-browser
-bind-key "O"        open-all-unread-in-browser
-# J = "down", "K" = "up"
-bind-key "j"        down
-bind-key "k"        up
-bind-key "J"        end
-bind-key "K"        home
-# H = "left", L = "right"
-bind-key "h"        prev-dialog
-bind-key "l"        next-dialog
-bind-key "H"        prev-unread
-bind-key "L"        next-unread
-# vim-like bindings for g/G
-bind-key "g"        home
-bind-key "G"        end
+bind-key SPACE    open
+bind-key o        open-in-browser
+bind-key h        quit
+bind-key j        down
+bind-key k        up
+bind-key l        open
+bind-key g        home
+bind-key G        end
+
 # Unbind R from reload all feeds and rebind r to do that instead.
 # No need to reload one feed at a time.
-bind-key "r"        reload-all
-unbind-key "r"
-unbind-key "R"
-
-# Themeing
-#     Component         Foreground  Background
-color background        default     default
-color listnormal        default     default
-color listnormal_unread default     default
-color listfocus_unread  yellow      default
-color listfocus         yellow      default
-color listfocus_unread  yellow      default
-color info              default     black
-color article			      default     default
-
-highlight feedlist    "^  *[0-9]+  *N  "                    color156 default
-highlight articlelist "^  *[0-9]+  *N  "                    color156 default
-
-highlight article     "(^Feed:.*|^Title:.*|^Author:.*)"     color75  default
-highlight article     "(^Link:.*|^Date:.*)"                 color75  default
-highlight article     "^Podcast Download URL:.*"            color71  default
-highlight article     "^Links:"                             white    color240 underline
-highlight article     "\\[[0-9][0-9]*\\]"                   color72  default  bold
-highlight article     "\\[image [0-9][0-9]*\\]"             color72  default  bold
-highlight article     "\\[embedded flash: [0-9][0-9]*\\]"   color72  default  bold
-highlight article     ":.*\\(link\\)$"                      color74  default
-highlight article     ":.*\\(image\\)$"                     color74  default
-highlight article     ":.*\\(embedded flash\\)$"            color74  default
+bind-key r        reload-all
