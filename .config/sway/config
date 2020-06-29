@@ -23,8 +23,8 @@ mouse_warping       none
 focus_follows_mouse no
 # Default border specifies the type and size of window borders.
 # If smart borders are enabled, these borders are not visible on single window workspaces.
-default_border      pixel 2
-smart_borders       off
+default_border      pixel 3
+smart_borders       on
 # Floating modifier enables moving floating windows with the mouse.
 # Tiling drag allows using the floating modifier key to move tiled windows too.
 floating_modifier   $mod normal
@@ -34,7 +34,7 @@ tiling_drag         disable
 ### OUTPUT ###
 ##############
 include output
-exec ~/.config/sway/scripts/fader.py
+#exec ~/.config/sway/scripts/fader.py
 
 #############
 ### INPUT ###

@@ -15,7 +15,8 @@ alias xswapescape="setxkbmap \
 alias sway="env XDG_CURRENT_DESKTOP=sway sway"
 alias swaybar_ip="pkill -RTMIN+9 i3blocks"
 alias tmux="tmux -f '$XDG_CONFIG_HOME/tmux/tmux.conf'"
-alias newsboat-refresh="newsboat -x reload"
+alias newsboat-refresh="pgrep i3blocks > /dev/null && pkill -RTMIN+13 i3blocks || newsboat -x reload"
+alias newsboat="newsboat && newsboat-refresh"
 
 # DEFAULTS
 # Commands replaced with themselves + various options.

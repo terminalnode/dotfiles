@@ -5,4 +5,5 @@
 -o "~/video/ytdl/%(uploader)s_%(title)s.%(ext)s"
 
 # Get subtitles as well
---sub-lang en,fr,sv,ja,pl
+--all-subs
+--embed-subs

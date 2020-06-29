@@ -14,6 +14,7 @@ label=
 command=newsboat -x reload && newsboat -x print-unread | cut -d' ' -f1
 color=#5e81cc
 interval=900
+signal=13
 
 # orange
 [pulsevolume]

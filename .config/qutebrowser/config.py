@@ -127,6 +127,7 @@ c.url.searchengines = {
     # Games
     "nooki":      "https://nookipedia.com/w/index.php?search={}",
     "steam":      "https://store.steampowered.com/search/?term={}",
+    "protondb":   "https://www.protondb.com/search?q={}",
     "gog":        "https://www.gog.com/games?search={}",
     "eu4":        "https://eu4.paradoxwikis.com?search={}",
     "rimworld":   "https://rimworldwiki.com?search={}",
