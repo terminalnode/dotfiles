@@ -7,18 +7,14 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'ryanoasis/vim-devicons'
-
-    " Vim color schemes. They all suck, but some suck less.
-    Plug 'joshdick/onedark.vim'
     Plug 'drewtempelmeyer/palenight.vim'
-
-    " Code auto complete and related things
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     " Allow . to repeat plugin mappings
     Plug 'tpope/vim-repeat'
 
-    " Syntax highlighting
+    " Syntax highlighting / IDE features
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'scrooloose/nerdtree'
     Plug 'terminalnode/sway-vim-syntax'
     Plug 'rust-lang/rust.vim'
     Plug 'ElmCast/elm-vim'
@@ -28,24 +24,11 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'neovimhaskell/haskell-vim'
     Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
-    " textobj-user, required for various plugins for adding new text objects
+    " Textobjects and similar extensions
     Plug 'kana/vim-textobj-user'
-
-    " textobj-user for various quotes
-    " iq/aq for all single and double quotes or back ticks
     Plug 'beloglazov/vim-textobj-quotes'
-
-    " textobj-user for variable segments
-    " iv/av for selecting between underscores or a word in a camelCase
     Plug 'Julian/vim-textobj-variable-segment'
-
-    " textobj-user for ruby stuff
-    " ir/ar for blocks, if/af for functions,
-    " ic/ac for classes and an for name
     Plug 'tek/vim-textobj-ruby'
-
-    " Other
-    Plug 'scrooloose/nerdtree'
     Plug 'tpope/vim-surround'
 call plug#end()
 
