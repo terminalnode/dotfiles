@@ -2,6 +2,7 @@ include "theme"
 include "unbind"
 auto-reload	no
 show-keymap-hint no
+browser urlhandler
 
 # Filters
 # Ignore LWN articles on security updates

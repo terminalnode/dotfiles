@@ -1,0 +1,67 @@
+#!/usr/bin/ruby
+# Quick and dirty URL handler.
+#
+# Inspired by gotbletu's urlportal.sh:
+# https://github.com/gotbletu/shownotes/blob/master/urlportal.sh
+#
+# Enter preferences at the top of the script, check that the list
+# of video sites etc match your use case, then call it with one
+# URL at a time. Prefix URL with the word `play` if you'd rather
+# play videos than download them.
+
+# Settings
+@addToDownloadQueue = true
+@downloadQueue = "~/.video-download-queue"
+
+# Application selection
+@browser = "$BROWSER"
+@videoPlayer = "mpv"
+@downloadVideo = "youtube-dl"
+@downloadTorrent = "wget"
+
+# Site types
+@videoSites = [
+  "youtube.com/watch?v=",
+  "svtplay.se/video/",
+  "oppetarkiv.se/video/",
+  "dailymotion.com/video/",
+  "vimeo.com"
+]
+
+@torrentSites = [
+  ".torrent"
+]
+
+# Case tester
+def tester(list)
+  list.each do |entry|
+    return true if @url.include? entry
+  end
+
+  return false
+end
+
+# Download queue appender
+def queueDownload
+  `echo #{@url} >> #{@downloadQueue}`
+end
+
+# Case tests
+@url = ARGV[-1]
+
+if (tester @videoSites) then
+  if ARGV.include? "play" then
+    `#{@videoPlayer} #{@url}`
+  else
+    if @addToDownloadQueue && @downloadQueue
+      then queueDownload
+      else `#{@downloadVideo} #{@url}`
+    end
+  end
+
+elsif (tester @torrentSites) then
+  `#{@downloadTorrent} #{@url}`
+
+else
+  `#{@browser} #{@url}`
+end
