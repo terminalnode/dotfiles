@@ -3,18 +3,27 @@
 """""""""""
 " Indentation is not strictly necessary, but makes it easier to read I think.
 call plug#begin('~/.local/share/nvim/plugged')
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'qpkorr/vim-bufkill'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-fugitive'
+    Plug 'airblade/vim-rooter'
+
+    " Textobjects
+    Plug 'kana/vim-textobj-user'
+    Plug 'beloglazov/vim-textobj-quotes'
+    Plug 'Julian/vim-textobj-variable-segment'
+    Plug 'tek/vim-textobj-ruby'
+
     " Aesthetics (except color schemes)
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'ryanoasis/vim-devicons'
     Plug 'drewtempelmeyer/palenight.vim'
 
-    " Allow . to repeat plugin mappings
-    Plug 'tpope/vim-repeat'
-
     " Syntax highlighting / IDE features
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'scrooloose/nerdtree'
     Plug 'terminalnode/sway-vim-syntax'
     Plug 'rust-lang/rust.vim'
     Plug 'ElmCast/elm-vim'
@@ -23,20 +32,12 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'MaxMEllon/vim-jsx-pretty'
     Plug 'neovimhaskell/haskell-vim'
     Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-
-    " Textobjects and similar extensions
-    Plug 'kana/vim-textobj-user'
-    Plug 'beloglazov/vim-textobj-quotes'
-    Plug 'Julian/vim-textobj-variable-segment'
-    Plug 'tek/vim-textobj-ruby'
-    Plug 'tpope/vim-surround'
 call plug#end()
 
 
-""""""""""""""""""""
-""" LET STATEMENTS
-""""""""""""""""""""
-" Mostly for plugins and stuff
+""""""""""""""""""""""""""
+""" PLUGIN FEATURE TOGGLES
+""""""""""""""""""""""""""
 let g:rustfmt_autosave = 1                  " run rustfmt automatically on rust filetype save
 let g:haskell_enable_quantification = 1     " to enable highlighting of haskell `forall`
 let g:haskell_enable_recursivedo = 1        " to enable highlighting of haskell `mdo` and `rec`
@@ -56,6 +57,16 @@ let g:haskell_indent_in = 2                 " use two space indentation for hask
 let g:haskell_indent_guard = 2              " use two space indentation for haskell guard rails
 let g:javascript_plugin_flow = 1            " enable syntax highlighting for javascript flow
 let g:javascript_plugin_jsdoc = 1           " enable syntax highlighting for jsdocs
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+
+
+" vim-rooter configuration
+" Changes active directory to closest dir with a git-file.
+" If none is found, change to directory of current file.
+let g:rooter_patterns = ['.git', '.git/', 'Rakefile']
+let g:rooter_change_directory_for_non_project_files = 'current'
 
 
 """""""""""""""""""""
@@ -83,7 +94,6 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-nnoremap <silent> <C-p>  :<C-u>CocList -A --normal yank<cr>
 nmap <silent> [ <Plug>(coc-diagnostic-prev)
 nmap <silent> ] <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
@@ -107,9 +117,9 @@ nnoremap <silent> <space>s  :<C-u>CocList -I symbols<CR>
 set termguicolors
 
 " Highlight any extra whitespace at the end of a line
-highlight ExtraWhitespace ctermbg=darkred guibg=red
+highlight ExtraWhitespace ctermbg=red guibg=darkred
 match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkred guibg=red
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=darkred
 
 colorscheme palenight
 set background=dark
@@ -165,9 +175,10 @@ nnoremap Q <Nop>
 " Mappings for switching between buffers etc
 map <C-h> :bp<CR>
 map <C-l> :bn<CR>
-map <C-w> :bw<CR>
-map Q :NERDTreeToggle<CR>
-map <C-n> :NERDTree<CR>
+map <C-n> :Ex<CR>
+" This is disabled because it interfers with split window mode.
+" Might remap it to something else at some point.
+" map <C-w> :bw<CR>
 
 " :w!! will write to file using sudo
 cmap w!! w !sudo tee > /dev/null %
