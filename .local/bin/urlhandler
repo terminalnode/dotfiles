@@ -10,32 +10,38 @@
 # play videos than download them.
 
 # Settings
-@addToDownloadQueue = true
-@downloadQueue = "~/.video-download-queue"
+addToDownloadQueue = true
+videoDownloadQueue = "~/.video-dl-queue"
+svtDownloadQueue = "~/.svtplay-dl-queue"
 
 # Application selection
-@browser = "$BROWSER"
-@videoPlayer = "mpv"
-@downloadVideo = "youtube-dl"
-@downloadTorrent = "wget"
+browser = "$BROWSER"
+videoPlayer = "mpv"
+downloadVideo = "youtube-dl"
+downloadSvt = "svtplay-dl"
+downloadTorrent = "wget"
 
 # Site types
-@videoSites = [
+videoSites = [
   "youtube.com/watch?v=",
-  "svtplay.se/video/",
-  "oppetarkiv.se/video/",
   "dailymotion.com/video/",
-  "vimeo.com"
+  "vimeo.com/"
 ]
 
-@torrentSites = [
+svtSites = [
+  "svtplay.se/video/",
+  "oppetarkiv.se/video/",
+  "svt.se/"
+]
+
+torrentSites = [
   ".torrent"
 ]
 
 # Case tester
 def tester(list)
   list.each do |entry|
-    return true if @url.include? entry
+    return true if url.include? entry
   end
 
   return false
@@ -43,25 +49,35 @@ end
 
 # Download queue appender
 def queueDownload
-  `echo #{@url} >> #{@downloadQueue}`
+  `echo #{url} >> #{downloadQueue}`
 end
 
 # Case tests
-@url = ARGV[-1]
+url = ARGV[-1]
 
-if (tester @videoSites) then
+if (tester videoSites) then
   if ARGV.include? "play" then
-    `#{@videoPlayer} #{@url}`
+    `#{videoPlayer} #{url}`
   else
-    if @addToDownloadQueue && @downloadQueue
+    if addToDownloadQueue && videoDownloadQueue
       then queueDownload
-      else `#{@downloadVideo} #{@url}`
+      else `#{downloadVideo} #{url}`
     end
   end
 
-elsif (tester @torrentSites) then
-  `#{@downloadTorrent} #{@url}`
+elsif (tester svtSites)
+  if ARGV.include? "play" then
+    `#{videoPlayer} #{url}`
+  else
+    if addToDownloadQueue && svtDownloadQueue
+      then queueDownload
+      else `#{downloadSvt} #{url}`
+    end
+  end
+
+elsif (tester torrentSites) then
+  `#{downloadTorrent} #{url}`
 
 else
-  `#{@browser} #{@url}`
+  `#{browser} #{url}`
 end
