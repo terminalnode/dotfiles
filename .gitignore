@@ -22,11 +22,15 @@
 !.config/zathura
 !.config/X11
 
-# Tmux
+# aerc
+!.config/aerc
+.config/aerc/accounts.conf
+
+# tmux
 !.config/tmux
 .config/tmux/plugins/
 
-# ZSH
+# zsh
 !.config/zsh
 .config/zsh/.zcompdump
 .config/zsh/*.local
@@ -37,37 +41,37 @@
 !.local/share/applications
 .local/share/applications/gog_com*
 
-# MPD
+# mpd
 !.config/mpd
 .config/mpd/*
 !.config/mpd/mpd.conf
 
-# MPV
+# mpd
 !.config/mpv
 .config/mpv/watch_later
 
-# Neovim
+# neovim
 !.config/nvim
 .config/nvim/.netrwhist
 
-# NPM
+# npm
 !.config/npm
 .config/npm/_*
 .config/npm/*anonymous*
 
-# Qutebrowser
+# qutebrowser
 !.config/qutebrowser
 .config/qutebrowser/autoconfig.yml
 .config/qutebrowser/bookmarks
 .config/qutebrowser/qsettings/QtProject.conf
 
-# Systemd
+# systemd
 !.config/systemd
 .config/systemd/user/*
 !.config/systemd/user/*.target
 !.config/systemd/user/*.service
 
-# Sway
+# sway
 !.config/sway
 .config/sway/test
 .config/sway/input
