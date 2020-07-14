@@ -32,6 +32,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'MaxMEllon/vim-jsx-pretty'
     Plug 'neovimhaskell/haskell-vim'
     Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+    Plug 'cespare/vim-toml'
 call plug#end()
 
 
