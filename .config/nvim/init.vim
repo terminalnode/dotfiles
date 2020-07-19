@@ -66,7 +66,7 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " vim-rooter configuration
 " Changes active directory to closest dir with a git-file.
 " If none is found, change to directory of current file.
-let g:rooter_patterns = ['.git', '.git/', 'Rakefile']
+let g:rooter_patterns = ['package.json', 'Rakefile', 'Pipfile', '.git', '.git/']
 let g:rooter_change_directory_for_non_project_files = 'current'
 
 
@@ -151,6 +151,7 @@ set tabstop=2               " number of spaces a tab-character will be displayed
 set softtabstop=2           " number of spaces a tab will be when editing/inserting
 set expandtab               " make the tabkey insert spaces instead of tabs
 set listchars=tab:<->       " use `:set list` to view tabs as '<->' (will only be <> with two space tabs)
+set wildignore+=*/tmp/*,*/node_modules/*,*/__pycache__/,*/htmlcov/*,*/coverage/*,*.db
 
 
 """""""""""""""""""""""""""""""
