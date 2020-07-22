@@ -3,7 +3,7 @@
 ############################
 set $mod    Mod4
 set $MOD    shift+$mod
-set $term   termite
+set $term   alacritty
 #set $menu   wofi --show drun
 set $menu   rofi -show drun
 set $left   h
@@ -12,7 +12,7 @@ set $up     k
 set $right  l
 
 titlebar_padding    2 2
-font                pango:Bitstream Vera Sans 9,Font Awesome 9
+font                pango:SauceCodePro Nerd Font Mono 9, Bitstream Vera Sans 9,Font Awesome 9
 
 # Allow starting non-wayland applications through xwayland.
 xwayland            enable
