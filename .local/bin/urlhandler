@@ -38,46 +38,45 @@ torrentSites = [
   ".torrent"
 ]
 
+@url = ARGV[-1]
+
 # Case tester
 def tester(list)
   list.each do |entry|
-    return true if url.include? entry
+    return true if @url.include? entry
   end
 
   return false
 end
 
 # Download queue appender
-def queueDownload
-  `echo #{url} >> #{downloadQueue}`
+def queueDownload(queue)
+  `echo "#{@url}" >> #{queue}`
 end
-
-# Case tests
-url = ARGV[-1]
 
 if (tester videoSites) then
   if ARGV.include? "play" then
-    `#{videoPlayer} #{url}`
+    `#{videoPlayer} #{@url}`
   else
     if addToDownloadQueue && videoDownloadQueue
-      then queueDownload
-      else `#{downloadVideo} #{url}`
+      then queueDownload videoDownloadQueue
+      else `#{downloadVideo} #{@url}`
     end
   end
 
 elsif (tester svtSites)
   if ARGV.include? "play" then
-    `#{videoPlayer} #{url}`
+    `#{videoPlayer} #{@url}`
   else
     if addToDownloadQueue && svtDownloadQueue
-      then queueDownload
-      else `#{downloadSvt} #{url}`
+      then queueDownload svtDownloadQueue
+      else `#{downloadSvt} #{@url}`
     end
   end
 
 elsif (tester torrentSites) then
-  `#{downloadTorrent} #{url}`
+  `#{downloadTorrent} #{@url}`
 
 else
-  `#{browser} #{url}`
+  `#{browser} #{@url}`
 end
