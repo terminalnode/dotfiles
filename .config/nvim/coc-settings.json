@@ -1,23 +1,22 @@
 {
     "languageserver": {
         "efm": {
-        "command": "efm-langserver",
-        "args": [],
-        "filetypes": ["vim", "eruby", "markdown", "yaml"]
+          "command": "efm-langserver",
+          "args": [ ],
+          "filetypes": [ "vim", "eruby", "markdown", "yaml" ]
         },
 
         "haskell": {
-            "command": "hie-wrapper",
-            "rootPatterns": [".stack.yaml", "cabal.config", "package.yaml"],
-            "filetypes": ["hs", "lhs", "haskell"],
-            "initializationOptions": {},
-            "settings": {
-              "languageServerHaskell": {
-                "hlintOn": true,
-                "maxNumberOfProblems": 10,
-                "completionSnippetsOn": true
-              }
-            }
+            "command": "ghcide",
+            "args": [ "--lsp" ],
+            "rootPatterns": [
+              ".stack.yaml",
+              ".hie-bios",
+              "BUILD.bazel",
+              "cabal.config",
+              "package.yaml"
+            ],
+            "filetypes": [ "hs", "lhs", "haskell" ]
         }
     },
     "coc.preferences.extensionUpdateCheck": "weekly",
