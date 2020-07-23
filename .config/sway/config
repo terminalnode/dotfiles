@@ -21,10 +21,6 @@ xwayland            enable
 # Focus follows mouse moves focus when the cursor is changed.
 mouse_warping       none
 focus_follows_mouse no
-# Default border specifies the type and size of window borders.
-# If smart borders are enabled, these borders are not visible on single window workspaces.
-default_border      pixel 3
-smart_borders       on
 # Floating modifier enables moving floating windows with the mouse.
 # Tiling drag allows using the floating modifier key to move tiled windows too.
 floating_modifier   $mod normal
@@ -261,6 +257,11 @@ bindsym XF86AudioPrev exec mpc prev
 ###############################
 ### AESTHETICS + STATUS BAR ###
 ###############################
+# Default border specifies the type and size of window borders.
+# If smart borders are enabled, these borders are not visible on single window workspaces.
+default_border      pixel
+smart_borders       on
+
 # Nord Polar (lower is darker)
 set $polar-1 #2e3440
 set $polar-2 #3b4252
@@ -290,11 +291,10 @@ set $magenta #b48ead
 ## child_border     the border around the view itself
 ##
 ## NAME                     border      background  text        indicator   child_border
-client.focused              $frost-4    $polar-2    $snow-3     $frost-3    $polar-4
+client.focused              $frost-4    $polar-2    $snow-3     $frost-3    $frost-4
 client.urgent               $orange     $red        $snow-1     $orange     $orange
-# Focused inactive and unfocused should act the same.
-client.focused_inactive     $polar-3    $polar-1    $snow-1     $polar-1    $polar-1
-client.unfocused            $polar-3    $polar-1    $snow-1     $polar-1    $polar-1
+client.focused_inactive     $polar-3    $polar-1    $snow-1     $polar-3    $polar-3
+client.unfocused            $polar-3    $polar-1    $snow-1     $polar-3    $polar-3
 
 bar {
     status_command  i3blocks
@@ -306,8 +306,8 @@ bar {
         background          $polar-1
         ##############      Border      Filling     Text
         # Bright
-        active_workspace    $frost-4    $polar-1    $snow-3
-        focused_workspace   $frost-4    $polar-2    $snow-3
+        focused_workspace   $frost-4    $frost-4    $snow-3
+        active_workspace    $frost-4    $polar-4    $snow-3
         # Dim
         inactive_workspace  $polar-1    $polar-1    $snow-1
         # Lit
