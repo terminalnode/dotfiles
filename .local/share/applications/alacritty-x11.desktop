@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Exec=env WINIT_UNIX_BACKEND=x11 alacritty
+Icon=Alacritty
+Terminal=false
+Name=Alacritty (X11)
