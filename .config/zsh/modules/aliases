@@ -6,35 +6,27 @@ alias cwjs="cd ~/code/codewars/js"
 alias cwp="cd ~/code/codewars/python"
 alias cwr="cd ~/code/codewars/ruby"
 alias cdh="cd ~/code/haskbook"
+alias cmf="cd ~/code/mrfreeze"
 alias cddwm="cd ~/.dotfiles/suckless/dwm"
 alias cdst="cd ~/.dotfiles/suckless/st"
-alias xswapescape="setxkbmap \
-    -layout se,se \
-    -variant dvorak_a5,basic \
-    -option caps:swapescape,compose:rctrl,grp:alt_caps_toggle"
-alias sway="env XDG_CURRENT_DESKTOP=sway sway"
-alias swaybar_ip="pkill -RTMIN+9 i3blocks"
-alias tmux="tmux -f '$XDG_CONFIG_HOME/tmux/tmux.conf'"
-alias newsboat-refresh="pgrep i3blocks > /dev/null && pkill -RTMIN+13 i3blocks || newsboat -x reload"
-alias newsboat="newsboat && newsboat-refresh"
+alias mansplain="man"
 
-# DEFAULTS
+# ADD OPTIONS
 # Commands replaced with themselves + various options.
-alias grep='grep --color=auto'
-alias diff='diff --color=auto'
-alias ls='ls -Fh --group-directories-first --color'
-alias free='free -ht'
-alias du='du -h'
-alias df='df -h'
-alias mpv='mpv --audio-display=no'
-# Replace vi/vim with nvim
-alias vi='nvim'
-alias vim='nvim'
-alias oldvim='/usr/bin/vim'
-alias bat='bat --style plain --paging never'
+alias bat="bat --style plain --paging never"
+alias df="df -h"
+alias diff="diff --color=auto"
+alias du="du -h"
+alias exa="exa --group-directories-first --git --time-style long-iso"
+alias free="free -ht"
+alias grep="grep --color=auto"
+alias ls="ls -Fh --group-directories-first --color"
+alias mpv="mpv --audio-display=no"
+alias sway="env XDG_CURRENT_DESKTOP=sway sway"
+alias tmux="tmux -f '$XDG_CONFIG_HOME/tmux/tmux.conf'"
 # Commands replaced with themselves + sudo
-alias ip='sudo ip'
-alias netctl='sudo netctl'
+alias ip="sudo ip"
+alias netctl="sudo netctl"
 
 # ALIASES
 # Simple aliases for various commands
@@ -42,10 +34,12 @@ alias ytdl="youtube-dl"
 alias pldl="youtube-dl -o '~/video/ytdl/%(uploader)s_%(playlist)s/%(playlist_index)s_%(title)s.%(ext)s'"
 alias svtdl="svtplay-dl"
 alias ll="ls -l"
-alias la="ls -a"
-alias lla="ls -la"
 alias l1="ls -1"
+alias e="exa"
+alias el="exa -l"
+alias e1="exa -1"
 alias cpdir="cp -rfv"
+
 # Lazy gitting
 alias gits="git status"
 alias gita="git add"
@@ -55,34 +49,43 @@ alias gitl="git log --oneline"
 alias gitp="git push"
 alias gitd="git diff"
 alias chko="git checkout"
-# A little more complicated aliases
+
+# Slightly more complicated aliases
 alias weather="curl wttr.in/Gothenburg\?0Q"
 alias rightnow="date +\(%a\)\ %d\ %b\ %H:%M"
 alias termbin="nc termbin.com 9999"
 alias systemage="head -n1 /var/log/pacman.log | awk '{ print \$1, \$2 }'"
 alias parch='ping -c 3 archlinux.org'
-alias publicip='curl ifconfig.me'
-alias demoterm='setopt interactivecomments && export PS1="%B%F{cyan}$ %f%b" && clear'
+alias publicip="curl ifconfig.me"
+alias demoterm="setopt interactivecomments && export PS1=\"%B%F{cyan}$ %f%b\" && clear"
+alias xswapescape="setxkbmap \
+    -layout se,se \
+    -variant dvorak_a5,basic \
+    -option caps:swapescape,compose:rctrl,grp:alt_caps_toggle"
+alias swaybar_ip="pkill -RTMIN+9 i3blocks"
+alias newsboat-refresh="pgrep i3blocks > /dev/null && pkill -RTMIN+13 i3blocks || newsboat -x reload"
 
 # SYSTEMD
 # SystemD system services
 # (enable and disable are already taken)
-alias service='sudo systemctl'
-alias restart='sudo systemctl restart'
-alias start='sudo systemctl start'
-alias stop='sudo systemctl stop'
-alias status='sudo systemctl status'
+alias service="sudo systemctl"
+alias restart="sudo systemctl restart"
+alias start="sudo systemctl start"
+alias stop="sudo systemctl stop"
+alias status="sudo systemctl status"
 # SystemD user services
 # Same names as above but with a u at the beginning
-alias uservice='systemctl --user'
-alias urestart='systemctl restart --user'
-alias ustart='systemctl start --user'
-alias ustop='systemctl stop --user'
-alias ustatus='systemctl status --user'
-alias uenable='systemctl enable --user'
-alias udisable='systemctl disable --user'
-alias ujournal='journalctl --user -u'
+alias uservice="systemctl --user"
+alias urestart="systemctl restart --user"
+alias ustart="systemctl start --user"
+alias ustop="systemctl stop --user"
+alias ustatus="systemctl status --user"
+alias uenable="systemctl enable --user"
+alias udisable="systemctl disable --user"
+alias ujournal="journalctl --user -u"
 
 # DUMB EXITS
 # Sorry...
-alias quit='exit'; alias q='exit'; alias :q='exit'
+alias quit="exit"
+alias q="exit"
+alias :q="exit"
