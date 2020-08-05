@@ -1,5 +1,8 @@
-def set_search_engines(c):
-    c.url.searchengines = {
+from typing import Dict
+
+
+def get_search_engines() -> Dict[str, str]:
+    return {
         # Default search engine, with nothing else specified.
         "DEFAULT":    "https://duckduckgo.com/?q={}",
         # Arch stuff.
@@ -36,8 +39,8 @@ def set_search_engines(c):
         "emoji":      "https://emojipedia.org/search/?q={}",
         "imdb":       "https://www.imdb.com/find?q={}",
         "rtomato":    "https://www.rottentomatoes.com/search/?search={}",
-        "bgg":        "https://www.boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q={}",
-        "gunda":      "https://gu-se-primo.hosted.exlibrisgroup.com/primo-explore/search?query=any,contains,{}&vid=46GUB_VU1",
+        "bgg":        "https://www.boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q={}",  # noqa: E501
+        "gunda":      "https://gu-se-primo.hosted.exlibrisgroup.com/primo-explore/search?query=any,contains,{}&vid=46GUB_VU1",  # noqa: E501
         "ebay":       "https://www.ebay.com/sch/i.html?LH_PrefLoc=5&_nkw={}",
         "systemet":   "https://www.systembolaget.se/sok-dryck/?searchquery={}",
         "bandcamp":   "https://bandcamp.com/search?q={}",
@@ -47,14 +50,15 @@ def set_search_engines(c):
         "genlib":     "http://gen.lib.rus.ec/search.php?req={}",
         "daddict":    "https://wiki.d-addicts.com?search={}",
         # Dictionaries
-        "fren":       "https://www.larousse.fr/dictionnaires/francais-anglais/{}",
-        "enfr":       "https://www.larousse.fr/dictionnaires/anglais-francais/{}",
-        "linguee":    "http://www.linguee.com/english-french/search?source=french&query={}",
+        "fren":       "https://www.larousse.fr/dictionnaires/francais-anglais/{}",  # noqa: E501
+        "enfr":       "https://www.larousse.fr/dictionnaires/anglais-francais/{}",  # noqa: E501
+        "linguee":    "http://www.linguee.com/english-french/search?source=french&query={}",  # noqa: E501
         "tyda":       "http://tyda.se/search/{}",
         "ud":         "http://www.urbandictionary.com/define.php?term={}",
         "dict":       "http://www.dictionary.com/browse/{}",
         # Japanese dictionaries
-        "kotoba":     "https://jisho.org/search/{}",  # default ja-en dictionary alias
+        # default ja-en dictionary alias
+        "kotoba":     "https://jisho.org/search/{}",
         "jisho":      "https://jisho.org/search/{}",
         "tangorin":   "https://tangorin.com/words?search={}",
         "weblio":     "https://www.weblio.jp/content/{}",
