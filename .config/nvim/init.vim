@@ -66,9 +66,9 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " vim-rooter configuration
 " Changes active directory to closest dir with a git-file.
 " If none is found, change to directory of current file.
-let g:rooter_patterns = ['package.json', 'Rakefile', 'Pipfile', '.git', '.git/']
+let g:rooter_patterns = ['.root-marker', 'package.json', 'Rakefile', 'Pipfile', '.git', '.git/']
 let g:rooter_change_directory_for_non_project_files = 'current'
-
+let g:ctrlp_working_path_mode = 'a'
 
 """""""""""""""""""""
 """ COC CONFIGURATION
