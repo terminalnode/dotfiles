@@ -1,0 +1,22 @@
+# To use this file either:
+# - Put it in your home directory as ~/.XCompose
+# - Have $XCOMPOSEFILE point to it
+#
+# The odd formating of this file mimicks the formating
+# used in /usr/share/X11/locale/en_US.UTF-8/Compose
+# Not my fault that it looks weird, mmm'kay?
+
+# import the default compose file for locale
+include "%L"
+
+# [U0250 - U02AF] IPA extension block
+<Multi_key> <r> <d>                             : "ɖ"   U0256   # r d LATIN SMALL LETTER D WITH TAIL
+<Multi_key> <e> <r>                             : "ɚ"   U025A   # e r LATIN SMALL LETTER SCHWA WITH HOOK
+<Multi_key> <r> <l>                             : "ɭ"   U026D   # r l LATIN SMALL LETTER L WITH RETROFLEX HOOK
+<Multi_key> <r> <r>                             : "ʁ"   U0281   # r r LATIN LETTER SMALL CAPITAL INVERTED R
+<Multi_key> <R> <R>                             : "ʁ"   U0281   # R R LATIN LETTER SMALL CAPITAL INVERTED R
+<Multi_key> <s> <h>                             : "ʃ"   U0283   # s h LATIN SMALL LETTER ESH
+<Multi_key> <r> <t>                             : "ʈ"   U0288   # r t LATIN SMALL LETTER T WITH RETROFLEX HOOK
+<Multi_key> <z> <h>                             : "ʒ"   U0292   # z h LATIN SMALL LETTER EZH
+<Multi_key> <z> <j>                             : "ʒ"   U0292   # z j LATIN SMALL LETTER EZH
+<Multi_key> <3> <j>                             : "ʒ"   U0292   # 3 j LATIN SMALL LETTER EZH

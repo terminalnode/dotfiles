@@ -22,6 +22,7 @@
 !.config/zathura
 !.config/X11
 !.config/alacritty
+!.config/XCompose
 
 # aerc
 !.config/aerc
