@@ -7,7 +7,6 @@
 export EDITOR=nvim
 export VISUAL=nvim
 export BROWSER=qutebrowser
-export TERMINAL=termite
 
 ############
 ### XORG ###
