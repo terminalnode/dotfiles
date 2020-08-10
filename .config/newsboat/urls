@@ -3,12 +3,13 @@ https://drewdevault.com/feed.xml                "~Drew DeVault"
 https://www.archlinux.org/feeds/news            "~Arch Linux"
 https://www.redox-os.org/news/index.xml         "~RedoxOS"
 https://lwn.net/headlines/rss                   "~LWN"
+https://blog.ethereum.org/feed.xml              "~Ethereum"
 --_Youtube_Tech_--
 https://www.youtube.com/feeds/videos.xml?channel_id=UCBa659QWEk1AI4Tg--mrJ2A "~Tom Scott"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC8uT9cgJorJPWu7ITLGo9Ww "~The 8-Bit Guy"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCf_suVrG2dA5BTjJhNLwthQ "~Odd Tinkering"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCLB7AzTwc6VFZrBsO2ucBMg "~Robert Miles"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith"
+https://videos.lukesmith.xyz/feeds/videos.xml?accountId=3                    "~Luke Smith"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCy0tKL1T7wFoYcxCe0xjN6Q "~Technology Connections"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC0e3QhIYukixgh5VVpKHH9Q "~Code Bullet"
 --_Youtube_Night-Shows/Video-Essays_--
@@ -29,7 +30,6 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCXA2lepIpHZ24iQU22WgDeA "~S
 https://www.youtube.com/feeds/videos.xml?channel_id=UC9Zc9eSANOmE-fbeT382Ozg "~Phil Jamesson"
 --_Youtube_French_--
 https://www.youtube.com/feeds/videos.xml?channel_id=UCVXiRA9Y7kTadGN_nlzt0Fg "~7 jours sur la planète"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCDC6DBi0kRp6Jk21xqfvFLA "~Hugo Lisoir"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCdSagSNn6NIc9En56wvbXsA "~5 Minutes French"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCCauEjHzPXxGer8af3u4x5g "~Envoyé Spécial"
 --_Youtube_Other_--
@@ -44,3 +44,6 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCaN8DZdc8EHo5y1LsQWMiig "~B
 https://www.youtube.com/feeds/videos.xml?channel_id=UCW6aFryqEcJ-QYgmg-zLhVg "~Barbarous King"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCjgpFI5dU-D1-kh9H1muoxQ "~The Hacksmith"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCoxcjq-8xIDTYp3uz647V5A "~Numberphile"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCMb0O2CdPBNi-QqPk5T3gsQ "~James Hoffman"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCXAjub1yM01dqjgJRG1nvsQ "~Uppdrag: Mat"
+https://notrelated.libsyn.com/rss                                            "~Not related"

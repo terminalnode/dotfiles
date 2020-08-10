@@ -25,7 +25,8 @@ downloadTorrent = "wget"
 videoSites = [
   "youtube.com/watch?v=",
   "dailymotion.com/video/",
-  "vimeo.com/"
+  "vimeo.com/",
+  "videos.lukesmith.xyz"
 ]
 
 svtSites = [
