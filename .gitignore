@@ -40,6 +40,7 @@
 # .desktop-files
 !.local/share
 .local/share/*
+!.local/share/mpv-logo.png
 !.local/share/applications
 .local/share/applications/gog_com*
 
