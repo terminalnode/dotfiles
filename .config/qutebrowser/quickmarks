@@ -1,25 +1,41 @@
+# vim: ft=qbquickmarks fileencoding=utf-8
+# Self-hosted
 unifi https://localhost:8443
+baikal https://baikal.terminalnode.xyz/card.php/calendars/terminalnode/
+
+# Torrents
 tleech https://www.torrentleech.org
 aviz https://avistaz.to
+
+# Google
 g https://www.google.com
 gmail https://mail.google.com
 drive https://drive.google.com
+
+# Mail / Messaging
 fastmail https://www.fastmail.com
 protonmail https://mail.protonmail.com
-cal https://calendar.google.com
-yt https://www.youtube.com
 fb https://www.facebook.com/messages/t/
 discord https://discordapp.com/channels/@me
-r https://www.reddit.com
+
+# Coding
 scaleway https://console.scaleway.com/dashboard
-systemet https://www.systembolaget.se
-gog https://www.gog.com
-sway https://github.com/swaywm/sway/
 github https://github.com/terminalnode
 gitlab https://gitlab.com/terminalnode
 dotfiles https://github.com/terminalnode/dotfiles
-/. https://slashdot.org
+sway https://github.com/swaywm/sway/
 hoogle https://hoogle.haskell.org/
 cw https://www.codewars.com/dashboard
+
+# Language
+frnews https://www.youtube.com/watch?v=djXROrzZ9NI
+jpnews https://www.youtube.com/watch?v=coYw-eVU0Ks
+
+# Other
+yt https://www.youtube.com
+r https://www.reddit.com
+systemet https://www.systembolaget.se
+/. https://slashdot.org
+gog https://www.gog.com
 lin https://www.linkedin.com/
-baikal-calendars https://baikal.terminalnode.xyz/card.php/calendars/terminalnode/
+cal https://calendar.google.com
