@@ -1,4 +1,6 @@
 # pylint: disable=C0111
+from pathlib import Path
+
 from qutebrowser.config.configfiles import ConfigAPI
 from qutebrowser.config.config import ConfigContainer
 from qbconfig import searchengines
@@ -36,9 +38,10 @@ config.unbind("r")
 
 # Do stuff with URLs
 # ; for hints, , for current page.
+mpv_cmd = f"mpv {Path.home()}/.local/share/mpv-logo.png"
 config.bind(";t", "hint links spawn -v transmission-remote -a {hint-url}")
-config.bind(";p", "hint links spawn -dv mpv {hint-url}")
-config.bind(",p", "spawn -dv mpv {url}")
+config.bind(";p", f"hint links spawn -dv {mpv_cmd} {{hint-url}}")
+config.bind(",p", f"spawn -dv {mpv_cmd} {{url}}")
 
 # Unbind key for creating macros
 config.unbind("q")
