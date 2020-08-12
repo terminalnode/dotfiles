@@ -34,6 +34,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
     Plug 'cespare/vim-toml'
 call plug#end()
+echo "(ノಠ益ಠ)ノ彡┻━┻ THIS. IS. NEOVIM!!!"
 
 
 """"""""""""""""""""""""""
