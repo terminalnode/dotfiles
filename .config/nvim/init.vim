@@ -146,6 +146,8 @@ set sidescrolloff=3
 set nowrap
 set wildmode=list:longest,full
 set guicursor=
+let mapleader = "-"
+let maplocalleader = "\\"
 " Tabs and search stuff
 set shiftwidth=2            " size of an indentation
 set tabstop=2               " number of spaces a tab-character will be displayed as
@@ -190,20 +192,18 @@ cmap w!! w !sudo tee > /dev/null %
 """"""""""""""""""""""""
 """ MACROS CONFIGURATION
 """"""""""""""""""""""""
-" Not updated as they're currently not really in use.
-let mapleader = "§"
 " Ctrl+Space will find next <++>, jump to it and delete it.
 nnoremap <C-Space> /<++><Enter>"_c4l
 inoremap <C-Space> <Esc>/<++><Enter>"_c4l
 
 " [§p] print
 " (python, rust)
-autocmd FileType python inoremap <Leader>p print(<++>)<Esc>0/<++><Enter>"_c4l
-autocmd FileType rust	inoremap <Leader>p println!("<++>"<++>);<Esc>0/<++><Enter>"_c4l
-autocmd FileTYpe ruby   inoremap <Leader>p puts <++><Esc>0/<++><Enter>"_c4l
+" autocmd FileType python inoremap <Leader>p print(<++>)<Esc>0/<++><Enter>"_c4l
+" autocmd FileType rust	inoremap <Leader>p println!("<++>"<++>);<Esc>0/<++><Enter>"_c4l
+" autocmd FileTYpe ruby   inoremap <Leader>p puts <++><Esc>0/<++><Enter>"_c4l
 
 " [§f] create function
 " (python, rust)
-autocmd FileType python inoremap <Leader>f def <++>(<++>):<Enter><++><Esc>k0/<++><Enter>"_c4l
-autocmd FileType rust	inoremap <Leader>f fn <++>() {<Enter><++><Enter>}<Esc>kk0/<++><Enter>"_c4l
-autocmd FileType ruby   inoremap <Leader>f def <++><Enter>end<Esc>k0/<++><Enter>"_c4l
+" autocmd FileType python inoremap <Leader>f def <++>(<++>):<Enter><++><Esc>k0/<++><Enter>"_c4l
+" autocmd FileType rust	inoremap <Leader>f fn <++>() {<Enter><++><Enter>}<Esc>kk0/<++><Enter>"_c4l
+" autocmd FileType ruby   inoremap <Leader>f def <++><Enter>end<Esc>k0/<++><Enter>"_c4l
