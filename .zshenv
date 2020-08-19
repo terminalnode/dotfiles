@@ -27,6 +27,7 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export KDEHOME="$XDG_CONFIG_HOME/kde"
 export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle"
 export XCOMPOSEFILE="$XDG_CONFIG_HOME/XCompose"
+export MPV_HOME="$XDG_CONFIG_HOME/mpv"
 
 # Moving stuff to XDG_DATA_HOME
 export UNISON="$XDG_DATA_HOME/unison"
