@@ -3,6 +3,8 @@
 .vim/.netrwhist
 .config/*
 .local/*
+!.local/share
+.local/share/*
 .mypy_cache/
 
 # Simple unignores
@@ -38,8 +40,6 @@
 .config/zsh/*.local
 
 # .desktop-files
-!.local/share
-.local/share/*
 !.local/share/mpv-logo.png
 !.local/share/applications
 .local/share/applications/gog_com*
@@ -67,6 +67,12 @@
 .config/qutebrowser/autoconfig.yml
 .config/qutebrowser/bookmarks
 .config/qutebrowser/qsettings/QtProject.conf
+
+# qutebrowser greasemonkey scripts
+# Specific scripts are excluded via .gitignore in greasemonkey folder
+!.local/share/qutebrowser
+.local/share/qutebrowser/*
+!.local/share/qutebrowser/greasemonkey
 
 # systemd
 !.config/systemd
