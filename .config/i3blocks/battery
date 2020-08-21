@@ -13,7 +13,7 @@ if [ -f ${BAT}/charge_full ]; then
 elif [ -f ${BAT}/energy_full ]; then
     NOW=$( cat ${BAT}/energy_now )
 fi
-    
+
 CHARGE=$(( 100 * NOW / FULL ))
 
 # Status can be "Charging", "Discharging", "Full" or "Unknown".
