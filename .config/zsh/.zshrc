@@ -4,8 +4,8 @@
 
 # History configuration
 HISTFILE=~/.cache/zsh/histfile
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100000
+SAVEHIST=100000
 
 # Activate dircolors if installed and configured
 if [[ -x $(command -v dircolors) && ~/.dircolors ]]; then
