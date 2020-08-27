@@ -13,7 +13,6 @@
 !.config/i3blocks
 !.config/irb
 !.config/neofetch
-!.config/newsboat
 !.config/mako
 !.config/redshift
 !.config/rofi
@@ -25,6 +24,10 @@
 !.config/X11
 !.config/alacritty
 !.config/XCompose
+
+# newsboat
+!.config/newsboat
+.config/newsboat/urls
 
 # aerc
 !.config/aerc
