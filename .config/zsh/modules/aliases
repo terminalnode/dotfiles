@@ -24,9 +24,10 @@ alias ls="ls -Fh --group-directories-first --color"
 alias mpv="mpv --audio-display=no"
 alias sway="env XDG_CURRENT_DESKTOP=sway sway"
 alias tmux="tmux -f '$XDG_CONFIG_HOME/tmux/tmux.conf'"
-# Commands replaced with themselves + sudo
+# Auto-sudo (commands replaced with sudo + themselves)
 alias ip="sudo ip"
 alias netctl="sudo netctl"
+alias wifi="sudo wifi-menu"
 
 # ALIASES
 # Simple aliases for various commands
