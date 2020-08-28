@@ -1,3 +1,4 @@
 *
 !.gitignore
-!reddit-remove-promoted.js
+!reddit-remove-promoted.js*
+!reddit-mark-read.js*
