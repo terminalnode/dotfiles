@@ -107,4 +107,4 @@ interval=5
 [decimal_time]
 command=~/.config/i3blocks/decimal_time
 color=#8ffcdb
-interval=5
+interval=1
