@@ -33,6 +33,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'neovimhaskell/haskell-vim'
     Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
     Plug 'cespare/vim-toml'
+    Plug 'OmniSharp/omnisharp-vim'
 call plug#end()
 echo "(ノಠ益ಠ)ノ彡┻━┻ THIS. IS. NEOVIM!!!"
 
