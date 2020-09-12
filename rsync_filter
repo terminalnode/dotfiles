@@ -1,0 +1,123 @@
+# The rsync filter function is a bit stupid, that's why this file is a little strange.
+# Basically, it will look through these files sequentially to see if there's a match.
+#
+# If a match is found, all else is ignored, so something like this won't work:
+# - .config
+# + .config/somedir
+#
+# It has to be done in this order
+# + .config/somedir
+# - .config
+#
+# The general approach here is to filter out some things and copy the rest,
+# with a few exceptions for files that we commonly want to keep.
+
+# General rules: Big bulky directories
+- /**/*Cache*
+- /**/*cache*
+- /**/*Cookies*
+- /**/*cookies*
+- /**/__pycache__
+- /**/.git/index
+- /**/node_modules
+- /**/.mypy_cache
+
+# Filter out all kinds of video files because they take ages to transfer
+# Except for some directories that I want to save.
++ /video/ytdl*
++ /video/mina_demo
+- /**/*mp4
+- /**/*avi
+- /**/*avi
+- /**/*mkv
+
+# Negative filters
+- /.dotfiles/.config/Cypress
+- /.dotfiles/.config/coc
+- /.dotfiles/.config/npm
+- /.dotfiles/.config/pyenv
+- /.dotfiles/.config/rbenv
+
+- /.dotfiles/.local/lib
+- /.dotfiles/.local/share/rustup
+- /.dotfiles/.local/share/gradle
+- /.dotfiles/.local/share/Steam
+- /.dotfiles/.local/share/stack
+- /.dotfiles/.local/share/virtualenvs
+- /.dotfiles/.local/share/JetBrains
+- /.dotfiles/.local/share/torbrowser
+- /.dotfiles/.local/share/cargo
+- /.dotfiles/.local/share/npm
+- /.dotfiles/.local/share/node_modules
+
+# File types - Image Files
++ /**/*.png
++ /**/*.jpg
++ /**/*.jpeg
++ /**/*.gif
++ /**/*.tiff
++ /**/*.bmp
++ /**/*.svg
++ /**/*.kra
++ /**/*.xcf*
+
+# File types - Audio Files
++ /**/*.mp3
++ /**/*.flac
++ /**/*.m4a
+
+# File types - Archive Files
++ /**/*.zip
++ /**/*.rar
++ /**/*.tar.*
+
+# File types - Microsoft Office Files
++ /**/*.doc
++ /**/*.docx
++ /**/*.xls
++ /**/*.xlsx
++ /**/*.ppt
++ /**/*.pptx
+
+# File types - Text files / Non-office Documents
++ /**/*.md
++ /**/*.csv
++ /**/*.json
++ /**/*.tsv
++ /**/*.pdf
++ /**/*.epub
+
+# File types - Scripts and Source Code
++ /**/*.html
++ /**/*.css
++ /**/*.js
++ /**/*.vim
++ /**/*.sh
++ /**/*.hs
++ /**/*.py
++ /**/*.rb
++ /**/*.kt
++ /**/*.java
++ /**/*.rs
++ /**/*.gradle
++ /**/*.bat
++ /**/*.properties
++ /**/gradlew
+
+# File types - Other
++ /**/*.key
++ /**/*.gpg
+
+# Directories to add, unless caught in filters above
++ /.dotfiles/.config
++ /.dotfiles/.local
++ /audio
++ /box
++ /code
++ /games
++ /pics
++ /text
++ /vbox
+
+# Ignore all other folders
+- /*

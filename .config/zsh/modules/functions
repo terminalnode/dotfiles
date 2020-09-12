@@ -12,6 +12,28 @@ function scpille {
     fi
 }
 
+function rsyncbackup {
+  # This whole function is pretty much just a fancy alias.
+  # I wanted to split the command up on multiple lines, and
+  # so here we are...
+
+  if [ -z "$1" ]
+  then
+    cat << EOF
+No directory specified!
+Best way to use this function is probably to create an alias for it with
+the backup destination preconfigured.
+
+Not sure if it's needed, but you should probably include a trailing slash
+for the destination name as well. Rsync is kind of picky about that.
+EOF
+  else
+    rsync -Prch \
+      --include-from="$HOME/.dotfiles/rsync_filter" \
+      "$HOME/" "$1"
+  fi
+}
+
 # Execute a command and mercilessly disconnect it from the terminal.
 function opig {
     nohup $@ &> /dev/null & disown
