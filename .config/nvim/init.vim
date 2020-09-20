@@ -1,6 +1,9 @@
 """""""""""
 """ PLUGINS
 """""""""""
+" Vim polyglot desperately wants this to be set before running
+let g:polyglot_disabled = [ 'python' ]
+
 " Indentation is not strictly necessary, but makes it easier to read I think.
 call plug#begin('~/.local/share/nvim/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -11,23 +14,18 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-rooter'
 
-    " Aesthetics (except color schemes)
+    " Aesthetics
     Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
     Plug 'ryanoasis/vim-devicons'
-    Plug 'drewtempelmeyer/palenight.vim'
+    Plug 'joshdick/onedark.vim'
 
     " Syntax highlighting / IDE features
-    Plug 'terminalnode/sway-vim-syntax'
-    Plug 'rust-lang/rust.vim'
-    Plug 'ElmCast/elm-vim'
-    Plug 'udalov/kotlin-vim'
-    Plug 'yuezk/vim-js'
-    Plug 'MaxMEllon/vim-jsx-pretty'
-    Plug 'neovimhaskell/haskell-vim'
+    Plug 'sheerun/vim-polyglot'
     Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-    Plug 'cespare/vim-toml'
+    Plug 'terminalnode/sway-vim-syntax'
+    Plug 'ElmCast/elm-vim'
     Plug 'OmniSharp/omnisharp-vim'
+
 call plug#end()
 echo "(ノಠ益ಠ)ノ彡┻━┻ THIS. IS. NEOVIM!!!"
 
@@ -58,11 +56,10 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
-
 " vim-rooter configuration
 " Changes active directory to closest dir with a git-file.
 " If none is found, change to directory of current file.
-let g:rooter_patterns = ['.root-marker', 'package.json', 'Rakefile', 'Pipfile', '.git', '.git/']
+let g:rooter_patterns = [ '.root-marker', 'package.json', 'Rakefile', 'Pipfile', '.git', '.git/' ]
 let g:rooter_change_directory_for_non_project_files = 'current'
 let g:ctrlp_working_path_mode = 'a'
 
@@ -110,7 +107,7 @@ nnoremap <silent> <space>s  :<C-u>CocList -I symbols<CR>
 """""""""""""""""""""""
 """ LOOKS CONFIGURATION
 """""""""""""""""""""""
-" needed for 99% of themes to not look awful.
+" Enable 24-bit color support so themes don't look crap
 set termguicolors
 
 " Highlight any extra whitespace at the end of a line
@@ -118,10 +115,11 @@ highlight ExtraWhitespace ctermbg=red guibg=darkred
 match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=darkred
 
-colorscheme palenight
+" Set the theme
+colorscheme onedark
 set background=dark
 let g:airline_powerline_fonts=1
-let g:airline_theme="palenight"
+let g:airline_theme="onedark"
 
 
 """"""""""""""""""""""""""""""""""
