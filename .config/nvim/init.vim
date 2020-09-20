@@ -11,12 +11,6 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-rooter'
 
-    " Textobjects
-    Plug 'kana/vim-textobj-user'
-    Plug 'beloglazov/vim-textobj-quotes'
-    Plug 'Julian/vim-textobj-variable-segment'
-    Plug 'tek/vim-textobj-ruby'
-
     " Aesthetics (except color schemes)
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -157,6 +151,12 @@ set expandtab               " make the tabkey insert spaces instead of tabs
 set listchars=tab:<->       " use `:set list` to view tabs as '<->' (will only be <> with two space tabs)
 set wildignore+=*/tmp/*,*/node_modules/*,*/__pycache__/,*/htmlcov/*,*/coverage/*,*.db
 
+"""""""""""""""""""""""
+""" NETRW CONFIGURATION
+"""""""""""""""""""""""
+let g:netrw_banner=0    " Disable the terrible banner thing.
+let g:netrw_liststyle=3 " Tree style listing.
+let g:netrw_keepdir=0   " I don't think this is relevant with rooter, but sounds good.
 
 """""""""""""""""""""""""""""""
 """ FORMAT OPTION CONFIGURATION
