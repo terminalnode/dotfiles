@@ -18,6 +18,8 @@ def get_search_engines() -> Dict[str, str]:
         "aw":         "https://wiki.archlinux.org/?search={}",
         "aur":        "https://aur.archlinux.org/packages/?K={}",
         "pm":         "https://www.archlinux.org/packages/?q={}",
+        # NixOs
+        "nix":        "https://search.nixos.org/packages?query={}",
         # Programming
         "hoogle":     "https://hoogle.haskell.org/?hoogle={}",
         "npm":        "https://www.npmjs.com/search?q={}",
