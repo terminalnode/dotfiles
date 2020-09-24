@@ -5,7 +5,7 @@ PartOf=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/redshift
+ExecStart=/usr/bin/env redshift
 Environment=DISPLAY=:0
 
 [Install]

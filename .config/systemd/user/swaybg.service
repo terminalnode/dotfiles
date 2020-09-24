@@ -5,7 +5,7 @@ PartOf=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/swaybg -m fill -i /home/monster/pics/wallpapers/current_wallpaper
+ExecStart=/usr/bin/env swaybg -m fill -i %h/pics/wallpapers/current_wallpaper
 
 [Install]
 WantedBy=sway-session.target

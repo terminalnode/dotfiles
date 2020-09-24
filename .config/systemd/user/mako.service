@@ -5,7 +5,7 @@ PartOf=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/mako
+ExecStart=/usr/bin/env mako
 
 [Install]
 WantedBy=sway-session.target
