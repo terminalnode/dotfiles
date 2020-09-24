@@ -1,5 +1,5 @@
 [Desktop Entry]
 Name=Discord
 StartupWMClass=discord
-Exec=/opt/discord/Discord
+Exec=env discord
 Type=Application

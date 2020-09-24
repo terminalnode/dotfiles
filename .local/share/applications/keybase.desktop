@@ -1,7 +1,6 @@
 [Desktop Entry]
 Name=Keybase (X11)
-Exec= env GDK_BACKEND=x11 electron /usr/share/keybase-app
-# Exec=env GDK_BACKEND=x11 keybase-gui %u
+Exec=env GDK_BACKEND=x11 NIX_SKIP_KEYBASE_CHECKS=1 keybase-gui
 Icon=keybase
 Terminal=false
 Type=Application

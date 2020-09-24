@@ -1,5 +1,5 @@
 [Desktop Entry]
 Type=Application
 Name=France24 Live Stream
-Exec=mpv .local/share/mpv-logo.png --ytdl-format=95 'https://www.youtube.com/watch?v=djXROrzZ9NI'
+Exec=env mpv .local/share/mpv-logo.png --ytdl-format=95 'https://www.youtube.com/watch?v=djXROrzZ9NI'
 Terminal=false

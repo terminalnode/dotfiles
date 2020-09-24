@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Bitwarden
-Exec=env GDK_BACKEND=x11 /opt/Bitwarden/bitwarden %U
+Exec=env GDK_BACKEND=x11 /usr/bin/env bitwarden %U
 Terminal=false
 Type=Application
 Icon=bitwarden

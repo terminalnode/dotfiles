@@ -2,7 +2,7 @@
 Type=Application
 Name=OpenRA (Red Alert)
 Icon=openra-ra
-Exec=openra-ra %U
+Exec=env openra-ra %U
 Terminal=false
 Categories=Game;StrategyGame;
 MimeType=x-scheme-handler/openra-ra-release-20190314;

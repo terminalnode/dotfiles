@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Steam
-Exec=/usr/bin/steam %U
+Exec=env steam %U
 Icon=steam
 Terminal=false
 Type=Application

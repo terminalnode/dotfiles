@@ -2,7 +2,7 @@
 Name=OpenRA (Tiberian Dawn)
 Type=Application
 Icon=openra-cnc
-Exec=openra-cnc %U
+Exec=env openra-cnc %U
 Terminal=false
 Categories=Game;StrategyGame;
 MimeType=x-scheme-handler/openra-cnc-release-20190314;

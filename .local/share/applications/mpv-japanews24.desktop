@@ -1,5 +1,5 @@
 [Desktop Entry]
 Type=Application
 Name=JapaNews24 Live Stream
-Exec=mpv .local/share/mpv-logo.png --ytdl-format=95 'https://www.youtube.com/watch?v=coYw-eVU0Ks'
+Exec=env mpv .local/share/mpv-logo.png --ytdl-format=95 'https://www.youtube.com/watch?v=coYw-eVU0Ks'
 Terminal=false

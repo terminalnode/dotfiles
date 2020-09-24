@@ -2,7 +2,7 @@
 Name=Eclipse
 Comment=JEE Development Environment
 Icon=eclipse
-Exec=eclipse
+Exec=env eclipse
 Terminal=false
 Type=Application
 Categories=Development;IDE;Java;

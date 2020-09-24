@@ -11,13 +11,12 @@ StartupNotify=true
 StartupWMClass=Firefox
 Categories=Network;WebBrowser;
 Actions=new-window;new-private-window;
-# Exec=env GDK_BACKEND=wayland /usr/lib/firefox/firefox %u
-Exec=env GDK_BACKEND=wayland /usr/lib/firefox/firefox --private-window %u
+Exec=env GDK_BACKEND=wayland firefox --private-window %u
 
 [Desktop Action new-window]
 Name=New Window
-Exec=env GDK_BACKEND=wayland /usr/lib/firefox/firefox --new-window %u
+Exec=env GDK_BACKEND=wayland firefox --new-window %u
 
 [Desktop Action new-private-window]
 Name=New Private Window
-Exec=env GDK_BACKEND=wayland /usr/lib/firefox/firefox --private-window %u
+Exec=env GDK_BACKEND=wayland firefox --private-window %u

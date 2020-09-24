@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Krita
-Exec=krita %F
+Exec=env krita %F
 MimeType=application/x-krita;image/openraster;application/x-krita-paintoppreset;
 Type=Application
 Icon=krita
