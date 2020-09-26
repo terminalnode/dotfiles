@@ -4,11 +4,11 @@
   fonts.enableDefaultFonts = true;
   fonts.enableFontDir = true;
 
-  fonts.fonts = [
-    pkgs.source-code-pro
-    pkgs.nerdfonts
-    pkgs.font-awesome
-    pkgs.twemoji-color-font
+  fonts.fonts = with pkgs; [
+    source-code-pro
+    nerdfonts
+    font-awesome
+    twemoji-color-font
   ];
 
   fonts.fontconfig = {

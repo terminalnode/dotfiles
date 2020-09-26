@@ -4,6 +4,7 @@
   networking = {
     hostName = "yourhostname";
     useDHCP = false; # Future default value, better get used to it.
+    wlanInterfaces.wifi.device = "wlp3s0"; # Rename wlp3s0 to wifi
     # networkmanager.enable = true;
 
     interfaces = {
