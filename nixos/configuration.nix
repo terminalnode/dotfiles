@@ -73,6 +73,7 @@
   services.keybase.enable = true;
   services.unifi.enable = true;
   services.openssh.enable = true;
+  security.pam.services.swaylock = { };
 
   # ZSH configuration
   programs.zsh.enable = true;
