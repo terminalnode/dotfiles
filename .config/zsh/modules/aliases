@@ -5,7 +5,8 @@ alias cwj="cd ~/code/codewars/java"
 alias cwjs="cd ~/code/codewars/js"
 alias cwp="cd ~/code/codewars/python"
 alias cwr="cd ~/code/codewars/ruby"
-alias cdh="cd ~/code/haskbook"
+alias cdh="cd ~/code/learning-haskell"
+alias cdj="cd ~/code/learning-clojure"
 alias cmf="cd ~/code/mrfreeze"
 alias cddwm="cd ~/.dotfiles/suckless/dwm"
 alias cdst="cd ~/.dotfiles/suckless/st"
@@ -28,6 +29,7 @@ alias tmux="tmux -f '$XDG_CONFIG_HOME/tmux/tmux.conf'"
 alias ip="sudo ip"
 alias netctl="sudo netctl"
 alias wifi="sudo wifi-menu"
+alias nixos-rebuild="sudo nixos-rebuild"
 
 # ALIASES
 # Simple aliases for various commands
