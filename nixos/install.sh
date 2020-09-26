@@ -5,10 +5,10 @@
 # doesn't really matter much.
 
 origin="${HOME}/.dotfiles/nixos"
-destination="/etc/nixos"
+destination="/etc"
 
 if [ -d "${origin}" ]; then
-  sudo cp -rf "${origin}" "${destination}"
+  sudo cp -rfv "${origin}" "${destination}"
   sudo nixos-rebuild switch
 else
   echo

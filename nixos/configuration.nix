@@ -42,7 +42,7 @@
     # Web
     qutebrowser element-desktop bitwarden
     signal-desktop keybase keybase-gui
-    firefox
+    firefox chromium
 
     # Media
     mpv mpd mpc_cli imv krita gimp youtube-dl svtplay-dl

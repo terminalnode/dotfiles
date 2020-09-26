@@ -3,11 +3,12 @@
 {
   networking = {
     hostName = "yourhostname";
-    networking.useDHCP = false; # Future default value, better get used to it.
+    useDHCP = false; # Future default value, better get used to it.
     # networkmanager.enable = true;
 
     interfaces = {
-      wlan0.useDHCP = true;
+      wlp3s0.useDHCP = true;
+      wifi.useDHCP = true;
     };
 
     hosts = {
