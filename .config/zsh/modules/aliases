@@ -11,6 +11,7 @@ alias cmf="cd ~/code/mrfreeze"
 alias cddwm="cd ~/.dotfiles/suckless/dwm"
 alias cdst="cd ~/.dotfiles/suckless/st"
 alias mansplain="man"
+alias update_battery="~/.config/i3blocks/battery && pkill -RTMIN+9 i3blocks"
 
 # ADD OPTIONS
 # Commands replaced with themselves + various options.
@@ -51,6 +52,7 @@ alias gitc="git commit -m"
 alias gitl="git log --oneline"
 alias gitp="git push"
 alias gitd="git diff"
+alias gitr="git rebase"
 alias chko="git checkout"
 
 # Slightly more complicated aliases

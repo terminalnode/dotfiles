@@ -97,6 +97,7 @@ signal=9
 command=~/.config/i3blocks/battery
 color=#ffff5b
 interval=30
+signal=12
 
 # frost1
 [calendar]
