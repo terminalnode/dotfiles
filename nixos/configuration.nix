@@ -10,6 +10,23 @@
       # Comment out to disable stuff you don't want.
       ./modules.public/font-config.nix
 
+      # Programming languages
+      # These are usually quite small, but it's handy to have
+      # them all separate. So they can be disabled and stuff.
+      ./modules.public/languages/general.nix
+
+      ./modules.public/languages/clojure.nix
+      ./modules.public/languages/csharp.nix
+      ./modules.public/languages/go.nix
+      ./modules.public/languages/haskell.nix
+      ./modules.public/languages/java.nix
+      ./modules.public/languages/kotlin.nix
+      ./modules.public/languages/nodejs.nix
+      ./modules.public/languages/python.nix
+      ./modules.public/languages/ruby.nix
+      ./modules.public/languages/rust.nix
+      ./modules.public/languages/scala.nix
+
       # Private modules
       # Copy the respective templates from ./modules.templates
       # to ./modules.local and fill in your preferences.
@@ -50,22 +67,14 @@
     # System tools
     exa du-dust bat mkpasswd gnupg curl wget
     tmux tldr neofetch htop bc nix-index
-    alacritty killall
+    alacritty killall jq
 
     # WM
     sway swaybg swayidle swaylock i3blocks xwayland wofi rofi mako
     xmonad-with-packages libnotify
 
-    # Development - Languages
-    python ruby jdk8 jdk11 ghc scala clojure
-
-    # Development - Tools
-    git gradle sbt leiningen heroku stack jq ant
-    nodejs gnumake
-
     # Development - Editors
     vim neovim vimPlugins.vim-plug
-    jetbrains.idea-community android-studio
     python38Packages.pynvim
   ];
 

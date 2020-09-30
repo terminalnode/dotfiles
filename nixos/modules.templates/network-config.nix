@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    wireguard-tools
+  ];
+
   networking = {
     hostName = "yourhostname";
     useDHCP = false; # Future default value, better get used to it.
