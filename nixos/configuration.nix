@@ -59,7 +59,7 @@
     # Web
     qutebrowser element-desktop bitwarden
     signal-desktop keybase keybase-gui
-    firefox chromium
+    firefox chromium transmission-qt
 
     # Media
     mpv mpd mpc_cli imv krita gimp youtube-dl svtplay-dl
@@ -67,11 +67,15 @@
     # System tools
     exa du-dust bat mkpasswd gnupg curl wget
     tmux tldr neofetch htop bc nix-index
-    alacritty killall jq
+    alacritty killall jq fd ncpamixer
 
     # WM
     sway swaybg swayidle swaylock i3blocks xwayland wofi rofi mako
     xmonad-with-packages libnotify
+
+    # Looks
+    breeze-qt5
+    breeze-gtk
 
     # Development - Editors
     vim neovim vimPlugins.vim-plug
