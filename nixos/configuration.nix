@@ -13,19 +13,19 @@
       # Programming languages
       # These are usually quite small, but it's handy to have
       # them all separate. So they can be disabled and stuff.
-      ./modules.public/languages/general.nix
+      ./modules.public/development/general.nix
 
-      ./modules.public/languages/clojure.nix
-      ./modules.public/languages/csharp.nix
-      ./modules.public/languages/go.nix
-      ./modules.public/languages/haskell.nix
-      ./modules.public/languages/java.nix
-      ./modules.public/languages/kotlin.nix
-      ./modules.public/languages/nodejs.nix
-      ./modules.public/languages/python.nix
-      ./modules.public/languages/ruby.nix
-      ./modules.public/languages/rust.nix
-      ./modules.public/languages/scala.nix
+      ./modules.public/development/clojure.nix
+      ./modules.public/development/csharp.nix
+      ./modules.public/development/go.nix
+      ./modules.public/development/haskell.nix
+      ./modules.public/development/java.nix
+      ./modules.public/development/kotlin.nix
+      ./modules.public/development/nodejs.nix
+      ./modules.public/development/python.nix
+      ./modules.public/development/ruby.nix
+      ./modules.public/development/rust.nix
+      ./modules.public/development/scala.nix
 
       # Private modules
       # Copy the respective templates from ./modules.templates
@@ -67,7 +67,7 @@
     # System tools
     exa du-dust bat mkpasswd gnupg curl wget
     tmux tldr neofetch htop bc nix-index
-    alacritty killall jq fd ncpamixer
+    alacritty killall jq fd ncpamixer slurp grim
 
     # WM
     sway swaybg swayidle swaylock i3blocks xwayland wofi rofi mako
@@ -76,6 +76,7 @@
     # Looks
     breeze-qt5
     breeze-gtk
+    qt5.qtbase
 
     # Development - Editors
     vim neovim vimPlugins.vim-plug
