@@ -1,20 +1,21 @@
 # Built-in laptop display
 output LVDS-1 {
-    pos 0 0
-    #pos 1920 0
+    #pos 0 0
+    pos 1920 0
     scale 1
     mode 1600x1900@60Hz
 }
 
-# Place any VGA display to the right, because
-# that's where my display normaly sits. ¯\_(ツ)_/¯
-# Computer only has one VGA, but apparently sometimes
-# it thinks it's VGA-2.
-output VGA-1 pos 1600 0
+output "Unknown HP E243i CNK8132FT2" {
+    pos 0 0
+    mode 1920x1200@60Hz
+}
+
+#output VGA-1 pos 1600 0
 #output VGA-1 pos 0 0
-output "Unknown HP E243i CNK8132G7M" mode 1920x1200@60Hz
 
 # Lots and lots of possible outputs.
+# Computer only has one VGA, but apparently sometimes it thinks it's VGA-2.
 # Workspace     Primary out                 Secondary outs
 workspace 1     output LVDS-1               VGA-1 VGA-2 DP-1
 workspace 2     output LVDS-1               VGA-1 VGA-2 DP-1
