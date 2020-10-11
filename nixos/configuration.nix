@@ -1,5 +1,11 @@
 { config, pkgs, ... }:
 
+let
+  # Allow fetching certain packages, notably discord, straight from master
+  master = import
+    (builtins.fetchTarball https://github.com/NixOS/nixpkgs/tarball/master)
+    { config = config.nixpkgs.config; };
+in
 {
   imports =
     [
@@ -16,7 +22,7 @@
       ./modules.public/development/general.nix
 
       ./modules.public/development/clojure.nix
-      ./modules.public/development/csharp.nix
+      #./modules.public/development/csharp.nix
       ./modules.public/development/go.nix
       ./modules.public/development/haskell.nix
       ./modules.public/development/java.nix
@@ -53,7 +59,7 @@
   environment.systemPackages = with pkgs; [
     # Discord with lower case link
     (writeShellScriptBin "discord" ''
-      ${pkgs.discord}/bin/Discord
+      ${master.discord}/bin/Discord
     '')
 
     # Web
@@ -68,6 +74,7 @@
     exa du-dust bat mkpasswd gnupg curl wget
     tmux tldr neofetch htop bc nix-index
     alacritty killall jq fd ncpamixer slurp grim
+    zathura unison
 
     # WM
     sway swaybg swayidle swaylock i3blocks xwayland wofi rofi mako
@@ -81,6 +88,9 @@
     # Development - Editors
     vim neovim vimPlugins.vim-plug
     python38Packages.pynvim
+
+    # Other
+    libreoffice
   ];
 
   # Various
@@ -106,25 +116,22 @@
   services.xserver.xkbOptions = "caps:swapescape,compose:ctrl,grp:alt_caps_toggle";
 
   # Enable Postgres
-  services.postgresql.enable = true;
-  services.postgresql.package = pkgs.postgresql_12;
-  services.postgresql.port = 5432;
-  services.postgresql.ensureDatabases = [
-    "mrfreeze_settings"
-  ];
-  #services.postgresql.ensureUsers = [
-  #  {
-  #    name = "terminal";
-  #    ensurePermissions = { "DATABASE mrfreeze_settings" = "ALL_PRIVILEGES"; };
-  #  }
-  #];
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_12;
+    port = 5432;
+    ensureDatabases = [ ];
+    ensureUsers = [ ];
+  };
 
   # Enable Mariadb
-  services.mysql.enable = true;
-  services.mysql.package = pkgs.mariadb;
-  services.mysql.port = 3306;
-  services.mysql.ensureDatabases = [];
-  services.mysql.ensureUsers = [];
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb;
+    port = 3306;
+    ensureDatabases = [ ];
+    ensureUsers = [ ];
+  };
 
   # Enable touchpad support.
   services.xserver.libinput.enable = true;
