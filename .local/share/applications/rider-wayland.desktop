@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Rider (Wayland)
+Exec=env _JAVA_AWT_WM_NONREPARENTING=1 rider
+Terminal=false
+StartupWMClass=jetbrains-rider
