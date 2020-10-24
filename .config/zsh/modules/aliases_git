@@ -1,0 +1,10 @@
+#!/bin/env zsh
+git config --global --replace-all alias.a add
+git config --global --replace-all alias.p push
+git config --global --replace-all alias.pl pull
+git config --global --replace-all alias.s status
+git config --global --replace-all alias.c commit
+git config --global --replace-all alias.r rebase
+git config --global --replace-all alias.co checkout
+git config --global --replace-all alias.ref reflog
+git config --global --replace-all alias.res reset
