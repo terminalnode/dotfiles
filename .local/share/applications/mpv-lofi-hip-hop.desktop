@@ -1,5 +1,5 @@
 [Desktop Entry]
 Type=Application
 Name=Lofi Hip Hop Radio - Beats to Relax/Study To
-Exec=env mpv .local/share/mpv-logo.png --ytdl-format=96 'https://www.youtube.com/watch?v=5qap5aO4i9A'
+Exec=env mpv --force-window --ytdl-format=95 'https://www.youtube.com/watch?v=5qap5aO4i9A' --no-video
 Terminal=false
