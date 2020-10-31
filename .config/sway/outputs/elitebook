@@ -1,0 +1,41 @@
+# Built-in laptop display
+output eDP-1 {
+    #pos 0 0
+    pos 1920 0
+    scale 1
+    mode 1920x1080@60Hz
+}
+
+output "Unknown Viseo 200Ws D140C0194003" {
+  pos 3840 0
+}
+
+output "Unknown HP E243i CNK8132FT2" {
+    pos 0 0
+    mode 1920x1200@60Hz
+}
+
+#output VGA-1 pos 1600 0
+#output VGA-1 pos 0 0
+
+# Workspace     Primary out                Secondary outs
+workspace 1     output eDP-1               DP-1 DP-2
+workspace 2     output eDP-1               DP-1 DP-2
+workspace 3     output eDP-1               DP-1 DP-2
+workspace 4     output eDP-1               DP-1 DP-2
+workspace 5     output eDP-1               DP-1 DP-2
+workspace 6     output DP-1 DP-2           eDP-1
+workspace 7     output DP-1 DP-2           eDP-1
+workspace 8     output DP-1 DP-2           eDP-1
+workspace 9     output DP-1 DP-2           eDP-1
+workspace 10    output DP-1 DP-2           eDP-1
+workspace 11    output DP-1 DP-2           eDP-1
+workspace 12    output DP-1 DP-2           eDP-1
+workspace 13    output DP-1 DP-2           eDP-1
+workspace 14    output DP-1 DP-2           eDP-1
+workspace 15    output DP-1 DP-2           eDP-1
+workspace 16    output eDP-1               DP-1 DP-2
+workspace 17    output eDP-1               DP-1 DP-2
+workspace 18    output eDP-1               DP-1 DP-2
+workspace 19    output eDP-1               DP-1 DP-2
+workspace 20    output eDP-1               DP-1 DP-2
