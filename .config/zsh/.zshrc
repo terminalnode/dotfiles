@@ -18,6 +18,7 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 fpath=("$ZDOTDIR/completions" $fpath)
 [ -d ~/.zsh/completions.local ] && fpath=("$ZDOTDIR/completions.local" $fpath)
+setopt HIST_IGNORE_SPACE
 
 # Load all the files in ./modules
 for file in $ZDOTDIR/modules*/*
