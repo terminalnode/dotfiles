@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=IntelliJ IDEA Ultimate (wayland)
+Exec=env _JAVA_AWT_WM_NONREPARENTING=1 intellij-idea-ultimate-edition %u
+Icon=intellij-idea-ultimate-edition
+Terminal=false
+Type=Application
