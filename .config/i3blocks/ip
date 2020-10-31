@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+response=$(curl --silent ifconfig.me)
+
+[ ${response:0:7} = "<html>" ] &&
+  echo "Failed to fetch IP" ||
+  echo $response

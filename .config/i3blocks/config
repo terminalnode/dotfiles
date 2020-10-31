@@ -87,7 +87,7 @@ signal=9
 # every 10 minutes
 [get-public-ip]
 label= 
-command=echo $(curl ifconfig.me)
+command=~/.config/i3blocks/ip
 color=#81b1ff
 interval=600
 signal=9
