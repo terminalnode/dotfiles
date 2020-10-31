@@ -42,7 +42,7 @@ interval=30
 # red
 [disk-sh]
 command=[disk-sh]
-command=echo $(df -h / /home | awk 'FNR > 1 {print "", $6, $4}' | tr '\n' 'z' | sed -e "s/z$//" -e "s/z/ | /")
+command=~/.config/i3blocks/hdd
 color=#ff616a
 interval=30
 

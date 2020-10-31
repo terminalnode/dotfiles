@@ -1,0 +1,19 @@
+#!/bin/sh
+# Enter list of potential drives here
+drives='/ /boot /home /media/hdd /media/usbdisk'
+
+function print_drive {
+  df -h $1 2> /dev/null \
+    | awk 'FNR > 1 {print "", $6, $4}' \
+    | grep "$1 "
+}
+
+for drive in $drives
+do
+  s=$(print_drive $drive)
+  if [[ -n $s ]]; then
+    out="$out $s |"
+  fi
+done
+
+echo ${out:0:-2}
