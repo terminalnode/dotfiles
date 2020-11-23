@@ -93,6 +93,7 @@ set ttyfast                     " makes vim smoother by assuming a fast tty conn
 set encoding=utf-8				" sensible encoding
 set ruler						" show line/column of current cursor pos
 set visualbell					" turn off beeping bell
+set noerrorbells					" turn off beeping bell
 set t_vb=						" turn off visual bell
 set autoindent				    " copy indentation of previous line on new line
 set smarttab				    " tab to suitable level instead of one tab at a time
