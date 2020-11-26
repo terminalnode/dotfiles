@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=DataGrip (Wayland)
+Icon=datagrip
+Exec=env _JAVA_AWT_WM_NONREPARENTING=1 datagrip %f
+Comment=IDE for Databases and SQL
+Terminal=false
+StartupWMClass=jetbrains-datagrip
