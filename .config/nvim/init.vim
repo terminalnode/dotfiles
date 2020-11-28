@@ -17,7 +17,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     " Aesthetics
     Plug 'vim-airline/vim-airline'
     Plug 'ryanoasis/vim-devicons'
-    Plug 'joshdick/onedark.vim'
+    Plug 'terminalnode/onedark.vim'
 
     " Syntax highlighting / IDE features
     Plug 'sheerun/vim-polyglot'
