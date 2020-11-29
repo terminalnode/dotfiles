@@ -31,6 +31,8 @@ def get_search_engines() -> Dict[str, str]:
         "maven":      "https://mvnrepository.com/search?q={}",
         "gem":        "https://rubygems.org/search?utf8=%E2%9C%93&query={}",
         "cc":         "https://search.creativecommons.org/search?q={}",
+        "docker":     "https://hub.docker.com/search?q={}&type=image",
+        "dockerp":    "https://hub.docker.com/search?q={}&type=plugin",
         # Dictionaries
         "tyda":       "http://tyda.se/search/{}",
         "ud":         "http://www.urbandictionary.com/define.php?term={}",
