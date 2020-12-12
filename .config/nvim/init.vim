@@ -67,6 +67,9 @@ let g:ctrlp_working_path_mode = 'a'
 """""""""""""""""""""
 """ COC CONFIGURATION
 """""""""""""""""""""
+" coc-yank highlight thing
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+
 " Show documentation in preview window
 function! s:show_documentation()
   if (index(['vim', 'help'], &filetype) >= 0)
