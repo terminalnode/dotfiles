@@ -1,9 +1,16 @@
 {
-    "languageserver": {
-        "efm": {
-          "command": "efm-langserver",
-          "args": [ ],
+  "languageserver": {
+    "efm": {
+      "command": "efm-langserver",
+      "args": [ ],
           "filetypes": [ "vim", "eruby", "markdown", "yaml" ]
+        },
+
+        "terraform": {
+          "command": "terraform-ls",
+          "args": ["serve"],
+          "filetypes": ["terraform", "tf"],
+          "initializationOptions": {}
         },
 
         "haskell": {
