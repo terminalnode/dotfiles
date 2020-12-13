@@ -3,25 +3,19 @@
 # of this script.
 
 # History configuration
+mkdir -p ~/.cache/zsh/
 HISTFILE=~/.cache/zsh/histfile
 HISTSIZE=100000
 SAVEHIST=100000
+setopt HIST_IGNORE_SPACE
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
 
 # Activate dircolors if installed and configured
 if [[ -x $(command -v dircolors) && ~/.dircolors ]]; then
   eval $(dircolors "$XDG_CONFIG_HOME/dircolors")
 fi
 
-# Autocompletion settings
-autoload -U compinit; compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-fpath=("$ZDOTDIR/completions" $fpath)
-[ -d ~/.zsh/completions.local ] && fpath=("$ZDOTDIR/completions.local" $fpath)
-setopt HIST_IGNORE_SPACE
-
-# Scaleway CLI autocomplete
-eval "$(scw autocomplete script shell=zsh)"
 
 # Load all the files in ./modules
 for file in $ZDOTDIR/modules*/*
