@@ -1,12 +1,15 @@
 # This file only contains the bare basics, most settings are separated into
 # multiple files in the ./modules directory. These are loaded at the bottom
 # of this script.
+setopt EXTENDED_GLOB
 
 # History configuration
 mkdir -p ~/.cache/zsh/
 HISTFILE=~/.cache/zsh/histfile
 HISTSIZE=100000
 SAVEHIST=100000
+HISTORY_IGNORE='(:)#q|exit|l[lsa]( *)#|e[l]#( *)#|lsblk|df( *)#|du( *)#|mpv *|imv *|man *|rm *|cd ..|mv *'
+HISTORY_IGNORE='git add( *)|git status( *)#|git rebase( *)#|gits( *)#|gita( *)#|gitr( *)#|'$HISTORY_IGNORE
 setopt HIST_IGNORE_SPACE
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY
