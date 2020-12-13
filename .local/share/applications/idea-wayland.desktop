@@ -2,10 +2,8 @@
 Version=1.0
 Type=Application
 Name=IntelliJ IDEA Community Edition (Wayland)
-Comment=Develop with pleasure!
 Exec=env _JAVA_AWT_WM_NONREPARENTING=1 idea %f
 Icon=idea
 Terminal=false
 StartupNotify=true
 StartupWMClass=jetbrains-idea-ce
-Categories=Development;IDE;Java;

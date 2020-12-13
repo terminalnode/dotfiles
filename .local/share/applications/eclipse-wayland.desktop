@@ -1,8 +1,7 @@
 [Desktop Entry]
 Name=Eclipse (Wayland)
-Comment=JEE Development Environment
 Icon=eclipse
-Exec=env GDK_BACKEND=x11 eclipse
+Exec=env GDK_BACKEND=wayland eclipse
 Terminal=false
 Type=Application
 Categories=Development;IDE;Java;

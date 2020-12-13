@@ -3,7 +3,7 @@ Version=1.0
 Type=Application
 Name=DataGrip (Wayland)
 Icon=datagrip
-Exec=env _JAVA_AWT_WM_NONREPARENTING=1 datagrip %f
+Exec=env _JAVA_AWT_WM_NONREPARENTING=1 "/opt/datagrip/bin/datagrip.sh" %f
 Comment=IDE for Databases and SQL
 Terminal=false
 StartupWMClass=jetbrains-datagrip
