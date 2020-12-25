@@ -30,6 +30,7 @@ if [[ -d "$ZSH" ]]; then
     gradle
     aws
     colored-man-pages
+    vi-mode
   )
   source $ZSH/oh-my-zsh.sh
 fi
