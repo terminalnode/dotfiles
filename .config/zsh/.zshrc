@@ -5,14 +5,9 @@
 # Install and configure oh-my-zsh
 export ZSH="$HOME/.config/zsh/oh-my-zsh"
 if [[ ! -d "$ZSH" ]]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-
-  # Remove themes directory and replace it with symlink of our own
-  rm -fr "$ZSH/themes"
-  ln -sf "$HOME/.dotfiles/.config/zsh/oh-my-zsh-themes" "$ZSH/themes"
-
-  # Remove oh my zsh zshrc and any pre-oh-my-zsh bullshit
-  rm "$HOME/.zshrc*"
+  echo 'Oh my zsh is not present, fetching it!'
+  git clone 'https://github.com/ohmyzsh/ohmyzsh.git' "$ZSH"
+  cp "$HOME/.dotfiles/.config/zsh/oh-my-zsh-themes"/* "$ZSH/themes"
 fi
 
 if [[ -d "$ZSH" ]]; then
