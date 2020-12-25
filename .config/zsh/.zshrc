@@ -29,6 +29,7 @@ if [[ -d "$ZSH" ]]; then
     terraform
     gradle
     aws
+    colored-man-pages
   )
   source $ZSH/oh-my-zsh.sh
 fi
