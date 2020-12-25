@@ -39,7 +39,8 @@
 
 # zsh
 !.config/zsh
-.config/zsh/.zcompdump
+.config/zsh/.zcompdump*
+.config/zsh/oh-my-zsh
 .config/zsh/*.local
 
 # .desktop-files
