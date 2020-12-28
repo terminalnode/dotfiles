@@ -11,7 +11,7 @@ green_stop_bracket() {
 
 # Time display when everything's normal
 current_time_ok() {
-  echo '%*'
+  echo '%F{yellow}%*%f'
 }
 
 # Time display when an error occurred
@@ -38,7 +38,7 @@ directory() {
 tf_prompt() {
   info=$(tf_prompt_info)
   if [[ ! -z "$info" ]]; then
-    echo " %F{brown}${info}%f"
+    echo " %F{yellow}${info}%f"
   fi
 }
 
@@ -64,4 +64,4 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[white]%} ✱%{$reset_color%}"
 PROMPT='
 $(current_time) $(green_start_bracket)$(username) $(directory)$(green_stop_bracket)
 $(prompt_indicator)'
-RPROMPT='$(git_prompt_status)$(tf_prompt)'
+RPROMPT='$(git_prompt_status) %F{magenta}$(git_prompt_info)%f$(tf_prompt)'
