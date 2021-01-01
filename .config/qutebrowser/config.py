@@ -63,6 +63,7 @@ c.zoom.levels = [
     "5%", "10%", "15%", "25%", "33%", "50%", "67%", "75%", "90%", "100%",
     "110%", "125%", "150%", "175%", "200%", "250%", "300%", "400%", "500%"
 ]
+c.content.cookies.accept = "no-3rdparty"
 
 # Previously enabled options that are disabled now.
 # c.content.pdfjs               = False
