@@ -62,3 +62,6 @@ done
 # This makes the delete key work as expected in zsh.
 bindkey "^[[3~"     delete-char
 bindkey "^[3;5~"    delete-char
+
+# Java
+export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"

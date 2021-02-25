@@ -61,6 +61,3 @@ export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 
 # bat theme
 export BAT_THEME="Monokai Extended Bright"
-
-# Java
-export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
