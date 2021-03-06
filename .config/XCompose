@@ -20,3 +20,6 @@ include "%L"
 <Multi_key> <z> <h>                             : "ʒ"   U0292   # z h LATIN SMALL LETTER EZH
 <Multi_key> <z> <j>                             : "ʒ"   U0292   # z j LATIN SMALL LETTER EZH
 <Multi_key> <3> <j>                             : "ʒ"   U0292   # 3 j LATIN SMALL LETTER EZH
+
+# [U0370 - U03FF] Greek and Coptic
+<Multi_key> <g> <l>                             : "λ"   U03BB   # g l GREEK SMALL LETTER LAMBDA
