@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # Enter list of potential drives here
 drives='/ /boot /home /media/hdd /media/usbdisk'
 
