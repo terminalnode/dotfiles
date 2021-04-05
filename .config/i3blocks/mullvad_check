@@ -1,0 +1,22 @@
+#!/bin/sh
+response=$(curl -s "https://am.i.mullvad.net/json")
+is_connected=$(echo "$response" | jq '.mullvad_exit_ip')
+
+if [ -z "$is_connected" ]; then
+  echo "  No response "  # full text
+  echo "  "              # short text
+  echo "#FFFFFF"          # fg color
+  echo "#FF1010"          # bg color
+
+elif ("$is_connected"); then
+  country=$(echo "$response" | jq -r '.country' | tr '[:lower:]' '[:upper:]')
+  echo "  $country "   # full text
+  echo "  "            # short text
+
+else
+  echo "  Mullvad "    # full text
+  echo "  "            # short text
+  echo "#FFFFFF"        # fg color
+  echo "#FF1010"        # bg color
+
+fi

@@ -72,8 +72,8 @@ color=#a3feac
 interval=60
 signal=9
 
-[integrityst]
-command=~/.config/i3blocks/integrity_ip_check
+[mullvad]
+command=~/.config/i3blocks/mullvad_check
 color=#a3fe8c
 interval=60
 signal=9
