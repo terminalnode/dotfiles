@@ -46,6 +46,7 @@ input "*" {
     xkb_options caps:swapescape,compose:rctrl,grp:alt_caps_toggle
 
     # Pointers
+    pointer_accel       0.3
     natural_scroll      enabled
     scroll_factor       0.5
     dwt                 disabled
