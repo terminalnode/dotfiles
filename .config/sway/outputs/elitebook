@@ -11,6 +11,12 @@ output "Samsung Electric Company SMS27A350H 0x00003530" {
   mode 1920x1080@60.000000Hz
 }
 
+# Work BIG BOY SCREEN
+output "Philips Consumer Electronics Company PHL 346B1C 0x0000A2CA" {
+  pos 3840 0
+  mode 3440x1440@100Hz
+}
+
 # HQ office screen
 output "Unknown HP E243i CNK8132FT2" {
   pos 3840 0
