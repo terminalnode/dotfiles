@@ -38,6 +38,6 @@ xset r rate 280 65
 
 # Uncomment whichever one you want...
 # exec startxfce4
-# exec startplasma-x11
+exec startplasma-x11
 # exec i3
-export _JAVA_AWT_WM_NONREPARENTING=1; exec dwm
+# export _JAVA_AWT_WM_NONREPARENTING=1; exec dwm
