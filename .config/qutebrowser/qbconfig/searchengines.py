@@ -28,10 +28,10 @@ def get_search_engines() -> Dict[str, str]:
         "pypi":       "https://pypi.org/search/?q={}",
         "pydoc":      "https://docs.python.org/3.8/search.html?q={}",
         "rudoc":      "https://ruby-doc.com/search.html?q={}",
-        "maven":      "https://mvnrepository.com/search?q={}",
+        "mvn":        "https://mvnrepository.com/search?q={}",
         "gem":        "https://rubygems.org/search?utf8=%E2%9C%93&query={}",
         "cc":         "https://search.creativecommons.org/search?q={}",
-        "docker":     "https://hub.docker.com/search?q={}&type=image",
+        "dockeri":    "https://hub.docker.com/search?q={}&type=image",
         "dockerp":    "https://hub.docker.com/search?q={}&type=plugin",
         # Dictionaries
         "tyda":       "http://tyda.se/search/{}",
