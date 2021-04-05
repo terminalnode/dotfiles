@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=PyCharm Professional Edition (Wayland)
+Icon=pycharm
+Exec=env _JAVA_AWT_WM_NONREPARENTING=1 pycharm %f
+Terminal=false
+StartupNotify=true
+StartupWMClass=jetbrains-pycharm

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=PyCharm Professional Edition
+Icon=pycharm
+Exec=pycharm %f
+Terminal=false
+StartupNotify=true
+StartupWMClass=jetbrains-pycharm
