@@ -61,3 +61,4 @@ export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 
 # bat theme
 export BAT_THEME="Monokai Extended Bright"
+source "/home/terminal/.local/share/cargo/env"
