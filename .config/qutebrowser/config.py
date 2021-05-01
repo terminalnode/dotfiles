@@ -20,6 +20,9 @@ c = c  # type: ignore[name-defined] # noqa: F821,E501 pylint: disable=E0602,C010
 c.url.searchengines = searchengines.get_search_engines()
 nordtheme.set_theme(c)
 
+# Make qutebrowser stop whining on startup
+config.load_autoconfig(False)
+
 # Keybindings
 config.bind("<Ctrl-Shift-p>", "set-cmd-text -s :open -p")
 config.bind("<Ctrl-t>", "set-cmd-text -s :open -t")
