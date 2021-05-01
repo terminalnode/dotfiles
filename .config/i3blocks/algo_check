@@ -1,0 +1,11 @@
+#!/bin/sh
+response_usd=$(curl -s "https://api.coinbase.com/v2/prices/ALGO-USD/buy")
+response_sek=$(curl -s "https://api.coinbase.com/v2/prices/ALGO-SEK/buy")
+cost_usd=$(echo $response_usd | jq -r '.data.amount')
+cost_sek=$(echo $response_sek | jq -r '.data.amount')
+status="\$$cost_usd ($cost_sek kr)"
+
+echo "ALGO \$$cost_usd ($cost_sek kr)" # full text
+echo "ALGO \$$cost_usd "               # short text
+# no custom bg
+# no custom fg

@@ -78,10 +78,10 @@ color=#a3fe8c
 interval=60
 signal=9
 
-# [ssid]
-# command=netctl list | grep '*' | cut -d' ' -f2-
-# color=#a3be8c
-# interval=10
+[algo]
+command=~/.config/i3blocks/algo_check
+color=#a3ce8c
+interval=10
 
 # frost3
 # every 10 minutes
