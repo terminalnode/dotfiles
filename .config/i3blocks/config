@@ -81,7 +81,7 @@ signal=9
 [algo]
 command=~/.config/i3blocks/algo_check
 color=#a3ce8c
-interval=10
+interval=30
 
 # frost3
 # every 10 minutes
