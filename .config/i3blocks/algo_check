@@ -1,11 +1,38 @@
 #!/bin/sh
+# Simple script to get the current price of Algorand on Coinbase.
+# An environmental variable ALGO_ADDRESS can be provided to also print
+# the amount and rewards in wallet.
+#
+# Price-lookup uses coinbase's public API.
+# Wallet lookup uses the algod-like algoexplorer API.
+#
+# Without a wallet the price is reported in USD and SEK.
+# With a wallet the price is reported in USD only, but amount in wallet is included
+# as well as lifetime rewards for the account provided account.
 response_usd=$(curl -s "https://api.coinbase.com/v2/prices/ALGO-USD/buy")
-response_sek=$(curl -s "https://api.coinbase.com/v2/prices/ALGO-SEK/buy")
 cost_usd=$(echo $response_usd | jq -r '.data.amount')
-cost_sek=$(echo $response_sek | jq -r '.data.amount')
 status="\$$cost_usd ($cost_sek kr)"
 
-echo "ALGO \$$cost_usd ($cost_sek kr)" # full text
-echo "ALGO \$$cost_usd "               # short text
-# no custom bg
-# no custom fg
+if [ $ALGO_ADDRESS ]; then
+  # Add algo rewards info if env variable set
+  response_wallet=$(curl -s "https://algoexplorerapi.io/v2/accounts/$ALGO_ADDRESS")
+
+  balance_raw=$(echo $response_wallet | jq '.amount')
+  balance=$(echo "scale=2; ($balance_raw/1000000)" | bc)
+
+  rewards_raw=$(echo $response_wallet | jq '.rewards')
+  rewards=$(echo "scale=2; ($rewards_raw/1000000)" | bc)
+
+  echo "ALGO \$$cost_usd [ $balance / $rewards ]" # full text
+  echo "ALGO \$$cost_usd "               # short text
+  # no custom bg
+  # no custom fg
+else
+  response_sek=$(curl -s "https://api.coinbase.com/v2/prices/ALGO-SEK/buy")
+  cost_sek=$(echo $response_sek | jq -r '.data.amount')
+
+  echo "ALGO \$$cost_usd ($cost_sek kr)" # full text
+  echo "ALGO \$$cost_usd "               # short text
+  # no custom bg
+  # no custom fg
+fi
