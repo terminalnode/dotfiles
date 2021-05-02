@@ -20,11 +20,11 @@ if [ $ALGO_ADDRESS ]; then
   balance_raw=$(echo $response_wallet | jq '.amount')
   balance=$(echo "scale=2; ($balance_raw/1000000)" | bc)
 
-  rewards_raw=$(echo $response_wallet | jq '.rewards')
+  rewards_raw=$(echo $response_wallet | jq '."pending-rewards"')
   rewards=$(echo "scale=2; ($rewards_raw/1000000)" | bc)
 
-  echo "ALGO \$$cost_usd [ $balance / $rewards ]" # full text
-  echo "ALGO \$$cost_usd "               # short text
+  echo "ALGO \$$cost_usd [ $balance | $rewards ]" # full text
+  echo "ALGO \$$cost_usd "                        # short text
   # no custom bg
   # no custom fg
 else
