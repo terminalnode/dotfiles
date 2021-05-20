@@ -10,10 +10,9 @@ font:
     style: Italic
   size: 10
 
-mouse:
-  url:
-    launcher: ~/.local/bin/urlhandler
-    args: []
+hints:
+  launcher: ~/.local/bin/urlhandler
+  args: []
 
 cursor:
   style: Underline
