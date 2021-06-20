@@ -6,10 +6,9 @@ PartOf=graphical-session.target
 [Service]
 Type=simple
 ExecStart=/usr/bin/env swayidle -w \
-# timeout 300     'swaylock -f -c 000000' \
-# timeout 600     'swaymsg "output * dpms off"' \
-# resume          'swaymsg "output * dpms on"' \
-            before-sleep    'swaylock -f -c 000000'
+  before-sleep    'playerctl -a pause' \
+  before-sleep    'swaylock -f -c 000000' \
+  after-resume    'swaymsg "output * dpms on"'
 
 [Install]
 WantedBy=sway-session.target

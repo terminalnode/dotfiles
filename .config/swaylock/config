@@ -6,55 +6,94 @@ show-failed-attempts
 ignore-empty-password
 indicator-caps-lock
 line-uses-inside
+indicator-idle-visible
 
-# Color options for the ring while typing
-# Nord Polar (lighter to darker)
-ring-color=2e3440ee
-# ring-color=3b4252ee
-# ring-color=434c5eee
-# ring-color=3c566aee
-# Nord Snow (lower is grayer)
-# ring-color=d8dee9
-# ring-color=e5e9f0
-# ring-color=eceff4
+# Sets the indicator radius (default: 50)
+# Sets the indicator thickness (default: 10)
+indicator-thickness=25
+indicator-radius=100
 
-# Color options for the separator
-# Nord Polar (lighter to darker)
-separator-color=2e3440ee
-# separator-color=3b4252ee
-# separator-color=434c5eee
-# separator-color=3c566aee
-# Nord Snow (lower is grayer)
-# separator-color=d8dee9
-# separator-color=e5e9f0
-# separator-color=eceff4
+font=Fira Sans Light
 
-# Color options for the ring while verifying
-# Nord Frost (grue to bleen)
-# ring-ver-color=8fbcbbee
-# ring-ver-color=88c0d0ee
-# ring-ver-color=81a1c1ee
-ring-ver-color=5e81acee
+# Sets the color of backspace highlight segments
+bs-hl-color=b48eadff
 
-More colorful settings
-# Nord Aurora (extra colors)
-#   red     bf616aee
-#   orange  d08770ee
-#   yellow  ebcb8bee
-#   green   a3be8cee
-#   magenta b48eadee
+# Sets the color of backspace highlight segments when Caps Lock is active
+# Sets the color of the key press highlight segments when Caps Lock is active
+caps-lock-bs-hl-color=d08770ff
+caps-lock-key-hl-color=ebcb8bff
 
-# Color of the ring when wrong password entered
-# Red
-#ring-wrong-color=bf616aee
-ring-wrong-color=000000ee
-# Color of the ring while capslock is activated
-# Orange
-ring-caps-lock-color=d08770ee
+# Sets the color of the inside of the indicator
+inside-color=2e3440ff
 
-# Color of the indicator when a key is pressed
-# polar-4 for normal key, red otherwise
-key-hl-color=3c566aaa
-caps-lock-key-hl-color=3c566aaa
-bs-hl-color=bf616aee
-caps-lock-bs-hl-color=bf616aee
+# Sets the color of the inside of the indicator when cleared
+inside-clear-color=81a1c1ff
+
+# Sets the color of the inside of the indicator when verifying
+inside-ver-color=5e81acff
+
+# Sets the color of the inside of the indicator when invalid
+inside-wrong-color=bf616aff
+
+# Sets the color of key press highlight segments
+key-hl-color=a3be8cff
+
+# Sets the background color of the box containing the layout text
+layout-bg-color=2e3440ff
+
+# Sets the color of the outside of the indicator when typing or idle
+ring-color=3b4252ff
+
+# Sets the color of the outside of the indicator when cleared
+ring-clear-color=88c0d0ff
+
+# Sets the color of the outside of the indicator when verifying
+ring-ver-color=81a1c1ff
+
+# Sets the color of the outside of the indicator when invalid
+ring-wrong-color=d08770ff
+
+# Sets the color of the lines that separate highlight segments
+separator-color=3b4252ff
+
+# Sets the color of the text
+text-color=eceff4ff
+
+# Sets the color of the text when cleared
+text-clear-color=3b4252ff
+
+# Sets the color of the text when verifying
+text-ver-color=3b4252ff
+
+# Sets the color of the text when invalid
+text-wrong-color=3b4252ff
+
+# Sets the color of the ring of the indicator when Caps Lock is active
+# ring-caps-lock-color=<rrggbb[aa]>
+
+# Sets the color of the text when Caps Lock is active
+# text-caps-lock-color=<rrggbb[aa]>
+
+# Sets the color of the border of the box containing the layout text
+# layout-border-color=<rrggbb[aa]>
+
+# Sets the color of the layout text
+# layout-text-color=<rrggbb[aa]>
+
+# Sets the color of the line between the inside and ring
+# line-color=<rrggbb[aa]>
+
+# Sets the color of the line between the inside and ring when cleared
+# line-clear-color=<rrggbb[aa]>
+
+# Sets the color of the line between the inside and ring when Caps Lock is active
+# line-caps-lock-color=<rrggbb[aa]>
+
+# Sets the color of the line between the inside and ring when verifying
+# line-ver-color=<rrggbb[aa]>
+
+# Sets the color of the line between the inside and ring when invalid
+# line-wrong-color=<rrggbb[aa]>
+
+# Sets the color of the inside of the indicator when Caps Lock is active
+# inside-caps-lock-color=<rrggbb[aa]>
