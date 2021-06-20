@@ -30,6 +30,8 @@ tiling_drag         disable
 ### OUTPUT ###
 ##############
 include output
+bindswitch lid:on output eDP-1 disable
+bindswitch lid:off output eDP-1 enable
 #exec ~/.config/sway/scripts/fader.py
 
 #############
