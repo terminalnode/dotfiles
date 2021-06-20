@@ -24,7 +24,7 @@ alias free="free -ht"
 alias grep="grep --color=auto"
 alias ls="ls -Fh --group-directories-first --color"
 alias mpv="mpv --audio-display=no"
-alias sway="env XDG_CURRENT_DESKTOP=sway sway"
+alias sway="sway-init"
 alias tmux="tmux -f '$XDG_CONFIG_HOME/tmux/tmux.conf'"
 # Auto-sudo (commands replaced with sudo + themselves)
 alias ip="sudo ip"
@@ -70,6 +70,7 @@ alias xswapescape="setxkbmap \
     -option caps:swapescape,compose:rctrl,grp:alt_caps_toggle"
 alias swaybar_ip="pkill -RTMIN+9 i3blocks"
 alias newsboat-refresh="pgrep i3blocks > /dev/null && pkill -RTMIN+13 i3blocks || newsboat -x reload"
+alias max-brightness="cat /sys/class/backlight/intel_backlight/max_brightness | sudo tee /sys/class/backlight/intel_backlight/brightness"
 
 # SYSTEMD
 # SystemD system services

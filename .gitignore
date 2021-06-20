@@ -98,7 +98,7 @@
 !.local/bin/editorrenamer
 !.local/bin/integrity_check
 !.local/bin/pm
-!.local/bin/sway-service
+!.local/bin/sway-init
 !.local/bin/transadd
 !.local/bin/upmirror
 !.local/bin/scalevid
