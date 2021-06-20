@@ -3,81 +3,81 @@
     "efm": {
       "command": "efm-langserver",
       "args": [ ],
-          "filetypes": [ "vim", "eruby", "markdown", "yaml" ]
-        },
-
-        "terraform": {
-          "command": "terraform-ls",
-          "args": ["serve"],
-          "filetypes": ["terraform", "tf"],
-          "initializationOptions": {}
-        },
-
-        "haskell": {
-            "command": "ghcide",
-            "args": [ "--lsp" ],
-            "rootPatterns": [
-              ".stack.yaml",
-              ".hie-bios",
-              "BUILD.bazel",
-              "cabal.config",
-              "package.yaml"
-            ],
-            "filetypes": [ "hs", "lhs", "haskell" ]
-        },
-
-        "clojure-lsp": {
-          "command": "bash",
-          "args": [ "-c", "clojure-lsp" ],
-          "filetypes": [ "clojure" ],
-          "rootPatterns": [ "project.clj" ],
-          "additionalSchemes": [ "jar", "zipfile" ],
-          "trace.server": "verbose",
-          "initializationOptions": {
-          }
-        }
+      "filetypes": [ "vim", "eruby", "markdown", "yaml" ]
     },
-    "coc.preferences.extensionUpdateCheck": "weekly",
-    "eslint.autoFixOnSave": true,
-    "java.errors.incompleteClasspath.severity": "warning",
-    "java.import.gradle.enabled": true,
-    "java.import.gradle.wrapper.enabled": true,
-    "java.configuration.updateBuildConfiguration": "interactive",
-    "python.linting.mypyEnabled": true,
-    "python.linting.flake8Enabled": true,
-    "python.linting.pylintEnabled": true,
-    "solargraph.autoformat": true,
-    "solargraph.rename": true,
-    "solargraph.symbols": true,
-    "tsserver.npm": "/usr/bin/npm",
-    "suggest.defaultSortMethod": "alphabetical",
-    "suggest.completionItemKindLabels": {
-        "class":         "[C]",
-        "function":      "[F]",
-        "method":        "[M]",
-        "interface":     "[I]",
-        "text":          "[text]",
-        "module":        "[module]",
-        "folder":        "folder",
-        "file":          "file",
-        "enum":          "",
-        "enumMember":    " M",
-        "event":         "event",
-        "variable":      "var",
-        "reference":     "ref",
-        "value":         "val",
-        "property":      "prop",
-        "field":         "fld",
-        "snippet":       "snip",
-        "keyword":       "kw",
-        "color":         "clr",
-        "constant":      "const",
-        "operator":      "op",
-        "typeParameter": "param",
-        "constructor":   "constructor",
-        "struct":        "struct",
-        "unit":          "unit",
-        "default":       "?"
+
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {}
     },
-    "yank.list.maxsize": 20
+
+    "haskell": {
+      "command": "haskell-language-server-wrapper",
+      "args": [ "--lsp" ],
+      "rootPatterns": [
+        "*.cabal",
+        "stack.yaml",
+        "cabal.project",
+        "package.yaml",
+        "hie.yaml"
+      ],
+      "filetypes": [ "hs", "lhs", "haskell", "lhaskell" ]
+    },
+
+    "clojure-lsp": {
+      "command": "bash",
+      "args": [ "-c", "clojure-lsp" ],
+      "filetypes": [ "clojure" ],
+      "rootPatterns": [ "project.clj" ],
+      "additionalSchemes": [ "jar", "zipfile" ],
+      "trace.server": "verbose",
+      "initializationOptions": {
+      }
+    }
+  },
+  "coc.preferences.extensionUpdateCheck": "weekly",
+  "eslint.autoFixOnSave": true,
+  "java.errors.incompleteClasspath.severity": "warning",
+  "java.import.gradle.enabled": true,
+  "java.import.gradle.wrapper.enabled": true,
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "python.linting.mypyEnabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.pylintEnabled": true,
+  "solargraph.autoformat": true,
+  "solargraph.rename": true,
+  "solargraph.symbols": true,
+  "tsserver.npm": "/usr/bin/npm",
+  "suggest.defaultSortMethod": "alphabetical",
+  "suggest.completionItemKindLabels": {
+    "class":         "[C]",
+    "function":      "[F]",
+    "method":        "[M]",
+    "interface":     "[I]",
+    "text":          "[text]",
+    "module":        "[module]",
+    "folder":        "folder",
+    "file":          "file",
+    "enum":          "",
+    "enumMember":    " M",
+    "event":         "event",
+    "variable":      "var",
+    "reference":     "ref",
+    "value":         "val",
+    "property":      "prop",
+    "field":         "fld",
+    "snippet":       "snip",
+    "keyword":       "kw",
+    "color":         "clr",
+    "constant":      "const",
+    "operator":      "op",
+    "typeParameter": "param",
+    "constructor":   "constructor",
+    "struct":        "struct",
+    "unit":          "unit",
+    "default":       "?"
+  },
+  "yank.list.maxsize": 20
 }
