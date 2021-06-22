@@ -8,6 +8,7 @@ Type=simple
 ExecStart=/usr/bin/env swayidle -w \
   before-sleep    'playerctl -a pause' \
   before-sleep    'swaylock -f -c 000000' \
+  after-resume    '%h/.config/sway/scripts/lid_detect.sh'
   after-resume    'swaymsg "output * dpms on"'
 
 [Install]
