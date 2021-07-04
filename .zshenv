@@ -2,7 +2,7 @@
 export DOTNET_CLI_TELEMETRY_OPTOUT="1"
 
 # Disable oh-my-zsh would you like to update
-DISABLE_UPDATE_PROMPT=true
+export DISABLE_UPDATE_PROMPT=true
 
 # XDG
 export XDG_CONFIG_HOME="$HOME/.config"
