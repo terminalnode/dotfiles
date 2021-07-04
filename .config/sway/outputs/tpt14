@@ -35,24 +35,25 @@ output $homeRight {
 }
 
 # Workspace
-# Home setup: 5 left, 5 right, 5 left, 5 right
-# Work setup: 5 laptop, 5 wide, 5 laptop, 5 wide
-# Fallback:   20 laptop
-workspace 1     output $laptop     $homeLeft
-workspace 2     output $laptop     $homeLeft
-workspace 3     output $laptop     $homeLeft
-workspace 4     output $laptop     $homeLeft
-workspace 5     output $laptop     $homeLeft
+# Home setup:   5 left, 5 right, 5 left, 5 right
+# Work setup 1: 5 laptop, 5 wide, 5 laptop, 5 wide
+# Work setup 2: 20 wide
+# Fallback:     20 laptop
+workspace 1     output $laptop     $homeLeft  $workWide
+workspace 2     output $laptop     $homeLeft  $workWide
+workspace 3     output $laptop     $homeLeft  $workWide
+workspace 4     output $laptop     $homeLeft  $workWide
+workspace 5     output $laptop     $homeLeft  $workWide
 workspace 6     output $homeRight  $workWide  $laptop
 workspace 7     output $homeRight  $workWide  $laptop
 workspace 8     output $homeRight  $workWide  $laptop
 workspace 9     output $homeRight  $workWide  $laptop
 workspace 10    output $homeRight  $workWide  $laptop
-workspace 11    output $laptop     $homeLeft
-workspace 12    output $laptop     $homeLeft
-workspace 13    output $laptop     $homeLeft
-workspace 14    output $laptop     $homeLeft
-workspace 15    output $laptop     $homeLeft
+workspace 11    output $laptop     $homeLeft  $workWide
+workspace 12    output $laptop     $homeLeft  $workWide
+workspace 13    output $laptop     $homeLeft  $workWide
+workspace 14    output $laptop     $homeLeft  $workWide
+workspace 15    output $laptop     $homeLeft  $workWide
 workspace 16    output $homeRight  $workWide  $laptop
 workspace 17    output $homeRight  $workWide  $laptop
 workspace 18    output $homeRight  $workWide  $laptop
