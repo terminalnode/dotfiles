@@ -68,3 +68,7 @@ function delete-ds {
 function gi {
   curl -sL https://www.toptal.com/developers/gitignore/api/"$@"
 }
+
+function mdpdf() {
+  pandoc "$@" -t pdf | zathura -
+}
