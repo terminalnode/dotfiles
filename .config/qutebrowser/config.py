@@ -4,7 +4,7 @@ from pathlib import Path
 from qutebrowser.config.configfiles import ConfigAPI
 from qutebrowser.config.config import ConfigContainer
 from qbconfig import searchengines
-from qbconfig import nordtheme
+from qbconfig import nordtheme as theme
 
 try:
     import setproctitle
@@ -18,7 +18,7 @@ config = config  # type: ignore[name-defined] # noqa: F821,E501 pylint: disable=
 c = c  # type: ignore[name-defined] # noqa: F821,E501 pylint: disable=E0602,C0103
 
 c.url.searchengines = searchengines.get_search_engines()
-nordtheme.set_theme(c)
+theme.set_theme(c)
 
 # Make qutebrowser stop whining on startup
 config.load_autoconfig(False)
