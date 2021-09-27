@@ -1,15 +1,15 @@
 #!/usr/bin/env zsh
 # scp with a default destination.
 function scpille {
-    DEST="~/.scp-inbox"
-    if [[ -z $2 ]]; then
-        echo "SYNTAX:"
-        echo "scpille [files and folders to transfer] [destination host] / IP"
-    else
-        echo "Sending files/folders ${@:1:-1} to ${@: -1}:$DEST"
-        echo
-        scp -r ${@:1:-1} ${@: -1}:$DEST
-    fi
+  DEST="~/.scp-inbox"
+  if [[ -z $2 ]]; then
+    echo "SYNTAX:"
+    echo "scpille [files and folders to transfer] [destination host] / IP"
+  else
+    echo "Sending files/folders ${@:1:-1} to ${@: -1}:$DEST"
+    echo
+    scp -r ${@:1:-1} ${@: -1}:$DEST
+  fi
 }
 
 function rsyncbackup {
@@ -36,39 +36,43 @@ EOF
 
 # Execute a command and mercilessly disconnect it from the terminal.
 function opig {
-    nohup $@ &> /dev/null & disown
+  nohup $@ &> /dev/null & disown
 }
 
 # Searches through all songs in mpd/mpc and greps whatever you wrote
 # Name is short for mpcgrep.
 function mpcg {
-    if [ -z "$1" ]
-    then
-        echo "Need an argument to search for."
-    elif [ -n "$2" ]
-    then
-        echo "Too many arguments! Try quoting."
-    else
-        mpc listall | grep -i "$@"
-    fi
+  if [ -z "$1" ]; then
+    echo "Need an argument to search for."
+  elif [ -n "$2" ]; then
+    echo "Too many arguments! Try quoting."
+  else
+    mpc listall | grep -i "$@"
+  fi
 }
 
 # Shows / deletes annoying dotfiles
-function print-ds {
-    # The grep command is used to highlight stuff
-    find . -name '.DS_Store' -type f -print | grep .DS_Store
-    find . -name '._*' -type f -print | grep ._
+# The grep command is used to highlight stuff
+function print_ds {
+  find . -name '.DS_Store' -type f -print | grep .DS_Store
+  find . -name '._*' -type f -print | grep ._
 }
 
-function delete-ds {
-    find . -name '.DS_Store' -type f -delete
-    find . -name '._*' -type f -delete
+function delete_ds {
+  find . -name '.DS_Store' -type f -delete
+  find . -name '._*' -type f -delete
 }
 
 function gi {
   curl -sL https://www.toptal.com/developers/gitignore/api/"$@"
 }
 
+# Parses a markdown (actually any valid input for pandoc) and pipes it into Zathura
 function mdpdf() {
   pandoc "$@" -t pdf | zathura -
+}
+
+# Takes a python expression, evaluates it and prints it
+function pyprint() {
+  python -c "print($@)"
 }
