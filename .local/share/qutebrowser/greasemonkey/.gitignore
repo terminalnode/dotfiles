@@ -1,4 +1,5 @@
 *
 !.gitignore
+!nitter.js*
 !reddit-remove-promoted.js*
 !reddit-mark-read.js*
