@@ -69,7 +69,10 @@ include input
 ### KEYBINDINGS ###
 ###################
 # Non-navigational bindings.
+# $mod+q closes the window, this is all sway can do and is sort of asking the program nicely.
+# $MOD+q uses sway-utils to find the program PID and force kill it, useful for Microsoft Teams.
 bindsym --to-code $mod+q           kill
+bindsym --to-code $MOD+q           exec sway-utils focused-program-kill
 bindsym --to-code $mod+f           fullscreen
 bindsym --to-code $MOD+c           reload
 bindsym --to-code $mod+v           split toggle
@@ -88,19 +91,21 @@ bindsym --to-code $mod+$left  focus left
 bindsym --to-code $mod+$down  focus down
 bindsym --to-code $mod+$up    focus up
 bindsym --to-code $mod+$right focus right
-bindsym --to-code $mod+Left   focus left
-bindsym --to-code $mod+Down   focus down
-bindsym --to-code $mod+Up     focus up
-bindsym --to-code $mod+Right  focus right
-# ←↓↑→
+
 bindsym --to-code $MOD+$left  move left
 bindsym --to-code $MOD+$down  move down
 bindsym --to-code $MOD+$up    move up
 bindsym --to-code $MOD+$right move right
+# ←↓↑→
 bindsym --to-code $MOD+Left   move left
 bindsym --to-code $MOD+Down   move down
 bindsym --to-code $MOD+Up     move up
 bindsym --to-code $MOD+Right  move right
+
+bindsym --to-code $mod+Left   focus left
+bindsym --to-code $mod+Down   focus down
+bindsym --to-code $mod+Up     focus up
+bindsym --to-code $mod+Right  focus right
 
 # Workspace hopping
 # (Moving a container to a specific workspace will also move the focus to that workspace)
