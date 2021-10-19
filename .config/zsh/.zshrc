@@ -2,39 +2,6 @@
 # multiple files in the ./modules directory. These are loaded at the bottom
 # of this script.
 
-# Install and configure oh-my-zsh
-export ZSH="$HOME/.config/zsh/oh-my-zsh"
-if [[ ! -d "$ZSH" ]]; then
-  echo 'Oh my zsh is not present, fetching it!'
-  git clone 'https://github.com/ohmyzsh/ohmyzsh.git' "$ZSH"
-  cp "$HOME/.dotfiles/.config/zsh/oh-my-zsh-themes"/* "$ZSH/themes"
-fi
-
-if [[ -d "$ZSH" ]]; then
-  ZSH_THEME="terminalarbetare"
-  CASE_SENSITIVE="true"
-  HYPHEN_INSENSITIVE="true"
-  COMPLETION_WAITING_DOTS="true"
-  DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-  # Uncomment the following line to automatically update without prompting.
-  # DISABLE_UPDATE_PROMPT="true"
-
-  # Uncomment the following line to enable command auto-correction.
-  # ENABLE_CORRECTION="true"
-
-  plugins=(
-    git
-    archlinux
-    terraform
-    gradle
-    aws
-    colored-man-pages
-    vi-mode
-  )
-  source $ZSH/oh-my-zsh.sh
-fi
-
 # History configuration
 mkdir -p ~/.cache/zsh/
 HISTFILE=~/.cache/zsh/histfile
