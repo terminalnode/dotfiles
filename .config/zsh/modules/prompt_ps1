@@ -1,6 +1,11 @@
+#!/usr/bin/env zsh
 # Prompt config, arguably the most exciting part of this whole thing.
 # [user@host ~/working_directory]
 # >
+
+# Exit status shows a red warning if previous exit status was unsuccessful
+exit_status="%(?..%B%F{red}[!] %f%b)"
+
 p_bracket1="%B%F{green}[%b%f" # bold green [
 p_bracket2="%B%F{green}]%b%f" # bold green ]
 p_user="%F{cyan}%n%f"         # cyan       user name
@@ -9,4 +14,4 @@ p_atsign="%B%F{green}@%f%b"   # bold green @
 p_path="%F{yellow}%~%f"       # yellow     working directory
 p_prompt="%B%F{8}> %f%b"      # dark grey  >
 p_nl=$'\n'                    # new line
-PS1="${p_nl}${p_bracket1}${p_user}${p_atsign}${p_host} ${p_path}${p_bracket2}${p_nl}${p_prompt}"
+PS1="${p_nl}${exit_status}${p_bracket1}${p_user}${p_atsign}${p_host} ${p_path}${p_bracket2}${p_nl}${p_prompt}"
