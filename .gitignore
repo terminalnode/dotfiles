@@ -91,6 +91,12 @@
 .config/sway/output
 !.config/swaylock
 
+# waybar
+!.config/waybar
+.config/waybar/*
+!.config/waybar/config
+!.config/waybar/style.css
+
 # Ignore .local/bin with the exception of...
 !.local/bin
 .local/bin/*

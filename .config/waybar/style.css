@@ -1,0 +1,122 @@
+/* Nord "Polar Night" colors, 0 is darkest */
+/* These are for backgrounds and non-0s are used for layering/contrast */
+@define-color nord0 #2e3440;
+@define-color nord1 #3b4252;
+@define-color nord2 #434c5e;
+@define-color nord3 #4c566a;
+
+/* Nord "Snow Storm" colors, 0 is darkest*/
+/* 0 is the base used in most places, lighter text can be used to make stuff pop */
+@define-color snow0 #d8dee9;
+@define-color snow1 #e5e9f0;
+@define-color snow2 #eceff4;
+
+/* Nord "Frost" colors, 0 is more greenish and 3 more blueish */
+/* This is meant for stuff like keywords in syntax highlighting... I don't use them much */
+@define-color frost0 #8fbcbb;
+@define-color frost1 #88c0d0;
+@define-color frost2 #81a1c1;
+@define-color frost3 #5e81ac;
+
+/* Nord "Aurora" colors, for more fun colors and stuff */
+/* Use for whatever... */
+@define-color aurora-red #bf616a;
+@define-color aurora-orange #d08770;
+@define-color aurora-yellow #ebcb8b;
+@define-color aurora-green #a3be8c;
+@define-color aurora-magenta #b48ead;
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+.modules-right * {
+    padding: 0 5px;
+}
+
+window#waybar {
+    background: @nord0;
+    color: @snow0;
+    border-bottom: 1px solid @nord3;
+    /* border-radius: 5; */
+}
+
+tooltip {
+    background: @nord1;
+    border: 1px solid @frost3;
+}
+
+tooltip label {
+    color: @snow0;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    background: transparent;
+    color: @snow0;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button.focused {
+    background: @nord3;
+    color: @snow3;
+    border-bottom: 3px solid @frost3;
+}
+
+#mode {
+    color: @aurora-orange;
+    border: 1px solid @aurora-orange;
+    padding: 0 10px;/* Content distance from border */
+    margin: 0 5px; /* Distance from other elements */
+}
+
+#cpu {
+    color: @frost0;
+}
+
+#memory {
+    color: @aurora-magenta;
+}
+
+#backlight {
+    color: @snow0;
+}
+
+#clock {
+    color: @frost0;
+}
+
+#network {
+    color: @aurora-green;
+}
+
+#battery {
+    color: @aurora-yellow;
+}
+
+#battery.charging {
+    color: @aurora-yellow;
+}
+
+/* Cool stuff I guess
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: black;
+    }
+}
+
+#battery.warning:not(.charging) {
+    background: #f53c3c;
+    color: white;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+*/
