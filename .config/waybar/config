@@ -6,24 +6,39 @@
 // - Public IP
 // - Decimal clock
 {
-  "layer": "top",
+  "layer": "bottom",
   "position": "top",
   "height": 15,
   "modules-left": ["sway/workspaces", "sway/mode"],
   "modules-center": [],
   "modules-right": [
+    // arrows https://github.com/cjbassi/config/tree/master/.config/waybar
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
     "network",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
     "cpu",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
     "memory",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
     "backlight",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
     "battery",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
     "clock",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
     "tray",
   ],
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": false,
-    "format": "{name}: {icon}",
+    "format": "{name}", // add {icon to get the icons below}
     "format-icons": {
       // This way we can set specific icons for specific workspaces
       // "1": "",
@@ -37,7 +52,7 @@
     }
   },
   "sway/mode": {
-    "format": "<span style=\"italic\">{}</span>"
+    "format": "<span style=\"normal\">{}</span>"
   },
   "tray": {
     "spacing": 5
@@ -58,6 +73,22 @@
     // "device": "acpi_video1",
     "format": "{icon} {percent}%",
     "format-icons": ["", ""]
+  },
+  "custom/left-arrow-dark": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left-arrow-light": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right-arrow-dark": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right-arrow-light": {
+    "format": "",
+    "tooltip": false
   },
   "battery": {
     "states": {

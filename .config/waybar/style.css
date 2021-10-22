@@ -41,7 +41,6 @@
 window#waybar {
     background: @nord0;
     color: @snow0;
-    border-bottom: 1px solid @nord3;
     /* border-radius: 5; */
 }
 
@@ -54,8 +53,23 @@ tooltip label {
     color: @snow0;
 }
 
+#custom-right-arrow-dark,
+#custom-left-arrow-dark {
+    font-family: monospace;
+    color: @nord0;
+    background: @nord2;
+    padding: 0px;
+}
+#custom-right-arrow-light,
+#custom-left-arrow-light {
+    font-family: monospace;
+    padding: 0px;
+    background: @nord0;
+    color: @nord2;
+}
+
 #workspaces button {
-    padding: 0 10px;
+    padding: 5 5 0px;
     background: transparent;
     color: @snow0;
     border-bottom: 3px solid transparent;
@@ -66,6 +80,7 @@ tooltip label {
     color: @snow3;
     border-bottom: 3px solid @frost3;
 }
+
 
 #mode {
     color: @aurora-orange;
@@ -104,19 +119,19 @@ tooltip label {
 
 /* Cool stuff I guess
 @keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: black;
-    }
+to {
+background-color: #ffffff;
+color: black;
+}
 }
 
 #battery.warning:not(.charging) {
-    background: #f53c3c;
-    color: white;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+background: #f53c3c;
+color: white;
+animation-name: blink;
+animation-duration: 0.5s;
+animation-timing-function: linear;
+animation-iteration-count: infinite;
+animation-direction: alternate;
 }
-*/
+ */
