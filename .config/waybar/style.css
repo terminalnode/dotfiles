@@ -30,8 +30,12 @@
     border: none;
     border-radius: 0;
     font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 15px;
     min-height: 0;
+}
+
+.modules-center * {
+    padding: 0 10px;
 }
 
 .modules-right * {
@@ -55,14 +59,14 @@ tooltip label {
 
 #custom-right-arrow-dark,
 #custom-left-arrow-dark {
-    font-family: monospace;
-    color: @nord0;
-    background: @nord2;
+    font-size: 17px;
     padding: 0px;
+    background: @nord2;
+    color: @nord0;
 }
 #custom-right-arrow-light,
 #custom-left-arrow-light {
-    font-family: monospace;
+    font-size: 17px;
     padding: 0px;
     background: @nord0;
     color: @nord2;
@@ -102,7 +106,7 @@ tooltip label {
 }
 
 #clock {
-    color: @frost0;
+    color: @snow0;
 }
 
 #network {

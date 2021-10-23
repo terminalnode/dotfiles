@@ -10,7 +10,19 @@
   "position": "top",
   "height": 15,
   "modules-left": ["sway/workspaces", "sway/mode"],
-  "modules-center": [],
+  "modules-center": [
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "clock#1",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "clock#2",
+    "custom/right-arrow-dark",
+    "custom/right-arrow-light",
+    "clock#3",
+    "custom/right-arrow-dark",
+    "custom/right-arrow-light",
+  ],
   "modules-right": [
     // arrows https://github.com/cjbassi/config/tree/master/.config/waybar
     "custom/left-arrow-light",
@@ -28,9 +40,6 @@
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
     "battery",
-    "custom/left-arrow-light",
-    "custom/left-arrow-dark",
-    "clock",
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
     "tray",
@@ -57,10 +66,21 @@
   "tray": {
     "spacing": 5
   },
-  "clock": {
+  "clock#1": {
+    "timezone": "Europe/Stockholm",
+    "format": "{: %a }",
+    "tooltip": false
+  },
+  "clock#2": {
     "timezone": "Europe/Stockholm",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%Y-%m-%d}"
+    "format": "{:%H:%M}"
+    // "format-alt": "{:%Y-%m-%d}"
+  },
+  "clock#3": {
+    "timezone": "Europe/Stockholm",
+    "format": "{:%d %b}",
+    "tooltip": false
   },
   "cpu": {
     "format": " {usage}%",
