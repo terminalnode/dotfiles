@@ -5,7 +5,7 @@ dotfiles_dir="$(readlink -f "$(dirname "$0")")"
 
 # If set to true, symlinks will be done using the -f flag when the target file exists.
 force_replace=true
-dry_run=true
+dry_run=false
 
 # Helper method for symlinking with custom error messages.
 symlink() {
@@ -81,7 +81,7 @@ echo
 # Desktop files are numerous and not very important,
 # so I'm just gonna link them with no regard for safety. :-) #YOLO
 echo_blue 'Installing desktop files to ~/.local/share/applications'
-desktop_file_dir="$HOME/.local/bin/share/applications"
+desktop_file_dir="$HOME/.local/share/applications"
 echo_blue '...done!'
 echo
 
