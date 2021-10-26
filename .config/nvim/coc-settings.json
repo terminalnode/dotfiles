@@ -35,6 +35,12 @@
       "trace.server": "verbose",
       "initializationOptions": {
       }
+    },
+
+    "crystal": {
+      "command": "crystalline",
+      "args": [ "--stdio" ],
+      "filetypes": [ "crystal" ]
     }
   },
   "coc.preferences.extensionUpdateCheck": "weekly",
