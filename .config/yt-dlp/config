@@ -1,0 +1,15 @@
+# So, we have some performance issues when playing very high def video.
+# But we still want good quality video, and youtube's scaling to 720p is actually quite terrible.
+# So we'll try to fetch:
+# 1. resolution less than or equal to 1080p with less than 60fps (no 4K nonsense)
+# 2. resolution 720p at any fps
+# 3. whatever we can get
+# And we try to get it via https if we can.
+-f "best[height<=1080][fps<60]/best[height=720]/best"
+
+# Save file in ~/ytdl/Uploader/Title.extension
+-o "~/video/ytdl/%(uploader)s_%(title)s.%(ext)s"
+
+# Get subtitles as well
+--all-subs
+--embed-subs

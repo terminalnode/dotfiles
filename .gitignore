@@ -7,6 +7,7 @@ out
 !.local/share
 .local/share/*
 .mypy_cache/
+**/local.*
 
 # Simple unignores
 !.config/dircolors
@@ -25,6 +26,7 @@ out
 !.config/X11
 !.config/alacritty
 !.config/XCompose
+!.config/yt-dlp
 
 # newsboat
 !.config/newsboat
