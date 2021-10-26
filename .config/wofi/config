@@ -1,6 +1,8 @@
 x=0
-y=-20
-height=95%
-width=500
+y=0
+height=80%
+width=25%
 prompt=Just type something bruh...
 color=./colors
+matching=contains
+insensitive=true
