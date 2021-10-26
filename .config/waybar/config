@@ -13,15 +13,15 @@
   "modules-center": [
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
-    "clock#1",
+    "custom/decimalclock",
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
-    "clock#2",
+    "clock#date",
     "custom/right-arrow-dark",
     "custom/right-arrow-light",
-    "clock#3",
+    "clock#time",
     "custom/right-arrow-dark",
-    "custom/right-arrow-light",
+    "custom/right-arrow-light"
   ],
   "modules-right": [
     // arrows https://github.com/cjbassi/config/tree/master/.config/waybar
@@ -42,23 +42,12 @@
     "battery",
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
-    "tray",
+    "tray"
   ],
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": false,
-    "format": "{name}", // add {icon to get the icons below}
-    "format-icons": {
-      // This way we can set specific icons for specific workspaces
-      // "1": "",
-      // "2": "",
-      // "3": "",
-      // "4": "",
-      // "5": "",
-      "urgent": "",
-      "focused": "",
-      "default": ""
-    }
+    "format": "{name}"
   },
   "sway/mode": {
     "format": "<span style=\"normal\">{}</span>"
@@ -66,20 +55,20 @@
   "tray": {
     "spacing": 5
   },
-  "clock#1": {
-    "timezone": "Europe/Stockholm",
-    "format": "{: %a }",
-    "tooltip": false
+  "custom/decimalclock": {
+    "exec": "decimal_time short",
+    "interval": 10,
+    "format": "{}"
   },
-  "clock#2": {
+  "clock#time": {
     "timezone": "Europe/Stockholm",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format": "{:%H:%M}"
     // "format-alt": "{:%Y-%m-%d}"
   },
-  "clock#3": {
+  "clock#date": {
     "timezone": "Europe/Stockholm",
-    "format": "{:%d %b}",
+    "format": "{:%a %d %b}",
     "tooltip": false
   },
   "cpu": {
@@ -132,25 +121,6 @@
     "format-linked": " {ifname} (No IP)",
     "format-disconnected": "⚠ Disconnected",
     "format-alt": "{ifname}: {ipaddr}/{cidr}"
-  },
-  "pulseaudio": {
-    // "scroll-step": 1, // %, can be a float
-    "format": "{volume}% {icon} {format_source}",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
-    "format-source": "{volume}% ",
-    "format-source-muted": "",
-    "on-click": "pavucontrol",
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["", "", ""]
-    }
   }
 }
 

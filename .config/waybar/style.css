@@ -105,6 +105,10 @@ tooltip label {
     color: @snow0;
 }
 
+#custom-decimalclock {
+    color: @snow0;
+}
+
 #clock {
     color: @snow0;
 }
