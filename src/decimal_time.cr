@@ -1,5 +1,3 @@
-#!/usr/bin/env crystal
-# vim: ft=ruby
 # Output the current time in decimal time / metric time.
 # Decimal time is a system of time keeping where there are 10 hours in
 # a day, 100 minutes in an hour and 100 seconds in a minute.
