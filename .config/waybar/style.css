@@ -79,9 +79,15 @@ tooltip label {
     border-bottom: 3px solid transparent;
 }
 
+/* Active workspaces on all displays are 'visible' */
+#workspaces button.visible {
+    color: @snow3;
+    border-bottom: 3px solid @frost2;
+}
+
+/* Only the active workspace on the active display is 'visible' */
 #workspaces button.focused {
     background: @nord3;
-    color: @snow3;
     border-bottom: 3px solid @frost3;
 }
 
@@ -107,6 +113,14 @@ tooltip label {
 
 #custom-decimalclock {
     color: @snow0;
+}
+
+#custom-public-ip {
+    color: @frost3;
+}
+
+#disk {
+    color: @aurora-red;
 }
 
 #clock {

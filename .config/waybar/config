@@ -1,10 +1,7 @@
 // vim: sw=2 ft=json
 // TODO:
 // - Algoscript
-// - Disk space
 // - Newsboat
-// - Public IP
-// - Decimal clock
 {
   "layer": "bottom",
   "position": "top",
@@ -24,19 +21,24 @@
     "custom/right-arrow-light"
   ],
   "modules-right": [
-    // arrows https://github.com/cjbassi/config/tree/master/.config/waybar
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "backlight",
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
     "network",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "custom/public-ip",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "disk",
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
     "cpu",
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
     "memory",
-    "custom/left-arrow-light",
-    "custom/left-arrow-dark",
-    "backlight",
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
     "battery",
@@ -56,9 +58,21 @@
     "spacing": 5
   },
   "custom/decimalclock": {
-    "exec": "decimal_time short",
+    "exec": "decimal_time short unpadded",
     "interval": 10,
-    "format": "{}"
+    "format": "{}",
+    "tooltip": false
+  },
+  "custom/public-ip": {
+    "exec": "curl --silent ifconfig.me || echo 'Failed to fetch ip'",
+    "interval": 60,
+    "format": " {}",
+    "format-alt": " hidden",
+    "tooltip": false
+  },
+  "disk": {
+    "path": "/home",
+    "format": " {free}"
   },
   "clock#time": {
     "timezone": "Europe/Stockholm",
@@ -114,13 +128,12 @@
     "format-icons": ["", "", "", "", ""]
   },
   "network": {
-    // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-wifi": " {ipaddr}/{cidr}",
     "format-ethernet": " {ipaddr}/{cidr}",
     "tooltip-format": " {ifname} via {gwaddr}",
     "format-linked": " {ifname} (No IP)",
     "format-disconnected": "⚠ Disconnected",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    "format-alt": " hidden"
   }
 }
 
