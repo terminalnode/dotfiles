@@ -13,30 +13,42 @@ secondsPassed = (now.to_unix + now.offset) % 86400
 decimalHour, secondsPassed = secondsPassed.divmod(8640)
 decimalMinute = secondsPassed / 86.4
 
+def pad(n : Number)
+  padding = ARGV[1]? || "unpadded"
+  if padding == "padded" "%02i" % n else "%2i" % n end
+end
+
 if mode == "long"
-  puts "#{decimalHour}.#{"%05.2f" % decimalMinute}"
+  puts "#{pad(decimalHour)}.#{"%05.2f" % decimalMinute}"
 elsif mode == "short"
-  puts "#{decimalHour}.#{"%02i" % decimalMinute}"
+  puts "#{pad(decimalHour)}.#{"%02i" % decimalMinute}"
 elsif mode == "hour"
-  puts "%02i" % decimalHour
+  puts pad(decimalHour)
 elsif mode == "minute"
-  puts "%02i" % decimalMinute.to_i
+  puts pad(decimalMinute.to_i)
 elsif mode == "second"
-  puts "%02i" % (decimalMinute / 100).to_s[4, 2]
+  puts pad(decimalMinute * 100 % 100)
 elsif mode == "help"
   puts <<-HELPTEXT
-  Usage: decimal_time [OPTION]
+  Usage: decimal_time [FORMAT] [PADDING]
   Show the current time in decimal time, where we have 10 hours per day and
   every hour consists of 100 minutes (which can be further divided into 100
   seconds).
 
   If no format is specified the default is long.
+  If no padding is specified the default is unpadded
 
-  OPTION    EXAMPLE     Padding
-  long      1.23.45     Hour is not zero-padded
-  short     1.23        Hour is not zero-padded
-  hour      01          Zero-padded
-  minute    23          Zero-padded
-  second    45          Zero-padded
+  FORMAT    PADDING     EXAMPLE
+  long      padded      01.02.03
+  short     padded      01.02
+  hour      padded      01
+  minute    padded      02
+  second    padded      03
+
+  long      unpadded    1.02.03
+  short     unpadded    1.02
+  hour      unpadded    1
+  minute    unpadded    2
+  second    unpadded    3
   HELPTEXT
 end
