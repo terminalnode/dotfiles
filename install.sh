@@ -40,7 +40,6 @@ symlink() {
 crystal_install() {
   program="$1"
   destination="$2"
-
   source_file="$dotfiles_dir/src/$1.cr"
 
   echo_blue " => $program.cr "
@@ -52,6 +51,22 @@ crystal_install() {
   fi
 
   crystal build "$source_file" -o "$destination/$program"
+}
+
+go_install() {
+  program="$1"
+  destination="$2"
+  source_file="$dotfiles_dir/src/$1.go"
+
+  echo_blue " => $program.go "
+
+  if [ ! -e "$target" ]; then
+    printf_red '[ERROR] '
+    echo "Can not build $target, file does not exist!"
+    return 1
+  fi
+
+  go build -o "$destination/$program" "$source_file"
 }
 
 printf_red() { tput setaf 1; printf '%s' "$@"; tput sgr0; }
@@ -155,7 +170,7 @@ echo
 ########
 if $compile_scripts; then
   echo_blue 'Compiling and installing sources (final step!)'
-  crystal_install 'decimal_time' "$HOME/.local/bin"
+  go_install 'decimal_time' "$HOME/.local/bin"
 else
   echo_blue 'Compile scripts is not toggled, skipping this step'
 fi

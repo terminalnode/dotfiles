@@ -58,7 +58,7 @@
     "spacing": 5
   },
   "custom/decimalclock": {
-    "exec": "decimal_time short unpadded",
+    "exec": "decimal_time -f short",
     "interval": 10,
     "format": "{}",
     "tooltip": false
