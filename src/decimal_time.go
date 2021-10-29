@@ -25,7 +25,7 @@ To avoid calculating offset and printF separately within the loop they're calcul
 and stored outside of the calculate-function.
 */
 var offset int64
-var printF func(h int, m int, s int)
+var printF func(h, m, s int)
 
 func main() {
 	flag.Parse()
@@ -56,15 +56,15 @@ func assignPrintF() {
 	if *padding {
 		switch *format {
 		case "long":
-			printF = func(h int, m int, s int) { fmt.Printf("%02d.%02d%02d\n", h, m, s) }
+			printF = func(h, m, s int) { fmt.Printf("%02d.%02d%02d\n", h, m, s) }
 		case "short":
-			printF = func(h int, m int, s int) { fmt.Printf("%02d.%02d\n", h, s) }
+			printF = func(h, m, s int) { fmt.Printf("%02d.%02d\n", h, s) }
 		case "hour":
-			printF = func(h int, m int, s int) { fmt.Printf("%02d\n", h) }
+			printF = func(h, m, s int) { fmt.Printf("%02d\n", h) }
 		case "minute":
-			printF = func(h int, m int, s int) { fmt.Printf("%02d\n", m) }
+			printF = func(h, m, s int) { fmt.Printf("%02d\n", m) }
 		case "second":
-			printF = func(h int, m int, s int) { fmt.Printf("%02d\n", s) }
+			printF = func(h, m, s int) { fmt.Printf("%02d\n", s) }
 		default:
 			fmt.Printf("Unknown format: %s\n", *format)
 			os.Exit(1)
@@ -72,15 +72,15 @@ func assignPrintF() {
 	} else {
 		switch *format {
 		case "long":
-			printF = func(h int, m int, s int) { fmt.Printf("%d.%02d%02d\n", h, m, s) }
+			printF = func(h, m, s int) { fmt.Printf("%d.%02d%02d\n", h, m, s) }
 		case "short":
-			printF = func(h int, m int, s int) { fmt.Printf("%d.%02d\n", h, m) }
+			printF = func(h, m, s int) { fmt.Printf("%d.%02d\n", h, m) }
 		case "hour":
-			printF = func(h int, m int, s int) { fmt.Printf("%d\n", h) }
+			printF = func(h, m, s int) { fmt.Printf("%d\n", h) }
 		case "minute":
-			printF = func(h int, m int, s int) { fmt.Printf("%d\n", m) }
+			printF = func(h, m, s int) { fmt.Printf("%d\n", m) }
 		case "second":
-			printF = func(h int, m int, s int) { fmt.Printf("%d\n", s) }
+			printF = func(h, m, s int) { fmt.Printf("%d\n", s) }
 		default:
 			fmt.Printf("Unknown format: %s\n", *format)
 			os.Exit(1)
