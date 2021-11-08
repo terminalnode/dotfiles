@@ -1,3 +1,6 @@
+# Colored man pages using less as a viewer
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
+
 # Opt out of Microsoft spyware
 export DOTNET_CLI_TELEMETRY_OPTOUT="1"
 
