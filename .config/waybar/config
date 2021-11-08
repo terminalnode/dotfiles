@@ -1,47 +1,35 @@
 // vim: sw=2 ft=json
-// TODO:
-// - Algoscript
-// - Newsboat
 {
   "layer": "bottom",
   "position": "top",
   "height": 15,
   "modules-left": ["sway/workspaces", "sway/mode"],
-  "modules-center": [
-    "custom/left-arrow-light",
-    "custom/left-arrow-dark",
-    "custom/decimalclock",
-    "custom/left-arrow-light",
-    "custom/left-arrow-dark",
-    "clock#date",
-    "custom/right-arrow-dark",
-    "custom/right-arrow-light",
-    "clock#time",
-    "custom/right-arrow-dark",
-    "custom/right-arrow-light"
-  ],
   "modules-right": [
+    // Seems to be running one instance per screen, which is ridiculous.
+    // This breaks newsboat because one screen will give error message saying newsboat is busy.
+    // "custom/left-arrow-light",
+    // "custom/left-arrow-dark",
+    // "custom/newsboat",
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
-    "backlight",
+    "custom/algocheck",
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
     "network",
-    "custom/left-arrow-light",
-    "custom/left-arrow-dark",
     "custom/public-ip",
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
+    // Actually don't give a lot of fucks about backlight atm.
+    // "backlight",
     "disk",
-    "custom/left-arrow-light",
-    "custom/left-arrow-dark",
     "cpu",
-    "custom/left-arrow-light",
-    "custom/left-arrow-dark",
     "memory",
+    "battery",
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
-    "battery",
+    "custom/decimalclock",
+    "clock#date",
+    "clock#time",
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
     "tray"
@@ -56,6 +44,19 @@
   },
   "tray": {
     "spacing": 5
+  },
+  "custom/newsboat": {
+    "exec": "newsboat -x reload && newsboat -x print-unread | cut -d' ' -f1 || echo 'error'",
+    "interval": 300,
+    "format": " {}",
+    "tooltip": false
+  },
+  "custom/algocheck": {
+    "exec": "~/.config/waybar/algo_check",
+    "interval": 10,
+    "format": "{}",
+    "format-alt": "hidden",
+    "tooltip": false
   },
   "custom/decimalclock": {
     "exec": "decimal_time -f short",

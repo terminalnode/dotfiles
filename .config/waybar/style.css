@@ -30,7 +30,7 @@
     border: none;
     border-radius: 0;
     font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-size: 15px;
+    font-size: 12;
     min-height: 0;
 }
 
@@ -59,14 +59,14 @@ tooltip label {
 
 #custom-right-arrow-dark,
 #custom-left-arrow-dark {
-    font-size: 17px;
+    font-size: 15;
     padding: 0px;
     background: @nord2;
     color: @nord0;
 }
 #custom-right-arrow-light,
 #custom-left-arrow-light {
-    font-size: 17px;
+    font-size: 15;
     padding: 0px;
     background: @nord0;
     color: @nord2;
@@ -109,6 +109,10 @@ tooltip label {
 
 #backlight {
     color: @snow0;
+}
+
+#custom-algocheck {
+    color: @aurora-orange;
 }
 
 #custom-decimalclock {
