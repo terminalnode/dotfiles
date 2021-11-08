@@ -16,30 +16,20 @@ const (
 var format = flag.String("f", "long", "output format (long, short, hour, minute, second)")
 var padding = flag.Bool("0", false, "toggle zero-padding for hour")
 
-/*
-Plan is to make a feature that loops this program so it can output new timestamps
-whenever there's a change (i.e. if the format includes seconds, that's every second,
-if it doesn't it may be every minute or even every hour).
-
-To avoid calculating offset and printF separately within the loop they're calculated
-and stored outside of the calculate-function.
-*/
-var offset int64
-var printF func(h, m, s int)
+type printFunction func(h, m, s int)
 
 func main() {
 	flag.Parse()
 
 	now := time.Now()
 	_, tempOffset := now.Zone()
-	offset = int64(tempOffset * 1000)
+	offset := int64(tempOffset * 1000)
 
-	assignPrintF()
-
-	printF(calculate())
+	printFunc := getPrintFunction()
+	printFunc(calculate(offset))
 }
 
-func calculate() (h, m, s int) {
+func calculate(offset int64) (h, m, s int) {
 	unixTime := time.Now().UnixMilli()
 	secOfDay := int((unixTime + offset) % msInDay)
 
@@ -52,19 +42,20 @@ func calculate() (h, m, s int) {
 	return
 }
 
-func assignPrintF() {
+func getPrintFunction() printFunction {
+	var f printFunction
 	if *padding {
 		switch *format {
 		case "long":
-			printF = func(h, m, s int) { fmt.Printf("%02d.%02d%02d\n", h, m, s) }
+			f = func(h, m, s int) { fmt.Printf("%02d.%02d%02d\n", h, m, s) }
 		case "short":
-			printF = func(h, m, s int) { fmt.Printf("%02d.%02d\n", h, s) }
+			f = func(h, m, s int) { fmt.Printf("%02d.%02d\n", h, s) }
 		case "hour":
-			printF = func(h, m, s int) { fmt.Printf("%02d\n", h) }
+			f = func(h, m, s int) { fmt.Printf("%02d\n", h) }
 		case "minute":
-			printF = func(h, m, s int) { fmt.Printf("%02d\n", m) }
+			f = func(h, m, s int) { fmt.Printf("%02d\n", m) }
 		case "second":
-			printF = func(h, m, s int) { fmt.Printf("%02d\n", s) }
+			f = func(h, m, s int) { fmt.Printf("%02d\n", s) }
 		default:
 			fmt.Printf("Unknown format: %s\n", *format)
 			os.Exit(1)
@@ -72,18 +63,19 @@ func assignPrintF() {
 	} else {
 		switch *format {
 		case "long":
-			printF = func(h, m, s int) { fmt.Printf("%d.%02d%02d\n", h, m, s) }
+			f = func(h, m, s int) { fmt.Printf("%d.%02d%02d\n", h, m, s) }
 		case "short":
-			printF = func(h, m, s int) { fmt.Printf("%d.%02d\n", h, m) }
+			f = func(h, m, s int) { fmt.Printf("%d.%02d\n", h, m) }
 		case "hour":
-			printF = func(h, m, s int) { fmt.Printf("%d\n", h) }
+			f = func(h, m, s int) { fmt.Printf("%d\n", h) }
 		case "minute":
-			printF = func(h, m, s int) { fmt.Printf("%d\n", m) }
+			f = func(h, m, s int) { fmt.Printf("%d\n", m) }
 		case "second":
-			printF = func(h, m, s int) { fmt.Printf("%d\n", s) }
+			f = func(h, m, s int) { fmt.Printf("%d\n", s) }
 		default:
 			fmt.Printf("Unknown format: %s\n", *format)
 			os.Exit(1)
 		}
 	}
+	return f
 }
