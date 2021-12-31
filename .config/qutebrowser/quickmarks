@@ -1,23 +1,13 @@
-# Self-hosted
 unifi https://localhost:8443
-baikal https://baikal.terminalnode.xyz/card.php/calendars/terminalnode/
-
-# Torrents
 tleech https://www.torrentleech.org
 aviz https://avistaz.to
-
-# Google
 g https://www.google.com
 gmail https://mail.google.com
 drive https://drive.google.com
-
-# Mail / Messaging
 fastmail https://www.fastmail.com
 protonmail https://mail.protonmail.com
 fb https://www.facebook.com/messages/t/
 discord https://discordapp.com/channels/@me
-
-# Coding
 scaleway https://console.scaleway.com/dashboard
 github https://github.com/terminalnode
 gitlab https://gitlab.com/terminalnode
@@ -29,8 +19,6 @@ trello https://trello.com
 aws https://console.aws.amazon.com/
 teams https://teams.microsoft.com
 outlook https://outlook.office.com
-
-# Other
 yt https://www.youtube.com
 r https://www.reddit.com
 systemet https://www.systembolaget.se
