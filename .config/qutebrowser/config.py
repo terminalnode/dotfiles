@@ -69,6 +69,15 @@ c.zoom.levels = [
 #c.content.cookies.accept = "no-3rdparty"
 c.content.cookies.accept = "all"
 
+# Dark mode rocks
+c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.darkmode.algorithm = 'lightness-hsl'
+c.colors.webpage.darkmode.contrast = -.022
+c.colors.webpage.darkmode.threshold.text = 150
+c.colors.webpage.darkmode.threshold.background = 100
+c.colors.webpage.darkmode.policy.images = 'always'
+c.colors.webpage.darkmode.grayscale.images = 0.35
+
 # Previously enabled options that are disabled now.
 # c.content.pdfjs               = False
 
