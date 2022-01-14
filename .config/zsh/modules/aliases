@@ -34,8 +34,8 @@ alias nixos-rebuild="sudo nixos-rebuild"
 
 # ALIASES
 # Simple aliases for various commands
-alias ytdl="youtube-dl"
-alias pldl="youtube-dl -o '~/video/ytdl/%(uploader)s_%(playlist)s/%(playlist_index)s_%(title)s.%(ext)s'"
+alias ytdl="yt-dlp"
+alias pldl="yt-dlp -o '~/video/ytdl/%(uploader)s_%(playlist)s/%(playlist_index)s_%(title)s.%(ext)s'"
 alias svtdl="svtplay-dl"
 alias ll="ls -l"
 alias l1="ls -1"
