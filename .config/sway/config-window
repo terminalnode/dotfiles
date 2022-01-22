@@ -1,0 +1,8 @@
+# IntelliJ
+# Splash screen has title "win0" for some reason
+for_window {
+  [title="win0"] floating enable
+
+  # Fix floating windows spawning from steam
+  [class="Steam"] floating enable; max_render_time off
+}
