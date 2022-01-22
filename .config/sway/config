@@ -337,5 +337,8 @@ bar {
     swaybar_command waybar
 }
 
+# Support for Japanese input
+exec --no-startup-id fcitx5 -d
+
 # Sway as a service stuff
 exec "systemctl --user import-environment; systemctl --user start sway-session.target"
