@@ -1,0 +1,61 @@
+###############################
+### AESTHETICS + STATUS BAR ###
+###############################
+# Default border specifies the type and size of window borders.
+# If smart borders are enabled, these borders are not visible on single window workspaces.
+default_border      pixel
+smart_borders       on
+
+# Nord Polar (lower is darker)
+set $polar-1 #2e3440
+set $polar-2 #3b4252
+set $polar-3 #434c5e
+set $polar-4 #3c566a
+# Nord Snow (lower is grayer)
+set $snow-1  #d8dee9
+set $snow-2  #e5e9f0
+set $snow-3  #eceff4
+# Nord Frost (lower is greener, higher is bluer)
+set $frost-1 #8fbcbb
+set $frost-2 #88c0d0
+set $frost-3 #81a1c1
+set $frost-4 #5e81ac
+# Nord Aurora (extra colors)
+set $red     #bf616a
+set $orange  #d08770
+set $yellow  #ebcb8b
+set $green   #a3be8c
+set $magenta #b48ead
+
+## SYNTAX
+## border           the border around the title bar
+## background       the background of the title bar
+## text             the text of the title bar
+## indicator        side of the border where the window will split
+## child_border     the border around the view itself
+##
+## NAME                     border      background  text        indicator   child_border
+client.focused              $frost-4    $polar-2    $snow-3     $frost-3    $frost-4
+client.urgent               $orange     $red        $snow-1     $orange     $orange
+client.focused_inactive     $polar-3    $polar-1    $snow-1     $polar-3    $polar-3
+client.unfocused            $polar-3    $polar-1    $snow-1     $polar-3    $polar-3
+
+# bar {
+#     status_command  i3blocks
+#     modifier        $mod
+#     mode            dock
+#     position        top
+#     colors {
+#         statusline          $frost-3
+#         background          $polar-1
+#         ##############      Border      Filling     Text
+#         # Bright
+#         focused_workspace   $frost-4    $frost-4    $snow-3
+#         active_workspace    $frost-4    $polar-4    $snow-3
+#         # Dim
+#         inactive_workspace  $polar-1    $polar-1    $snow-1
+#         # Lit
+#         urgent_workspace    $red        $polar-1    $red
+#         binding_mode        $orange     $polar-1    $orange
+#     }
+# }

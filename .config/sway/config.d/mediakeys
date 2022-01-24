@@ -1,0 +1,71 @@
+# Dependencies:
+# Screen brightness     bc
+# Keyboard backlight    bc
+# Sound levels          PulseAudio (pactl)
+# Screenshots           grim, slurp
+# mpd controls          mpd, mpc (obviously...)
+
+# SCREEN BACKLIGHT
+set $set_screen             ~/.config/sway/scripts/set_screen.sh
+set $pkill_backlight        pkill -RTMIN+8 i3blocks
+set $brighter               XF86MonBrightnessUp
+set $dimmer                 XF86MonBrightnessDown
+bindsym $brighter           exec $set_screen 5,    exec $pkill_backlight
+bindsym shift+$brighter     exec $set_screen 1,    exec $pkill_backlight
+bindsym $mod+$brighter      exec $set_screen 1,    exec $pkill_backlight
+bindsym $MOD+$brighter      exec $set_screen 100,  exec $pkill_backlight
+bindsym $dimmer             exec $set_screen -5,   exec $pkill_backlight
+bindsym shift+$dimmer       exec $set_screen -1,   exec $pkill_backlight
+bindsym $mod+$dimmer        exec $set_screen -1,   exec $pkill_backlight
+bindsym $MOD+$dimmer        exec $set_screen -100, exec $pkill_backlight
+
+# Keyboard backlight
+# set $increase_kbd           xbacklight -ctrl smc::kbd_backlight -inc
+# set $decrease_kbd           xbacklight -ctrl smc::kbd_backlight -dec
+set $set_kbd                ~/.config/sway/scripts/set_kb_backlight.sh
+set $kbdbrighter            XF86KbdBrightnessUp
+set $kbddimmer              XF86KbdBrightnessDown
+bindsym $MOD+$kbdbrighter   exec $set_kbd 100
+bindsym $kbdbrighter        exec $set_kbd 5
+bindsym shift+$kbdbrighter  exec $set_kbd 1
+bindsym $mod+$kbdbrighter   exec $set_kbd 1
+bindsym $MOD+$kbddimmer     exec $set_kbd -100
+bindsym $kbddimmer          exec $set_kbd -5
+bindsym shift+$kbddimmer    exec $set_kbd -1
+bindsym $mod+$kbddimmer     exec $set_kbd -1
+
+# Volume keys
+# Changing volume but not letting it go over 100% is tricky with only pactl,
+# it's about half as fast as pamixer but reduces the need for external dependencies.
+set $mute                   pactl set-sink-mute @DEFAULT_SINK@ toggle
+set $change_volume          ~/.config/sway/scripts/set_volume.sh
+set $set_volume             pactl set-sink-volume @DEFAULT_SINK@
+set $pkill_volume           pkill -RTMIN+10 i3blocks
+set $louder                 XF86AudioRaiseVolume
+set $quieter                XF86AudioLowerVolume
+set $silent                 XF86AudioMute
+bindsym $silent             exec $mute,             exec $pkill_volume
+bindsym shift+$silent       exec $mute,             exec $pkill_volume
+bindsym $mod+$silent        exec $mute,             exec $pkill_volume
+bindsym $louder             exec $change_volume +5, exec $pkill_volume
+bindsym shift+$louder       exec $change_volume +1, exec $pkill_volume
+bindsym $mod+$louder        exec $change_volume +1, exec $pkill_volume
+bindsym $MOD+$louder        exec $set_volume  100%, exec $pkill_volume
+bindsym $quieter            exec $change_volume -5, exec $pkill_volume
+bindsym shift+$quieter      exec $change_volume -1, exec $pkill_volume
+bindsym $mod+$quieter       exec $change_volume -1, exec $pkill_volume
+bindsym $MOD+$quieter       exec $set_volume    0%, exec $pkill_volume
+
+# Screenshots
+set $location               ~/screenshot.png
+set $get_output             swaymsg --pretty -t get_outputs | awk '/focused/ {print $2}'
+set $grab_screen            grim -t png -o $($get_output)
+set $grab_selection         slurp | grim -t png -g -
+bindsym shift+Print         exec $grab_screen $location
+bindsym Print               exec $grab_selection $location
+
+# Media controls for mpd (using mpc)
+# Obviously depends on mpd and mpc.
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc prev

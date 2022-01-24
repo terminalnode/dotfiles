@@ -13,9 +13,6 @@ set $down           j
 set $up             k
 set $right          l
 
-titlebar_padding    2 2
-font                pango:SauceCodePro Nerd Font Mono 9, Bitstream Vera Sans 9,Font Awesome 9
-
 # Allow starting non-wayland applications through xwayland.
 xwayland            enable
 
@@ -23,319 +20,34 @@ xwayland            enable
 # Focus follows mouse moves focus when the cursor is changed.
 mouse_warping       none
 focus_follows_mouse no
+
 # Floating modifier enables moving floating windows with the mouse.
 # Tiling drag allows using the floating modifier key to move tiled windows too.
 floating_modifier   $mod normal
 tiling_drag         disable
 
-######################
-### WINDOW CONFIGS ###
-######################
-include config-window
+# INPUT
+include config.d/input-default
+include config.d/input/`hostname`
 
-##############
-### OUTPUT ###
-##############
-include output
+# OUTPUT
+include config.d/output/`hostname`
 bindswitch lid:on output eDP-1 disable
 bindswitch lid:off output eDP-1 enable
-#exec ~/.config/sway/scripts/fader.py
 
-#############
-### INPUT ###
-#############
-# hide_cursor also deactivates it, so a longer timeout
-# is required in order to show stuff like tooltips etc.
-seat * hide_cursor 7000
+# KEYBINDINGS
+include config.d/keybindings
+include config.d/navigation
+include config.d/mediakeys
+include config.d/resize
 
-# Generic keyboard settings
-input "*" {
-    # Keyboard
-    xkb_layout se(dvorak_a5),se(basic)
-    xkb_options caps:swapescape,compose:rctrl,grp:alt_caps_toggle
+# Visuals
+titlebar_padding    2 2
+font                pango:SauceCodePro Nerd Font Mono 9, Bitstream Vera Sans 9,Font Awesome 9
 
-    # Pointers
-    pointer_accel       0.3
-    natural_scroll      enabled
-    scroll_factor       0.5
-    dwt                 disabled
-    tap                 enabled
-    middle_emulation    enabled
-    tap_button_map      lrm
-    scroll_method       two_finger
-    repeat_delay        280
-    repeat_rate         65
-}
-
-# Device specific configuration
-include input
-
-
-###################
-### KEYBINDINGS ###
-###################
-# Non-navigational bindings.
-# $mod+q closes the window, this is all sway can do and is sort of asking the program nicely.
-# $MOD+q uses sway-utils to find the program PID and force kill it, useful for Microsoft Teams.
-bindsym --to-code $mod+q           kill
-bindsym --to-code $MOD+q           exec sway-utils focused-program-kill
-bindsym --to-code $mod+f           fullscreen
-bindsym --to-code $MOD+c           reload
-bindsym --to-code $mod+v           split toggle
-bindsym --to-code $mod+t           layout toggle tabbed split
-bindsym           $mod+Return      exec $term
-bindsym           $mod+Tab         workspace back_and_forth
-bindsym           $MOD+Tab         workspace next_on_output
-bindsym           $mod+Ctrl+Space  floating toggle
-bindsym           $mod+Space       exec $menu
-bindsym           $mod+BackSpace   exec $screenlock
-bindsym           $MOD+BackSpace   exec systemctl suspend
-bindsym           $MOD+minus       move scratchpad
-bindsym           $mod+minus       scratchpad show
-
-# Intra-workspace navigation
-# HJKL
-bindsym --to-code $mod+$left  focus left
-bindsym --to-code $mod+$down  focus down
-bindsym --to-code $mod+$up    focus up
-bindsym --to-code $mod+$right focus right
-
-bindsym --to-code $MOD+$left  move left
-bindsym --to-code $MOD+$down  move down
-bindsym --to-code $MOD+$up    move up
-bindsym --to-code $MOD+$right move right
-# ←↓↑→
-bindsym --to-code $MOD+Left   move left
-bindsym --to-code $MOD+Down   move down
-bindsym --to-code $MOD+Up     move up
-bindsym --to-code $MOD+Right  move right
-
-bindsym --to-code $mod+Left   focus left
-bindsym --to-code $mod+Down   focus down
-bindsym --to-code $mod+Up     focus up
-bindsym --to-code $mod+Right  focus right
-
-# Workspace hopping
-# (Moving a container to a specific workspace will also move the focus to that workspace)
-bindsym --to-code $mod+a            workspace 1
-bindsym --to-code $mod+o            workspace 2
-bindsym --to-code $mod+e            workspace 3
-bindsym --to-code $mod+u            workspace 4
-bindsym --to-code $mod+i            workspace 5
-bindsym --to-code $mod+aring        workspace 6
-bindsym --to-code $mod+adiaeresis   workspace 7
-bindsym --to-code $mod+odiaeresis   workspace 8
-bindsym --to-code $mod+p            workspace 9
-bindsym --to-code $mod+y            workspace 10
-bindsym --to-code $MOD+a            move container to workspace 1,  workspace 1
-bindsym --to-code $MOD+o            move container to workspace 2,  workspace 2
-bindsym --to-code $MOD+e            move container to workspace 3,  workspace 3
-bindsym --to-code $MOD+u            move container to workspace 4,  workspace 4
-bindsym --to-code $MOD+i            move container to workspace 5,  workspace 5
-bindsym --to-code $MOD+aring        move container to workspace 6,  workspace 6
-bindsym --to-code $MOD+adiaeresis   move container to workspace 7,  workspace 7
-bindsym --to-code $MOD+odiaeresis   move container to workspace 8,  workspace 8
-bindsym --to-code $MOD+p            move container to workspace 9,  workspace 9
-bindsym --to-code $MOD+y            move container to workspace 10, workspace 10
-bindsym           $mod+1            workspace 11
-bindsym           $mod+2            workspace 12
-bindsym           $mod+3            workspace 13
-bindsym           $mod+4            workspace 14
-bindsym           $mod+5            workspace 15
-bindsym           $mod+6            workspace 16
-bindsym           $mod+7            workspace 17
-bindsym           $mod+8            workspace 18
-bindsym           $mod+9            workspace 19
-bindsym           $mod+0            workspace 20
-bindsym           $MOD+1            move container to workspace 11, workspace 11
-bindsym           $MOD+2            move container to workspace 12, workspace 12
-bindsym           $MOD+3            move container to workspace 13, workspace 13
-bindsym           $MOD+4            move container to workspace 14, workspace 14
-bindsym           $MOD+5            move container to workspace 15, workspace 15
-bindsym           $MOD+6            move container to workspace 16, workspace 16
-bindsym           $MOD+7            move container to workspace 17, workspace 17
-bindsym           $MOD+8            move container to workspace 18, workspace 18
-bindsym           $MOD+9            move container to workspace 19, workspace 19
-bindsym           $MOD+0            move container to workspace 20, workspace 20
-
-# Resize mode
-set $resize 5
-mode "resize" {
-    # Left/Right will shrink/grow the containers width
-    # Up/Down will shrink/grow the containers height
-    bindsym --to-code $left           resize shrink width  $resize px or $resize ppt
-    bindsym --to-code $down           resize grow   height $resize px or $resize ppt
-    bindsym --to-code $up             resize shrink height $resize px or $resize ppt
-    bindsym --to-code $right          resize grow   width  $resize px or $resize ppt
-    bindsym --to-code $mod+$left      resize shrink width  $resize px or $resize ppt
-    bindsym --to-code $mod+$down      resize grow   height $resize px or $resize ppt
-    bindsym --to-code $mod+$up        resize shrink height $resize px or $resize ppt
-    bindsym --to-code $mod+$right     resize grow   width  $resize px or $resize ppt
-    bindsym --to-code shift+$left     resize shrink width  $resize px or $resize ppt
-    bindsym --to-code shift+$down     resize grow   height $resize px or $resize ppt
-    bindsym --to-code shift+$up       resize shrink height $resize px or $resize ppt
-    bindsym --to-code shift+$right    resize grow   width  $resize px or $resize ppt
-    # Same but with arrow keys
-    bindsym           Left            resize shrink width  $resize px or $resize ppt
-    bindsym           Down            resize grow   height $resize px or $resize ppt
-    bindsym           Up              resize shrink height $resize px or $resize ppt
-    bindsym           Right           resize grow   width  $resize px or $resize ppt
-    bindsym           $mod+Left       resize shrink width  $resize px or $resize ppt
-    bindsym           $mod+Down       resize grow   height $resize px or $resize ppt
-    bindsym           $mod+Up         resize shrink height $resize px or $resize ppt
-    bindsym           $mod+Right      resize grow   width  $resize px or $resize ppt
-    bindsym           shift+Left      resize shrink width  $resize px or $resize ppt
-    bindsym           shift+Down      resize grow   height $resize px or $resize ppt
-    bindsym           shift+Up        resize shrink height $resize px or $resize ppt
-    bindsym           shift+Right     resize grow   width  $resize px or $resize ppt
-    # Return to default mode
-    bindsym           Return  mode "default"
-    bindsym           Escape  mode "default"
-    bindsym --to-code $mod+r  mode "default"
-    bindsym --to-code r       mode "default"
-}
-bindsym --to-code $mod+r mode "resize"
-
-##################
-### MEDIA KEYS ###
-##################
-# Dependencies:
-# Screen brightness     bc
-# Keyboard backlight    bc
-# Sound levels          PulseAudio (pactl)
-# Screenshots           grim, slurp
-# mpd controls          mpd, mpc (obviously...)
-
-# SCREEN BACKLIGHT
-set $set_screen             ~/.config/sway/scripts/set_screen.sh
-set $pkill_backlight        pkill -RTMIN+8 i3blocks
-set $brighter               XF86MonBrightnessUp
-set $dimmer                 XF86MonBrightnessDown
-bindsym $brighter           exec $set_screen 5,    exec $pkill_backlight
-bindsym shift+$brighter     exec $set_screen 1,    exec $pkill_backlight
-bindsym $mod+$brighter      exec $set_screen 1,    exec $pkill_backlight
-bindsym $MOD+$brighter      exec $set_screen 100,  exec $pkill_backlight
-bindsym $dimmer             exec $set_screen -5,   exec $pkill_backlight
-bindsym shift+$dimmer       exec $set_screen -1,   exec $pkill_backlight
-bindsym $mod+$dimmer        exec $set_screen -1,   exec $pkill_backlight
-bindsym $MOD+$dimmer        exec $set_screen -100, exec $pkill_backlight
-
-# Keyboard backlight
-# set $increase_kbd           xbacklight -ctrl smc::kbd_backlight -inc
-# set $decrease_kbd           xbacklight -ctrl smc::kbd_backlight -dec
-set $set_kbd                ~/.config/sway/scripts/set_kb_backlight.sh
-set $kbdbrighter            XF86KbdBrightnessUp
-set $kbddimmer              XF86KbdBrightnessDown
-bindsym $MOD+$kbdbrighter   exec $set_kbd 100
-bindsym $kbdbrighter        exec $set_kbd 5
-bindsym shift+$kbdbrighter  exec $set_kbd 1
-bindsym $mod+$kbdbrighter   exec $set_kbd 1
-bindsym $MOD+$kbddimmer     exec $set_kbd -100
-bindsym $kbddimmer          exec $set_kbd -5
-bindsym shift+$kbddimmer    exec $set_kbd -1
-bindsym $mod+$kbddimmer     exec $set_kbd -1
-
-# Volume keys
-# Changing volume but not letting it go over 100% is tricky with only pactl,
-# it's about half as fast as pamixer but reduces the need for external dependencies.
-set $mute                   pactl set-sink-mute @DEFAULT_SINK@ toggle
-set $change_volume          ~/.config/sway/scripts/set_volume.sh
-set $set_volume             pactl set-sink-volume @DEFAULT_SINK@
-set $pkill_volume           pkill -RTMIN+10 i3blocks
-set $louder                 XF86AudioRaiseVolume
-set $quieter                XF86AudioLowerVolume
-set $silent                 XF86AudioMute
-bindsym $silent             exec $mute,             exec $pkill_volume
-bindsym shift+$silent       exec $mute,             exec $pkill_volume
-bindsym $mod+$silent        exec $mute,             exec $pkill_volume
-bindsym $louder             exec $change_volume +5, exec $pkill_volume
-bindsym shift+$louder       exec $change_volume +1, exec $pkill_volume
-bindsym $mod+$louder        exec $change_volume +1, exec $pkill_volume
-bindsym $MOD+$louder        exec $set_volume  100%, exec $pkill_volume
-bindsym $quieter            exec $change_volume -5, exec $pkill_volume
-bindsym shift+$quieter      exec $change_volume -1, exec $pkill_volume
-bindsym $mod+$quieter       exec $change_volume -1, exec $pkill_volume
-bindsym $MOD+$quieter       exec $set_volume    0%, exec $pkill_volume
-
-# Screenshots
-set $location               ~/screenshot.png
-set $get_output             swaymsg --pretty -t get_outputs | awk '/focused/ {print $2}'
-set $grab_screen            grim -t png -o $($get_output)
-set $grab_selection         slurp | grim -t png -g -
-bindsym shift+Print         exec $grab_screen $location
-bindsym Print               exec $grab_selection $location
-
-# Media controls for mpd (using mpc)
-# Obviously depends on mpd and mpc.
-bindsym XF86AudioPlay exec mpc toggle
-bindsym XF86AudioNext exec mpc next
-bindsym XF86AudioPrev exec mpc prev
-
-###############################
-### AESTHETICS + STATUS BAR ###
-###############################
-# Default border specifies the type and size of window borders.
-# If smart borders are enabled, these borders are not visible on single window workspaces.
-default_border      pixel
-smart_borders       on
-
-# Nord Polar (lower is darker)
-set $polar-1 #2e3440
-set $polar-2 #3b4252
-set $polar-3 #434c5e
-set $polar-4 #3c566a
-# Nord Snow (lower is grayer)
-set $snow-1  #d8dee9
-set $snow-2  #e5e9f0
-set $snow-3  #eceff4
-# Nord Frost (lower is greener, higher is bluer)
-set $frost-1 #8fbcbb
-set $frost-2 #88c0d0
-set $frost-3 #81a1c1
-set $frost-4 #5e81ac
-# Nord Aurora (extra colors)
-set $red     #bf616a
-set $orange  #d08770
-set $yellow  #ebcb8b
-set $green   #a3be8c
-set $magenta #b48ead
-
-## SYNTAX
-## border           the border around the title bar
-## background       the background of the title bar
-## text             the text of the title bar
-## indicator        side of the border where the window will split
-## child_border     the border around the view itself
-##
-## NAME                     border      background  text        indicator   child_border
-client.focused              $frost-4    $polar-2    $snow-3     $frost-3    $frost-4
-client.urgent               $orange     $red        $snow-1     $orange     $orange
-client.focused_inactive     $polar-3    $polar-1    $snow-1     $polar-3    $polar-3
-client.unfocused            $polar-3    $polar-1    $snow-1     $polar-3    $polar-3
-
-# bar {
-#     status_command  i3blocks
-#     modifier        $mod
-#     mode            dock
-#     position        top
-#     colors {
-#         statusline          $frost-3
-#         background          $polar-1
-#         ##############      Border      Filling     Text
-#         # Bright
-#         focused_workspace   $frost-4    $frost-4    $snow-3
-#         active_workspace    $frost-4    $polar-4    $snow-3
-#         # Dim
-#         inactive_workspace  $polar-1    $polar-1    $snow-1
-#         # Lit
-#         urgent_workspace    $red        $polar-1    $red
-#         binding_mode        $orange     $polar-1    $orange
-#     }
-# }
-
-bar {
-    swaybar_command waybar
-}
+include config.d/window
+include config.d/theme
+include config.d/bar
 
 # Support for Japanese input
 exec --no-startup-id fcitx5 -d

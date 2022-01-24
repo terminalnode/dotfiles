@@ -1,0 +1,36 @@
+set $resize_inc 5
+mode "resize" {
+    # Left/Right will shrink/grow the containers width
+    # Up/Down will shrink/grow the containers height
+    bindsym --to-code $left           resize shrink width  $resize_inc px or $resize_inc ppt
+    bindsym --to-code $down           resize grow   height $resize_inc px or $resize_inc ppt
+    bindsym --to-code $up             resize shrink height $resize_inc px or $resize_inc ppt
+    bindsym --to-code $right          resize grow   width  $resize_inc px or $resize_inc ppt
+    bindsym --to-code $mod+$left      resize shrink width  $resize_inc px or $resize_inc ppt
+    bindsym --to-code $mod+$down      resize grow   height $resize_inc px or $resize_inc ppt
+    bindsym --to-code $mod+$up        resize shrink height $resize_inc px or $resize_inc ppt
+    bindsym --to-code $mod+$right     resize grow   width  $resize_inc px or $resize_inc ppt
+    bindsym --to-code shift+$left     resize shrink width  $resize_inc px or $resize_inc ppt
+    bindsym --to-code shift+$down     resize grow   height $resize_inc px or $resize_inc ppt
+    bindsym --to-code shift+$up       resize shrink height $resize_inc px or $resize_inc ppt
+    bindsym --to-code shift+$right    resize grow   width  $resize_inc px or $resize_inc ppt
+    # Same but with arrow keys
+    bindsym           Left            resize shrink width  $resize_inc px or $resize_inc ppt
+    bindsym           Down            resize grow   height $resize_inc px or $resize_inc ppt
+    bindsym           Up              resize shrink height $resize_inc px or $resize_inc ppt
+    bindsym           Right           resize grow   width  $resize_inc px or $resize_inc ppt
+    bindsym           $mod+Left       resize shrink width  $resize_inc px or $resize_inc ppt
+    bindsym           $mod+Down       resize grow   height $resize_inc px or $resize_inc ppt
+    bindsym           $mod+Up         resize shrink height $resize_inc px or $resize_inc ppt
+    bindsym           $mod+Right      resize grow   width  $resize_inc px or $resize_inc ppt
+    bindsym           shift+Left      resize shrink width  $resize_inc px or $resize_inc ppt
+    bindsym           shift+Down      resize grow   height $resize_inc px or $resize_inc ppt
+    bindsym           shift+Up        resize shrink height $resize_inc px or $resize_inc ppt
+    bindsym           shift+Right     resize grow   width  $resize_inc px or $resize_inc ppt
+    # Return to default mode
+    bindsym           Return  mode "default"
+    bindsym           Escape  mode "default"
+    bindsym --to-code $mod+r  mode "default"
+    bindsym --to-code r       mode "default"
+}
+bindsym --to-code $mod+r mode "resize"
