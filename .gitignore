@@ -85,6 +85,7 @@ out
 !.config/systemd
 .config/systemd/user/*
 !.config/systemd/user/*.target
+!.config/systemd/user/*.timer
 !.config/systemd/user/*.service
 
 # sway
