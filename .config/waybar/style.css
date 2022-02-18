@@ -30,7 +30,7 @@
     border: none;
     border-radius: 0;
     font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-size: 12;
+    font-size: 12px;
     min-height: 0;
 }
 
@@ -59,21 +59,21 @@ tooltip label {
 
 #custom-right-arrow-dark,
 #custom-left-arrow-dark {
-    font-size: 15;
+    font-size: 15px;
     padding: 0px;
     background: @nord2;
     color: @nord0;
 }
 #custom-right-arrow-light,
 #custom-left-arrow-light {
-    font-size: 15;
+    font-size: 15px;
     padding: 0px;
     background: @nord0;
     color: @nord2;
 }
 
 #workspaces button {
-    padding: 5 5 0px;
+    padding: 5px 5px 0px;
     background: transparent;
     color: @snow0;
     border-bottom: 3px solid transparent;
