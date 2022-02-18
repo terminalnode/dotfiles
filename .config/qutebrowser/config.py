@@ -31,7 +31,7 @@ config.bind("<Ctrl-t>", "set-cmd-text -s :open -t")
 # Creating new bookmarks with M is default.
 config.bind("b", "set-cmd-text -s :bookmark-load -t")
 config.bind("B", "set-cmd-text -s :bookmark-load -t")
-config.bind("E", "open-editor")
+config.bind("E", "edit-text")
 
 # Both upper and lower-case d/r are bound to close/reload tab respectively.
 # We only need one binding for each option,
@@ -60,7 +60,7 @@ c.qt.low_end_device_mode = "auto"
 c.url.default_page = "about:blank"
 c.downloads.location.directory = "~/downloads/"
 c.confirm_quit = ["multiple-tabs"]
-c.editor.command = ["alacritty", "-e", "vim {}"]
+c.editor.command = ["alacritty", "-e", "nvim", "{}"]
 c.window.title_format = "{perc}{current_title}{title_sep}"
 c.zoom.levels = [
     "5%", "10%", "15%", "25%", "33%", "50%", "67%", "75%", "90%", "100%",
