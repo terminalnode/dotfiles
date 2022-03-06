@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=CLion
-Icon=clion
-Exec=env _JAVA_AWT_WM_NONREPARENTING=1 clion %f
-Terminal=false
-StartupWMClass=jetbrains-clion
-Type=Application

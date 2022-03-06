@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=IntelliJ IDEA Ultimate (default env)
-Exec=intellij-idea-ultimate-edition %u
-Icon=intellij-idea-ultimate-edition
-Terminal=false
-Type=Application

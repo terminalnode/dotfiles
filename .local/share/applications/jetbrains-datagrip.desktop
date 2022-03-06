@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=DataGrip
-Icon=datagrip
-Exec=env datagrip %f
-Comment=IDE for Databases and SQL
-Terminal=false
-StartupWMClass=jetbrains-datagrip
