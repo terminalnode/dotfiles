@@ -66,18 +66,9 @@ c.zoom.levels = [
     "5%", "10%", "15%", "25%", "33%", "50%", "67%", "75%", "90%", "100%",
     "110%", "125%", "150%", "175%", "200%", "250%", "300%", "400%", "500%"
 ]
+c.colors.webpage.preferred_color_scheme = "dark"
 #c.content.cookies.accept = "no-3rdparty"
 c.content.cookies.accept = "all"
-
-# Dark mode rocks
-c.colors.webpage.preferred_color_scheme = "dark"
-c.colors.webpage.darkmode.enabled = True
-c.colors.webpage.darkmode.algorithm = "lightness-hsl"
-c.colors.webpage.darkmode.contrast = -.022
-c.colors.webpage.darkmode.threshold.text = 150
-c.colors.webpage.darkmode.threshold.background = 100
-c.colors.webpage.darkmode.policy.images = "always"
-c.colors.webpage.darkmode.grayscale.images = 0.35
 
 # Previously enabled options that are disabled now.
 # c.content.pdfjs               = False
