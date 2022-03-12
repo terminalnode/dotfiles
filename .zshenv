@@ -1,11 +1,13 @@
+# Default applications
+export EDITOR="nvim"
+export VISUAL="nvim"
+export BROWSER="qutebrowser"
+
 # Colored man pages using less as a viewer
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 
 # Opt out of Microsoft spyware
 export DOTNET_CLI_TELEMETRY_OPTOUT="1"
-
-# Disable oh-my-zsh would you like to update
-export DISABLE_UPDATE_PROMPT=true
 
 # XDG
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -20,6 +22,7 @@ export PATH="$XDG_DATA_HOME/node_modules/bin:$PATH"
 export PATH="$HOME/.local/share/cargo/bin:$PATH"
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/jetbrains-bin:$PATH"
 export PATH="$HOME/.dotnet/tools/:$PATH"
 
 # Moving stuff to XDG_CONFIG_HOME
