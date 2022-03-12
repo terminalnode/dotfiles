@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Open Repository...
+Exec=open-repo -wi
+Terminal=false
