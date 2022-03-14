@@ -3,10 +3,12 @@ exec_always ~/.config/sway/scripts/lid_detect.sh
 ############################
 ### VARIABLES / SETTINGS ###
 ############################
+# all caps alternatives are used for shift + normal command
 set $mod            Mod4
 set $MOD            shift+$mod
 set $term           alacritty
 set $menu           wofi --show drun
+set $MENU           open-repo -iw
 set $screenlock     swaylock-fancy || swaylock
 set $left           h
 set $down           j

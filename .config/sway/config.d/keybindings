@@ -12,6 +12,7 @@ bindsym           $mod+Tab         workspace back_and_forth
 bindsym           $MOD+Tab         workspace next_on_output
 bindsym           $mod+Ctrl+Space  floating toggle
 bindsym           $mod+Space       exec $menu
+bindsym           $MOD+Space       exec $MENU
 bindsym           $mod+BackSpace   exec $screenlock
 bindsym           $MOD+BackSpace   exec systemctl suspend
 bindsym           $MOD+minus       move scratchpad
