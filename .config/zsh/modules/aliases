@@ -13,6 +13,7 @@ alias cdst="cd ~/.dotfiles/suckless/st"
 alias mansplain="man"
 alias update_battery="~/.config/i3blocks/battery && pkill -RTMIN+9 i3blocks"
 alias dcdu="docker-compose down; docker-compose up"
+alias ncp="ncpamixer"
 
 # ADD OPTIONS
 # Commands replaced with themselves + various options.
