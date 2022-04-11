@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # This script will set up all the symlinks necessary, installing the dotfiles for the current user.
 dotfiles_dir="$(readlink -f "$(dirname "$0")")"
+echo Dotfiles dir: "$dotfiles_dir"
 
 # Options. These will be togglable using flags at some point, probably.
 force_replace=true

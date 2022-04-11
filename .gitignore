@@ -114,3 +114,4 @@ out
 !.local/bin/scalevid
 !.local/bin/speedtest
 !.local/bin/urlhandler
+!.local/bin/harden
