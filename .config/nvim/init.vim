@@ -21,15 +21,12 @@ call plug#begin('~/.local/share/nvim/plugged')
 
     " Syntax highlighting / IDE features
     Plug 'sheerun/vim-polyglot'
-    Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
     Plug 'terminalnode/sway-vim-syntax'
     Plug 'ElmCast/elm-vim'
     Plug 'OmniSharp/omnisharp-vim'
     Plug 'eraserhd/parinfer-rust'
-
 call plug#end()
 echo "(ノಠ益ಠ)ノ彡┻━┻ THIS. IS. NEOVIM!!!"
-
 
 """"""""""""""""""""""""""
 """ PLUGIN FEATURE TOGGLES
