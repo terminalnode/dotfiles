@@ -25,6 +25,9 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'ElmCast/elm-vim'
     Plug 'OmniSharp/omnisharp-vim'
     Plug 'eraserhd/parinfer-rust'
+
+    " Other
+    Plug 'terminalnode/vim-zenkaku'
 call plug#end()
 echo "(ノಠ益ಠ)ノ彡┻━┻ THIS. IS. NEOVIM!!!"
 
