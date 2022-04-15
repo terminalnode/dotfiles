@@ -77,6 +77,7 @@ def get_search_engines() -> Dict[str, str]:
         "wa":         "http://www.wolframalpha.com/input/?i={}",
         "emoji":      "https://emojipedia.org/search/?q={}",
         "imdb":       "https://www.imdb.com/find?q={}",
+        "tmdb":       "https://www.themoviedb.org/search?query={}",
         "rtomato":    "https://www.rottentomatoes.com/search/?search={}",
         "bgg":        "https://www.boardgamegeek.com/geeksearch.php?action=search&objecttype=boardgame&q={}",  # noqa: E501
         "gunda":      "https://gu-se-primo.hosted.exlibrisgroup.com/primo-explore/search?query=any,contains,{}&vid=46GUB_VU1",  # noqa: E501
