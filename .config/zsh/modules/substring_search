@@ -14,3 +14,5 @@ if $loaded; then
   bindkey '^[[A' history-substring-search-up
   bindkey '^[[B' history-substring-search-down
 fi
+
+bindkey '^R' history-incremental-search-backward
