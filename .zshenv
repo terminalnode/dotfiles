@@ -43,6 +43,7 @@ export XCOMPOSEFILE="$XDG_CONFIG_HOME/XCompose"
 export MPV_HOME="$XDG_CONFIG_HOME/mpv"
 
 # Moving stuff to XDG_DATA_HOME
+export GOPATH="$XDG_DATA_HOME/go"
 export UNISON="$XDG_DATA_HOME/unison"
 export MYSQL_HISTFILE="$XDG_DATA_HOME/mysql_history"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
@@ -64,7 +65,12 @@ export PYLINTHOME="$XDG_CACHE_HOME/pylint"
 export ICEAUTHORITY="$XDG_CACHE_HOME/ICEauthority"
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
+export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node_repl_history"
 
 # bat theme
 export BAT_THEME="Monokai Extended Bright"
 [ -d "/home/terminal/.local/share/cargo/env" ] && source "/home/terminal/.local/share/cargo/env"
+
+# Hotfix for ZSH rsync autocompletion
+# See: https://www.zsh.org/mla/workers/2022/msg00820.html
+export RSYNC_OLD_ARGS=1
