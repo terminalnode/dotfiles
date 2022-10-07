@@ -55,4 +55,5 @@ include config.d/bar
 exec --no-startup-id fcitx5 -d
 
 # Sway as a service stuff
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP; systemctl --user start sway-session.target"
