@@ -13,12 +13,6 @@ output $laptop {
 output $workWide {
   pos 3840 0
   scale 1
-  mode 3440x1440@100Hz
-}
-
-output $workWide {
-  pos 3840 0
-  scale 1
   mode 1920x1200@60Hz
 }
 
