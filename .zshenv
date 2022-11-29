@@ -1,7 +1,7 @@
 # Default applications
 export EDITOR="nvim"
 export VISUAL="nvim"
-export BROWSER="qutebrowser"
+export BROWSER="firefox"
 
 # Colored man pages using less as a viewer
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
