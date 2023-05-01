@@ -1,0 +1,78 @@
+#!/usr/bin/env sh
+
+help_message() {
+  echo "Usage: ./s3-sync.sh [-h] my-bucket file1 file2 file3 dir1 dir2"
+  echo "For directiories s3 sync is used, for single files s3 cp is used, the latter"
+  echo "of these will upload regardless if the remote file is up to date or not."
+  echo ""
+  echo "Options:"
+  echo "  -h         Display this help message and exit"
+  echo ""
+  echo "Environment Variables:"
+  echo "  S3_SYNC_PROFILE  AWS profile to use (default: terminalnode)"
+}
+
+sync_to_s3() {
+  local path=$1
+  local hostname=$(hostname)
+  local s3_path="s3://$bucket/$hostname$(realpath "$path")"
+
+  if [ -d "$path" ]; then
+    aws s3 sync "$path" "$s3_path" --delete --profile "$S3_SYNC_PROFILE"
+  else
+    aws s3 cp "$path" "$s3_path" --profile "$S3_SYNC_PROFILE"
+  fi
+}
+
+for arg in "$@"; do
+  if [ "$arg" == "-h" ]; then
+    help_message
+    exit 0
+  fi
+done
+
+if [ "$#" -lt 2 ]; then
+  echo "Error: Invalid number of arguments"
+  help_message
+  exit 1
+fi
+
+bucket=$1
+shift
+files_and_dirs=$@
+
+# If S3_SYNC_PROFILE is unset, default to "terminalnode", my script my rules.
+if [ -z "$S3_SYNC_PROFILE" ]; then
+  S3_SYNC_PROFILE="terminalnode"
+fi
+
+# Verify that the provided profile works
+if ! aws sts get-caller-identity --profile "$S3_SYNC_PROFILE" >/dev/null 2>&1; then
+  echo "Error: The S3_SYNC_PROFILE='$S3_SYNC_PROFILE' doesn't exist"
+  exit 1
+fi
+
+# Verify that the specified bucket exists
+if ! aws s3api head-bucket --bucket "$bucket" --profile "$S3_SYNC_PROFILE" >/dev/null 2>&1; then
+  echo "Error: The bucket '$bucket' doesn't exist or is not writable by the specified profile"
+  exit 1
+fi
+
+# Verify that everything is readable
+for item in $files_and_dirs; do
+  if [ ! -e "$item" ]; then
+    echo "Error: One or more of the files+directories don't exist or aren't readable"
+    exit 1
+  fi
+done
+
+# Put it in a bucket
+for item in $files_and_dirs; do
+  tput bold
+  tput setaf 4
+  echo "Processing: $item"
+  tput sgr0
+
+  sync_to_s3 "$item"
+done
+

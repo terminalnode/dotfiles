@@ -115,3 +115,4 @@ out
 !.local/bin/speedtest
 !.local/bin/urlhandler
 !.local/bin/harden
+!.local/bin/s3sync
