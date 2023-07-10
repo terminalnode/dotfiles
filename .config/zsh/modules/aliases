@@ -1,19 +1,10 @@
 #!/bin/sh
 # SHORTCUTS
-alias cwh="cd ~/code/codewars/haskell"
-alias cwj="cd ~/code/codewars/java"
-alias cwjs="cd ~/code/codewars/js"
-alias cwp="cd ~/code/codewars/python"
-alias cwr="cd ~/code/codewars/ruby"
-alias cdh="cd ~/code/learning-haskell"
-alias cdj="cd ~/code/learning-clojure"
-alias cmf="cd ~/code/mrfreeze"
-alias cddwm="cd ~/.dotfiles/suckless/dwm"
-alias cdst="cd ~/.dotfiles/suckless/st"
-alias mansplain="man"
-alias update_battery="~/.config/i3blocks/battery && pkill -RTMIN+9 i3blocks"
+alias update-battery="~/.config/i3blocks/battery && pkill -RTMIN+9 i3blocks"
 alias dcdu="docker-compose down; docker-compose up"
 alias ncp="ncpamixer"
+alias tf="terraform"
+alias tf-fmt="terraform fmt -recursive ."
 
 # ADD OPTIONS
 # Commands replaced with themselves + various options.
