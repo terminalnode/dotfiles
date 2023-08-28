@@ -1,3 +1,2 @@
 cache=/home/terminal/.cache/npm
-tmp=/run/user/1000/npm
 init-module=/home/terminal/.config/npm/config/npm-init.js
