@@ -6,7 +6,7 @@ exec_always ~/.config/sway/scripts/lid_detect.sh
 # all caps alternatives are used for shift + normal command
 set $mod            Mod4
 set $MOD            shift+$mod
-set $term           alacritty
+set $term           footclient || foot
 set $menu           wofi --show drun
 set $MENU           open-repo -iw
 set $screenlock     swaylock-fancy || swaylock
