@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Fleet (Wayland)
-Icon=/home/terminal/.local/share/JetBrains/Toolbox/apps/Fleet/ch-0/.icon.png
-StartupWMClass=jetbrains-fleet-wayland
-Comment=The next-generation IDE by JetBrains
-Exec=env _JAVA_AWT_WM_NONREPARENTING=1 fleet %u
-Version=1.0
-Type=Application
-Terminal=false
