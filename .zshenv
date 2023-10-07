@@ -24,6 +24,7 @@ export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/jetbrains-bin:$PATH"
 export PATH="$HOME/.dotnet/tools/:$PATH"
+export PATH="$HOME/.nimble/bin:$PATH"
 
 # Moving stuff to XDG_CONFIG_HOME
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
