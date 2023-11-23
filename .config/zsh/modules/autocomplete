@@ -19,3 +19,8 @@ fi
 if [[ -x $(which terraform) ]]; then
   complete -o nospace -C /usr/bin/terraform terraform
 fi
+
+# Git Town autocomplete
+if [[ -x $(which git-town) ]]; then
+  source <(git-town completions zsh)
+fi
