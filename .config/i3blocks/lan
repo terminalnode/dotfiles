@@ -1,8 +1,18 @@
 #!/bin/sh
-interface=wifi
-ssid=$(netctl list | grep '*' | cut -d' ' -f2-)
-hostname=$(hostname -i | cut -d' ' -f1)
-ip=$(ip addr show ${interface} | grep "inet " | awk '{ print $2 }' | cut -d'/' -f1)
+interfaces=("eth0" "wlan0")
 
-echo ${ssid} ${ip}
-echo ${ssid} ${ip}
+function get_ip() {
+  ip addr show "$1" |
+    awk '/inet / {split($2, a, "/"); print a[1]; exit}'
+}
+
+for interface in "${interfaces[@]}"; do
+  ip_address=$(get_ip "$interface")
+  if [ -n "$ip_address" ]; then
+    echo $ip_address
+    exit 0
+  fi
+done
+
+echo "IP unknown"
+

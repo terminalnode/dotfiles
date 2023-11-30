@@ -1,29 +1,28 @@
 #!/bin/sh
-sleep 0.05 # Too fast!!!
-getsink() {
-    pacmd list-sinks |
-        awk '/index:/{i++} /* index:/{print i; exit}'
+sink="$(pactl info | grep 'Default Sink' | cut -d' ' -f3)"
+if [ -z "$sink" ]; then
+    echo ' N/A'
+    exit 0
+fi
+
+sink_info() {
+    pactl list sinks | awk -v name="$sink" '
+        $1 == "Name:" && $2 == name {printit=1}
+        printit {print}
+        $1 == "Properties:" && printit {exit}
+        '
 }
 
-getvolume() {
-    pacmd list-sinks |
-        awk '/^\svolume:/{i++} i=='"$(getsink)"'{print $5; exit}' |
-        cut -d'%' -f1 # remove trailing % sign
-}
+info=$(sink_info)
+is_muted=$(echo "$info" | grep 'Mute: yes')
+volume=$(echo "$info" | grep 'Volume:' | head -n1 | cut -d'/' -f2 | cut -d'%' -f1 | xargs)
 
-getmute() {
-    pacmd list-sinks |
-        awk '/^\smuted:/{i++} i=='"$(getsink)"'{print $2; exit}'
-}
-
-mute=$(getmute)
-vol=$(getvolume)
-if [ "$mute" = "yes" ]; then
+if [ -n "$is_muted" ]; then
     echo " Muted"
-elif [ "$vol" -ge 75 ]; then
-    echo " ${vol}%"
-elif [ "$vol" -ge 40 ]; then
-    echo " ${vol}%"
+elif [ "$volume" -ge 75 ]; then
+    echo " ${volume}%"
+elif [ "$volume" -ge 40 ]; then
+    echo " ${volume}%"
 else
-    echo " ${vol}%"
+    echo " ${volume}%"
 fi

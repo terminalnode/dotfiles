@@ -1,39 +1,21 @@
-# i3blocks config file
-
-# GLOBAL PRCOPERTIES
+# GLOBAL PROPERTIES
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
 command=/usr/lib/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
-# frost4
-# Every fifteen minutes.
-[newsboat]
-label= 
-command=newsboat -x reload && newsboat -x print-unread | cut -d' ' -f1
-color=#5e81cc
-interval=900
-signal=13
+# frost4 #5e81cc
+# snow1 #e8eef9
 
 # orange
-[pulsevolume]
-command=~/.config/i3blocks/pulsevolume
-interval=once
-color=#f08770
-signal=10
-
-# snow1
-[brightness]
-label= 
-command=~/.config/i3blocks/brightness
-interval=once
-color=#e8eef9
-signal=8
+# # [pulsevolume]
+# # command=~/.config/i3blocks/pulsevolume
+# # interval=once
+# # color=#f08770
+# # signal=10
 
 # magenta
-#label= 
-#command=free -tbh | tail -n1 | awk '{print $4}'
 [memory-sh]
 command=~/.config/i3blocks/memory
 color=#f48ead
@@ -46,21 +28,10 @@ command=~/.config/i3blocks/hdd
 color=#ff616a
 interval=30
 
-# [cpu_usage]
-# label=
-# color=#88c0d0 # frost2
-# interval=10
-# separator=false
-# [load-average]
-# label=/ 
-# command=uptime | sed 's/.*average: //' | cut -d',' -f1
-# color=#88c0d0 # frost2
-# interval=10
-
 # frost2
 [cpu-load]
 label= 
-command=~/.config/i3blocks/cpu_load
+command=uptime | awk -F'[ ,]+' '{print "Up", $4 "h, " $9 " | " $10 " | " $11}'
 color=#88c0d0
 interval=10
 
@@ -72,17 +43,6 @@ color=#a3feac
 interval=60
 signal=9
 
-[mullvad]
-command=~/.config/i3blocks/mullvad_check
-color=#a3fe8c
-interval=60
-signal=9
-
-[algo]
-command=~/.config/i3blocks/algo_check
-color=#a3ce8c
-interval=30
-
 # frost3
 # every 10 minutes
 [get-public-ip]
@@ -91,6 +51,11 @@ command=~/.config/i3blocks/ip
 color=#81b1ff
 interval=600
 signal=9
+
+# [algo]
+# command=~/.config/i3blocks/algo_check
+# color=#a3ce8c
+# interval=30
 
 # yellow
 [battery]
@@ -106,6 +71,6 @@ color=#8ffcdb
 interval=5
 
 [decimal_time]
-command=~/.config/i3blocks/decimal_time
+command=decimal_time -0 -f short
 color=#8ffcdb
-interval=1
+interval=5
