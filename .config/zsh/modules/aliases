@@ -48,6 +48,14 @@ alias gitd="git diff"
 alias gitr="git rebase"
 alias chko="git checkout"
 
+# Lazy gting
+alias gtl="gt log short --classic" # default log format
+alias gtlc="gt log short --classic"
+alias gtls="gt log short"
+alias gtll="gt log long"
+alias gtss="gt ss -np"
+alias gtssg="gt ss -np -r gergkllai1"
+
 # Slightly more complicated aliases
 alias weather="curl wttr.in/Gothenburg\?0Q"
 alias rightnow="date +\(%a\)\ %d\ %b\ %H:%M"
