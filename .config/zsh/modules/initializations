@@ -14,8 +14,9 @@ function init-rbenv {
   fi
 }
 
-function init-nbenv {
+function init-nvm {
   if [[ -e "/usr/share/nvm/init-nvm.sh" ]] ; then
+    unset npm_config_prefix
     source /usr/share/nvm/init-nvm.sh
   fi
 }
