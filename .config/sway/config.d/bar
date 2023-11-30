@@ -1,3 +1,19 @@
 bar {
-    swaybar_command waybar
+    status_command  i3blocks
+    modifier        $mod
+    mode            dock
+    position        top
+    colors {
+        statusline          $frost-3
+        background          $polar-1
+        ##############      Border      Filling     Text
+        # Bright
+        focused_workspace   $frost-4    $frost-4    $snow-3
+        active_workspace    $frost-4    $polar-4    $snow-3
+        # Dim
+        inactive_workspace  $polar-1    $polar-1    $snow-1
+        # Lit
+        urgent_workspace    $red        $polar-1    $red
+        binding_mode        $orange     $polar-1    $orange
+    }
 }
