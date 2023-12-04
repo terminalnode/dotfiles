@@ -1,5 +1,5 @@
 #!/bin/sh
-interfaces=("eth0" "wlan0")
+interfaces=("eth0" "eth1" "wlan0")
 
 function get_ip() {
   ip addr show "$1" |
