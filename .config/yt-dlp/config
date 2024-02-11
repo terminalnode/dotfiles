@@ -7,8 +7,12 @@
 # And we try to get it via https if we can.
 -f "best[height<=1080][fps<60]/best[height=720]/best"
 
-# Save file in ~/ytdl/Uploader/Title.extension
--o "~/video/ytdl/%(uploader)s_%(title)s.%(ext)s"
+# Save file in current location
+-o "./%(uploader)s_%(title)s.%(ext)s"
+
+# Use aria2c for faster (parallel) downloads
+--downloader aria2c
+--downloader-args '-c -j 3 -x 3 -s 3 -k 1M'
 
 # Get subtitles as well
 --all-subs
