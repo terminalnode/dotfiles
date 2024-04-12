@@ -36,6 +36,8 @@ alias e="exa"
 alias el="exa -l"
 alias e1="exa -1"
 alias cpdir="cp -rfv"
+alias lintkt="./gradlew lintKotlin"
+alias formatkt="./gradlew formatKotlin"
 
 # Lazy gitting
 alias gits="git status"
@@ -47,14 +49,17 @@ alias gitp="git push"
 alias gitd="git diff"
 alias gitr="git rebase"
 alias chko="git checkout"
+alias git-message="git show -s --format=%B" # followed by commit hash/HEAD
 
 # Lazy gting
 alias gtl="gt log short --classic" # default log format
 alias gtlc="gt log short --classic"
 alias gtls="gt log short"
 alias gtll="gt log long"
-alias gtss="gt ss -np"
-alias gtssg="gt ss -np -r gergkllai1"
+alias gts="gt submit -n"
+alias gtss="gt ss -n"
+alias gtsgp="gt submit -pr gergkllai1"
+alias gtssgp="gt ss -npr gergkllai1"
 
 # Slightly more complicated aliases
 alias weather="curl wttr.in/Gothenburg\?0Q"
