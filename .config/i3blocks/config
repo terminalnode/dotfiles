@@ -66,11 +66,11 @@ signal=12
 
 # frost1
 [calendar]
-command=date +\(%a\)\ %d\ %b\ %H:%M
+command=clitch clock -cf '(%a) %d %h %H:%M:%S'
 color=#8ffcdb
-interval=5
+interval=persist
 
 [decimal_time]
-command=decimal_time -0 -f short
+command=decimal_time -f short
 color=#8ffcdb
 interval=5
