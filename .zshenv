@@ -1,3 +1,5 @@
+export TMPDIR="$HOME/.tmp"
+
 # Default applications
 export EDITOR="nvim"
 export VISUAL="nvim"
