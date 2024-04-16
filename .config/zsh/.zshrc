@@ -2,6 +2,9 @@
 # multiple files in the ./modules directory. These are loaded at the bottom
 # of this script.
 
+# Set JAVA_HOME here because I don't wanna log out to change it
+JAVA_HOME="$HOME/.jdks/corretto-21.0.2"
+
 # History configuration
 mkdir -p ~/.cache/zsh/
 HISTFILE=~/.cache/zsh/histfile
@@ -30,5 +33,6 @@ done
 bindkey "^[[3~"     delete-char
 bindkey "^[3;5~"    delete-char
 
-# Java
-export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
+# This must be at the end of the file for SDK-MAN to work!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

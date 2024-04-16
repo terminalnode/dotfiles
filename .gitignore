@@ -27,6 +27,7 @@ out
 !.config/alacritty
 !.config/XCompose
 !.config/yt-dlp
+!.config/starship.toml
 
 # newsboat
 !.config/newsboat

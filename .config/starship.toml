@@ -1,0 +1,26 @@
+add_newline = true
+
+[hostname]
+ssh_only = false
+format = '\[[$hostname](bold red)\] '
+disabled = false
+
+[character]
+success_symbol = '[\$](bold green)'
+error_symbol = '[✗](bold red)'
+
+[time]
+disabled = false
+format = '[$time]($style) '
+time_format = '[%H:%M]'
+
+# Disable or undisable
+
+[sudo]
+disabled = false
+
+[aws]
+disabled = true
+
+[status]
+disabled = false
