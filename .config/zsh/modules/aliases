@@ -48,7 +48,7 @@ alias gitl="git log --oneline"
 alias gitp="git push"
 alias gitd="git diff"
 alias gitr="git rebase"
-alias chko="git checkout"
+alias gco="git checkout"
 alias git-message="git show -s --format=%B" # followed by commit hash/HEAD
 
 # Lazy gting
