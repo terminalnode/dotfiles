@@ -1,0 +1,44 @@
+[init]
+	defaultBranch = main
+
+[alias]
+	a = add
+	p = push
+	pl = pull
+	s = status
+	c = commit
+	r = rebase
+	co = checkout
+	ref = reflog
+	res = reset
+
+[core]
+	pager = bat --style plain
+	commentChar = %
+
+[commit]
+	gpgsign = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[merge]
+	conflictstyle = zdiff3
+
+[pull]
+	rebase = true
+
+[rebase]
+	autostash = true
+
+[user]
+	email = alex@gwai.se
+	name = Alexander Rundberg
+	signingkey = 4FEC9641B61E7A52
+
+[include]
+  path = ~/.config/git/config.d/github
+  path = ~/.config/git/config.local

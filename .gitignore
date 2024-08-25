@@ -26,6 +26,12 @@ out
 !.config/yt-dlp
 !.config/starship.toml
 
+# Git
+!.config/git
+.config/git/config.local
+.config/git/config.d/*
+!.config/git/config.d/github
+
 # newsboat
 !.config/newsboat
 .config/newsboat/urls
