@@ -7,8 +7,8 @@ exec_always ~/.config/sway/scripts/lid_detect.sh
 set $mod            Mod4
 set $MOD            shift+$mod
 set $term           footclient || foot
-set $menu           wofi --show drun
-set $MENU           open-repo -iw
+set $menu           fuzzel
+set $MENU           open-repo -ip 'fuzzel --dmenu'
 set $screenlock     swaylock-fancy || swaylock
 set $left           h
 set $down           j
@@ -18,9 +18,7 @@ set $right          l
 # Allow starting non-wayland applications through xwayland.
 xwayland            enable
 
-# Mouse warping moves the cursor when focus is changed.
 # Focus follows mouse moves focus when the cursor is changed.
-mouse_warping       none
 focus_follows_mouse no
 
 # Floating modifier enables moving floating windows with the mouse.
@@ -48,12 +46,11 @@ titlebar_padding    2 2
 font                pango:SauceCodePro Nerd Font Mono 9, Bitstream Vera Sans 9,Font Awesome 9
 
 include config.d/window
-include config.d/theme
-include config.d/bar
-
-# Support for Japanese input
-exec --no-startup-id fcitx5 -d
+include config.d/theme/catppuccin-latte
 
 # Sway as a service stuff
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY
-exec "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP; systemctl --user start sway-session.target"
+exec systemctl --user set-environment XDG_CURRENT_DESKTOP=sway
+exec systemctl --user start sway-session.target
+exec systemctl --user import-environment DISPLAY SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway

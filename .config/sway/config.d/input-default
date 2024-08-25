@@ -1,6 +1,7 @@
 # hide_cursor also deactivates it, so a longer timeout
 # is required in order to show stuff like tooltips etc.
 seat * hide_cursor 7000
+seat * xcursor_theme 'Catppuccin-Latte-Dark' 24
 
 # Generic keyboard settings
 input "*" {
