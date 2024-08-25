@@ -4,6 +4,7 @@ export TMPDIR="$HOME/.tmp"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export BROWSER="firefox"
+export TERMINAL="foot"
 
 # Colored man pages using less as a viewer
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
@@ -71,7 +72,9 @@ export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node_repl_history"
 
 # bat theme
-export BAT_THEME="Monokai Extended Bright"
+mkdir -p "$XDG_CACHE_HOME/bat" # create cache folder if it doesn't exist
+export BAT_CACHE_PATH="$XDG_CACHE_HOME/bat"
+export BAT_THEME="Catppuccin Latte"
 [ -d "/home/terminal/.local/share/cargo/env" ] && source "/home/terminal/.local/share/cargo/env"
 
 # Hotfix for ZSH rsync autocompletion
