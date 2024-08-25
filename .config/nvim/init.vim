@@ -24,7 +24,6 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'terminalnode/sway-vim-syntax'
     Plug 'ElmCast/elm-vim'
     Plug 'OmniSharp/omnisharp-vim'
-    Plug 'eraserhd/parinfer-rust'
 
     " Other
     Plug 'terminalnode/vim-zenkaku'
