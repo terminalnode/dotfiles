@@ -15,85 +15,34 @@ indicator-radius=100
 
 font=Fira Sans Light
 
-# Sets the color of backspace highlight segments
-bs-hl-color=b48eadff
-
-# Sets the color of backspace highlight segments when Caps Lock is active
-# Sets the color of the key press highlight segments when Caps Lock is active
-caps-lock-bs-hl-color=d08770ff
-caps-lock-key-hl-color=ebcb8bff
-
-# Sets the color of the inside of the indicator
-inside-color=2e3440ff
-
-# Sets the color of the inside of the indicator when cleared
-inside-clear-color=81a1c1ff
-
-# Sets the color of the inside of the indicator when verifying
-inside-ver-color=5e81acff
-
-# Sets the color of the inside of the indicator when invalid
-inside-wrong-color=bf616aff
-
-# Sets the color of key press highlight segments
-key-hl-color=a3be8cff
-
-# Sets the background color of the box containing the layout text
-layout-bg-color=2e3440ff
-
-# Sets the color of the outside of the indicator when typing or idle
-ring-color=3b4252ff
-
-# Sets the color of the outside of the indicator when cleared
-ring-clear-color=88c0d0ff
-
-# Sets the color of the outside of the indicator when verifying
-ring-ver-color=81a1c1ff
-
-# Sets the color of the outside of the indicator when invalid
-ring-wrong-color=d08770ff
-
-# Sets the color of the lines that separate highlight segments
-separator-color=3b4252ff
-
-# Sets the color of the text
-text-color=eceff4ff
-
-# Sets the color of the text when cleared
-text-clear-color=3b4252ff
-
-# Sets the color of the text when verifying
-text-ver-color=3b4252ff
-
-# Sets the color of the text when invalid
-text-wrong-color=3b4252ff
-
-# Sets the color of the ring of the indicator when Caps Lock is active
-# ring-caps-lock-color=<rrggbb[aa]>
-
-# Sets the color of the text when Caps Lock is active
-# text-caps-lock-color=<rrggbb[aa]>
-
-# Sets the color of the border of the box containing the layout text
-# layout-border-color=<rrggbb[aa]>
-
-# Sets the color of the layout text
-# layout-text-color=<rrggbb[aa]>
-
-# Sets the color of the line between the inside and ring
-# line-color=<rrggbb[aa]>
-
-# Sets the color of the line between the inside and ring when cleared
-# line-clear-color=<rrggbb[aa]>
-
-# Sets the color of the line between the inside and ring when Caps Lock is active
-# line-caps-lock-color=<rrggbb[aa]>
-
-# Sets the color of the line between the inside and ring when verifying
-# line-ver-color=<rrggbb[aa]>
-
-# Sets the color of the line between the inside and ring when invalid
-# line-wrong-color=<rrggbb[aa]>
-
-# Sets the color of the inside of the indicator when Caps Lock is active
-# inside-caps-lock-color=<rrggbb[aa]>
+# Catppuccin Latte
+# https://github.com/catppuccin/swaylock
+color=eff1f5
+bs-hl-color=dc8a78
+caps-lock-bs-hl-color=dc8a78
+caps-lock-key-hl-color=40a02b
+inside-color=00000000
+inside-clear-color=00000000
+inside-caps-lock-color=00000000
+inside-ver-color=00000000
+inside-wrong-color=00000000
+key-hl-color=40a02b
+layout-bg-color=00000000
+layout-border-color=00000000
+layout-text-color=4c4f69
+line-color=00000000
+line-clear-color=00000000
+line-caps-lock-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
+ring-color=7287fd
+ring-clear-color=dc8a78
+ring-caps-lock-color=fe640b
+ring-ver-color=1e66f5
+ring-wrong-color=e64553
+separator-color=00000000
+text-color=4c4f69
+text-clear-color=dc8a78
+text-caps-lock-color=fe640b
+text-ver-color=1e66f5
+text-wrong-color=e64553
