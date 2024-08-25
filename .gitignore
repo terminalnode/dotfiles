@@ -26,6 +26,10 @@ out
 !.config/yt-dlp
 !.config/starship.toml
 
+# fcitx5
+!.config/fcitx5
+.config/fcitx5/conf/
+
 # Git
 !.config/git
 .config/git/config.local

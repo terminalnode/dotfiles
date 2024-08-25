@@ -1,0 +1,17 @@
+[Groups/0]
+# Group Name
+Name=Rime
+# Layout
+Default Layout=gb
+# Default Input Method
+DefaultIM=rime
+
+[Groups/0/Items/0]
+# Name
+Name=rime
+# Layout
+Layout=
+
+[GroupOrder]
+0=Rime
+

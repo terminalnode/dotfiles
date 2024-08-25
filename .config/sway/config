@@ -54,3 +54,11 @@ exec systemctl --user start sway-session.target
 exec systemctl --user import-environment DISPLAY SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+exec_always --no-startup-id export GTK_IM_MODULE=fcitx
+exec_always --no-startup-id export QT_IM_MODULE=fcitx
+exec_always --no-startup-id export XMODIFIERS=@im=fcitx
+exec_always --no-startup-id export INPUT_METHOD=fcitx
+exec_always --no-startup-id export SDL_IM_MODULE=fcitx
+exec_always --no-startup-id export GLFW_IM_MODULE=fcitx
+exec_always --no-startup-id fcitx5
