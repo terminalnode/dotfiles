@@ -5,50 +5,47 @@ command=/usr/lib/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
-# frost4 #5e81cc
-# snow1 #e8eef9
-
-# orange
+# maroon
 # # [pulsevolume]
 # # command=~/.config/i3blocks/pulsevolume
 # # interval=once
-# # color=#f08770
+# # color=#e64553
 # # signal=10
 
-# magenta
+# peach
 [memory-sh]
 command=~/.config/i3blocks/memory
-color=#f48ead
+color=#fe640b
 interval=30
 
 # red
 [disk-sh]
 command=[disk-sh]
 command=~/.config/i3blocks/hdd
-color=#ff616a
+color=#d20f39
 interval=30
 
-# frost2
+# sky
 [cpu-load]
 label= 
 command=uptime | awk -F'[ ,]+' '{print "Up", $4 "h, " $9 " | " $10 " | " $11}'
-color=#88c0d0
+color=#04a5e5
 interval=10
 
 # green
 [get-ip]
 label= 
 command=~/.config/i3blocks/lan
-color=#a3feac
+color=#40a02b
 interval=60
 signal=9
 
-# frost3
+# blue
 # every 10 minutes
 [get-public-ip]
 label= 
 command=~/.config/i3blocks/ip
-color=#81b1ff
+color=#1e66f5
 interval=600
 signal=9
 
@@ -60,17 +57,17 @@ signal=9
 # yellow
 [battery]
 command=~/.config/i3blocks/battery
-color=#ffff5b
+color=#df8e1d
 interval=30
 signal=12
 
-# frost1
+# sapphire
 [calendar]
 command=clitch clock -cf '(%a) %d %h %H:%M:%S'
-color=#8ffcdb
+color=#209fb5
 interval=persist
 
 [decimal_time]
 command=decimal_time -f short
-color=#8ffcdb
+color=#209fb5
 interval=5
