@@ -10,6 +10,7 @@ out
 **/local.*
 
 # Simple unignores
+!.config/bat
 !.config/dircolors
 !.config/i3
 !.config/i3blocks
