@@ -10,19 +10,15 @@ out
 **/local.*
 
 # Simple unignores
+!.config/foot
 !.config/bat
 !.config/dircolors
-!.config/i3
 !.config/i3blocks
 !.config/irb
 !.config/neofetch
 !.config/mako
-!.config/redshift
-!.config/rofi
-!.config/termite
 !.config/user-dirs.dirs
 !.config/wofi
-!.config/youtube-dl
 !.config/zathura
 !.config/X11
 !.config/alacritty
