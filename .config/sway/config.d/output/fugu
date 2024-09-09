@@ -1,9 +1,6 @@
-# Apparently variable names in workspace configuration is working now. <3
 set $laptop    'eDP-1'
-# set $homeLeft  'Acer Technologies KA242Y 0x0000D512'
 set $homeLeft  'Acer Technologies KA242Y 0x0111C412'
 set $homeRight 'Acer Technologies KA242Y TJHEE0013E00'
-set $workWide  'Philips Consumer Electronics Company PHL 346B1C 0x0000A2CA'
 set $lianExt   'LG Electronics LG ULTRAFINE 202NTUWGZ526'
 set $chrisExt  'Samsung Electric Company LF32TU87 HNMT100025'
 set $chrisExtW 'AOC Q32G1WG4 0x00002572'
@@ -14,12 +11,6 @@ output $laptop {
   #pos 0 1080
   scale 1
   mode 1920x1080@60Hz
-}
-
-output $workWide {
-  pos 3840 0
-  scale 1
-  mode 1920x1200@60Hz
 }
 
 output $homeLeft {
@@ -63,23 +54,23 @@ output $chrisDellUsb {
 # Work setup 1: 5 laptop, 5 wide, 5 laptop, 5 wide
 # Work setup 2: 20 wide
 # Fallback:     20 laptop
-workspace 1   output $laptop  $homeLeft  $workWide $lianExt $chrisExt $chrisExtW $chrisDellUsb
-workspace 2   output $laptop  $homeLeft  $workWide $lianExt $chrisExt $chrisExtW $chrisDellUsb
-workspace 3   output $laptop  $homeLeft  $workWide $lianExt $chrisExt $chrisExtW $chrisDellUsb
-workspace 4   output $laptop  $homeLeft  $workWide $lianExt $chrisExt $chrisExtW $chrisDellUsb
-workspace 5   output $laptop  $homeLeft  $workWide $lianExt $chrisExt $chrisExtW $chrisDellUsb
-workspace 6   output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $workWide $laptop
-workspace 7   output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $workWide $laptop
-workspace 8   output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $workWide $laptop
-workspace 9   output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $workWide $laptop
-workspace 10  output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $workWide $laptop
-workspace 11  output $laptop  $homeLeft  $workWide $lianExt $chrisExt $chrisExtW $chrisDellUsb
-workspace 12  output $laptop  $homeLeft  $workWide $lianExt $chrisExt $chrisExtW $chrisDellUsb
-workspace 13  output $laptop  $homeLeft  $workWide $lianExt $chrisExt $chrisExtW $chrisDellUsb
-workspace 14  output $laptop  $homeLeft  $workWide $lianExt $chrisExt $chrisExtW $chrisDellUsb
-workspace 15  output $laptop  $homeLeft  $workWide $lianExt $chrisExt $chrisExtW $chrisDellUsb
-workspace 16  output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $workWide $laptop
-workspace 17  output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $workWide $laptop
-workspace 18  output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $workWide $laptop
-workspace 19  output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $workWide $laptop
-workspace 20  output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $workWide $laptop
+workspace 1   output $laptop $homeLeft $lianExt $chrisExt $chrisExtW $chrisDellUsb
+workspace 2   output $laptop $homeLeft $lianExt $chrisExt $chrisExtW $chrisDellUsb
+workspace 3   output $laptop $homeLeft $lianExt $chrisExt $chrisExtW $chrisDellUsb
+workspace 4   output $laptop $homeLeft $lianExt $chrisExt $chrisExtW $chrisDellUsb
+workspace 5   output $laptop $homeLeft $lianExt $chrisExt $chrisExtW $chrisDellUsb
+workspace 6   output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $laptop
+workspace 7   output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $laptop
+workspace 8   output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $laptop
+workspace 9   output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $laptop
+workspace 10  output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $laptop
+workspace 11  output $laptop $homeLeft $lianExt $chrisExt $chrisExtW $chrisDellUsb
+workspace 12  output $laptop $homeLeft $lianExt $chrisExt $chrisExtW $chrisDellUsb
+workspace 13  output $laptop $homeLeft $lianExt $chrisExt $chrisExtW $chrisDellUsb
+workspace 14  output $laptop $homeLeft $lianExt $chrisExt $chrisExtW $chrisDellUsb
+workspace 15  output $laptop $homeLeft $lianExt $chrisExt $chrisExtW $chrisDellUsb
+workspace 16  output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $laptop
+workspace 17  output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $laptop
+workspace 18  output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $laptop
+workspace 19  output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $laptop
+workspace 20  output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $laptop
