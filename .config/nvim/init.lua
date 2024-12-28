@@ -39,117 +39,22 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   checker = { enabled = true },
   defaults = { lazy = false },
+
+  -- Color schemes have priority, if Catppuccin is not yet installed,
+  -- delek is probably the most acceptable looking built-in light theme.
   install = { colorscheme = { "catppuccin-latte", "delek" } },
+
   spec = {
     { import = "plugins" },
     { "terminalnode/vim-zenkaku", event = "VeryLazy" },
+
+    -- Commonly used dependencies so we can use the short name when adding them
+    -- to plugins. e.g. { "nui.nvim" } instead of { "MunifTanjim/nui.nvim" }
     { "nvim-tree/nvim-web-devicons" }, -- Fancy icons
+    { "echasnovski/mini.icons" },      -- More fancy icons
     { "MunifTanjim/nui.nvim" },        -- UI components library
-    { "nvim-lua/plenary.nvim" },       -- lua functions library
-
-    {
-      "folke/snacks.nvim",
-      lazy = false,
-      priority = 1000,
-      opts = {
-        terminal = {},
-      },
-    },
-
-    {
-      "akinsho/toggleterm.nvim",
-      version = "*",
-      opts = {
-        open_mapping = [[<C-t>]],
-        start_in_insert = true,
-        shade_terminals = true,
-        direction = "float",
-        shell = vim.o.shell,
-        float_opts = {
-          border  = "curved",
-          title_pos = "center",
-        }
-      },
-    },
-
-    {
-      "akinsho/bufferline.nvim",
-      dependencies = { "snacks.nvim" },
-      event = "VeryLazy",
-      keys = {
-        -- Pin / Mark
-        { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle Pin" },
-        -- Delete
-        { "<leader>bdc", function() require("snacks").bufdelete() end, desc = "Close the current buffer" },
-        { "<leader>bdp", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete Non-Pinned Buffers" },
-        { "<leader>bdl", "<Cmd>BufferLineCloseRight<CR>", desc = "Delete Buffers to the Right" },
-        { "<leader>bdh", "<Cmd>BufferLineCloseLeft<CR>", desc = "Delete Buffers to the Left" },
-        -- Cycle or Cycle buffers
-        { "<C-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
-        { "<leader>bmh", "<cmd>BufferLineMovePrev<cr>", desc = "Move buffer prev" },
-        { "<C-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
-        { "<leader>bml", "<cmd>BufferLineMoveNext<cr>", desc = "Move buffer next" },
-      },
-      opts = { options = {
-        always_show_bufferline = false,
-        close_command = function(n) require("snacks").bufdelete(n) end,
-      } },
-      config = function(_, opts) require("bufferline").setup(opts) end,
-    },
-
-    {
-      "folke/noice.nvim",
-      events = "VeryLazy",
-      dependencies = { "nui.nvim" },
-      opts = {  lsp = {
-        override = {
-          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-          ["vim.lsp.util.stylize_markdown"] = true,
-        },
-      },
-      presets = {
-        bottom_search = true,
-        command_palette = true,
-      },
-    },
+    { "nvim-lua/plenary.nvim" },       -- Lua functions library
+    { "nvim-telescope/telescope-fzf-native.nvim" },
+    { "BurntSushi/ripgrep" },
   },
-
-  {
-    "catppuccin/nvim",
-    priority = 1000,
-    name = "catppuccin",
-    config = function() vim.cmd.colorscheme("catppuccin-latte") end,
-  },
-
-  {
-    "kylechui/nvim-surround",
-    version = "*",
-    event = "VeryLazy",
-    config = function() require("nvim-surround").setup({}) end,
-  },
-
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      local c = require("lspconfig")
-      c.clangd.setup({ silent = true })
-      c.lua_ls.setup({
-        silent = true,
-        settings = { Lua = { diagnostics = { globals = { "vim" } } } },
-      })
-      c.nixd.setup({ silent = true })
-    end,
-  },
-
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = { "plenary.nvim", "nui.nvim", "nvim-web-devicons" },
-  },
-
-  {
-    "nvim-telescope/telescope.nvim", branch = "0.1.x",
-    dependencies = { "plenary.nvim" },
-  },
-},
 })
