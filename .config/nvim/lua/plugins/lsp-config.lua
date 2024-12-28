@@ -25,21 +25,24 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    dependencies = { "blink.cmp" },
-    opts = {
-      servers = {
-        lua_ls = {
-          -- For Lua it's usually gonna be neovim files, where it's fine not to have the LSP
-          silent = true,
-
-          settings = {
-            Lua = {
-              workspace = {
-                library = vim.api.nvim_get_runtime_file("", true),
-              }
-            },
+    dependencies = {
+      "blink.cmp",
+      {
+        "folke/lazydev.nvim",
+        ft = "lua", -- only load on lua files
+        opts = {
+          library = {
+            -- See the configuration section for more details
+            -- Load luvit types when the `vim.uv` word is found
+            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
           },
         },
+      },
+    },
+    opts = {
+      servers = {
+        -- For Lua it's usually gonna be neovim files, where it's fine not to have the LSP
+        lua_ls = { silent = true },
 
         clangd = { silent = false },
         hls = { silent = false, filetypes = { "haskell", "lhaskell", "cabal" } },
