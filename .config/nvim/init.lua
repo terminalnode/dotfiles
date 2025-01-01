@@ -5,6 +5,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.wrap = false
 vim.opt.termguicolors = true
+vim.opt.signcolumn = "yes:2"
 
 vim.opt.scrolloff = 13            -- Make view follow cursor to a reasonable degree
 vim.opt.clipboard = "unnamedplus" -- Synchronize vim clipboard with system clipboard
