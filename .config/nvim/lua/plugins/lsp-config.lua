@@ -41,13 +41,46 @@ return {
     },
     opts = {
       servers = {
-        -- For Lua it's usually gonna be neovim files, where it's fine not to have the LSP
-        lua_ls = { silent = true },
+        lua_ls = { -- lua-language-server
+          silent = true, -- Usually neovim files, fine not to have the LSP
+        },
 
-        clangd = { silent = false },
-        hls = { silent = false, filetypes = { "haskell", "lhaskell", "cabal" } },
-        nixd = { silent = false },
-        rust_analyzer = { silent = false },
+        css_variables = { -- css-variables-language-server
+          silent = true,
+        },
+
+        tailwindcss = { -- tailwindcss-language-server
+          silent = true,
+        },
+
+        eslint = { -- vscode-langservers-extracted
+          silent = true,
+        },
+
+        clangd = { -- Included with clang package on arch
+          silent = false,
+        },
+
+        hls = { -- haskell-language-server
+          silent = false,
+          filetypes = { "haskell", "lhaskell", "cabal" },
+        },
+
+        nixd = {
+          silent = false,
+        },
+
+        prismals = { -- prisma-language-server
+          silent = false
+        },
+
+        rust_analyzer = {
+          silent = false
+        },
+
+        ts_ls = { -- typescript-language-server
+          silent = false
+        },
       },
     },
     config = function(_, opts)
