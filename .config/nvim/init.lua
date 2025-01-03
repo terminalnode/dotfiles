@@ -19,6 +19,8 @@ vim.opt.shiftwidth = 2
 
 -- Keybinds
 vim.g.mapleader = " "
+vim.keymap.set('n', '<C-h>', '<cmd>bprevious<cr>', { desc = "Previous buffer" })
+vim.keymap.set('n', '<C-l>', '<cmd>bnext<cr>', { desc = "Next buffer" })
 
 -- Lazy.nvim configuration
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -28,7 +30,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
+      { out,                            "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -47,7 +49,10 @@ require("lazy").setup({
 
   spec = {
     { import = "plugins" },
-    { "terminalnode/vim-zenkaku", event = "VeryLazy" },
+    {
+      "terminalnode/vim-zenkaku",
+      event = "VeryLazy",
+    },
 
     -- Commonly used dependencies so we can use the short name when adding them
     -- to plugins. e.g. { "nui.nvim" } instead of { "MunifTanjim/nui.nvim" }

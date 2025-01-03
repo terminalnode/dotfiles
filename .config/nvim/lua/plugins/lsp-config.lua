@@ -8,7 +8,12 @@ return {
     ---@module "blink.cmp"
     ---@type blink.cmp.Config
     opts = {
-      keymap = { preset = "default" },
+      keymap = {
+        preset = "super-tab",
+        -- All presets use C-space for this, which is great if and only
+        -- if you don't have that bound to toggle chinese input already.
+        ["<C-k>"] = { "show", "show_documentation", "hide_documentation" },
+      },
 
       appearance = {
         -- Fallback for when your theme doesn't support blink.cmp
@@ -90,6 +95,11 @@ return {
         config.capabilities = blink.get_lsp_capabilities(config.capabilities)
         c[server].setup(config)
       end
+
+      -- Format on save
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        callback = function() vim.lsp.buf.format() end,
+      })
     end,
   },
 }
