@@ -19,8 +19,12 @@ vim.opt.shiftwidth = 2
 
 -- Keybinds
 vim.g.mapleader = " "
-vim.keymap.set('n', '<C-h>', '<cmd>bprevious<cr>', { desc = "Previous buffer" })
-vim.keymap.set('n', '<C-l>', '<cmd>bnext<cr>', { desc = "Next buffer" })
+vim.keymap.set("n", "<C-p>", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
+vim.keymap.set("n", "<C-n>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+vim.keymap.set("n", "<C-h>", "<cmd>wincmd h<CR>", { desc = "Move to left window" })
+vim.keymap.set("n", "<C-j>", "<cmd>wincmd j<CR>", { desc = "Move to window below" })
+vim.keymap.set("n", "<C-k>", "<cmd>wincmd k<CR>", { desc = "Move to above window" })
+vim.keymap.set("n", "<C-l>", "<cmd>wincmd l<CR>", { desc = "Move to right window" })
 
 -- Lazy.nvim configuration
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

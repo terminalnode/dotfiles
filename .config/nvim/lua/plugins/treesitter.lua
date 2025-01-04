@@ -24,7 +24,7 @@ return {
           "gitignore", "git_config", "gitcommit",
 
           -- Other
-          "c_sharp", -- no it's not C/C++ :-)
+          "c_sharp", -- no it's not C/C++ family :-)
           "haskell",
           "python",
           "query",

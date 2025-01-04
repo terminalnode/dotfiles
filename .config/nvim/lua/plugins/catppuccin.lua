@@ -6,7 +6,7 @@ return {
     config = function()
       require("catppuccin").setup({
         flavour = "latte", -- latte, frappe, macchiato, mocha
-        dim_inactive = { enabled = true },
+        dim_inactive = { enabled = false },
         integrations = {
           blink_cmp = true,
           noice = true,

@@ -1,3 +1,18 @@
+local function lsp_keymap(bufnr)
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+  vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+  vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+end
+
 return {
   {
     "saghen/blink.cmp",
@@ -46,7 +61,7 @@ return {
     },
     opts = {
       servers = {
-        lua_ls = { -- lua-language-server
+        lua_ls = {       -- lua-language-server
           silent = true, -- Usually neovim files, fine not to have the LSP
         },
 
@@ -93,6 +108,9 @@ return {
       local c = require("lspconfig")
       for server, config in pairs(opts.servers) do
         config.capabilities = blink.get_lsp_capabilities(config.capabilities)
+        config.on_attach = function(client, bufnr)
+          lsp_keymap(bufnr)
+        end
         c[server].setup(config)
       end
 
