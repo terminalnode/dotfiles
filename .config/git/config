@@ -42,3 +42,5 @@
 [include]
   path = ~/.config/git/config.d/github
   path = ~/.config/git/config.local
+[push]
+	autoSetupRemote = true
