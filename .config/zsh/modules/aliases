@@ -76,9 +76,10 @@ alias xswapescape="setxkbmap \
     -option caps:swapescape,compose:rctrl,grp:alt_caps_toggle"
 alias swaybar_ip="pkill -RTMIN+9 i3blocks"
 alias newsboat-refresh="pgrep i3blocks > /dev/null && pkill -RTMIN+13 i3blocks || newsboat -x reload"
-alias max-brightness="cat /sys/class/backlight/intel_backlight/max_brightness | sudo tee /sys/class/backlight/intel_backlight/brightness"
-alias low-brightness="echo 500 | sudo tee /sys/class/backlight/intel_backlight/brightness"
-alias min-brightness="echo 1 | sudo tee /sys/class/backlight/intel_backlight/brightness"
+alias brightness-max="cat /sys/class/backlight/intel_backlight/max_brightness | sudo tee /sys/class/backlight/intel_backlight/brightness"
+alias brightness-mid="echo 3000 | sudo tee /sys/class/backlight/intel_backlight/brightness"
+alias brightness-low="echo 500 | sudo tee /sys/class/backlight/intel_backlight/brightness"
+alias brightness-min="echo 1 | sudo tee /sys/class/backlight/intel_backlight/brightness"
 
 # SYSTEMD
 # SystemD system services
