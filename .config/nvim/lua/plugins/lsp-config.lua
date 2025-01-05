@@ -24,7 +24,7 @@ return {
     ---@type blink.cmp.Config
     opts = {
       keymap = {
-        preset = "super-tab",
+        preset = "default",
         -- All presets use C-space for this, which is great if and only
         -- if you don't have that bound to toggle chinese input already.
         ["<C-k>"] = { "show", "show_documentation", "hide_documentation" },
