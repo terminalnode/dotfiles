@@ -21,7 +21,16 @@ return {
     opts = {
       rename = { enabled = true },
       bufdelete = { enabled = true },
-      indent = { enabled = true },
+      indent = {
+        enabled = true,
+        chunk = {
+          enabled = true,
+          char = {
+            corner_top = "╭",
+            corner_bottom = "╰",
+          },
+        },
+      },
       input = { enabled = true },
       statuscolumn = { enabled = true },
       gitbranch = {},
