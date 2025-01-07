@@ -30,6 +30,15 @@ return {
             corner_bottom = "╰",
           },
         },
+        filter = function(buf)
+          local ft = vim.bo[buf].filetype
+          local excluded_filetypes = { "markdown", "text", "help" }
+
+          return vim.g.snacks_indent ~= false
+              and vim.b[buf].snacks_indent ~= false
+              and vim.bo[buf].buftype == ""
+              and not vim.tbl_contains(excluded_filetypes, ft)
+        end,
       },
       input = { enabled = true },
       statuscolumn = { enabled = true },
