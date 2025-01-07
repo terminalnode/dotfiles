@@ -11,6 +11,7 @@ vim.opt.scrolloff = 13            -- Make view follow cursor to a reasonable deg
 vim.opt.clipboard = "unnamedplus" -- Synchronize vim clipboard with system clipboard
 vim.opt.inccommand = "split"      -- Preview changes such as find and replace in a split window
 vim.opt.virtualedit = "block"     -- Enable virtualedit in block mode
+vim.opt.statusline = "3"          -- One statusline for all windows
 
 -- Tabs
 vim.opt.expandtab = true
