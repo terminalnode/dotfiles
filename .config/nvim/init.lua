@@ -27,6 +27,13 @@ vim.keymap.set("n", "<C-j>", "<cmd>wincmd j<CR>", { desc = "Move to window below
 vim.keymap.set("n", "<C-k>", "<cmd>wincmd k<CR>", { desc = "Move to above window" })
 vim.keymap.set("n", "<C-l>", "<cmd>wincmd l<CR>", { desc = "Move to right window" })
 
+vim.api.nvim_create_user_command('DiffOrig', function()
+  vim.cmd("vert new | setlocal buftype=nofile | read ++edit # | 0d_")
+  vim.cmd("diffthis")
+  vim.cmd("wincmd p | diffthis")
+end, {})
+vim.keymap.set("n", "<leader>do", "<cmd>DiffOrig<CR>", { desc = "Show unsaved differences" })
+
 -- Lazy.nvim configuration
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
