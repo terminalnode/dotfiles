@@ -13,7 +13,7 @@ input "*" {
     accel_profile       flat
     natural_scroll      enabled
     scroll_factor       0.5
-    dwt                 disabled
+    dwt                 enabled
     tap                 enabled
     middle_emulation    enabled
     tap_button_map      lrm
