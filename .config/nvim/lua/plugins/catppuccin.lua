@@ -13,9 +13,10 @@ return {
           nvim_surround = true,
           snacks = true,
           telescope = { enabled = true },
+          harpoon = true,
         },
       })
-      vim.cmd.colorscheme("catppuccin-latte")
+      vim.cmd.colorscheme("catppuccin")
     end,
   },
 }
