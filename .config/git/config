@@ -15,6 +15,7 @@
 [core]
 	pager = bat --style plain
 	commentChar = %
+	quotepath = false
 
 [commit]
 	gpgsign = true
