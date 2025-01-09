@@ -67,15 +67,19 @@ return {
         },
 
         prismals = { -- prisma-language-server
-          silent = false
+          silent = false,
         },
 
         rust_analyzer = {
-          silent = false
+          silent = false,
         },
 
         ts_ls = { -- typescript-language-server
-          silent = false
+          silent = false,
+          capabilities = {
+            documentFormattingProvider = false,
+            documentRangeFormattingProvider = false
+          },
         },
       },
     },

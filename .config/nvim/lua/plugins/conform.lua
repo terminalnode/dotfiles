@@ -4,13 +4,16 @@ return {
     opts = {
       formatters_by_ft = {
         go = { "goimports", "gofmt" },
-        javascript = { "eslint_d" },
-        javascriptreact = { "eslint_d" },
         lua = { "stylua" },
         rust = { "rustfmt" },
         terraform = { "terraform_fmt" },
-        typescript = { "eslint_d" },
-        typescriptreact = { "eslint_d" },
+
+        -- Various flavours of JavaScript
+        -- ts_ls formatting is disabled, so in practice this will use the eslint LSP for formatting
+        javascript = {},
+        javascriptreact = {},
+        typescript = {},
+        typescriptreact = {},
       },
       default_format_opts = {
         lsp_format = "fallback",
