@@ -16,10 +16,6 @@ return {
           virt_text = true,
           virt_text_pos = "eol",
         },
-        word_diff = true,
-        diff_opts = {
-          internal = true,
-        },
         update_debounce = 100,
       })
     end,
