@@ -13,22 +13,22 @@ output $laptop {
   mode 1920x1080@60Hz
 }
 
+output $lianExt {
+  pos 0 0
+  scale 2
+  mode 3840x2160@60.000Hz
+}
+
 output $homeLeft {
-  pos 3840 0
+  pos 1920 0
   scale 1
   mode 1920x1080@74.973Hz
 }
 
 output $homeRight {
-  pos 5760 0
+  pos 3840 0
   scale 1
   mode 1920x1080@74.973Hz
-}
-
-output $lianExt {
-  pos 3840 0
-  scale 2
-  mode 3840x2160@60.000Hz
 }
 
 output $chrisExt {
@@ -54,21 +54,25 @@ output $chrisDellUsb {
 # Work setup 1: 5 laptop, 5 wide, 5 laptop, 5 wide
 # Work setup 2: 20 wide
 # Fallback:     20 laptop
+
 workspace 1   output $laptop $homeLeft $lianExt $chrisExt $chrisExtW $chrisDellUsb
 workspace 2   output $laptop $homeLeft $lianExt $chrisExt $chrisExtW $chrisDellUsb
 workspace 3   output $laptop $homeLeft $lianExt $chrisExt $chrisExtW $chrisDellUsb
 workspace 4   output $laptop $homeLeft $lianExt $chrisExt $chrisExtW $chrisDellUsb
 workspace 5   output $laptop $homeLeft $lianExt $chrisExt $chrisExtW $chrisDellUsb
-workspace 6   output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $laptop
-workspace 7   output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $laptop
-workspace 8   output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $laptop
-workspace 9   output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $laptop
-workspace 10  output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $laptop
-workspace 11  output $laptop $homeLeft $lianExt $chrisExt $chrisExtW $chrisDellUsb
-workspace 12  output $laptop $homeLeft $lianExt $chrisExt $chrisExtW $chrisDellUsb
-workspace 13  output $laptop $homeLeft $lianExt $chrisExt $chrisExtW $chrisDellUsb
-workspace 14  output $laptop $homeLeft $lianExt $chrisExt $chrisExtW $chrisDellUsb
-workspace 15  output $laptop $homeLeft $lianExt $chrisExt $chrisExtW $chrisDellUsb
+
+workspace 6   output $chrisDellUsb $chrisExt $chrisExtW $homeRight $lianExt $laptop
+workspace 7   output $chrisDellUsb $chrisExt $chrisExtW $homeRight $lianExt $laptop
+workspace 8   output $chrisDellUsb $chrisExt $chrisExtW $homeRight $lianExt $laptop
+workspace 9   output $chrisDellUsb $chrisExt $chrisExtW $homeRight $lianExt $laptop
+workspace 10  output $chrisDellUsb $chrisExt $chrisExtW $homeRight $lianExt $laptop
+
+workspace 11  output $laptop $lianExt $homeLeft $chrisExt $chrisExtW $chrisDellUsb
+workspace 12  output $laptop $lianExt $homeLeft $chrisExt $chrisExtW $chrisDellUsb
+workspace 13  output $laptop $lianExt $homeLeft $chrisExt $chrisExtW $chrisDellUsb
+workspace 14  output $laptop $lianExt $homeLeft $chrisExt $chrisExtW $chrisDellUsb
+workspace 15  output $laptop $lianExt $homeLeft $chrisExt $chrisExtW $chrisDellUsb
+
 workspace 16  output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $laptop
 workspace 17  output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $laptop
 workspace 18  output $chrisDellUsb $chrisExt $chrisExtW $lianExt $homeRight $laptop
