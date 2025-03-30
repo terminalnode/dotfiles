@@ -46,28 +46,17 @@ alias gitb="git branch"
 alias gitc="git commit -m"
 alias gitl="git log --oneline"
 alias gitp="git push"
+alias gitpp="git push && { git push github || git push codeberg; }"
 alias gitd="git diff"
 alias gitr="git rebase"
 alias gco="git checkout"
 alias git-message="git show -s --format=%B" # followed by commit hash/HEAD
 
-# Lazy gting
-alias gtl="gt log short --classic" # default log format
-alias gtlc="gt log short --classic"
-alias gtls="gt log short"
-alias gtll="gt log long"
-alias gts="gt submit -n"
-alias gtss="gt ss -n"
-alias gtsgp="gt submit -pr gergkllai1"
-alias gtssgp="gt ss -npr gergkllai1"
-
 # Slightly more complicated aliases
-alias weather="curl wttr.in/Gothenburg\?0Q"
-alias rightnow="date +\(%a\)\ %d\ %b\ %H:%M"
 alias termbin="nc termbin.com 9999"
 alias systemage="head -n1 /var/log/pacman.log | awk '{ print \$1, \$2 }'"
 alias parch="ping -c 3 archlinux.org"
-alias pone="ping -c 3 1.1.1.1"
+alias pnine="ping -c 3 9.9.9.9"
 alias publicip="curl ifconfig.me"
 alias demoterm="setopt interactivecomments && export PS1=\"%B%F{cyan}$ %f%b\" && clear"
 alias xswapescape="setxkbmap \
@@ -82,26 +71,9 @@ alias brightness-low="echo 500 | sudo tee /sys/class/backlight/intel_backlight/b
 alias brightness-min="echo 1 | sudo tee /sys/class/backlight/intel_backlight/brightness"
 
 # SYSTEMD
-# SystemD system services
-# (enable and disable are already taken)
-alias service="sudo systemctl"
-alias restart="sudo systemctl restart"
-alias start="sudo systemctl start"
-alias stop="sudo systemctl stop"
-alias status="sudo systemctl status"
-# SystemD user services
-# Same names as above but with a u at the beginning
-alias uservice="systemctl --user"
-alias urestart="systemctl restart --user"
-alias ustart="systemctl start --user"
-alias ustop="systemctl stop --user"
-alias ustatus="systemctl status --user"
-alias uenable="systemctl enable --user"
-alias udisable="systemctl disable --user"
-alias ujournal="journalctl --user -u"
+alias systemctl="sudo systemctl"
+alias systemctlu="systemctl --user"
+alias journalctlu="journalctl --user"
 
 # DUMB EXITS
-# Sorry...
-alias quit="exit"
 alias q="exit"
-alias :q="exit"
