@@ -7,7 +7,7 @@ zmodload zsh/complist
 
 # Load dotfile completions
 fpath=("$ZDOTDIR/completions" $fpath)
-[ -d ~/.zsh/completions.local ] \
+[ -d "$ZDOTDIR/completions.local" ] \
   && fpath=("$ZDOTDIR/completions.local" $fpath)
 
 # Scaleway CLI autocomplete
