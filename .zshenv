@@ -28,6 +28,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/jetbrains-bin:$PATH"
 export PATH="$HOME/.dotnet/tools/:$PATH"
 export PATH="$HOME/.nimble/bin:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # Moving stuff to XDG_CONFIG_HOME
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
