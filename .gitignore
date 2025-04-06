@@ -52,7 +52,7 @@ out
 !.config/zsh
 .config/zsh/.zcompdump*
 .config/zsh/oh-my-zsh
-.config/zsh/*.local
+.config/zsh/**/*.local
 
 # .desktop-files
 !.local/share/mpv-logo.png
